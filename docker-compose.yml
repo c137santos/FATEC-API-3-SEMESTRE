@@ -1,0 +1,30 @@
+services:
+  dev-env:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        USER: ${USER}
+        JAVA_VERSION: ${JAVA_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
+
+    restart: always
+    volumes:
+      - ./:/home/${USER}/app
+      - /home/${USER}/.gitconfig:/home/${USER}/.gitconfig
+      - /home/${USER}/.ssh:/home/${USER}/.ssh
+
+    tty: true
+    network_mode: host
+
+  postgres:
+    image: postgres:${POSTGRES_VERSION}
+
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - .data:/var/lib/postgres/data
+
+    environment:
+      POSTGRES_PASSWORD: dev

@@ -1,0 +1,29 @@
+{
+  "name": "spring-vue-monorepo-pipeline-poc",
+  "version": "0.0.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:back": "nx run backend:dev",
+    "dev:front": "nx run frontend:dev",
+    "dev": "nx run-many -t dev",
+    "build:back": "nx run backend:build",
+    "build:front": "nx run frontend:build",
+    "build": "npm run build:front; cp ./frontend/dist/* ./backend/src/main/resources/static; npm run build:back",
+    "bump": "npm version --git-tag-version=false major && nx run backend:bump -DnewVersion=$npm_package_version && nx run backend:clear-bump",
+    "publish": "npm run bump && npm run build && git add -A && git commit -m \"🔖 Bump version for Release v$npm_package_version\" && git tag v$npm_package_version && git push origin main --tags",
+    "test": "echo No tests!"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@nx/js": "^19.6.1",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "nx": "^19.6.1"
+  }
+}

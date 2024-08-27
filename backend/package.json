@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./mvnw clean spring-boot:run",
+    "build": "./mvnw clean package",
+    "bump": "./mvnw versions:set",
+    "clear-bump": "./mvnw versions:commit"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
