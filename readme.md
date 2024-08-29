@@ -1,71 +1,69 @@
-# Spring Boot and Vue3 App Monorepo
+## Para desenvolvedores:
 
-## Description
+Este repositório é uma prova de conceito (POC) e um modelo para um ambiente de desenvolvimento saudável e suave para um aplicativo da Web usando [Spring Boot](https://spring.io/guides/gs/spring-boot) como backend e [Vue3](https://vuejs.org/) como frontend.
 
-This repository is a proof of concept (POC) and a template for a health and smooth development enviroment for a Web App using [Spring Boot](https://spring.io/guides/gs/spring-boot) as backend and [Vue3](https://vuejs.org/) as frontend.
+### Como?
 
-### How?
+Ele usa uma imagem personalizada do [Ubuntu](https://hub.docker.com/_/ubuntu) do [Docker](https://www.docker.com/) para criar um contêiner minimizado com [Java](https://www.java.com/en/) e [NodeJS](https://nodejs.org/en), para padronizar as versões nos computadores dos desenvolvedores, o pacote [NX](https://nx.dev/) do [NPM](https://www.npmjs.com/) para gerenciamento de tarefas e um contêiner padrão do [Postgres](https://hub.docker.com/_/postgres) como banco de dados.
 
-It uses a customized [Ubuntu Image](https://hub.docker.com/_/ubuntu) from [Docker](https://www.docker.com/) to create a minimazed container with [Java](https://www.java.com/en/) and [NodeJS](https://nodejs.org/en), to standarize versions across developer computers, [NPM](https://www.npmjs.com/) package [NX](https://nx.dev/) for task management, and a default [Postgres container](https://hub.docker.com/_/postgres) as database.
+Você pode ver as versões usadas em [.env](/.env)
 
-You can see versions used in [.env](/.env)
+### Algo mais?
 
-### Something else?
+O contêiner também usa o tema personalizado [Oh My ZSH](https://ohmyz.sh/), [Flower Dance](https://github.com/MarcyLeite/flower-dance-omzsh), para tornar o processo de desenvolvimento divertido :D
 
-The container also uses the custom [Oh My ZSH](https://ohmyz.sh/) theme, [Flower Dance](https://github.com/MarcyLeite/flower-dance-omzsh), to make the development process fun :D
-
-## Requirements
+## Requisitos
 
 - Docker Engine;
 - Visual Studio Code.
 
-## How to use it
+## Como usar
 
-### Prepare
+### Preparar
 
-1. Setup Container
+1. Configurar o contêiner
 
-   1.1. Create image and container using command:
+   1.1. Crie a imagem e o contêiner usando o comando:
 
    ```bash
    docker compose up -d
    ```
 
-   This will create image from `Dockerfile.dev`, and create containers using `docker-compose.yml`
+   Isso criará uma imagem a partir do `Dockerfile.dev` e criará contêineres usando o `docker-compose.yml`
 
-   1.2. If `Dockerfile.dev` changes, execute:
+   1.2. Se o `Dockerfile.dev` for alterado, execute. (Caso de excessão, isso não deve ocorrer tantas vezes):
 
    ```bash
    docker compose up -d --build
    ```
 
-   This will rebuild the image.
+   Isso reconstruirá a imagem.
 
-2. Install Docker extension in VSCode;
+2. Instale a extensão Docker no VSCode;
 
-   2.1. Click the remote icon icon (Two Arrows at the bottom-left corner);
+   2.1. Clique no ícone de conexão remota (Duas setas no canto inferior esquerdo);
 
-   2.2. Select `Attach to Running container...` > `<your-folder-name>-dev-env-1`;
+   2.2. Selecione `Attach to Running container...` > `<nome-da-sua-pasta>-dev-env-1`;
 
-   2.3. Open /home/`<your-username>`/app/.
+   2.3. Abra /home/`<seu-nome-de-usuário>`/app/.
 
-3. Install npm packages.
+3. Instale os pacotes npm.
 
 ```bash
 npm i
 ```
 
-### Tasks
+### Tarefas
 
-From there, you have some tasks predefined with `npm run <command>`, that will make you development exprience easier.
+Comandos automatizados com `npm run <comando>`, que tornarão sua experiência de desenvolvimento mais fácil.
 
-| Command     | Description                                                                                                                           |
+| Comando     | Descrição                                                                                                                           |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| dev:back    | Runs Spring Boot Web Server in back-end folder                                                                                        |
-| dev:front   | Runs Vue3 Dev server with hot-reload in front-end folder                                                                              |
-| dev         | Runs both dev:back and dev:front                                                                                                      |
-| build:back  | Creates a build folder with a .jar from Spring Boot Web server in `./backend/target`                                                  |
-| build:front | Creates a Vue3 wepage in /frontend/dist                                                                                               |
-| build       | Build the frontend pages, copy's it to backend as a Spring Boot Static and then builds backend                                        |
-| bump        | Increses project version as a Major ([Read More](https://semver.org/)) in files `package.json` and `backend/pom.xml`                                         |
-| publish     | Bumps project, build it, commit's version changes, creates tags and publishes changes and tag to remote `origin main` (In that order) |
+| dev:back    | Executa o servidor da Web Spring Boot na pasta back-end                                                                                        |
+| dev:front   | Executa o servidor de desenvolvimento Vue3 com hot-reload na pasta front-end                                                                              |
+| dev         | Executa tanto dev:back quanto dev:front                                                                                                      |
+| build:back  | Cria uma pasta de build com um arquivo .jar do servidor da Web Spring Boot em `./backend/target`                                                  |
+| build:front | Cria uma página Vue3 em /frontend/dist                                                                                               |
+| build       | Compila as páginas do frontend, copia para o backend como um Static do Spring Boot e, em seguida, compila o backend                                        |
+| bump        | Aumenta a versão do projeto como Major ([Leia mais](https://semver.org/)) nos arquivos `package.json` e `backend/pom.xml`                                         |
+| publish     | Aumenta a versão do projeto, compila, faz commit das alterações de versão, cria tags e publica as alterações e tags no remoto `origin main` (nessa ordem) |

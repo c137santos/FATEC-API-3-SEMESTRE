@@ -58,6 +58,18 @@ USER ${USER}
 RUN mkdir /home/${USER}/app
 WORKDIR /home/${USER}/app
 
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+USER root
+RUN chmod -R 777 /home/${USER}/app
+
+RUN npm i
+
+USER ${USER}
+
+COPY . .
+
 EXPOSE 8080
 EXPOSE 5173
 
