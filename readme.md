@@ -23,7 +23,9 @@ O contêiner também usa o tema personalizado [Oh My ZSH](https://ohmyz.sh/), [F
 
 1. Configurar o contêiner
 
-   1.1. Crie a imagem e o contêiner usando o comando:
+   1.1 Crie um arquivo `.env` na raiz do projeto com as variáveis de ambientes iguais a do env-sample.
+
+   1.2. Crie a imagem e o contêiner usando o comando:
 
    ```bash
    docker compose up -d
@@ -31,7 +33,7 @@ O contêiner também usa o tema personalizado [Oh My ZSH](https://ohmyz.sh/), [F
 
    Isso criará uma imagem a partir do `Dockerfile.dev` e criará contêineres usando o `docker-compose.yml`
 
-   1.2. Se o `Dockerfile.dev` for alterado, execute. (Caso de excessão, isso não deve ocorrer tantas vezes):
+   1.3. Se o `Dockerfile.dev` for alterado, execute. (Caso de excessão, isso não deve ocorrer tantas vezes):
 
    ```bash
    docker compose up -d --build
@@ -47,11 +49,6 @@ O contêiner também usa o tema personalizado [Oh My ZSH](https://ohmyz.sh/), [F
 
    2.3. Abra /home/`<seu-nome-de-usuário>`/app/.
 
-3. Instale os pacotes npm.
-
-```bash
-npm i
-```
 
 ### Tarefas
 
