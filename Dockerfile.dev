@@ -47,28 +47,10 @@ RUN cp -r /root/.oh-my-zsh /etc/skel/.oh-my-zsh
 RUN cp /root/.zshrc /etc/skel/.zshrc
 
 # Configure User
-ARG USER
+RUN chsh -s /bin/zsh root
 
-RUN cp -r /etc/skel/. /home/ubuntu/
-RUN mv /home/ubuntu /home/${USER}
-RUN groupmod -n ${USER} ubuntu
-RUN usermod -l ${USER} ubuntu -d /home/${USER} --shell /bin/zsh -aG sudo
-USER ${USER}
-
-RUN mkdir /home/${USER}/app
-WORKDIR /home/${USER}/app
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-USER root
-RUN chmod -R 777 /home/${USER}/app
-
-RUN npm i
-
-USER ${USER}
-
-COPY . .
+RUN mkdir /root/app
+WORKDIR /root/app
 
 EXPOSE 8080
 EXPOSE 5173
