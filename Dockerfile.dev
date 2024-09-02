@@ -67,6 +67,7 @@ ARG GIT_USER
 ARG GIT_EMAIL
 RUN git config --global user.name "${GIT_USER}"
 RUN git config --global user.email "${GIT_EMAIL}"
+RUN git config --global core.filemode false
 RUN git config --global --add safe.directory /home/${USERNAME}/app
 
 WORKDIR /home/${USERNAME}/app
