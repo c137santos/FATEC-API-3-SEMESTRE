@@ -48,8 +48,15 @@ RUN cp /root/.zshrc /etc/skel/.zshrc
 
 # Configure User
 RUN chsh -s /bin/zsh root
-
 RUN mkdir /root/app
+
+# GIT config
+ARG GIT_USER
+ARG GIT_EMAIL
+RUN git config --global --add safe.directory /root/app
+RUN git config --global user.name "${GIT_USER}"
+RUN git config --global user.email "${GIT_EMAIL}"
+
 WORKDIR /root/app
 
 EXPOSE 8080

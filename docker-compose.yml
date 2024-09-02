@@ -4,13 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
+        GIT_USER: ${GIT_USER}
+        GIT_EMAIL: ${GIT_EMAIL}
         JAVA_VERSION: ${JAVA_VERSION}
         NODE_VERSION: ${NODE_VERSION}
 
     restart: always
     volumes:
       - ./:/root/app
-      - ~/.gitconfig:/root/.gitconfig
       - ~/.ssh:/root/.ssh
 
     tty: true

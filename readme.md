@@ -6,7 +6,7 @@ Este repositório é uma prova de conceito (POC) e um modelo para um ambiente de
 
 Ele usa uma imagem personalizada do [Ubuntu](https://hub.docker.com/_/ubuntu) do [Docker](https://www.docker.com/) para criar um contêiner minimizado com [Java](https://www.java.com/en/) e [NodeJS](https://nodejs.org/en), para padronizar as versões nos computadores dos desenvolvedores, o pacote [NX](https://nx.dev/) do [NPM](https://www.npmjs.com/) para gerenciamento de tarefas e um contêiner padrão do [Postgres](https://hub.docker.com/_/postgres) como banco de dados.
 
-Você pode ver as versões usadas em [.env](/.env)
+Você pode ver as versões usadas em [dev-env.config](/dev-env.config)
 
 ### Algo mais?
 
@@ -22,24 +22,15 @@ O contêiner também usa o tema personalizado [Oh My ZSH](https://ohmyz.sh/), [F
 ### Preparar
 
 1. Configurar o contêiner
-
-   1.1 Crie um arquivo `.env` na raiz do projeto com as variáveis de ambientes iguais a do env-sample.
-
-   1.2. Crie a imagem e o contêiner usando o comando:
+   1.1. Crie a imagem e o contêiner usando o comando:
 
    ```bash
-   docker compose up -d
+   # Linux
+   sh ./scripts/up.sh
+   
+   # Windows
+   .\\scripts\\up.bat
    ```
-
-   Isso criará uma imagem a partir do `Dockerfile.dev` e criará contêineres usando o `docker-compose.yml`
-
-   1.3. Se o `Dockerfile.dev` for alterado, execute. (Caso de excessão, isso não deve ocorrer tantas vezes):
-
-   ```bash
-   docker compose up -d --build
-   ```
-
-   Isso reconstruirá a imagem.
 
 2. Instale a extensão Docker no VSCode;
 
@@ -47,7 +38,7 @@ O contêiner também usa o tema personalizado [Oh My ZSH](https://ohmyz.sh/), [F
 
    2.2. Selecione `Attach to Running container...` > `<nome-da-sua-pasta>-dev-env-1`;
 
-   2.3. Abra /home/`<seu-nome-de-usuário>`/app/.
+   2.3. Abra /root/app/.
 
 
 ### Tarefas
