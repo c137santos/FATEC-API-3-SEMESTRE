@@ -4,15 +4,20 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
-        USER: ${USER}
+        USERNAME: ${USERNAME}
+        UID: ${D_UID}
+        GID: ${D_GID}
+        GIT_USER: ${GIT_USER}
+        GIT_EMAIL: ${GIT_EMAIL}
         JAVA_VERSION: ${JAVA_VERSION}
         NODE_VERSION: ${NODE_VERSION}
 
     restart: always
     volumes:
-      - ./:/home/${USER}/app
-      - /home/${USER}/.gitconfig:/home/${USER}/.gitconfig
-      - /home/${USER}/.ssh:/home/${USER}/.ssh
+      - ./:/home/${USERNAME}/app
+      - ~/.ssh:/home/${USERNAME}/.ssh
+
+    user: ${D_UID}:${D_GID}
 
     tty: true
     network_mode: host

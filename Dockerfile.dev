@@ -45,30 +45,32 @@ RUN curl -o /root/.oh-my-zsh/themes/flower-dance.zsh-theme https://raw.githubuse
 RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="flower-dance"/' /root/.zshrc
 RUN cp -r /root/.oh-my-zsh /etc/skel/.oh-my-zsh
 RUN cp /root/.zshrc /etc/skel/.zshrc
+RUN chsh -s /bin/zsh root
 
 # Configure User
-ARG USER
+ARG USERNAME
+ARG UID
+ARG GID
 
-RUN cp -r /etc/skel/. /home/ubuntu/
-RUN mv /home/ubuntu /home/${USER}
-RUN groupmod -n ${USER} ubuntu
-RUN usermod -l ${USER} ubuntu -d /home/${USER} --shell /bin/zsh -aG sudo
-USER ${USER}
+RUN userdel ubuntu
+RUN rm -r /home/ubuntu
+RUN groupadd ${USERNAME} -g ${GID}
+RUN useradd -m -d /home/${USERNAME} -g ${GID} -G sudo -u ${UID} -s /bin/zsh ${USERNAME}
 
-RUN mkdir /home/${USER}/app
-WORKDIR /home/${USER}/app
+RUN echo "${USERNAME} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/NOPASSWD
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+USER ${USERNAME}
+RUN mkdir /home/${USERNAME}/app
 
-USER root
-RUN chmod -R 777 /home/${USER}/app
+# GIT config
+ARG GIT_USER
+ARG GIT_EMAIL
+RUN git config --global user.name "${GIT_USER}"
+RUN git config --global user.email "${GIT_EMAIL}"
+RUN git config --global core.filemode false
+RUN git config --global --add safe.directory /home/${USERNAME}/app
 
-RUN npm i
-
-USER ${USER}
-
-COPY . .
+WORKDIR /home/${USERNAME}/app
 
 EXPOSE 8080
 EXPOSE 5173
