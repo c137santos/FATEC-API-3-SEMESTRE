@@ -1,5 +1,6 @@
 .nx
 .data
+.env
 
 ### Java ###
 # Compiled class file
