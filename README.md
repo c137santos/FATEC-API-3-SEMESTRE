@@ -67,7 +67,7 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 
 ### Modelo conceitual 
 
-![image](https://github.com/user-attachments/assets/df9b4417-941c-4f88-9721-63b17ed85224)
+![image](/img/Cerberus.jpg)
 
 ### Modelo físico
 
