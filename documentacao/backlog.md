@@ -64,12 +64,6 @@
     
     - O sistema deve permitir que o administrador exclua uma tag a partir da tela de listagem de tags.
     - Deve haver um botão "Excluir" ou um ícone de lixeira ao lado de cada tag na listagem, que, ao ser clicado, permita iniciar o processo de exclusão.
-- Como um administrador eu quero poder relacionar tags com outras tags, para que seja possível construir uma rede de informações estruturadas.
-    
-    Critérios de aceitação:
-    
-    - A partir da tela de edição de tags deve-se ser possível escolher em uma lista de tags quais tags serão relacionadas.
-    - Uma tag pode ser relacionada com uma, nenhuma ou várias tags.
 
 ## Sprint 2
 
@@ -83,6 +77,12 @@
         - **URL do Portal**: Exibida como uma coluna ou campo adicional.
         - **Status (Ativo/Inativo)**: Exibido claramente, com uma indicação visual (e.g., cor ou ícone) que diferencie portais ativos de inativos.
         - **Data de Cadastro**: Exibida em uma coluna para permitir análise do histórico.
+- Como um administrador eu quero poder relacionar tags com outras tags, para que seja possível construir uma rede de informações estruturadas.
+    
+    Critérios de aceitação:
+    
+    - A partir da tela de edição de tags deve-se ser possível escolher em uma lista de tags quais tags serão relacionadas.
+    - Uma tag pode ser relacionada com uma, nenhuma ou várias tags.
 - **Como** um administrador, **eu quero** cadastrar portais de notícias, **para que** eu possa gerenciar as fontes de onde as notícias serão capturadas.
     
     Critérios de aceitação:
@@ -106,6 +106,21 @@
         - **Status Ativo/Inativo**: Campo de seleção ou checkbox para definir se o portal está ativo.
         - **Período para a captura e dados:** diariamente, semanalmente ou mensalmente**.**
     - Após atualização o campo da data de criação deve ser automaticamente atualizado após a confirmação do usuário.
+- **Como** um administrador, **eu quero** capturar notícias de portais previamente cadastradas, **para que** as informações sejam armazenadas no banco de dados para consulta futura.
+    - O sistema deve permitir que o administrador agende capturas automáticas em intervalos regulares (diariamente, semanalmente ou mensalmente)
+    - As notícias capturadas devem ser armazenadas no banco de dados, incluindo os seguintes dados:
+        - **Título da Notícia**
+        - **URL da Notícia**
+        - **Conteúdo da Notícia** (texto completo ou resumo)
+        - **Data de Publicação**
+        - **Fonte/Portal**
+        - **Tags** (se disponíveis)
+        - **Jornalista** (Que deve ser criado no momento do salvamento da notícia)
+    - As notícias duplicadas (já capturadas previamente) devem ser identificadas e ignoradas, evitando duplicação no banco de dados.
+    - O sistema deve ser otimizado para capturar e armazenar grandes volumes de notícias de maneira eficiente, minimizando o impacto no desempenho do sistema.
+
+## Sprint 3
+
 - **Como** um administrador, **eu quero** Editar APIs de terceiros, para que eu possa editar as infomações de onde os dados estão vindo.
     
     Critérios de aceitação:
@@ -124,43 +139,6 @@
         - **URL da API**: Exibida em uma coluna ou campo adicional.
         - **Status (Ativo/Inativo)**: Exibido claramente, com uma indicação visual (e.g., cor ou ícone) que diferencie APIs ativas de inativas.
         - **Data de Cadastro**: Exibida em uma coluna para permitir análise do histórico.
-
-## Sprint 3
-
-- **Como** um administrador, **eu quero** cadastrar jornalistas, **para que** seja possível associar notícias aos seus autores.
-    
-    Critérios de aceitação:
-    
-    - O sistema deve fornecer um formulário de cadastro acessível a partir do menu de administração ou da tela de listagem de jornalistas.
-    - O formulário de cadastro deve incluir os seguintes campos obrigatórios:
-        - Um jornalista deve ser relacionado a um portal?
-        - **Nome Completo**: Campo de texto para o nome completo do jornalista.
-- **Como** um administrador, **eu quero** editar as informações dos jornalistas cadastrados, **para que** eu possa manter o registro atualizado e corrigir dados, se necessário.
-    
-    Critérios de aceitação:
-    
-    - O formulário de edição deve exibir os seguintes campos preenchidos com as informações atuais do jornalista:
-        - **Nome Completo**: Campo de texto para o nome completo do jornalista.
-        - **Status Ativo/Inativo**: Checkbox ou campo de seleção para definir se o jornalista está ativo.
-        - **Portal Relacionado**: Campo de seleção que permite ao administrador alterar o portal ao qual o jornalista está relacionado, caso aplicável.
-- **Como** um administrador, **eu quero** excluir determinado jornalista cadastrado, considerando que determinado jornalista não é mais relevante para os meus dados.
-    
-    Critérios de aceitação:
-    
-    - O sistema deve permitir que o administrador acesse a funcionalidade de exclusão a partir da tela de listagem de jornalistas.
-    - Cada jornalista na lista deve ter um botão "Excluir" que, ao ser clicado, permite ao administrador iniciar o processo de exclusão do jornalista.
-- **Como** um administrador, **eu quero** capturar notícias de portais previamente cadastradas, **para que** as informações sejam armazenadas no banco de dados para consulta futura.
-    - O sistema deve permitir que o administrador agende capturas automáticas em intervalos regulares (diariamente, semanalmente ou mensalmente)
-    - As notícias capturadas devem ser armazenadas no banco de dados, incluindo os seguintes dados:
-        - **Título da Notícia**
-        - **URL da Notícia**
-        - **Conteúdo da Notícia** (texto completo ou resumo)
-        - **Data de Publicação**
-        - **Fonte/Portal**
-        - **Tags** (se disponíveis)
-        - **Jornalista** (Que deve ser criado no momento do salvamento da notícia)
-    - As notícias duplicadas (já capturadas previamente) devem ser identificadas e ignoradas, evitando duplicação no banco de dados.
-    - O sistema deve ser otimizado para capturar e armazenar grandes volumes de notícias de maneira eficiente, minimizando o impacto no desempenho do sistema.
 
 ## Sprint 4
 
