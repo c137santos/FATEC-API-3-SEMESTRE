@@ -67,12 +67,14 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 
 ### Modelo conceitual 
 
-![image](/img/Cerberus.jpg)
+![image](/img/modelofisico.jpg)
 
 ### Modelo físico
 
 
 ## Burndown do projeto
+
+[Burdown da 1º sprint](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXRHVQpU5eI4LoDabcDIMd5JyNLnffdLF4DwnGZlrQGtpdmEBwshaBsn3KOH8GVLW6xHc2C3y7cMRR/pubhtml)
 
 ## Equipe
 
@@ -85,3 +87,4 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 | Guilherme Bezerra Junqueira ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-bezerra-a01035170/) |
 | Pedro Henrique Lopes de Souza ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pelopes7/) |
 | Yan Costa Yamim ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yan-yamim-185220278/) |
+
