@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tags</title>
+    <link rel="stylesheet" href="assets/tags.css">
+</head>
+<body>
+    <h1 class="Titulo_principal">Cerberus</h1>
+    <div>
+        <h2 class="Titulo_cadastro">Cadastrar Nova tag</h2>
+        <form>
+            <label class="Titulo_nome" for="Nome da tag" >Nome da tag</label>
+            <input class="Campo_nome" type="text" id="nome" name="nome">
+        </form>
+        <form>
+            <label class="Titulo_descricao" for="Descrição" >Descrição</label>
+            <input class="Campo_descricao" type="text" id="descricao" name="descricao">
+        </form>
+    </div>
+    <div>
+        <h3 class="Titulo_tag_relacionada">Tags relacionadas</h3>
+        <form>
+            <label for="tags"></label>
+            <select class="Campo_tags_relacionadas" id="tags" name="tags">
+                <option value="Agricultura">Agricultura</option>
+            </select>
+        </form>
+        <form>
+            <button class="salvar_tags" type="submit">Salvar</button>
+        </form>
+    </div>
+    <h2>Tags cadastradas</h2>
+</body>
+</html>

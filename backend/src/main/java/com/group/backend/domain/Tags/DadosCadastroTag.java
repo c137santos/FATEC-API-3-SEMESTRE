@@ -1,4 +1,4 @@
-package com.group.backend.domain;
+package com.group.backend.domain.Tags;
 
 import jakarta.validation.constraints.NotBlank;
 

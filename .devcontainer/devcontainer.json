@@ -1,0 +1,23 @@
+{
+    "name": "Java & PostgreSQL DevContainer",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev-env",
+    "workspaceFolder": "/home/${USERNAME}/app",
+  
+  
+    "features": {
+      "ghcr.io/devcontainers/features/common-utils:2": {},
+      "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {},
+      "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-lombok",
+                "Pleiades.java-extension-pack-jdk"
+            ]
+        }
+    }
+}
+
