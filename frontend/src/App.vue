@@ -1,85 +1,184 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="tags-cadastradas">
+    <h2>Tags Cadastradas</h2>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- Exibe cada tag em uma caixinha -->
+    <div v-for="(tag, index) in tags" :key="index" class="tag-item">
+      <div class="tag-info" v-if="!tag.isEditing">
+        <i class="fas fa-info-circle"></i>
+        <h3>{{ tag.name }}</h3>
+        <p>Descrição: {{ tag.description }}</p>
+      </div>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+      <!-- Formulário e botões de edição aparecem quando tag.isEditing for true -->
+      <div v-if="tag.isEditing" class="tag-edit-form">
+        <form @submit.prevent="salvarTag(tag)">
+          <label class="Titulo_nome" for="nome">Nome da tag</label>
+          <input class="Campo_nome" type="text" id="nome" v-model="tag.name">
+          
+          <label class="Titulo_descricao" for="descricao">Descrição</label>
+          <input class="Campo_descricao" type="text" id="descricao" v-model="tag.description">
+          
+          <label for="tags">Tags Relacionadas</label>
+          <select class="Campo_tags_relacionadas" v-model="selectedTag">
+            <option v-for="tagOption in tags" :key="tagOption.name" :value="tagOption.name">{{ tagOption.name }}</option>
+          </select>
+          
+          <button class="botao-salvar" type="submit">Salvar</button>
+          <button class="botao-cancelar" @click.prevent="cancelarEdicao(tag)">Cancelar</button>
+        </form>
+      </div>
+
+      <!-- Botão Editar, mostra o formulário ao ser clicado -->
+      <button v-if="!tag.isEditing" class="edit-tag" @click="editTag(tag)">Editar</button>
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      tags: [
+        {
+          name: 'Tag 1',
+          description: 'Descrição da Tag 1',
+          isEditing: false
+        },
+        {
+          name: 'Tag 2',
+          description: 'Descrição da Tag 2',
+          isEditing: false
+        }
+      ],
+      selectedTag: 'Tag 1'
+    };
+  },
+  
+  methods: {
+    // Inicia o modo de edição para a tag clicada
+    editTag(tag) {
+      this.cancelAllEdits(); // Cancela qualquer outra edição em andamento
+      tag.isEditing = true;
+    },
+
+    // Salva a edição da tag e encerra o modo de edição
+    salvarTag(tag) {
+      tag.isEditing = false;
+      console.log("Tag salva:", tag);
+    },
+
+    // Cancela a edição da tag e retorna ao modo visual
+    cancelarEdicao(tag) {
+      tag.isEditing = false;
+      console.log("Edição cancelada:", tag);
+    },
+
+    // Cancela qualquer edição em andamento
+    cancelAllEdits() {
+      this.tags.forEach(tag => tag.isEditing = false);
+    }
+  }
+};
+
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+/* Estilos para o título das tags cadastradas */
+h2 {
+  margin: 0;
+  padding: 10px 0;
+  height: 52px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+/* Estilos gerais para a seção de tags cadastradas */
+.tags-cadastradas {
+  margin: 20px auto;
+  max-width: 1000px;
 }
 
-nav {
-  width: 100%;
+/* Estilo para cada item de tag */
+.tag-item {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Estilo para a seção de informações da tag */
+.tag-info {
+  margin-bottom: 10px;
+}
+
+/* Estilo para o botão de editar */
+.edit-tag {
+  position: absolute;
+  box-align: center;
+  top: 10px;
+  right: 10px;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+/* Estilo para o formulário de edição da tag */
+.tag-edit-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+/* Estilo para o rótulo do campo de nome e descrição */
+.Titulo_nome, .Titulo_descricao {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+/* Estilo para os campos de entrada */
+.Campo_nome, .Campo_descricao {
+  display: block;
+  width: 900px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #e4ceff;
 }
 
-nav a:first-of-type {
-  border: 0;
+/* Estilo específico para o campo de seleção de tags relacionadas */
+.Campo_tags_relacionadas {
+  display: block;
+  width: 20%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: white;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+/* Estilo para os botões de salvar e cancelar */
+.botao-salvar, .botao-cancelar {
+  padding: 8px 16px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+/* Estilo específico para o botão de salvar */
+.botao-salvar {
+  background-color: mediumpurple;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+/* Estilo específico para o botão de cancelar */
+.botao-cancelar {
+  background-color: black;
 }
 </style>
