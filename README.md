@@ -66,6 +66,10 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 
 ## Tecnologias, linguagens de programação e ferramentas utilizadas:
 ![image](/img/tecnologias_e_ferramentas.png)
+
+## Design telas:
+[Design telas](documentação/design_telas.pdf)
+
 ## Estruturação do Banco 
 
 ### Modelo conceitual 
