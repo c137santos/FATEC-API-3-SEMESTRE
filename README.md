@@ -1,3 +1,6 @@
+![image](/img/equipe_cerberus.png)
+
+
 ## Desafio 
 Desenvolver uma ferramenta para captura e armazenamento de notícias estratégicas de portais e dados relevantes de API Públicas, para possibilidade de futuras análises usando IA.
 
@@ -61,6 +64,8 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 | 13  | Sprint 4   | Como um usuário, eu quero consultar notícias por meio de uma tela com filtros de pesquisa, para que eu possa encontrar notícias relevantes.         | Alta       | Pendente | 7          |
 | 14  | Sprint 4   | Como um usuário, eu quero visualizar as tags relacionadas a uma notícia, para que eu possa entender melhor o contexto do conteúdo.                  | Baixa      | Pendente | 6          |
 
+## Tecnologias, linguagens de programação e ferramentas utilizadas:
+![image](/img/tecnologias_e_ferramentas.png)
 ## Estruturação do Banco 
 
 ### Modelo conceitual 
