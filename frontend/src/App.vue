@@ -20,6 +20,7 @@
         <i class="fas fa-info-circle"></i>
         <h3>{{ tag.name }}</h3>
         <p>Descrição: {{ tag.description }}</p>
+        <p>Data de Criação: {{ tag.dataCriacao }}</p>
       </div>
 
       <div v-if="tag.isEditing" class="tag-edit-form">
@@ -42,11 +43,11 @@ export default {
   data() {
     return {
       tags: [
-        { name: 'Agricultura', description: 'Notícias sobre agricultura', isEditing: false },
-        { name: 'Aviação', description: 'Notícias sobre aviação', isEditing: false },
-        { name: 'Tecnologia', description: 'Notícias sobre tecnologia', isEditing: false }
+        { name: 'Agricultura', description: 'Notícias sobre agricultura', dataCriacao: '12/09/2024', isEditing: false },
+        { name: 'Aviação', description: 'Notícias sobre aviação', dataCriacao: '12/09/2024', isEditing: false },
+        { name: 'Tecnologia', description: 'Notícias sobre tecnologia', dataCriacao: '12/09/2024', isEditing: false }
       ],
-      novaTag: {name: '', description: ''},
+      novaTag: {name: '', description: '', dataCriacao: ''},
       exibirNovaTagForm: false,
       selectedTag: ''
     };
@@ -60,7 +61,8 @@ export default {
 
     salvarNovaTag() {
       if(this.novaTag.name && this.novaTag.description) {
-        this.tags.push({...this.novaTag, isEditing: false});
+        const hoje = new Date().toLocaleDateString();
+        this.tags.push({...this.novaTag, dataCriacao: hoje, isEditing: false});
         this.novaTag = {name: '', description: ''};
         this.exibirNovaTagForm = false;
       }
