@@ -23,10 +23,11 @@ public class Tag {
     private String descricao;
     private boolean ativo;
 
-    public Tag(Long id, String nome, String descricao) {
+    public Tag(Long id, String nome, String descricao, Boolean ativo) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
+        this.ativo = ativo;
     }
 
     public Tag(DadosCadastroTag dados) {
@@ -41,6 +42,9 @@ public class Tag {
         }
         if (dados.descricao() != null) {
             this.descricao = dados.descricao();
+        }
+        if(dados.ativo() != null) {
+            this.ativo = dados.ativo();
         }
     }
 }

@@ -1,8 +1,20 @@
 <template>
+  
+  <div class="Nova-Tag">
+  <button class="cadastrar-tag-nova" @click="toggleNovaTagForm">Cadastrar Tag</button>
+
+  <div v-if="exibirNovaTagForm" class="formulario-cadastro">
+  <form @submit.prevent="salvarNovaTag">
+      <input class="Campo_nome_cadastro" type="text" v-model="novaTag.name" placeholder="Nome da tag">
+      <input class="Campo_descricao_cadastro" type="text" v-model="novaTag.description" placeholder="Descrição da tag">
+      <button class="botao-salvar" type="submit">Salvar</button>
+      <button class="botao-cancelar" @click.prevent="cancelarCadastro">Cancelar</button>
+  </form>
+  </div>
+</div>
+
   <div class="tags-cadastradas">
     <h2>Tags Cadastradas</h2>
-
-    <!-- Exibe cada tag em uma caixinha -->
     <div v-for="(tag, index) in tags" :key="index" class="tag-item">
       <div class="tag-info" v-if="!tag.isEditing">
         <i class="fas fa-info-circle"></i>
@@ -10,26 +22,16 @@
         <p>Descrição: {{ tag.description }}</p>
       </div>
 
-      <!-- Formulário e botões de edição aparecem quando tag.isEditing for true -->
       <div v-if="tag.isEditing" class="tag-edit-form">
         <form @submit.prevent="salvarTag(tag)">
-          <label class="Titulo_nome" for="nome">Nome da tag</label>
-          <input class="Campo_nome" type="text" id="nome" v-model="tag.name">
-          
-          <label class="Titulo_descricao" for="descricao">Descrição</label>
-          <input class="Campo_descricao" type="text" id="descricao" v-model="tag.description">
-          
-          <label for="tags">Tags Relacionadas</label>
-          <select class="Campo_tags_relacionadas" v-model="selectedTag">
-            <option v-for="tagOption in tags" :key="tagOption.name" :value="tagOption.name">{{ tagOption.name }}</option>
-          </select>
+          <input class="Campo_nome" type="text" id="nome" placeholder="Nome da tag">
+          <input class="Campo_descricao" type="text" id="descricao" placeholder="Descrição da tag">
           
           <button class="botao-salvar" type="submit">Salvar</button>
           <button class="botao-cancelar" @click.prevent="cancelarEdicao(tag)">Cancelar</button>
         </form>
       </div>
 
-      <!-- Botão Editar, mostra o formulário ao ser clicado -->
       <button v-if="!tag.isEditing" class="edit-tag" @click="editTag(tag)">Editar</button>
     </div>
   </div>
@@ -40,65 +42,73 @@ export default {
   data() {
     return {
       tags: [
-        {
-          name: 'Tag 1',
-          description: 'Descrição da Tag 1',
-          isEditing: false
-        },
-        {
-          name: 'Tag 2',
-          description: 'Descrição da Tag 2',
-          isEditing: false
-        }
+        { name: 'Agricultura', description: 'Notícias sobre agricultura', isEditing: false },
+        { name: 'Aviação', description: 'Notícias sobre aviação', isEditing: false },
+        { name: 'Tecnologia', description: 'Notícias sobre tecnologia', isEditing: false }
       ],
-      selectedTag: 'Tag 1'
+      novaTag: {name: '', description: ''},
+      exibirNovaTagForm: false,
+      selectedTag: ''
     };
   },
   
   methods: {
-    // Inicia o modo de edição para a tag clicada
+    // Cadastro das Tags
+    toggleNovaTagForm() {
+      this.exibirNovaTagForm = !this.exibirNovaTagForm;
+    },
+
+    salvarNovaTag() {
+      if(this.novaTag.name && this.novaTag.description) {
+        this.tags.push({...this.novaTag, isEditing: false});
+        this.novaTag = {name: '', description: ''};
+        this.exibirNovaTagForm = false;
+      }
+    },
+
+    cancelarCadastro() {
+      this.novaTag = {name: '', description: ''};
+      this.exibirNovaTagForm = false;
+    },
+
+    // Edição das Tags
     editTag(tag) {
-      this.cancelAllEdits(); // Cancela qualquer outra edição em andamento
+      this.cancelAllEdits();
       tag.isEditing = true;
     },
 
-    // Salva a edição da tag e encerra o modo de edição
     salvarTag(tag) {
       tag.isEditing = false;
+      if (!this.tags.includes(tag)) {
+        this.tags.push({ ...tag });
+      }
       console.log("Tag salva:", tag);
     },
 
-    // Cancela a edição da tag e retorna ao modo visual
     cancelarEdicao(tag) {
       tag.isEditing = false;
       console.log("Edição cancelada:", tag);
     },
 
-    // Cancela qualquer edição em andamento
     cancelAllEdits() {
       this.tags.forEach(tag => tag.isEditing = false);
     }
   }
 };
-
 </script>
 
+
 <style scoped>
-/* Estilos para o título das tags cadastradas */
+/* Título das tags cadastradas */
 h2 {
   margin: 0;
   padding: 10px 0;
   height: 52px;
 }
 
-/* Estilos gerais para a seção de tags cadastradas */
-.tags-cadastradas {
-  margin: 20px auto;
-  max-width: 1000px;
-}
-
-/* Estilo para cada item de tag */
+/* Cada item de tag */
 .tag-item {
+  margin-left: 40px;
   width: 1000px;
   display: flex;
   flex-direction: column;
@@ -109,12 +119,12 @@ h2 {
   position: relative;
 }
 
-/* Estilo para a seção de informações da tag */
+/* Seção de informações da tag */
 .tag-info {
   margin-bottom: 10px;
 }
 
-/* Estilo para o botão de editar */
+/* Botão de editar */
 .edit-tag {
   position: absolute;
   box-align: center;
@@ -129,20 +139,14 @@ h2 {
   font-size: 12px;
 }
 
-/* Estilo para o formulário de edição da tag */
+/* Formulário de edição da tag */
 .tag-edit-form {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
 }
 
-/* Estilo para o rótulo do campo de nome e descrição */
-.Titulo_nome, .Titulo_descricao {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* Estilo para os campos de entrada */
+/* Campos de entrada */
 .Campo_nome, .Campo_descricao {
   display: block;
   width: 900px;
@@ -152,7 +156,27 @@ h2 {
   background-color: #e4ceff;
 }
 
-/* Estilo específico para o campo de seleção de tags relacionadas */
+/* Campos de entrada para o cadastro de nova Tag*/
+.Campo_nome_cadastro, .Campo_descricao_cadastro {
+  display: block;
+  width: 600px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #e4ceff;
+}
+
+/* Campos de entrada */
+.formulario-cadastro {
+  width: 700px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Campo de seleção de tags relacionadas */
 .Campo_tags_relacionadas {
   display: block;
   width: 20%;
@@ -162,8 +186,8 @@ h2 {
   background-color: white;
 }
 
-/* Estilo para os botões de salvar e cancelar */
-.botao-salvar, .botao-cancelar {
+/* Botões de salvar, cancelar e cadastrar */
+.botao-salvar, .botao-cancelar, .cadastrar-tag-nova {
   padding: 8px 16px;
   margin-top: 10px;
   color: white;
@@ -172,12 +196,17 @@ h2 {
   font-size: 14px;
 }
 
-/* Estilo específico para o botão de salvar */
+/* Botão background do botão cadastrar nova tag */
+.cadastrar-tag-nova {
+  background-color: black;
+}
+
+/* Botão background do botão de salvar */
 .botao-salvar {
   background-color: mediumpurple;
 }
 
-/* Estilo específico para o botão de cancelar */
+/* Botão background do botão de cancelar */
 .botao-cancelar {
   background-color: black;
 }

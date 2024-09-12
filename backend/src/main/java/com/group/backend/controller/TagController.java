@@ -1,27 +1,17 @@
 package com.group.backend.controller;
 
+import com.group.backend.domain.Tags.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import com.group.backend.domain.Tags.DadosAtualizacaoTag;
-import com.group.backend.domain.Tags.DadosCadastroTag;
-import com.group.backend.domain.Tags.Tag;
-import com.group.backend.domain.Tags.TagRepository;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
-@RequestMapping("tags")
+import java.util.List;
+
+@RequestMapping("/tags")
 @RestController
 public class TagController {
 
@@ -42,15 +32,17 @@ public class TagController {
     @PutMapping
     @Transactional
     public ResponseEntity<Tag> atualizarTag(@RequestBody @Valid DadosAtualizacaoTag dados) {
-        var tag = repository.getReferenceById(dados.id());
+        var tagOptional = repository.findById(dados.id());
+
+        Tag tag = tagOptional.get();
         tag.atualizarTag(dados);
 
         return ResponseEntity.ok(tag);
     }
 
     @GetMapping
-    public ResponseEntity<Page<Tag>> listarTags(@PageableDefault(size = 10) Pageable pageable) {
-        Page<Tag> tags = repository.findAll(pageable); 
+    public ResponseEntity<List<Tag>> listarTags() {
+        List<Tag> tags = repository.findAll();
         return ResponseEntity.ok(tags);
     }
     

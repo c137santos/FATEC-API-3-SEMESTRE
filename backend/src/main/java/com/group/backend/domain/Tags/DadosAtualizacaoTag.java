@@ -7,5 +7,6 @@ public record DadosAtualizacaoTag(
         @NotNull
         Long id,
         String nome,
-        String descricao) {
+        String descricao,
+        Boolean ativo) {
 }
