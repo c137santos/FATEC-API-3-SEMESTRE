@@ -1,10 +1,11 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  display: block; /* Ajustar o layout para bloco completo */
 }
 
 a,
@@ -23,13 +24,28 @@ a,
 
 @media (min-width: 1024px) {
   body {
-    display: flex;
-    place-items: center;
+    display: block; /* Remover o display: flex */
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    max-width: 100%; /* Ajuste para garantir a ocupação total da tela */
     padding: 0 2rem;
   }
+}
+
+/* Adicione no main.css ou nos componentes relevantes */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #49454F;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1D1B20;
+}
+
+p {
+  font-size: 16px;
+  color: #49454F;
 }

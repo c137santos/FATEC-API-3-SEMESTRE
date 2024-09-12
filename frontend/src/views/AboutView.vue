@@ -1,15 +1,20 @@
+<!-- src/views/AboutView.vue -->
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
-
-<style>
-@media (min-width: 1024px) {
+    <div class="about">
+      <h1>Sobre Nós</h1>
+      <p>Esta é a página sobre nós do projeto.</p>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    name: "AboutView"
+  };
+  </script>
+  
+  <style scoped>
   .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    padding: 20px;
   }
-}
-</style>
+  </style>
+  
