@@ -5,8 +5,15 @@
 
   <div v-if="exibirNovaTagForm" class="formulario-cadastro">
   <form @submit.prevent="salvarNovaTag">
+      <img class="imagem" src="c:\Users\yanya\Downloads\WhatsApp Image 2024-09-12 at 21.png">
       <input class="Campo_nome_cadastro" type="text" v-model="novaTag.name" placeholder="Nome da tag">
       <input class="Campo_descricao_cadastro" type="text" v-model="novaTag.description" placeholder="Descrição da tag">
+      
+      <div>
+        <input class="checkAtivo" type="checkbox" id="checkbox-cadastro" v-model="novaTag.ativo">
+        <label for="checkbox-edicao"> Ativo</label>
+      </div>
+
       <button class="botao-salvar" type="submit">Salvar</button>
       <button class="botao-cancelar" @click.prevent="cancelarCadastro">Cancelar</button>
   </form>
@@ -16,6 +23,7 @@
   <div class="tags-cadastradas">
     <h2>Tags Cadastradas</h2>
     <div v-for="(tag, index) in tags" :key="index" class="tag-item">
+      <img class="imagem" src="c:\Users\yanya\Downloads\WhatsApp Image 2024-09-12 at 21.png">
       <div class="tag-info" v-if="!tag.isEditing">
         <i class="fas fa-info-circle"></i>
         <h3>{{ tag.name }}</h3>
@@ -27,7 +35,10 @@
         <form @submit.prevent="salvarTag(tag)">
           <input class="Campo_nome" type="text" id="nome" placeholder="Nome da tag">
           <input class="Campo_descricao" type="text" id="descricao" placeholder="Descrição da tag">
-          
+          <div>
+            <input class="checkAtivo" type="checkbox" id="checkbox-edicao" v-model="novaTag.ativo">
+            <label for="checkbox-cadadstro"> Ativo</label>
+          </div>
           <button class="botao-salvar" type="submit">Salvar</button>
           <button class="botao-cancelar" @click.prevent="cancelarEdicao(tag)">Cancelar</button>
         </form>
@@ -43,9 +54,9 @@ export default {
   data() {
     return {
       tags: [
-        { name: 'Agricultura', description: 'Notícias sobre agricultura', dataCriacao: '12/09/2024', isEditing: false },
-        { name: 'Aviação', description: 'Notícias sobre aviação', dataCriacao: '12/09/2024', isEditing: false },
-        { name: 'Tecnologia', description: 'Notícias sobre tecnologia', dataCriacao: '12/09/2024', isEditing: false }
+        { name: 'Agricultura', description: 'Notícias sobre agricultura', ativo: true, dataCriacao: '12/09/2024', isEditing: false },
+        { name: 'Aviação', description: 'Notícias sobre aviação', ativo: true, dataCriacao: '12/09/2024', isEditing: false },
+        { name: 'Tecnologia', description: 'Notícias sobre tecnologia', ativo: false,  dataCriacao: '12/09/2024', isEditing: false }
       ],
       novaTag: {name: '', description: '', dataCriacao: ''},
       exibirNovaTagForm: false,
@@ -63,13 +74,13 @@ export default {
       if(this.novaTag.name && this.novaTag.description) {
         const hoje = new Date().toLocaleDateString();
         this.tags.push({...this.novaTag, dataCriacao: hoje, isEditing: false});
-        this.novaTag = {name: '', description: ''};
+        this.novaTag = {name: '', ativo: true, description: ''};
         this.exibirNovaTagForm = false;
       }
     },
 
     cancelarCadastro() {
-      this.novaTag = {name: '', description: ''};
+      this.novaTag = {name: '', ativo: false, description: ''};
       this.exibirNovaTagForm = false;
     },
 
@@ -119,6 +130,16 @@ h2 {
   padding: 20px;
   margin-bottom: 20px;
   position: relative;
+}
+
+.checkbox {
+  margin-top: 20px;
+}
+
+.imagem {
+  width: 25px;
+  margin-right: 35px;
+  
 }
 
 /* Seção de informações da tag */
@@ -178,15 +199,6 @@ h2 {
   background-color: #f9f9f9;
 }
 
-/* Campo de seleção de tags relacionadas */
-.Campo_tags_relacionadas {
-  display: block;
-  width: 20%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  background-color: white;
-}
 
 /* Botões de salvar, cancelar e cadastrar */
 .botao-salvar, .botao-cancelar, .cadastrar-tag-nova {
@@ -205,11 +217,13 @@ h2 {
 
 /* Botão background do botão de salvar */
 .botao-salvar {
-  background-color: mediumpurple;
+  background-color: rgb(141, 107, 207);
 }
 
 /* Botão background do botão de cancelar */
 .botao-cancelar {
-  background-color: black;
+  color: mediumpurple;
+  border: none;
+  background-color: white;
 }
 </style>
