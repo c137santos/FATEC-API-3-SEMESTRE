@@ -1,3 +1,17 @@
+
+## Vai realizar um commit- ATENÇÃO
+
+Caso esteja tratando de uma migração (mudança no banco), você deve usar o padrão de nomeclatura para cada migração, além de guarda o SQL na pasta adequada. 
+
+* Prefixo: deve iniciar com V em maiúsculo
+* Versão: número da versão, deve ser incremental e pode ser separada por . ou _ como 1.1, 1_1, 2, 2.2
+* Separador: usamos o __ (2 underscores)
+* Descrição: breve descrição do que esta sendo alterador
+
+```
+v1__descricao_migracao.sql
+```
+
 ## Para desenvolvedores:
 
 Este repositório é uma prova de conceito (POC) e um modelo para um ambiente de desenvolvimento saudável e suave para um aplicativo da Web usando [Spring Boot](https://spring.io/guides/gs/spring-boot) como backend e [Vue3](https://vuejs.org/) como frontend.

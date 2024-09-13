@@ -23,6 +23,12 @@ Descrição: Este desafio propõe a criação de um sistema web para mapear port
 
 Ao abrir os cards do kanbam será possível ver a priorização no lado direito como um dos atributos dos cards.
 
+### Como instalar o projeto
+
+Siga as instruções do Contributing!
+
+[Contributing](.github/CONTRIBUTING.md)
+
 # Requisitos Não Funcionais
 • Prever um grande volume de notícias armazenadas
 • Utilizar softwares livres
@@ -72,7 +78,7 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 
 ## Estruturação do Banco 
 
-### Modelo conceitual 
+### Modelo conceitual
 
 ![image](/img/modelofisico.jpg)
 
@@ -94,4 +100,3 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 | Guilherme Bezerra Junqueira ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-bezerra-a01035170/) |
 | Pedro Henrique Lopes de Souza ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pelopes7/) |
 | Yan Costa Yamim ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yan-yamim-185220278/) |
-
