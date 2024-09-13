@@ -40,6 +40,12 @@ Descrição: Este desafio propõe a criação de um sistema web para mapear port
 
 Ao abrir os cards do kanbam será possível ver a priorização no lado direito como um dos atributos dos cards.
 
+### Como instalar o projeto
+
+Siga as instruções do Contributing!
+
+[Contributing](.github/CONTRIBUTING.md)
+
 
 ## Descrição das user stories feitas por sprint
 | **Sprint** | **História** |
@@ -67,7 +73,7 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 
 ### Modelo conceitual 
 
-![image](/img/Cerberus.jpg)
+![image](/img/Cerberus1.0.jpg)
 
 ### Modelo físico
 
@@ -85,3 +91,22 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 | Guilherme Bezerra Junqueira ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-bezerra-a01035170/) |
 | Pedro Henrique Lopes de Souza ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pelopes7/) |
 | Yan Costa Yamim ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yan-yamim-185220278/) |
+
+
+## Setup do Banco. 
+
+Nosso projeto inicializa o banco com o hibernate. Portanto, no application.properties, temos a seguinte configuração devem estar desse formato:
+
+```
+spring.jpa.hibernate.ddl-auto=create
+spring.flyway.enabled=false
+```
+
+Após a migração inicial, vamos mudar a configuração para que o hibernate passe a ser um validador de schema, e o flyway seja habilitado para migrações futuras.
+
+```
+spring.jpa.hibernate.ddl-auto=validate
+spring.flyway.enabled=true
+```
+
+## Variáveis de ambientes necessárias
