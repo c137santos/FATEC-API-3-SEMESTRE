@@ -24,6 +24,13 @@
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
-    "nx": "^19.6.1"
+    "@types/node": "^22.5.4",
+    "nx": "^19.6.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.5.4",
+    "axios": "^1.7.7",
+    "vue": "^3.5.4"
   }
 }
