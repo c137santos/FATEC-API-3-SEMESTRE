@@ -85,7 +85,8 @@ export default {
     },
     editarTag(tag) {
       // Lógica de edição da tag (aqui você pode abrir um modal ou redirecionar para outra página)
-      alert(Editando a tag: ${tag.nome});
+      alert(`Editando a tag: ${tag.nome}`);
+
     }
   }
 };
