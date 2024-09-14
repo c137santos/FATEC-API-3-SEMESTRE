@@ -5,7 +5,7 @@
   
     <div v-if="exibirNovaTagForm" class="formulario-cadastro">
     <form @submit.prevent="salvarNovaTag">
-        <img class="imagem" src="c:\Users\yanya\Downloads\WhatsApp Image 2024-09-12 at 21.png">
+        <img class="imagem_logo" src="frontend/src/assets/Logo_padrao.jpeg">
         <input class="Campo_nome_cadastro" type="text" v-model="novaTag.name" placeholder="Nome da tag">
         <input class="Campo_descricao_cadastro" type="text" v-model="novaTag.description" placeholder="Descrição da tag">
         
@@ -23,7 +23,7 @@
     <div class="tags-cadastradas">
       <h2>Tags Cadastradas</h2>
       <div v-for="(tag, index) in tags" :key="index" class="tag-item">
-        <img class="imagem" src="c:\Users\yanya\Downloads\WhatsApp Image 2024-09-12 at 21.png">
+        <img class="imagem_logo" src="frontend/src/assets/Logo_padrao.jpeg">
         <div class="tag-info" v-if="!tag.isEditing">
           <i class="fas fa-info-circle"></i>
           <h3>{{ tag.name }}</h3>
@@ -138,7 +138,7 @@
   }
   
  /* Imagem que é o ícone do lado das tags */
-  .imagem {
+  .imagem_logo {
     width: 25px;
     margin-right: 35px;
     
