@@ -73,7 +73,7 @@ Siga as instruções do Contributing!
 
 ### Modelo conceitual 
 
-![image](/img/Cerberus1.0.jpg)
+![image](/img/Cerberus2.0.jpg)
 
 ### Modelo físico
 
