@@ -18,23 +18,21 @@ public class Noticia {
     @Column(name = "noti_text")
     private String notiText;
 
-    @Column(name = "por_id")
-    private Integer porId;
-
     @Column(name = "noti_url", length = 2048)
     private String url;
+
+    @Column(name = "por_id")
+    private Integer porId;
 
     @ManyToOne
     @JoinColumn(name = "por_id", referencedColumnName = "por_id", insertable = false, updatable = false)
     private Portal portal;
 
-    @Column(name = "res_id")
+    @Column(name = "rep_id")
     private Integer resId;
 
     @ManyToOne
-    @JoinColumn(name = "res_id", referencedColumnName = "res_id", insertable = false, updatable = false)
-    private Portal reporte;
-
-    // getters and setters
+    @JoinColumn(name = "rep_id", referencedColumnName = "rep_id", insertable = false, updatable = false)
+    private Reporter reporte;
 
 }
