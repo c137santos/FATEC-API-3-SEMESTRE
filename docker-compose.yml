@@ -1,0 +1,44 @@
+services:
+  dev-env:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        USERNAME: ${USERNAME}
+        UID: ${D_UID}
+        GID: ${D_GID}
+        GIT_USER: ${GIT_USER}
+        GIT_EMAIL: ${GIT_EMAIL}
+        JAVA_VERSION: ${JAVA_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
+
+    restart: always
+    volumes:
+      - ./:/home/${USERNAME}/app
+      - ~/.ssh:/home/${USERNAME}/.ssh
+
+    user: ${D_UID}:${D_GID}
+
+    tty: true
+    network_mode: host
+    environment:
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+
+  postgres:
+    container_name: postgresql_newfy
+    image: postgres:${POSTGRES_VERSION}
+    network_mode: host
+    environment:
+      DB_URL: ${DB_URL}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - .data:/var/lib/postgresql/data
+volumes:
+  pg_data:
