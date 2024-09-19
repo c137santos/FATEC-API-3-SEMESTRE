@@ -1,72 +1,69 @@
 <script setup lang="ts">
+import SideBar from '@/components/SideBar.vue'; // Importando a Sidebar
 import { RouterView } from 'vue-router';
 </script>
 
 <template>
+  <div id="app">
+    <!-- Barra de navegação lateral (Sidebar) -->
+    <SideBar />
 
-  <RouterView />
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+      <!-- Título do aplicativo -->
+      <header class="header">
+        <h1 class="cerberus-title">Cérberus</h1>
+      </header>
+
+      <!-- O conteúdo da rota atual será carregado aqui -->
+      <RouterView />
+    </div>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+#app {
+  display: flex;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: #ffffff;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.header {
+  top: 10;
+  flex-grow: 1;
+  padding-left: 80px;
+  background-color: #ffffff;
 }
 
-nav {
+
+.cerberus-title {
+  font-size: 32px;
+  color: #65558F;
+  margin: 0;
+}
+
+.main-content {
+  padding-left: 80px; /* Mantém o espaçamento da sidebar */
+  flex-grow: 1;
+  background-color: #ffffff; /* Cor de fundo uniforme */
+} 
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80px;
+  background-color: #ECE6F0; /* Cor de fundo uniforme */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+  height: 100%;
+  overflow-x: hidden;
 }
 </style>
