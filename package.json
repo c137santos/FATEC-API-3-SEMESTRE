@@ -33,9 +33,7 @@
   },
   "dependencies": {
     "axios": "^1.7.7",
-    "vue-multiselect": "^3.0.0"
-  },
-  "dependencies": {
+    "vue-multiselect": "^3.0.0",
     "spring-vue-monorepo-pipeline-poc": "file:"
   }
 }

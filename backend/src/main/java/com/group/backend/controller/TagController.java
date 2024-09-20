@@ -1,49 +1,36 @@
 package com.group.backend.controller;
 
-import com.group.backend.domain.Tags.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Date;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
+import com.group.backend.domain.DadosCadastroTag;
+import com.group.backend.domain.TagRepository;
+import com.group.backend.entity.Tag;
 
-import java.util.List;
 
 @RequestMapping("/tags")
 @RestController
 public class TagController {
+    private final TagRepository tagRepository;
 
-    @Autowired
-    private TagRepository repository;
+    public TagController(TagRepository tagRepository) {
+        this.tagRepository = tagRepository;
+    }
 
     @PostMapping
-    @Transactional
-    public ResponseEntity<Tag> cadastrarTag(@RequestBody @Valid DadosCadastroTag dados, UriComponentsBuilder uriBuilder) {
-        var tag = new Tag(dados);
-        repository.save(tag);
+    public ResponseEntity<Tag> cadastrarTag(@RequestBody DadosCadastroTag dados) {
+        Tag novaTag = new Tag();
+        novaTag.setTagNome(dados.tagNome());
+        novaTag.setTagDescricao(dados.tagDescricao());
+        novaTag.setTagActive(dados.tagActive());
+        novaTag.setTagData(new Date());
 
-        var uri = uriBuilder.path("/tags/{id}").buildAndExpand(tag.getId()).toUri();
-
-        return ResponseEntity.created(uri).body(tag);
+        Tag tagSalva = tagRepository.save(novaTag);
+        return ResponseEntity.ok(tagSalva);
     }
-
-    @PutMapping
-    @Transactional
-    public ResponseEntity<Tag> atualizarTag(@RequestBody @Valid DadosAtualizacaoTag dados) {
-        var tagOptional = repository.findById(dados.id());
-
-        Tag tag = tagOptional.get();
-        tag.atualizarTag(dados);
-
-        return ResponseEntity.ok(tag);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Tag>> listarTags() {
-        List<Tag> tags = repository.findAll();
-        return ResponseEntity.ok(tags);
-    }
-    
 }
