@@ -40,6 +40,12 @@ Descrição: Este desafio propõe a criação de um sistema web para mapear port
 
 Ao abrir os cards do kanbam será possível ver a priorização no lado direito como um dos atributos dos cards.
 
+### Como instalar o projeto
+
+Siga as instruções do Contributing!
+
+[Contributing](.github/CONTRIBUTING.md)
+
 
 ## Descrição das user stories feitas por sprint
 | **Sprint** | **História** |
@@ -67,7 +73,7 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 
 ### Modelo conceitual 
 
-![image](/img/modelofisico.jpg)
+![image](/img/Cerberus2.0.jpg)
 
 ### Modelo físico
 
