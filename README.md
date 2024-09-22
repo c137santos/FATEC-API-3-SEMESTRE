@@ -80,6 +80,8 @@ Siga as instruções do Contributing!
 
 ## Burndown do projeto
 
+[Burdown da 1º sprint](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXRHVQpU5eI4LoDabcDIMd5JyNLnffdLF4DwnGZlrQGtpdmEBwshaBsn3KOH8GVLW6xHc2C3y7cMRR/pubhtml)
+
 ## Equipe
 
 | Integrante | LinkedIn |
