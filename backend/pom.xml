@@ -31,8 +31,8 @@
 	</properties>
 	<dependencies>
 		<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
 		<dependency>
@@ -44,12 +44,12 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		  </dependency>
+		</dependency>
 
-		  <dependency>
+		<dependency>
 			<groupId>jakarta.validation</groupId>
-			<artifactId>jakarta.validation-api</artifactId>
-		  </dependency>
+				<artifactId>jakarta.validation-api</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
