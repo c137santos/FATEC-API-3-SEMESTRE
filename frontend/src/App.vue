@@ -22,7 +22,7 @@
     </section>
 
     <!-- Seção de Listagem de Tags Cadastradas -->
-    <section class="tags-cadastradas">
+    <section v-if="tags.length > 0" class="tags-cadastradas">
       <h2>Tags cadastradas</h2>
       <div v-for="tag in tags" :key="tag.id" class="tag-item">
         <div class="tag-info">
@@ -30,14 +30,22 @@
           <p>{{ tag.descricao }}</p>
           <p><strong>Tags relacionadas:</strong> {{ tag.tagsRelacionadas.join(', ') }}</p>
         </div>
-        <button @click="editarTag(tag)">Editar</button>
+        <button @click="abrirModal(tag)">Editar</button>
       </div>
     </section>
+
+    <!-- Componente de Modal -->
+    <Modal v-if="isModalOpen" :tag="tagSelecionada" @fechar="fecharModal" />
   </div>
 </template>
 
 <script>
+import Modal from './components/Modal.vue';  // Certifique-se de que o caminho está correto
+
 export default {
+  components: {
+    Modal,
+  },
   data() {
     return {
       novaTag: {
@@ -50,32 +58,22 @@ export default {
         { id: 2, nome: 'Tecnologia' },
         { id: 3, nome: 'Economia' }
       ],
-      tags: [
-        {
-          id: 1,
-          nome: 'Tag 1',
-          descricao: 'Descrição da Tag 1',
-          tagsRelacionadas: ['Agricultura', 'Tecnologia']
-        },
-        {
-          id: 2,
-          nome: 'Tag 2',
-          descricao: 'Descrição da Tag 2',
-          tagsRelacionadas: ['Economia']
-        }
-      ]
+      tags: [], // Armazenará as tags vindas do banco de dados
+      isModalOpen: false,  // Estado para controlar a abertura do modal
+      tagSelecionada: null // Armazena a tag que está sendo editada
     };
+  },
+  mounted() {
+    this.carregarTags();
   },
   methods: {
     salvarTag() {
-      // Simulando a criação de uma nova tag e adicionando ao array de tags
       const novaTag = {
         id: this.tags.length + 1,
         nome: this.novaTag.nome,
         descricao: this.novaTag.descricao,
         tagsRelacionadas: [this.novaTag.tagRelacionada]
       };
-
       this.tags.push(novaTag);
 
       // Limpar o formulário
@@ -83,16 +81,30 @@ export default {
       this.novaTag.descricao = '';
       this.novaTag.tagRelacionada = '';
     },
-    editarTag(tag) {
-      // Lógica de edição da tag (aqui você pode abrir um modal ou redirecionar para outra página)
-      alert(`Editando a tag: ${tag.nome}`);
-
+    abrirModal(tag) {
+      this.tagSelecionada = tag; // Armazena a tag que será editada
+      this.isModalOpen = true;   // Abre o modal
+    },
+    fecharModal() {
+      this.isModalOpen = false;  // Fecha o modal
+      this.tagSelecionada = null; // Reseta a tag selecionada
+    },
+    async carregarTags() {
+      try {
+        // Simulação de uma chamada a uma API para buscar as tags do banco
+        const response = await fetch('/api/tags'); // Substitua pela sua rota de API real
+        const tagsDoBanco = await response.json();
+        this.tags = tagsDoBanco;
+      } catch (error) {
+        console.error('Erro ao carregar tags:', error);
+      }
     }
   }
 };
 </script>
 
 <style scoped>
+/* Seu CSS permanece o mesmo */
 .container {
   width: 80%;
   margin: auto;

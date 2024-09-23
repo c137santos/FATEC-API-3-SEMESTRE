@@ -1,35 +1,84 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+button {
+  background-color: #7e57c2;  /* Roxo */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;  /* Bordas arredondadas */
+  cursor: pointer;
+  font-size: 16px;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+button:hover {
+  background-color: #5e3ea1;  /* Cor mais escura ao passar o mouse */
+}
+input, select {
+  padding: 12px;
+  border: 2px solid #ddd;  /* Borda cinza suave */
+  border-radius: 8px;  /* Bordas arredondadas */
+  background-color: #f5f5f5;  /* Cor de fundo suave */
+  font-size: 16px;
+  width: 100%;  /* Ocupa toda a largura */
+  margin-bottom: 15px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+input:focus, select:focus {
+  outline: none;
+  border-color: #7e57c2;  /* Realce a borda ao focar */
+}
+.tag-item {
+  background-color: #f5f5f5;  /* Cor de fundo clara */
+  padding: 15px;
+  border-radius: 10px;  /* Bordas arredondadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.tag-info {
+  flex: 1;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.tag-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.tag-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+button.editar {
+  background-color: #5e3ea1;  /* Roxo mais escuro */
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+.container {
+  width: 60%;
+  margin: 0 auto;  /* Centraliza a página */
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+i {
+  color: #7e57c2;  /* Roxo para o ícone */
+  margin-right: 10px;
 }
