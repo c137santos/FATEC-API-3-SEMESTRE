@@ -3,6 +3,7 @@ package com.group.backend.service;
 import com.group.backend.repository.ApiRepository;
 import org.springframework.stereotype.Service;
 import com.group.backend.entity.ApiPublica;
+import com.group.backend.dto.ApiDto;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,12 +21,12 @@ public class ApiService {
 
     public ApiPublica salvarApi(String nome, String url) {
         ApiPublica api = new ApiPublica();
-        api.setApiNome(api_nome);
+        api.setApiNome(nome);
         api.setApiFrequencia(api_frequencia);
-        api.setApiDescricao(descricao);
-        api.setActive(active);
-        api.setUrl(url);
-        api.setPeriodoCaptura(PERIODO_CAPTURA_FIXO);
+        api.setApiDescricao(api_descricao);
+        api.setApiActive(api_active);
+        api.setApiUrl(url);
+        api.setApiPeriodoCaptura(PERIODO_CAPTURA_FIXO);
 
         // Definindo a data futura de captura com base no período
         LocalDate dataFuturaCaptura = calcularDataFuturaCaptura();
@@ -40,7 +41,7 @@ public class ApiService {
         return LocalDate.now().plusDays(1); // Se for diariamente
     }
 
-    public List<Api> listarApis() {
+    public List<ApiPublica> listarApis() {
         return apiRepository.findAll();
     }
 }
