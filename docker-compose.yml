@@ -22,19 +22,19 @@ services:
     tty: true
     network_mode: host
     environment:
-      DB_URL: cdd
-      DB_USERNAME: cdd
-      DB_PASSWORD: cdd
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
 
   postgres:
     container_name: postgresql_newfy
     image: postgres:${POSTGRES_VERSION}
     network_mode: host
     environment:
-      DB_URL: cdd
-      POSTGRES_USER: cdd
-      POSTGRES_PASSWORD: cdd
-      POSTGRES_DB: cdd
+      DB_URL: ${DB_URL}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     restart: always
     ports:
       - 5432:5432

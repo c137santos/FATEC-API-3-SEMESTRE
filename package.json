@@ -6,7 +6,7 @@
     "frontend"
   ],
   "scripts": {
-    "dev:back": "nx run backend:dev",
+    "dev:back": "echo $DB_URL && nx run backend:dev",
     "dev:front": "nx run frontend:dev",
     "dev": "nx run-many -t dev",
     "build:back": "nx run backend:build",
