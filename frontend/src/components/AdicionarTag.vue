@@ -10,8 +10,8 @@
             <input class="Campo_nome_cadastro" type="text" v-model="novaTag.tagNome" placeholder="Nome da tag">
             <input class="Campo_descricao_cadastro" type="text" v-model="novaTag.tagDescricao" placeholder="Descrição da tag">
           <div>
+            <label for="checkbox-cadastro"> Ativo</label>
             <input class="checkAtivo" type="checkbox" id="checkbox-cadastro" v-model="novaTag.tagActive">
-            <label for="checkbox-edicao"> Ativo</label>
           </div>
           <button class="botao-salvar" type="submit">Salvar</button>
           <button class="botao-cancelar" @click.prevent="cancelarCadastro">Cancelar</button>
