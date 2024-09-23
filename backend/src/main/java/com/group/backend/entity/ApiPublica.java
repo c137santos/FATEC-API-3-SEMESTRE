@@ -39,10 +39,58 @@ public class ApiPublica {
     }
     // getters and setters
 
+    private String api_nome;
+    private String api_frequencia;
+    private String api_descricao;
+    private boolean api_active;
+    private String api_url;
+
+
+    public String getApiNome() {
+        return api_nome;
+    }
+
+    public void setApiNome(String api_nome) {
+        this.api_nome = api_nome;
+    }
+
+    public String getApiFrequencia() {
+        return api_frequencia;
+    }
+
+    public void setApiFrequencia(String api_frequencia) {
+        this.api_frequencia = api_frequencia;
+    }
+
+    public String getApiDescricao() {
+        return api_descricao;
+    }
+
+    public void setApiDescricao(String api_descricao) {
+        this.api_descricao = api_descricao;
+    }
+
+    public boolean getApiActive() {
+        return api_active;
+    }
+
+    public void setApiActive(boolean api_active) {
+        this.api_active = api_active;
+    }
+
+    public String getApiUrl() {
+        return api_url;
+    }
+
+    public void setApiUrl(String api_url) {
+        this.api_url = api_url;
+    }
+}
+
     // constructors
 
     // other methods
-}
+
 
 
 
