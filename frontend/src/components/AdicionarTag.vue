@@ -5,7 +5,7 @@
           <button class="cadastrar-tag-nova" @click="toggleNovaTagForm">Cadastrar Tag</button>
 
       <div v-if="exibirNovaTagForm" class="formulario-cadastro">
-        <form @submit.prevent="validadorDadosNovaTagNovaTag">
+        <form @submit.prevent="validadorDadosNovaTag">
             <img class="imagem_logo" src="@/assets/Logo_padrao.jpeg">
             <input class="Campo_nome_cadastro" type="text" v-model="novaTag.tagNome" placeholder="Nome da tag">
             <input class="Campo_descricao_cadastro" type="text" v-model="novaTag.tagDescricao" placeholder="Descrição da tag">
@@ -26,14 +26,13 @@
     data() {
       return {
         tags: [],
-        novaTag: {tagNome: '', tagDescricao: '', tagData: '', tagActive: ''},
+        novaTag: {tagNome: '', tagDescricao: '', tagData: '', tagActive: true},
         exibirNovaTagForm: false,
         selectedTag: ''
       };
     },
     
     methods: {
-      // Cadastro das Tags
       toggleNovaTagForm() {
         this.exibirNovaTagForm = !this.exibirNovaTagForm;
       },
@@ -42,7 +41,7 @@
         const requestOptions = {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({dados: this.novaTag})
+          body: JSON.stringify(this.novaTag)
         };
         fetch('http://localhost:8080/tags/cadastrar', requestOptions)
         .then(response => response.json())
@@ -51,10 +50,12 @@
       validadorDadosNovaTag() {
         if(this.novaTag.tagNome && this.novaTag.tagDescricao) {
           const hoje = new Date().toLocaleDateString();
-          this.novaTag.tagData = hoje;
-          this.novaTag.tagActive = true;
+          const formattedDate = new Date(hoje).toISOString().split('T')[0];
+          this.novaTag.tagData = formattedDate;
           this.salvarTag();
-          this.novaTag = {tagNome: '', tagActive: true, tagDescricao: ''};
+          this.novaTag.tagDescricao = '' ;
+          this.novaTag.tagNome = '' ;
+          this.novaTag.tagData = '' ;
           this.exibirNovaTagForm = false;
         }
       },
