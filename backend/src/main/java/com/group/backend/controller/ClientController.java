@@ -1,7 +1,6 @@
 package com.group.backend.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.group.backend.entity.ApiPublica;
 import com.group.backend.service.ApiService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/apis")
 public class ClientController {
 
     private final ApiService apiService;
@@ -17,4 +16,11 @@ public class ClientController {
     public ClientController(ApiService apiService) {
         this.apiService = apiService;
     }
+
+    @PostMapping("/cadastrar")
+    public ResponseEntity<ApiPublica> cadastrarApi(@RequestBody ApiPublica apiPublica) {
+        ApiPublica novaApi = apiService.cadastrarApiPublica(apiPublica);
+        return ResponseEntity.ok(novaApi);
+    }
+
 }

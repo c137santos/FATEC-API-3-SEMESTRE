@@ -2,7 +2,6 @@ package com.group.backend.entity;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
-
 @Entity
 @Table(name = "api_publica")
 public class ApiPublica {
@@ -26,7 +25,79 @@ public class ApiPublica {
 
     @Column(name = "api_url", length = 2048)
     private String url;
-    
+
+    @Column(name = "api_proximo_data_crawl")
+    private LocalDate dataFuturaCaptura;
+
+    // Construtores, getters e setters
+
+    public ApiPublica() {}
+
+    public ApiPublica(String nome, String frequencia, String descricao, Boolean active, String url, LocalDate dataFuturaCaptura) {
+        this.nome = nome;
+        this.frequencia = frequencia;
+        this.descricao = descricao;
+        this.active = active;
+        this.url = url;
+        this.dataFuturaCaptura = dataFuturaCaptura;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getFrequencia() {
+        return frequencia;
+    }
+
+    public void setFrequencia(String frequencia) {
+        this.frequencia = frequencia;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public LocalDate getDataFuturaCaptura() {
+        return dataFuturaCaptura;
+    }
+
+    public void setDataFuturaCaptura(LocalDate dataFuturaCaptura) {
+        this.dataFuturaCaptura = dataFuturaCaptura;
+    }
+
     @Override
     public String toString() {
         return "ApiPublica{" +
@@ -36,91 +107,7 @@ public class ApiPublica {
                 ", descricao='" + descricao + '\'' +
                 ", active=" + active +
                 ", url='" + url + '\'' +
+                ", dataFuturaCaptura=" + dataFuturaCaptura +
                 '}';
     }
-    // getters and setters
-
-    private String api_nome;
-    private String api_frequencia;
-    private String api_descricao;
-    private boolean api_active;
-    private String api_url;
-    private String api_periodo;
-    private LocalDate dataFuturaCaptura;
-
-
-    public String getApiNome() {
-        return api_nome;
-    }
-
-    public void setApiNome(String api_nome) {
-        this.api_nome = api_nome;
-    }
-
-    public String getApiFrequencia() {
-        return api_frequencia;
-    }
-
-    public void setApiFrequencia(String api_frequencia) {
-        this.api_frequencia = api_frequencia;
-    }
-
-    public String getApiDescricao() {
-        return api_descricao;
-    }
-
-    public void setApiDescricao(String api_descricao) {
-        this.api_descricao = api_descricao;
-    }
-
-    public boolean getApiActive() {
-        return api_active;
-    }
-
-    public void setApiActive(boolean api_active) {
-        this.api_active = api_active;
-    }
-
-    public String getApiUrl() {
-        return api_url;
-    }
-
-    public void setApiUrl(String api_url) {
-        this.api_url = api_url;
-    }
-
-    public String getApiPeriodoCaptura() {
-        return api_periodo;
-    }
-
-    public void setApiPeriodoCaptura(String api_periodo) {
-        this.api_periodo = api_periodo;
-    }
-
-    public LocalDate getdataFuturaCaptura() {
-        return dataFuturaCaptura;
-    }
-
-    public void setDataFuturaCaptura(LocalDate dataFuturaCaptura) {
-        this.dataFuturaCaptura = dataFuturaCaptura;
-    }
 }
-
-
-
-    // constructors
-
-    // other methods
-
-
-
-
-// CREATE TABLE public.api_publica (
-//     api_id SERIAL PRIMARY KEY,
-//     api_nome VARCHAR(255) NOT NULL,
-//     api_frequencia VARCHAR(255) NOT NULL,
-//     api_proximo_data_crawl DATE,
-//     descricao TEXT,
-//     api_active BOOLEAN,
-//     api_url VARCHAR(2048)
-// );
