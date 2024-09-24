@@ -9,6 +9,7 @@
     "dev:back": "echo $DB_URL && nx run backend:dev",
     "dev:front": "nx run frontend:dev",
     "dev": "nx run-many -t dev",
+    "up-mock-api": "node ./mock/api/index.js",
     "build:back": "nx run backend:build",
     "build:front": "nx run frontend:build",
     "build": "npm run build:front; cp ./frontend/dist/* ./backend/src/main/resources/static; npm run build:back",
@@ -29,7 +30,8 @@
     "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.9.0",
     "nx": "^19.6.1",
-    "typescript-eslint": "^8.5.0"
+    "typescript-eslint": "^8.5.0",
+    "express": "^4.19.2"
   },
   "dependencies": {
     "axios": "^1.7.7",
