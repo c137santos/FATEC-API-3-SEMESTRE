@@ -50,6 +50,7 @@ Siga as instruções do Contributing!
 6. Indicação de tags que estão relacionadas
 7. Tela de consulta de notícias, com filtros de pesquisa
 8. Tela de APIs, com filtros de pesquisa
+9. Deve ser possível relacionar tags com regionalismos.
 
 # Backlog
 
@@ -60,15 +61,16 @@ Siga as instruções do Contributing!
 | 3   | Sprint 1   | Como um administrador, eu quero cadastrar tags, para que as notícias possam ser classificadas e relacionadas.                                       | Média      | Pendente | 3          |
 | 4   | Sprint 1   | Como um administrador, eu quero editar tags, para que eu possa atualizar informações previamente cadastradas.                                       | Média      | Pendente | 3          |
 | 5   | Sprint 1   | Como um administrador, eu quero desativar tags, para que tags obsoletas não fiquem disponíveis no sistema.                                          | Baixa      | Pendente | 3          |
-| 6   | Sprint 2   | Como um administrador, eu quero ver todos os portais de notícias cadastrados, para que eu possa analisar quais dados serão buscados.                | Alta       | Pendente | 1          |
-| 7   | Sprint 2   | Como um administrador, eu quero relacionar tags com outras tags, para que seja possível construir uma rede de informações estruturadas.             | Média      | Pendente | 6          |
-| 8   | Sprint 2   | Como um administrador, eu quero cadastrar portais de notícias, para que eu possa gerenciar as fontes de onde as notícias serão capturadas.          | Alta       | Pendente | 1          |
-| 9   | Sprint 2   | Como um administrador, eu quero editar portais de notícias, para que eu possa atualizar os dados de um portal.                                      | Média      | Pendente | 1          |
-| 10  | Sprint 2   | Como um administrador, eu quero capturar notícias de portais previamente cadastrados, para que as informações sejam armazenadas no banco de dados.  | Alta       | Pendente | 5 , 4         |
-| 11  | Sprint 3   | Como um administrador, eu quero editar APIs de terceiros, para que eu possa atualizar as informações.                                               | Média      | Pendente | 2          |
-| 12  | Sprint 3   | Como um administrador, eu quero consultar APIs cadastradas, para que eu possa gerenciar e verificar a integração com as fontes de dados.            | Média      | Pendente | 8          |
-| 13  | Sprint 4   | Como um usuário, eu quero consultar notícias por meio de uma tela com filtros de pesquisa, para que eu possa encontrar notícias relevantes.         | Alta       | Pendente | 7          |
-| 14  | Sprint 4   | Como um usuário, eu quero visualizar as tags relacionadas a uma notícia, para que eu possa entender melhor o contexto do conteúdo.                  | Baixa      | Pendente | 6          |
+| 6   | Sprint 2   |  Como um administrador, eu quero relacionar tags com regionalismos, para que seja possível buscar notícias relevantes de várias regiões do Brasil.               | Alta       | Pendente | 9          |
+| 7   | Sprint 2   | Como um administrador, eu quero ver todos os portais de notícias cadastrados, para que eu possa analisar quais dados serão buscados.                | Alta       | Pendente | 1          |
+| 8   | Sprint 2   | Como um administrador, eu quero relacionar tags com outras tags, para que seja possível construir uma rede de informações estruturadas.             | Média      | Pendente | 6          |
+| 9   | Sprint 2   | Como um administrador, eu quero cadastrar portais de notícias, para que eu possa gerenciar as fontes de onde as notícias serão capturadas.          | Alta       | Pendente | 1          |
+| 10   | Sprint 2   | Como um administrador, eu quero editar portais de notícias, para que eu possa atualizar os dados de um portal.                                      | Média      | Pendente | 1          |
+| 11  | Sprint 2   | Como um administrador, eu quero capturar notícias de portais previamente cadastrados, para que as informações sejam armazenadas no banco de dados.  | Alta       | Pendente | 5 , 4         |
+| 12  | Sprint 3   | Como um administrador, eu quero editar APIs de terceiros, para que eu possa atualizar as informações.                                               | Média      | Pendente | 2          |
+| 13  | Sprint 3   | Como um administrador, eu quero consultar APIs cadastradas, para que eu possa gerenciar e verificar a integração com as fontes de dados.            | Média      | Pendente | 8          |
+| 14  | Sprint 4   | Como um usuário, eu quero consultar notícias por meio de uma tela com filtros de pesquisa, para que eu possa encontrar notícias relevantes.         | Alta       | Pendente | 7          |
+| 15  | Sprint 4   | Como um usuário, eu quero visualizar as tags relacionadas a uma notícia, para que eu possa entender melhor o contexto do conteúdo.                  | Baixa      | Pendente | 6          |
 
 ## Tecnologias, linguagens de programação e ferramentas utilizadas:
 ![image](/img/tecnologias_e_ferramentas.png)

@@ -105,6 +105,18 @@
     - As notícias duplicadas (já capturadas previamente) devem ser identificadas e ignoradas, evitando duplicação no banco de dados.
     - O sistema deve ser otimizado para capturar e armazenar grandes volumes de notícias de maneira eficiente, minimizando o impacto no desempenho do sistema.
 
+- **Como** um administrador, **eu quero** relacionar tags com regionalismos, **para que** seja possível buscar notícias relevantes de várias regiões do Brasil.
+    
+    Critérios de aceitação:
+    
+    - O sistema deve permitir que sejam cadastrados regionalismos ligados a uma tag.
+    - O regionalismo deve ser cadastrado com as seguintes informações:
+        - **nome do regionalismo**
+        - **tag relacionada**
+    - Deve ser possível editar o regionalismo.
+    - Deve ser listado todas as tags com regionalismos.
+
+
 ## Sprint 3
 
 - **Como** um administrador, **eu quero** Editar APIs de terceiros, para que eu possa editar as infomações de onde os dados estão vindo.
