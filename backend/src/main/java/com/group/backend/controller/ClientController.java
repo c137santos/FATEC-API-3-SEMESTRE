@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/apis")
+@RequestMapping("/apis/cadastrar")
+@CrossOrigin(origins = "*")
 public class ClientController {
 
     private final ApiService apiService;
@@ -17,10 +18,12 @@ public class ClientController {
         this.apiService = apiService;
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping
     public ResponseEntity<ApiPublica> cadastrarApi(@RequestBody ApiPublica apiPublica) {
         ApiPublica novaApi = apiService.cadastrarApiPublica(apiPublica);
         return ResponseEntity.ok(novaApi);
     }
+
+    
 
 }
