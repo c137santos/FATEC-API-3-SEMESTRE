@@ -12,6 +12,10 @@
           <div>
             <label for="checkbox-cadastro"> Ativo</label>
             <input class="checkAtivo" type="checkbox" id="checkbox-cadastro" v-model="novaTag.tagActive">
+            
+            <div v-if="checkAtivo = false" class="checkInativo">
+                <form @submit.prevent="validadorDadosNovaTag"></form>
+            </div>
           </div>
           <button class="botao-salvar" type="submit">Salvar</button>
           <button class="botao-cancelar" @click.prevent="cancelarCadastro">Cancelar</button>
@@ -96,6 +100,10 @@ h2 {
 /* Checkbox do Ativo da tag */
 .checkbox {
   margin-top: 20px;
+}
+
+.checkInativo {
+
 }
 
 /* Imagem que é o ícone do lado das tags */
