@@ -4,7 +4,7 @@
     <AdicionarTag @nova-tag="adicionarTag" />
 
     <!-- Componente para listar as tags -->
-    <ListaTags :tags="tags" @editar-tag="iniciarEdicao" @excluir-tag="excluirTag" />
+    <ListaTags :tags="tags" @editar-tag="iniciarEdicao" />
 
     <!-- Modal para editar uma tag selecionada -->
     <ModalEdicaoTag v-if="tagEmEdicao" :tag="tagEmEdicao" @salvar-edicao="salvarEdicao" @fechar="fecharModal" />
@@ -54,18 +54,33 @@ export default {
       this.tagEmEdicao = { ...tag };  // Copia a tag para edição
     },
 
-    // Salva as alterações feitas na tag
-    salvarEdicao(tagEditada) {
-      const index = this.tags.findIndex(tag => tag.id === tagEditada.id);
-      if (index !== -1) {
-        this.tags.splice(index, 1, tagEditada);  // Atualiza a tag na lista
-      }
-      this.fecharModal();  // Fecha o modal após salvar
-    },
+    // Salva as alterações feitas na tag e envia ao backend
+    async salvarEdicao(tagEditada) {
+      try {
+        const tagId = tagEditada.tagId; // Usar tagId consistentemente
+        const response = await fetch(`http://localhost:8080/tags/editar/${tagId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(tagEditada)
+        });
 
-    // Remove uma tag da lista
-    excluirTag(tagId) {
-      this.tags = this.tags.filter(tag => tag.id !== tagId);  // Remove a tag pela ID
+        if (response.ok) {
+          const tagAtualizada = await response.json();
+          const index = this.tags.findIndex(tag => tag.tagId === tagAtualizada.tagId);
+          if (index !== -1) {
+            this.tags.splice(index, 1, tagAtualizada);  // Atualiza a tag na lista
+          }
+          this.fecharModal();  // Fecha o modal após salvar
+        } else {
+          alert('Erro ao salvar a tag. Tente novamente.');
+          console.error('Erro ao salvar a tag:', response.statusText);
+        }
+      } catch (error) {
+        alert('Erro ao salvar a tag. Tente novamente.');
+        console.error('Erro ao salvar a tag:', error);
+      }
     },
 
     // Fecha o modal de edição
