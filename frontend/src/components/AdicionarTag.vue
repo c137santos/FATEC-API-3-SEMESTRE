@@ -26,7 +26,7 @@
     data() {
       return {
         tags: [],
-        novaTag: {tagNome: '', tagDescricao: '', tagActive: false},
+        novaTag: {tagNome: '', tagDescricao: '', tagActive: true},
         exibirNovaTagForm: false,
         selectedTag: ''
       };
@@ -52,13 +52,13 @@
           this.salvarTag();
           this.novaTag.tagDescricao = '' ;
           this.novaTag.tagNome = '' ;
-          this.novaTag.tagActive = false;
+          this.novaTag.tagActive = true;
           this.exibirNovaTagForm = false;
         }
       },
   
       cancelarCadastro() {
-        this.novaTag = {tagNome: '', tagActive: false, tagDescricao: ''};
+        this.novaTag = {tagNome: '', tagActive: true, tagDescricao: ''};
         this.exibirNovaTagForm = false;
       }
     }
@@ -98,6 +98,7 @@ h2 {
 .checkbox {
   margin-top: 20px;
 }
+
 
 /* Imagem que é o ícone do lado das tags */
 .imagem_logo {
