@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import com.group.backend.domain.DadosAtualizarTag;
+import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,7 @@ public class TagController {
 
     // Endpoint para cadastrar tags
     @PostMapping("/cadastrar")
+    @Transactional
     public ResponseEntity<Tag> cadastrarTag(@RequestBody DadosCadastroTag dados) {
         Tag novaTag = new Tag();
         novaTag.setTagNome(dados.tagNome());
@@ -51,7 +54,8 @@ public class TagController {
 
     // Endpoint para editar uma tag existente
     @PutMapping("/editar/{id}")
-    public ResponseEntity<Tag> editarTag(@PathVariable Long id, @RequestBody DadosCadastroTag dados) {
+    @Transactional
+    public ResponseEntity<Tag> editarTag(@PathVariable Long id, @RequestBody DadosAtualizarTag dados) {
         Optional<Tag> tagExistente = tagRepository.findById(id);
 
         if (tagExistente.isPresent()) {
