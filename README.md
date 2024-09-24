@@ -1,3 +1,6 @@
+![image](/img/equipe_cerberus.png)
+
+
 ## Desafio 
 Desenvolver uma ferramenta para captura e armazenamento de notícias estratégicas de portais e dados relevantes de API Públicas, para possibilidade de futuras análises usando IA.
 
@@ -8,31 +11,11 @@ Descrição: Este desafio propõe a criação de um sistema web para mapear port
 | Sprints | Início | Fim |
 | ------- | ------ | --- |
 | Kick-off geral| 26/08/2024 | 30/08/2024|
-| 1ª sprint | 09/09/2024 | 06/09/2024 |
+| 1ª sprint | 09/09/2024 | 29/09/2024 |
 | 2ª sprint | 30/09/2024 | 20/10/2024 |
 | 3ª sprint | 21/10/2024 | 10/11/2024 |
 | 4ª sprint | 11/11/2024 | 01/12/2024 |
 | Feira de Soluções | 12/12/2024 |
-
-| **Sprint** | **Feature** |
-|------------|-------------|
-| Sprint 1 | Cadastrar APIs de terceiros. |
-| Sprint 1 | Capturar dados de APIs cadastradas. |
-| Sprint 1 | Cadastrar tags para notícias. |
-| Sprint 1 | Editar tags cadastradas. |
-| Sprint 1 | Excluir tags obsoletas. |
-| Sprint 1 | Relacionar tags entre si. Solucionando o regionalismo |
-| Sprint 2 | Ver todos os portais de notícias cadastrados. |
-| Sprint 2 | Cadastrar portais de notícias. |
-| Sprint 2 | Editar portais de notícias. |
-| Sprint 2 | Editar APIs de terceiros. |
-| Sprint 2 | Consultar APIs cadastradas com filtros. |
-| Sprint 3 | Cadastrar jornalistas. |
-| Sprint 3 | Editar informações de jornalistas cadastrados. |
-| Sprint 3 | Excluir jornalistas obsoletos. |
-| Sprint 3 | Capturar notícias de portais cadastrados. |
-| Sprint 4 | Consultar notícias com filtros de pesquisa. |
-| Sprint 4 | Visualizar tags relacionadas a uma notícia. |
 
 
 ### 🤖 Priorização das Sprints
@@ -46,28 +29,53 @@ Siga as instruções do Contributing!
 
 [Contributing](.github/CONTRIBUTING.md)
 
+# Requisitos Não Funcionais
+• Prever um grande volume de notícias armazenadas
+• Utilizar softwares livres
+• Manual do Usuário
+• Guia de instalação
+• Java (linguagem de programação, frameworks e APIs)
+• Documentação API – Application Programming Interface com OpenID
+• Modelagem de Banco de Dados ou Arquivo de dados.
+• Deverá ser uma aplicação web.
+• O front-end deve ser desenvolvido de forma minimalista.
 
-## Descrição das user stories feitas por sprint
-| **Sprint** | **História** |
-|------------|--------------|
-| Sprint 1 | **Como** um administrador, **eu quero** cadastrar APIs de terceiros, **para que** eu possa integrar e coletar dados de notícias de diferentes fontes. |
-| Sprint 1 | **Como** um administrador, **eu quero** capturar dados de APIs previamente cadastradas, **para que** as informações sejam armazenadas no banco de dados. |
-| Sprint 1 | **Como** um administrador, **eu quero** cadastrar tags, **para que** as notícias possam ser classificadas e relacionadas de forma eficaz. |
-| Sprint 1 | **Como** um administrador, **eu quero** editar tags, **para que** eu possa atualizar informações previamente cadastradas. |
-| Sprint 1 | **Como** um administrador, **eu quero** excluir tags, considerando que tags podem ficar obsoletas. |
-| Sprint 1 | **Como** um administrador, **eu quero** relacionar tags com outras tags, **para que** seja possível construir uma rede de informações estruturadas. |
-| Sprint 2 | **Como** um administrador, **eu quero** ver todos os portais de notícias cadastrados, **para que** eu possa analisar quais dados serão buscados. |
-| Sprint 2 | **Como** um administrador, **eu quero** cadastrar portais de notícias, **para que** eu possa gerenciar as fontes. |
-| Sprint 2 | **Como** um administrador, **eu quero** editar portais de notícias, **para que** eu possa atualizar os dados de um portal. |
-| Sprint 2 | **Como** um administrador, **eu quero** Editar APIs de terceiros, **para que** eu possa editar as informações de onde os dados estão vindo. |
-| Sprint 2 | **Como** um administrador, **eu quero** consultar as APIs cadastradas por meio de uma tela com filtros de pesquisa. |
-| Sprint 3 | **Como** um administrador, **eu quero** cadastrar jornalistas, **para que** seja possível associar notícias aos seus autores. |
-| Sprint 3 | **Como** um administrador, **eu quero** editar informações dos jornalistas cadastrados, **para que** eu possa manter o registro atualizado. |
-| Sprint 3 | **Como** um administrador, **eu quero** excluir determinado jornalista cadastrado, **para que** eu possa remover jornalistas obsoletos. |
-| Sprint 3 | **Como** um administrador, **eu quero** capturar notícias de portais previamente cadastradas, **para que** as informações sejam armazenadas. |
-| Sprint 4 | **Como** um usuário, **eu quero** consultar notícias por meio de uma tela com filtros de pesquisa, **para que** eu possa encontrar notícias relevantes rapidamente. |
-| Sprint 4 | **Como** um usuário, **eu quero** visualizar as tags que estão relacionadas a uma notícia, **para que** eu possa entender melhor o contexto. |
+# Requisitos Funcionais
 
+1. Cadastro de Portais de notícias
+2. Cadastro de APIs
+3. Cadastro de Tags
+4. Cadastro de Jornalistas 
+5. Processo de web scraping (capturar os dados de notícias e APIs e armazenar em banco de dados)
+6. Indicação de tags que estão relacionadas
+7. Tela de consulta de notícias, com filtros de pesquisa
+8. Tela de APIs, com filtros de pesquisa
+9. Deve ser possível relacionar tags com regionalismos.
+
+# Backlog
+
+| Nº  | Sprint     | User Story                                                                                                                                         | Prioridade | Status   | Requisitos |
+|-----|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------|----------|------------|
+| 1   | Sprint 1   | Como um administrador, eu quero cadastrar APIs de terceiros, para que eu possa integrar e coletar dados de notícias de diferentes fontes.           | Alta       | Pendente | 2          |
+| 2   | Sprint 1   | Como um administrador, eu quero capturar dados de APIs previamente cadastradas, para que as informações sejam armazenadas no banco de dados.        | Alta       | Pendente | 5          |
+| 3   | Sprint 1   | Como um administrador, eu quero cadastrar tags, para que as notícias possam ser classificadas e relacionadas.                                       | Média      | Pendente | 3          |
+| 4   | Sprint 1   | Como um administrador, eu quero editar tags, para que eu possa atualizar informações previamente cadastradas.                                       | Média      | Pendente | 3          |
+| 5   | Sprint 1   | Como um administrador, eu quero desativar tags, para que tags obsoletas não fiquem disponíveis no sistema.                                          | Baixa      | Pendente | 3          |
+| 6   | Sprint 2   |  Como um administrador, eu quero relacionar tags com regionalismos, para que seja possível buscar notícias relevantes de várias regiões do Brasil.               | Alta       | Pendente | 9          |
+| 7   | Sprint 2   | Como um administrador, eu quero ver todos os portais de notícias cadastrados, para que eu possa analisar quais dados serão buscados.                | Alta       | Pendente | 1          |
+| 8   | Sprint 2   | Como um administrador, eu quero cadastrar portais de notícias, para que eu possa gerenciar as fontes de onde as notícias serão capturadas.          | Alta       | Pendente | 1          |
+| 9   | Sprint 2   | Como um administrador, eu quero editar portais de notícias, para que eu possa atualizar os dados de um portal.                                      | Média      | Pendente | 1          |
+| 10  | Sprint 2   | Como um administrador, eu quero capturar notícias de portais previamente cadastrados, para que as informações sejam armazenadas no banco de dados.  | Alta       | Pendente | 5 , 4         |
+| 11  | Sprint 3   | Como um administrador, eu quero editar APIs de terceiros, para que eu possa atualizar as informações.                                               | Média      | Pendente | 2          |
+| 12  | Sprint 3   | Como um administrador, eu quero consultar APIs cadastradas, para que eu possa gerenciar e verificar a integração com as fontes de dados.            | Média      | Pendente | 8          |
+| 13  | Sprint 4   | Como um usuário, eu quero consultar notícias por meio de uma tela com filtros de pesquisa, para que eu possa encontrar notícias relevantes.         | Alta       | Pendente | 7          |
+| 14  | Sprint 4   | Como um usuário, eu quero visualizar as tags relacionadas a uma notícia, para que eu possa entender melhor o contexto do conteúdo.                  | Baixa      | Pendente | 6          |
+
+## Tecnologias, linguagens de programação e ferramentas utilizadas:
+![image](/img/tecnologias_e_ferramentas.png)
+
+## Design telas:
+[Design telas](documentação/design_telas.pdf)
 
 ## Estruturação do Banco 
 
@@ -80,6 +88,8 @@ Siga as instruções do Contributing!
 
 ## Burndown do projeto
 
+[Burdown da 1º sprint](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXRHVQpU5eI4LoDabcDIMd5JyNLnffdLF4DwnGZlrQGtpdmEBwshaBsn3KOH8GVLW6xHc2C3y7cMRR/pubhtml)
+
 ## Equipe
 
 | Integrante | LinkedIn |
@@ -87,8 +97,9 @@ Siga as instruções do Contributing!
 | Clara Santos ![Static Badge](https://img.shields.io/badge/Scrum_master-pink)  ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/c137santos/) |
 | Marília Borgo ![Static Badge](https://img.shields.io/badge/Product_owner-blue) ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mariliaborgo/) |
 | Matheus Marciano ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/matheus-marciano-leite/) |
-| Christiane Lima Alvares ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cristiane-alvares/) |
+| Cristiane Lima Alvares ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cristiane-alvares/) |
 | Guilherme Bezerra Junqueira ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-bezerra-a01035170/) |
 | Pedro Henrique Lopes de Souza ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pelopes7/) |
 | Yan Costa Yamim ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yan-yamim-185220278/) |
+| Eduardo da Silva Lima ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/edu-datamarketing/) |
 
