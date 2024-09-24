@@ -1,5 +1,6 @@
 package com.group.backend.entity;
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 
 @Entity
@@ -45,6 +46,7 @@ public class ApiPublica {
     private boolean api_active;
     private String api_url;
     private String api_periodo;
+    private LocalDate dataFuturaCaptura;
 
 
     public String getApiNome() {
@@ -93,6 +95,14 @@ public class ApiPublica {
 
     public void setApiPeriodoCaptura(String api_periodo) {
         this.api_periodo = api_periodo;
+    }
+
+    public LocalDate getdataFuturaCaptura() {
+        return dataFuturaCaptura;
+    }
+
+    public void setDataFuturaCaptura(LocalDate dataFuturaCaptura) {
+        this.dataFuturaCaptura = dataFuturaCaptura;
     }
 }
 

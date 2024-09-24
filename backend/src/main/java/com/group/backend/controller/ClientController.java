@@ -3,7 +3,6 @@ package com.group.backend.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.group.backend.service.ApiService;
-import com.group.backend.dto.ApiDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
