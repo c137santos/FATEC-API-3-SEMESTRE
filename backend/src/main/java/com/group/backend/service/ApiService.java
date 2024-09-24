@@ -19,14 +19,14 @@ public class ApiService {
         this.apiRepository = apiRepository;
     }
 
-    public ApiPublica salvarApi(String nome, String url) {
+    public ApiPublica salvarApi(String api_nome, String api_frequencia, String api_descricao, boolean api_active, String api_url, String periodo) {
         ApiPublica api = new ApiPublica();
-        api.setApiNome(nome);
+        api.setApiNome(api_nome);
         api.setApiFrequencia(api_frequencia);
         api.setApiDescricao(api_descricao);
         api.setApiActive(api_active);
-        api.setApiUrl(url);
-        api.setApiPeriodoCaptura(PERIODO_CAPTURA_FIXO);
+        api.setApiUrl(api_url);
+        api.setApiPeriodoCaptura(periodo);
 
         // Definindo a data futura de captura com base no período
         LocalDate dataFuturaCaptura = calcularDataFuturaCaptura();
@@ -37,8 +37,15 @@ public class ApiService {
 
     // Calcula a data futura de captura com base no período
     
-        private LocalDate calcularDataFuturaCaptura() {
-        return LocalDate.now().plusDays(1); // Se for diariamente
+    public LocalDate calcularDataFuturaCaptura(String periodo) {
+        switch (periodo.toLowerCase()) {
+            case "semanalmente":
+                return LocalDate.now().plusWeeks(1);
+            case "mensalmente":
+                return LocalDate.now().plusMonths(1);
+            default: // Considera o padrão como "diariamente"
+                return LocalDate.now().plusDays(1);
+        }
     }
 
     public List<ApiPublica> listarApis() {

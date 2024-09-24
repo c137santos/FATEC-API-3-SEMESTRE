@@ -44,6 +44,7 @@ public class ApiPublica {
     private String api_descricao;
     private boolean api_active;
     private String api_url;
+    private String api_periodo;
 
 
     public String getApiNome() {
@@ -84,6 +85,14 @@ public class ApiPublica {
 
     public void setApiUrl(String api_url) {
         this.api_url = api_url;
+    }
+
+    public String getApiPeriodoCaptura() {
+        return api_periodo;
+    }
+
+    public void setApiPeriodoCaptura(String api_periodo) {
+        this.api_periodo = api_periodo;
     }
 }
 

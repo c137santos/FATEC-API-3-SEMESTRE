@@ -1,11 +1,11 @@
 package com.group.backend.dto;
 
 public class ApiDto {
-    private String nome;
-    private String frequencia;
-    private String descricao;
-    private boolean active;
-    private String url;
+    public String nome;
+    public String frequencia;
+    public String descricao;
+    public boolean active;
+    public String url;
 
 
     public String getNome() {
@@ -47,4 +47,5 @@ public class ApiDto {
     public void setUrl(String url) {
         this.url = url;
     }
+
 }
