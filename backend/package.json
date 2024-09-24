@@ -2,10 +2,10 @@
   "name": "backend",
   "main": "index.js",
   "scripts": {
-    "dev": "./mvnw clean spring-boot:run",
-    "build": "./mvnw clean package",
-    "bump": "./mvnw versions:set",
-    "clear-bump": "./mvnw versions:commit"
+    "dev": "mvnw.cmd clean spring-boot:run",
+    "build": "mvnw.cmd clean package",
+    "bump": "mvnw.cmd versions:set",
+    "clear-bump": "mvnw.cmd versions:commit"
   },
   "author": "",
   "license": "ISC",
