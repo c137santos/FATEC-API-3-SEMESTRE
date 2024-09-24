@@ -26,6 +26,9 @@ public class Cron {
 	public Cron(ApiPublicaRepository apiPublicaRepository, ResultApiRepository resultApiRepository) {
 		this.apiPublicaRepository = apiPublicaRepository;
 		this.resultApiRepository = resultApiRepository;
+		dailyAPIRegisterSchedule();
+		weeklyAPIRegisterSchedule();
+		monthlyAPIRegisterSchedule();
 	}
 
 	public ResultApi saveNew (ApiPublica api, String data) {
@@ -63,18 +66,18 @@ public class Cron {
 		}
 	}
 
-	@Scheduled(fixedRateString = "PT5.0S")
+	@Scheduled(cron="0 0 * * * ?")
 	public void dailyAPIRegisterSchedule() {
 		apiRegister(apiPublicaRepository.getDailyList());
 	}
 
-	@Scheduled(fixedRateString = "PT10.0S")
+	@Scheduled(cron="0 0 0 * * MON")
 	public void weeklyAPIRegisterSchedule() {
 		apiRegister(apiPublicaRepository.getWeeklyList());
 	}
 
-	@Scheduled(fixedRateString = "PT20.0S")
-	public void monthlyAPIRegister() {
+	@Scheduled(cron = "0 0 1 * * ?")
+	public void monthlyAPIRegisterSchedule() {
 		apiRegister(apiPublicaRepository.getMonthlyList());
 	}
 }
