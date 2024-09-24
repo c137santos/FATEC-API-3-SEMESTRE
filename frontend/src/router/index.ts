@@ -1,7 +1,8 @@
-import ApisView from '@/views/ApisView.vue';
-import HomeView from '@/views/HomeView.vue';
-import PortaisView from '@/views/PortaisView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '@/views/HomeView.vue'; 
+import TagsView from '@/views/TagsView.vue'; 
+import PortaisView from '@/views/PortaisView.vue';
+import ApisView from '@/views/ApisView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +19,7 @@ const router = createRouter({
     {
       path: '/tags',
       name: 'tags',
-      component: () => import('../views/TagView.vue')
+      component: TagsView 
     },
     {
       path: '/portais',
