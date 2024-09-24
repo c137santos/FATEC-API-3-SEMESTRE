@@ -26,7 +26,7 @@
     data() {
       return {
         tags: [],
-        novaTag: {tagNome: '', tagDescricao: '', tagData: '', tagActive: true},
+        novaTag: {tagNome: '', tagDescricao: '', tagActive: true},
         exibirNovaTagForm: false,
         selectedTag: ''
       };
@@ -49,13 +49,9 @@
   
       validadorDadosNovaTag() {
         if(this.novaTag.tagNome && this.novaTag.tagDescricao) {
-          const hoje = new Date().toLocaleDateString();
-          const formattedDate = new Date(hoje).toISOString().split('T')[0];
-          this.novaTag.tagData = formattedDate;
           this.salvarTag();
           this.novaTag.tagDescricao = '' ;
           this.novaTag.tagNome = '' ;
-          this.novaTag.tagData = '' ;
           this.exibirNovaTagForm = false;
         }
       },

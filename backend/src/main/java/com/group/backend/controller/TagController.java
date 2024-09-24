@@ -1,5 +1,7 @@
 package com.group.backend.controller;
 
+import java.util.Date;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +29,8 @@ public class TagController {
         novaTag.setTagNome(dados.tagNome());
         novaTag.setTagDescricao(dados.tagDescricao());
         novaTag.setTagActive(dados.tagActive());
-        novaTag.setTagData(dados.tagData());
+        Date today = new Date();
+        novaTag.setTagData(today);
 
         Tag tagSalva = tagRepository.save(novaTag);
         return ResponseEntity.ok(tagSalva);
