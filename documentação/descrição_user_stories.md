@@ -60,23 +60,7 @@
         - **URL do Portal**: Exibida como uma coluna ou campo adicional.
         - **Status (Ativo/Inativo)**: Exibido claramente, com uma indicação visual (e.g., cor ou ícone) que diferencie portais ativos de inativos.
         - **Data de Cadastro**: Exibida em uma coluna para permitir análise do histórico.
-- Como um administrador eu quero poder relacionar tags com outras tags, para que seja possível construir uma rede de informações estruturadas.
-    
-    Critérios de aceitação:
-    
-    - A partir da tela de edição de tags deve-se ser possível escolher em uma lista de tags quais tags serão relacionadas.
-    - Uma tag pode ser relacionada com uma, nenhuma ou várias tags.
-- **Como** um administrador, **eu quero** cadastrar portais de notícias, **para que** eu possa gerenciar as fontes de onde as notícias serão capturadas.
-    
-    Critérios de aceitação:
-    
-    - O formulário de cadastro deve conter os seguintes campos obrigatórios:
-        - **Nome do Portal**: Campo de texto.
-        - **URL do Portal**: Campo de texto que aceita apenas URLs válidas.
-        - **Status Ativo/Inativo**: Campo de seleção ou checkbox para definir se o portal está ativo.
-    - A data de criação do portal, deve ser salvo automaticamente a partir da confirmação do usuário.
-    - O botão de "Salvar" deve estar presente e ativado apenas se todos os campos obrigatórios estiverem preenchidos corretamente.
-    - O botão de "Cancelar" deve estar disponível para permitir ao usuário descartar as alterações e retornar à lista de portais sem salvar.
+
 - **Como** um administrador, **eu quero** editar portais de notícias, para que eu possa atualizar os dados de um determinado portal.
     
     Critérios de aceitação:
