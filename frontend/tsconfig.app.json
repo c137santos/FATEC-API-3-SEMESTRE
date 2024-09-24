@@ -5,10 +5,13 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vue", "node"],  // Incluindo suporte para Vue e Node types
+    "moduleResolution": "node", // Certifica-se de que o TypeScript encontre os módulos corretamente
+    "esModuleInterop": true,  // Habilita a interoperabilidade entre CommonJS e ES Modules
+    "strict": true  // Ativa o modo estrito para um código mais seguro
   }
 }

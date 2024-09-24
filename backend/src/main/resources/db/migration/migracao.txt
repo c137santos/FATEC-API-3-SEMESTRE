@@ -1,0 +1,80 @@
+CREATE TABLE public.api_publica (
+    api_id SERIAL PRIMARY KEY,
+    api_nome VARCHAR(255) NOT NULL,
+    api_frequencia VARCHAR(255) NOT NULL,
+    api_proximo_data_crawl DATE,
+    descricao TEXT,
+    api_active BOOLEAN,
+    api_url VARCHAR(2048)
+);
+
+CREATE TABLE public.result_api (
+    res_id SERIAL PRIMARY KEY,
+    api_id INTEGER,
+    res_data DATE,
+    res_payload JSON,
+    FOREIGN KEY (api_id) REFERENCES public.api_publica(api_id)
+);
+
+CREATE TABLE public.tag (
+    tag_id SERIAL PRIMARY KEY,
+    tag_nome VARCHAR(30) NOT NULL,
+    tag_descricao VARCHAR(250),
+    tag_data DATE,
+    tag_active BOOLEAN
+);
+
+CREATE TABLE public.tag_api (
+    api_id INTEGER,
+    tag_id INTEGER,
+    PRIMARY KEY (api_id, tag_id),
+    FOREIGN KEY (api_id) REFERENCES public.api_publica(api_id),
+    FOREIGN KEY (tag_id) REFERENCES public.tag(tag_id)
+);
+
+CREATE TABLE public.regionalismo (
+    reg_id SERIAL PRIMARY KEY,
+    tag_id INTEGER,
+    nome VARCHAR(100),
+    FOREIGN KEY (tag_id) REFERENCES public.tag(tag_id)
+);
+
+CREATE TABLE public.portal (
+    por_id SERIAL PRIMARY KEY,
+    por_nome VARCHAR(30),
+    por_url VARCHAR(2048),
+    por_data DATE,
+    por_frequencia VARCHAR(30)
+);
+
+CREATE TABLE public.tag_portal (
+    tag_id INTEGER,
+    por_id INTEGER,
+    PRIMARY KEY(tag_id, por_id),
+    FOREIGN KEY(tag_id) REFERENCES public.tag(tag_id),
+    FOREIGN KEY(por_id) REFERENCES public.portal(por_id)
+);
+
+CREATE TABLE public.reporter (
+    rep_id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    por_id INTEGER,
+    FOREIGN KEY (por_id) REFERENCES public.portal(por_id)
+);
+
+CREATE TABLE public.noticia (
+    noti_id SERIAL PRIMARY KEY,
+    noti_data DATE,
+    noti_text TEXT,
+    por_id INTEGER,
+    FOREIGN KEY(por_id) REFERENCES public.portal(por_id),
+);
+
+Altere essa classe para atender a migração conforme o hibernate, utilizando o jakarta.persistence conforme o sql a seguir
+CREATE TABLE public.tag_noticia (
+    noti_id INTEGER,
+    tag_id INTEGER,
+    PRIMARY KEY(noti_id, tag_id),
+    FOREIGN KEY (noti_id) REFERENCES public.noticia(noti_id),
+    FOREIGN KEY (tag_id) REFERENCES public.tag(tag_id)
+);

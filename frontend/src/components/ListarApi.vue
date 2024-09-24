@@ -89,35 +89,30 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      apis: [
-        {
-          name: 'Nome Api',
-          url: 'https://example.com',
-          capturePeriod: '2023-03-01',
-          data: [
-            // Data from the API
-          ]
-        },
-        {
-          name: 'Nome Api',
-          url: 'https://example2.com',
-          capturePeriod: '2023-03-15',
-          data: [
-            // Data from the API
-          ]
-        },
-      ],
+      apis: [], 
       isModalVisible: false,
       isEditModalVisible: false,
       selectedApi: null,
-      editApiData: null
-
+      editApiData: null,
     };
   },
+  mounted() {
+    this.fetchApis();
+  },
   methods: {
+    async fetchApis() {
+      try {
+        const response = await axios.get('http://localhost:8080/apis'); 
+        this.apis = response.data;
+      } catch (error) {
+        console.error("Erro ao buscar as APIs:", error);
+      }
+    },
     viewData(api) {
       this.selectedApi = api;
       this.isModalVisible = true;
@@ -127,24 +122,29 @@ export default {
       this.selectedApi = null;
     },
     editApi(api) {
-      this.editApiData = { ...api }; // Faz uma cópia dos dados da API para edição
+      this.editApiData = { ...api }; 
       this.isEditModalVisible = true;
     },
     closeEditModal() {
       this.isEditModalVisible = false;
       this.editApiData = null;
     },
-    saveChanges() {
-      const index = this.apis.findIndex(api => api.url === this.editApiData.url);
-      if (index !== -1) {
-        this.apis[index] = { ...this.editApiData };
+    async saveChanges() {
+      try {
+        const response = await axios.put(`http://localhost:8080/apis/${this.editApiData.id}`, this.editApiData);
+        const index = this.apis.findIndex(api => api.id === this.editApiData.id);
+        if (index !== -1) {
+          this.apis[index] = response.data; // Atualiza os dados no front
+        }
+        this.closeEditModal();
+      } catch (error) {
+        console.error("Erro ao salvar alterações:", error);
       }
-      this.closeEditModal();
     }
   }
 };
-
 </script>
+
 
 <style>
 

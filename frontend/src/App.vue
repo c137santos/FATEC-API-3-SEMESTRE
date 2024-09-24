@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
+import SideBar from '@/components/SideBar.vue'; // Importando a Sidebar
+</script>
 
 <template>
   <div id="app">
@@ -43,7 +47,7 @@
   padding-left: 80px; /* Mantém o espaçamento da sidebar */
   flex-grow: 1;
   background-color: #ffffff; /* Cor de fundo uniforme */
-}
+} 
 
 .sidebar {
   position: fixed;
