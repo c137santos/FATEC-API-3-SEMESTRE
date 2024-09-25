@@ -1,154 +1,163 @@
 <template>
-  <div class="container">
-    <main class="content">
-      <section v-if="mostrarFormulario" class="form-section">
-        <div class="form-header">
-          <img src="frontend/src/components/icons/info.png" alt="icon" class="info-icon" />
-          <h2>Cadastrar nova API</h2>
-        </div>
-        <form @submit.prevent="salvarApi">
-          <div class="form-group">
-            <input
-              type="text"
-              id="api-name"
-              v-model="api.nome"
-              placeholder="Nome da API"
-            />
-            <img src="frontend/src/components/icons/excluir.png" alt="Clear Icon" class="clear-icon" @click="clearInput('nome')" />
-            <span v-if="erros.nome" class="error">{{ erros.nome }}</span>
+    <div class="container">
+      <main class="content">
+        <section v-if="mostrarFormulario" class="form-section">
+          <div class="form-header">
+            <img src="frontend/src/components/icons/info.png" alt="icon" class="info-icon" />
+            <h2>Cadastrar nova API</h2>
           </div>
-
-          <div class="form-group">
-            <input
-              type="text"
-              id="api-url"
-              v-model="api.url"
-              placeholder="URL da API"
-            />
-            <img src="frontend/src/components/icons/excluir.png" alt="Clear Icon" class="clear-icon" @click="clearInput('url')" />
-            <span v-if="erros.url" class="error">{{ erros.url }}</span>
+          <form @submit.prevent="salvarApi">
+            <div class="form-group">
+              <input
+                type="text"
+                id="api-name"
+                v-model="api.nome"
+                placeholder="Nome da API"
+              />
+              <img src="frontend/src/components/icons/excluir.png" alt="Clear Icon" class="clear-icon" @click="clearInput('nome')" />
+              <span v-if="erros.nome" class="error">{{ erros.nome }}</span>
+            </div>
+  
+            <div class="form-group">
+              <input
+                type="text"
+                id="api-url"
+                v-model="api.url"
+                placeholder="URL da API"
+              />
+              <img src="frontend/src/components/icons/excluir.png" alt="Clear Icon" class="clear-icon" @click="clearInput('url')" />
+              <span v-if="erros.url" class="error">{{ erros.url }}</span>
+            </div>
+  
+            <div class="form-group">
+              <label>
+                <input type="checkbox" v-model="api.ativa" /> ativa
+              </label>
+            </div>
+  
+            <div class="form-group">
+              <label for="capture-period" id="form-label">Período de captura</label>
+              <div class="select-container">
+              <select id="capture-period" v-model="api.periodoCaptura">
+                <option value="diariamente">Diariamente</option>
+                <option value="semanalmente">Semanalmente</option>
+                <option value="mensalmente">Mensalmente</option>
+              </select>
+            </div>
           </div>
-
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="api.active" /> ativa
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label for="capture-period" id="form-label">Período de captura</label>
-            <div class="select-container">
-            <select id="capture-period" v-model="api.frequencia">
-              <option value="diariamente">Diariamente</option>
-              <option value="semanalmente">Semanalmente</option>
-              <option value="mensalmente">Mensalmente</option>
-            </select>
-          </div>
-        </div>
-
-          <button type="submit" class="btn-salvar">Salvar</button>
-          <button type="button" class="btn-cancelar" @click="cancelar">
-            Cancelar
-          </button>
-        </form>
-      </section>
-    </main>
-  </div>
-</template>
-
-<script>
-export default {
-data() {
-  return {
-    mostrarFormulario: true,
-    api: {
-      nome: "",
-      url: "",
-      active: true, // Checkbox por padrão ativo
-      frequencia: "diariamente", // Alterado para coincidir com o backend
+  
+            <button type="submit" class="btn-salvar">Salvar</button>
+            <button type="button" class="btn-cancelar" @click="cancelar">
+              Cancelar
+            </button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </template>
+    
+  <script>
+  export default {
+    data() {
+      return {
+        mostrarFormulario: true,
+        api: {
+          nome: "",
+          url: "",
+          ativa: true, // Checkbox por padrão ativo
+          periodoCaptura: "diariamente",
+        },
+        erros: {
+          nome: "",
+          url: "",
+        },
+      };
     },
-    erros: {
-      nome: "",
-      url: "",
+    methods: {
+      validarFormulario() {
+        let valido = true;
+  
+        // Validação do nome (obrigatório, letras e números apenas)
+        if (!this.api.nome) {
+          this.erros.nome = "O nome da API é obrigatório.";
+          valido = false;
+        } else if (!/^[a-zA-Z0-9\s]+$/.test(this.api.nome)) {
+          this.erros.nome = "O nome deve conter apenas letras e números.";
+          valido = false;
+        } else {
+          this.erros.nome = "";
+        }
+  
+        // Validação da URL (obrigatória, deve ser uma URL válida)
+        const urlPattern =
+          /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+        if (!this.api.url) {
+          this.erros.url = "A URL da API é obrigatória.";
+          valido = false;
+        } else if (!urlPattern.test(this.api.url)) {
+          this.erros.url = "A URL da API não é válida.";
+          valido = false;
+        } else {
+          this.erros.url = "";
+        }
+  
+        return valido;
+      },
+      salvarApi() {
+    if (this.validarFormulario()) {
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(this.api)
+        };
+        fetch('http://localhost:8080/apis/cadastrar', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log('API salva com sucesso:', data);
+                alert('API salva com sucesso!');
+                this.$emit('api-salva', data);
+            })
+            .catch(error => {
+                console.error('Erro ao salvar API:', error);
+            });
+
+        }
+      },
+    
+
+      validarDadosApi() {
+        if (this.validarFormulario()) {
+          console.log("API salva com sucesso:", this.api);
+          alert("API salva com sucesso!");
+          this.$emit('api-salva', this.api);
+          this.cancelar();
+        }
+      },
+      cancelar() {
+        this.api = {
+          nome: "",
+          url: "",
+          ativa: true,
+          periodoCaptura: "diariamente",
+        };
+        this.erros = {
+          nome: "",
+          url: "",
+        };
+        this.mostrarFormulario = false;
+      },
+      clearInput(campo) {
+        if (campo === 'nome') {
+          this.api.nome = '';
+          this.erros.nome = '';
+        } else if (campo === 'url') {
+          this.api.url = '';
+          this.erros.url = '';
+        }
+      }
     },
   };
-},
-methods: {
-  validarFormulario() {
-    let valido = true;
-
-    // Validação do nome (obrigatório, letras e números apenas)
-    if (!this.api.nome) {
-      this.erros.nome = "O nome da API é obrigatório.";
-      valido = false;
-    } else if (!/^[a-zA-Z0-9\s]+$/.test(this.api.nome)) {
-      this.erros.nome = "O nome deve conter apenas letras e números.";
-      valido = false;
-    } else {
-      this.erros.nome = "";
-    }
-
-    // Validação da URL (obrigatória, deve ser uma URL válida)
-    const urlPattern =
-      /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
-    if (!this.api.url) {
-      this.erros.url = "A URL da API é obrigatória.";
-      valido = false;
-    } else if (!urlPattern.test(this.api.url)) {
-      this.erros.url = "A URL da API não é válida.";
-      valido = false;
-    } else {
-      this.erros.url = "";
-    }
-
-    return valido;
-  },
-  salvarApi() {
-    if (this.validarFormulario()) {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.api),
-      };
-      fetch("http://localhost:8080/apis/cadastrar", requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("API salva com sucesso:", data);
-          alert("API salva com sucesso!");
-          this.$emit("api-salva", data);
-        })
-        .catch((error) => {
-          console.error("Erro ao salvar API:", error);
-        });
-    }
-  },
-
-  cancelar() {
-    this.api = {
-      nome: "",
-      url: "",
-      active: true,
-      frequencia: "diariamente", // Garantindo que esse campo seja redefinido corretamente
-    };
-    this.erros = {
-      nome: "",
-      url: "",
-    };
-    this.mostrarFormulario = false;
-  },
-  clearInput(campo) {
-    if (campo === "nome") {
-      this.api.nome = "";
-      this.erros.nome = "";
-    } else if (campo === "url") {
-      this.api.url = "";
-      this.erros.url = "";
-    }
-  },
-},
-};
-</script>
-
+  </script>
   
   <style scoped>
   @font-face {
