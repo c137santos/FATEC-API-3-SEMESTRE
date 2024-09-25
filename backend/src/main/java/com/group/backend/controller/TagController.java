@@ -59,8 +59,6 @@ public class TagController {
     return ResponseEntity.ok(tags);
 }
 
-
-
     // Endpoint para editar uma tag existente
     @PutMapping("/editar/{id}")
     @Transactional
