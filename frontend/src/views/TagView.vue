@@ -4,29 +4,23 @@
     <AdicionarTag @nova-tag="adicionarTag" />
 
     <!-- Componente para listar as tags -->
-    <ListaTags :tags="tags" @editar-tag="iniciarEdicao" />
-
-    <!-- Modal para editar uma tag selecionada -->
-    <ModalEdicaoTag v-if="tagEmEdicao" :tag="tagEmEdicao" @salvar-edicao="salvarEdicao" @fechar="fecharModal" />
+    <ListaTags :tags="tags" />
   </div>
 </template>
 
 <script>
 import AdicionarTag from '@/components/AdicionarTag.vue';
 import ListaTags from '@/components/ListaTags.vue';
-import ModalEdicaoTag from '@/components/ModalEdicaoTag.vue';
 
 export default {
   name: 'TagView',
   components: {
     AdicionarTag,
-    ListaTags,
-    ModalEdicaoTag
+    ListaTags
   },
   data() {
     return {
-      tags: [],  // Armazena a lista de tags
-      tagEmEdicao: null  // Armazena a tag que está sendo editada
+      tags: []  // Armazena a lista de tags
     };
   },
   mounted() {
@@ -47,45 +41,6 @@ export default {
     // Adiciona uma nova tag à lista sem recarregar a página
     adicionarTag(novaTag) {
       this.tags.push(novaTag);
-    },
-
-    // Inicia a edição de uma tag
-    iniciarEdicao(tag) {
-      this.tagEmEdicao = { ...tag };  // Copia a tag para edição
-    },
-
-    // Salva as alterações feitas na tag e envia ao backend
-    async salvarEdicao(tagEditada) {
-      try {
-        const tagId = tagEditada.tagId; // Usar tagId consistentemente
-        const response = await fetch(`http://localhost:8080/tags/editar/${tagId}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(tagEditada)
-        });
-
-        if (response.ok) {
-          const tagAtualizada = await response.json();
-          const index = this.tags.findIndex(tag => tag.tagId === tagAtualizada.tagId);
-          if (index !== -1) {
-            this.tags.splice(index, 1, tagAtualizada);  // Atualiza a tag na lista
-          }
-          this.fecharModal();  // Fecha o modal após salvar
-        } else {
-          alert('Erro ao salvar a tag. Tente novamente.');
-          console.error('Erro ao salvar a tag:', response.statusText);
-        }
-      } catch (error) {
-        alert('Erro ao salvar a tag. Tente novamente.');
-        console.error('Erro ao salvar a tag:', error);
-      }
-    },
-
-    // Fecha o modal de edição
-    fecharModal() {
-      this.tagEmEdicao = null;
     }
   }
 }
