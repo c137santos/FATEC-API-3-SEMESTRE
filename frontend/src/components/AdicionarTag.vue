@@ -50,6 +50,8 @@
       validadorDadosNovaTag() {
         if(this.novaTag.tagNome && this.novaTag.tagDescricao) {
           this.salvarTag();
+          let tagSerSalva = { ...this.novaTag };
+          this.$emit('nova-tag', tagSerSalva);
           this.novaTag.tagDescricao = '' ;
           this.novaTag.tagNome = '' ;
           this.exibirNovaTagForm = false;
