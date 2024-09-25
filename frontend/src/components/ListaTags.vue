@@ -4,12 +4,10 @@
     <div v-if="tags.length > 0">
       <div v-for="tag in tags" :key="tag.id || tag.tagId" class="tag-item">
         <div class="tag-info">
-          <!-- Exibindo nome, descrição e status da tag corretamente -->
           <h3>{{ tag.tagNome }}</h3> 
           <p>{{ tag.tagDescricao }}</p>
           <p><strong>Ativo:</strong> {{ tag.tagActive ? 'Sim' : 'Não' }}</p> 
         </div>
-        <!-- Botão de editar, agora no canto superior direito -->
         <button @click="editarTag(tag)" class="editar-btn">Editar</button>
       </div>
     </div>
@@ -20,19 +18,15 @@
 <script>
 export default {
   props: {
-    tags: Array, // Recebe a lista de tags via prop
-  },
-  methods: {
-    // Emite evento para iniciar a edição de uma tag
-    editarTag(tag) {
-      this.$emit('editar-tag', tag);
+    tags: {
+      type: Array,
+      required: true
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
-/* Estilos para o layout das tags */
 .tag-item {
   position: relative;
   display: flex;
@@ -45,7 +39,6 @@ export default {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Botão de editar posicionado no canto superior direito */
 .editar-btn {
   position: absolute;
   top: 10px;
