@@ -117,40 +117,6 @@ export default {
   flex-direction: column;
 }
 
-.edit-api {
-  padding: 8px 16px;
-  background-color: #4a4848;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-top: -70px;
-}
-
-.view-data {
-  margin-top: 16px;
-  padding: 8px 16px;
-  border: none;
-  background-color: #65558F;
-  color: #fff;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
 .modal-content {
   background: white;
   padding: 20px;
@@ -182,41 +148,8 @@ export default {
   text-align: right;
 }
 
-.modal-contentdois {
-  display: flex;
-  flex-direction: row;
-  row-gap: 20px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 800px;
-  position: relative;
-}
-
 .info-img {
   margin-right: 20px;
-}
-
-.modal-edit-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.submit-button {
-  padding: 10px;
-  background-color: #64548d;
-  color: white;
-  border: 2px solid transparent;
-  border-radius: 10px;
-}
-
-.cancel-button {
-  padding: 10px;
-  background-color: transparent;
-  color: #64548d;
-  border: none;
 }
 
 .tituloum {
