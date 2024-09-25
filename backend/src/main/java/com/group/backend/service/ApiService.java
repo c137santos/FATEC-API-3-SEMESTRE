@@ -12,17 +12,22 @@ public class ApiService {
 
     private final ApiRepository apiRepository;
 
-    // O período de captura é fixo, "diariamente" neste exemplo
-    private static final String PERIODO_CAPTURA_FIXO = "diariamente";
-
     @Autowired
     public ApiService(ApiRepository apiRepository) {
         this.apiRepository = apiRepository;
     }
 
     public ApiPublica cadastrarApiPublica(ApiPublica apiPublica) {
+        LocalDate proximaDataCaptura = calcularDataFuturaCaptura(apiPublica.getFrequencia());
+    
+    // Define a próxima data de captura no objeto
+    apiPublica.setDataFuturaCaptura(proximaDataCaptura);
+        
+    
         return apiRepository.save(apiPublica);
     }
+    
+
 
 
     // Calcula a data futura de captura com base na frequência
