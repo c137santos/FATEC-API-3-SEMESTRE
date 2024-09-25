@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.group.backend.domain.DadosAtualizarTag;
-import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.group.backend.domain.DadosAtualizarTag;
 import com.group.backend.domain.DadosCadastroTag;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Tag;
+
+import jakarta.transaction.Transactional;
 
 @RequestMapping("/tags")
 @RestController
@@ -48,9 +49,17 @@ public class TagController {
     // Endpoint para listar todas as tags
     @GetMapping("/listar")
     public ResponseEntity<List<Tag>> listarTags() {
-        List<Tag> tags = tagRepository.findAll();
-        return ResponseEntity.ok(tags);
+    List<Tag> tags = tagRepository.findAll();
+    
+    // Adicione este log para verificar se o tagId está presente
+    for (Tag tag : tags) {
+        System.out.println("Tag: " + tag.getTagNome() + ", ID: " + tag.getTagId());
     }
+    
+    return ResponseEntity.ok(tags);
+}
+
+
 
     // Endpoint para editar uma tag existente
     @PutMapping("/editar/{id}")

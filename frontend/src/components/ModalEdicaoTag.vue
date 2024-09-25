@@ -7,7 +7,7 @@
         <input
           type="text"
           id="nome"
-          v-model="tag.tagNome"
+          v-model="tagLocal.tagNome"
           class="modal-input"
           required
           placeholder="Digite o nome da tag"
@@ -17,13 +17,13 @@
         <input
           type="text"
           id="descricao"
-          v-model="tag.tagDescricao"
+          v-model="tagLocal.tagDescricao"
           class="modal-input"
           placeholder="Digite a descrição da tag"
         />
 
         <label for="relacionadas">Tags relacionadas</label>
-        <select id="relacionadas" v-model="tag.tagRelacionada" class="modal-select">
+        <select id="relacionadas" v-model="tagLocal.tagRelacionada" class="modal-select">
           <option value="agricultura">Agricultura</option>
           <option value="política">Política</option>
           <!-- Adicionar outras opções conforme necessário -->
@@ -43,16 +43,29 @@ export default {
   props: {
     tag: Object
   },
+  data() {
+    return {
+      tagLocal: { ...this.tag }  // Cria uma cópia do objeto tag
+    };
+  },
   methods: {
     salvarEdicao() {
       // Validação simples para garantir que o nome da tag não esteja vazio
-      if (!this.tag.tagNome || this.tag.tagNome.trim() === "") {
+      if (!this.tagLocal.tagNome || this.tagLocal.tagNome.trim() === "") {
         alert("O campo Nome da tag é obrigatório.");
         return;
       }
 
-      // Emitir o evento de salvar com a tag atualizada
-      this.$emit('salvar-edicao', this.tag);
+      // Emitir o evento de salvar com a tag atualizada (tagLocal)
+      this.$emit('salvar-edicao', this.tagLocal);
+    }
+  },
+  watch: {
+    tag: {
+      immediate: true,
+      handler(newTag) {
+        this.tagLocal = { ...newTag };  // Atualiza a cópia local quando a tag mudar
+      }
     }
   }
 }
