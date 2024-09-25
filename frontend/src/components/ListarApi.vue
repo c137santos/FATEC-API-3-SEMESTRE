@@ -89,7 +89,6 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
 
 export default {
   data() {
@@ -105,14 +104,26 @@ export default {
     this.fetchApis();
   },
   methods: {
-    async fetchApis() {
-      try {
-        const response = await axios.get('http://localhost:8080/apis'); 
-        this.apis = response.data;
-      } catch (error) {
-        console.error("Erro ao buscar as APIs:", error);
+
+    fetchApis() {
+  const requestOptions = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
+  };
+  fetch('http://localhost:8080/apis/listar', requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    },
+      return response.json();
+    })
+    .then(data => {
+      this.apis = data;
+    })
+    .catch(error => {
+      console.error('Erro ao buscar as APIs:', error);
+    });
+},
     viewData(api) {
       this.selectedApi = api;
       this.isModalVisible = true;
@@ -128,18 +139,6 @@ export default {
     closeEditModal() {
       this.isEditModalVisible = false;
       this.editApiData = null;
-    },
-    async saveChanges() {
-      try {
-        const response = await axios.put(`http://localhost:8080/apis/${this.editApiData.id}`, this.editApiData);
-        const index = this.apis.findIndex(api => api.id === this.editApiData.id);
-        if (index !== -1) {
-          this.apis[index] = response.data; // Atualiza os dados no front
-        }
-        this.closeEditModal();
-      } catch (error) {
-        console.error("Erro ao salvar alterações:", error);
-      }
     }
   }
 };

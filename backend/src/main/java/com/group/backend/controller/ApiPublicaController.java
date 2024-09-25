@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+@RequestMapping("/apis/listar")
 @RestController
-@RequestMapping("/ListarApis")
+@CrossOrigin(origins = "*")
 public class ApiPublicaController {
     private final ApiPublicaService apiPublicaService;
 
