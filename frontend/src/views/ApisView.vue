@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="api-views">
     <h1>Gerenciamento de APIs</h1>
@@ -31,3 +33,17 @@ export default {
   font-family: 'SF Pro', sans-serif;
 }
 </style>
+    <ListarApi />
+</template>
+
+
+<script>
+    import ListarApi from "@/components/ListarApi.vue";
+    export default {
+      name: 'ListarApiView',
+      components: {
+        ListarApi
+      }
+    }
+</script>
+

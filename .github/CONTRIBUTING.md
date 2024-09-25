@@ -29,9 +29,9 @@ Para rodar o projeto é necessário criar um arquivo `.env` na raiz do projeto c
 JAVA_VERSION=17
 NODE_VERSION=20.16.0
 POSTGRES_VERSION=12.20
-DB_URL=jdbc:postgresql://localhost:5432/cdd
+DB_URL=jdbc:postgresql://localhost:777/cdd
 DB_HOST=localhost
-DB_PORT=5432
+DB_PORT=666
 DB_NAME=cdd
 DB_USERNAME=cdd
 DB_PASSWORD=cdd

@@ -9,8 +9,5 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "backend": "file:"
-  }
+  "description": ""
 }

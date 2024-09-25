@@ -1,7 +1,7 @@
 .nx
 .data
 .env
-
+.idea/
 ### Java ###
 # Compiled class file
 *.class
@@ -48,6 +48,7 @@ npm-debug.log
 yarn-error.log
 
 ### VisualStudioCode ###
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

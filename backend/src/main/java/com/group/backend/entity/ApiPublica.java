@@ -1,7 +1,11 @@
 package com.group.backend.entity;
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
 
+
+@Getter
+@Setter
 @Entity
 @Table(name = "api_publica")
 public class ApiPublica {
