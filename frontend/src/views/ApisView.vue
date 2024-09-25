@@ -1,13 +1,20 @@
 <template>
-    <div class="apis-view">
-      <h1>APIs</h1>
-      <p>Aqui você verá as APIs disponíveis.</p>
-    </div>
+
+  <div class="api-views">
+
+    <AdicionarApi @api-salva="handleApiSalva" />
+  </div>
   </template>
   
   <script>
+import AdicionarApi from '@/components/AdicionarApi.vue';
+
+
   export default {
-    name: "ApisView",
+    components: {
+      AdicionarApi,
+    },
+
   };
   </script>
   
