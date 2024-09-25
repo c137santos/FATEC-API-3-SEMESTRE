@@ -8,8 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
-
 @Entity
 @Table(name = "tag")
 public class Tag {
@@ -30,6 +28,11 @@ public class Tag {
 
     @Column(name = "tag_active")
     private boolean tagActive;
+
+    // Getter e Setter para tagId
+    public Long getTagId() {
+        return tagId;
+    }
 
     public void setTagId(Long tagId) {
         this.tagId = tagId;
@@ -66,6 +69,4 @@ public class Tag {
     public void setTagActive(boolean tagActive) {
         this.tagActive = tagActive;
     }
-
-    
 }
