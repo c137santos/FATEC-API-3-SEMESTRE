@@ -22,6 +22,15 @@
           placeholder="Digite a descrição da tag"
         />
 
+        <div>
+          <label for="checkbox-edicao">Ativo</label>
+          <input
+            type="checkbox"
+            id="checkbox-edicao"
+            v-model="tagLocal.tagActive"
+            class="checkboxEdicao"
+        />
+        </div>
         <label for="relacionadas">Tags relacionadas</label>
         <select id="relacionadas" v-model="tagLocal.tagRelacionada" class="modal-select">
           <option value="agricultura">Agricultura</option>
@@ -121,6 +130,15 @@ export default {
   margin-bottom: 20px;
   font-size: 16px;
   background-color: #F3E5F5; /* Fundo suave lilás */
+}
+
+.checkboxEdicao {
+  border: 1px solid #D1C4E9;
+  border-radius: 5px;
+  padding: 6px;
+  margin-left: 10px;
+  font-size: 16px;
+  background-color: #F3E5F5;
 }
 
 /* Select para tags relacionadas */
