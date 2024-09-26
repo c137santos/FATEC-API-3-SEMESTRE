@@ -1,6 +1,6 @@
 package com.group.backend.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.*;
 
@@ -17,7 +17,7 @@ public class ResultApi {
     private Integer apiId;
 
     @Column(name = "res_data")
-    private Date resData;
+    private LocalDate resData;
 
     @Column(name = "res_payload", columnDefinition = "json")
     private String resPayload;

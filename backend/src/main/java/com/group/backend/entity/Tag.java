@@ -1,5 +1,5 @@
 package com.group.backend.entity;
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tag")
@@ -15,58 +17,27 @@ public class Tag {
     @Id    
     @GeneratedValue(strategy = GenerationType.IDENTITY)    
     @Column(name = "tag_id")
+    @Getter
+    @Setter
     private Long tagId;
 
     @Column(name = "tag_nome", nullable = false, length = 30)
+    @Getter
+    @Setter
     private String tagNome;
 
     @Column(name = "tag_descricao", length = 250)
+    @Getter
+    @Setter
     private String tagDescricao;
 
     @Column(name = "tag_data")
-    private Date tagData;
+    @Getter
+    @Setter
+    private LocalDate tagData;
 
     @Column(name = "tag_active")
+    @Getter
+    @Setter
     private boolean tagActive;
-
-    // Getter e Setter para tagId
-    public Long getTagId() {
-        return tagId;
-    }
-
-    public void setTagId(Long tagId) {
-        this.tagId = tagId;
-    }
-
-    public String getTagNome() {
-        return tagNome;
-    }
-
-    public void setTagNome(String tagNome) {
-        this.tagNome = tagNome;
-    }
-
-    public String getTagDescricao() {
-        return tagDescricao;
-    }
-
-    public void setTagDescricao(String tagDescricao) {
-        this.tagDescricao = tagDescricao;
-    }
-
-    public Date getTagData() {
-        return tagData;
-    }
-
-    public void setTagData(Date tagData) {
-        this.tagData = tagData;
-    }
-
-    public boolean isTagActive() {
-        return tagActive;
-    }
-
-    public void setTagActive(boolean tagActive) {
-        this.tagActive = tagActive;
-    }
 }

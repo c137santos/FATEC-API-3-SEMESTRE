@@ -1,6 +1,6 @@
 package com.group.backend.controller;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +32,6 @@ public class TagController {
         this.tagRepository = tagRepository;
     }
 
-    // Endpoint para cadastrar tags
     @PostMapping("/cadastrar")
     @Transactional
     public ResponseEntity<Tag> cadastrarTag(@RequestBody DadosCadastroTag dados) {
@@ -40,18 +39,16 @@ public class TagController {
         novaTag.setTagNome(dados.tagNome());
         novaTag.setTagDescricao(dados.tagDescricao());
         novaTag.setTagActive(dados.tagActive());
-        novaTag.setTagData(new Date()); // Atualiza automaticamente a data ao salvar
+        novaTag.setTagData(LocalDate.now());
 
         Tag tagSalva = tagRepository.save(novaTag);
         return ResponseEntity.ok(tagSalva);
     }
 
-    // Endpoint para listar todas as tags
     @GetMapping("/listar")
     public ResponseEntity<List<Tag>> listarTags() {
     List<Tag> tags = tagRepository.findAll();
     
-    // Adicione este log para verificar se o tagId está presente
     for (Tag tag : tags) {
         System.out.println("Tag: " + tag.getTagNome() + ", ID: " + tag.getTagId());
     }
@@ -59,7 +56,6 @@ public class TagController {
     return ResponseEntity.ok(tags);
 }
 
-    // Endpoint para editar uma tag existente
     @PutMapping("/editar/{id}")
     @Transactional
     public ResponseEntity<Tag> editarTag(@PathVariable Long id, @RequestBody DadosAtualizarTag dados) {
@@ -70,7 +66,7 @@ public class TagController {
             tagParaEditar.setTagNome(dados.tagNome());
             tagParaEditar.setTagDescricao(dados.tagDescricao());
             tagParaEditar.setTagActive(dados.tagActive());
-            tagParaEditar.setTagData(new Date()); // Atualiza a data de modificação automaticamente
+            tagParaEditar.setTagData(LocalDate.now());
 
             Tag tagAtualizada = tagRepository.save(tagParaEditar);
             return ResponseEntity.ok(tagAtualizada);
