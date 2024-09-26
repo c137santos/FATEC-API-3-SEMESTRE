@@ -23,6 +23,12 @@ Descrição: Este desafio propõe a criação de um sistema web para mapear port
 
 Ao abrir os cards do kanbam será possível ver a priorização no lado direito como um dos atributos dos cards.
 
+### Como instalar o projeto
+
+Siga as instruções do Contributing!
+
+[Contributing](.github/CONTRIBUTING.md)
+
 # Requisitos Não Funcionais
 • Prever um grande volume de notícias armazenadas
 • Utilizar softwares livres
@@ -44,6 +50,7 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 6. Indicação de tags que estão relacionadas
 7. Tela de consulta de notícias, com filtros de pesquisa
 8. Tela de APIs, com filtros de pesquisa
+9. Deve ser possível relacionar tags com regionalismos.
 
 # Backlog
 
@@ -54,8 +61,8 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 | 3   | Sprint 1   | Como um administrador, eu quero cadastrar tags, para que as notícias possam ser classificadas e relacionadas.                                       | Média      | Pendente | 3          |
 | 4   | Sprint 1   | Como um administrador, eu quero editar tags, para que eu possa atualizar informações previamente cadastradas.                                       | Média      | Pendente | 3          |
 | 5   | Sprint 1   | Como um administrador, eu quero desativar tags, para que tags obsoletas não fiquem disponíveis no sistema.                                          | Baixa      | Pendente | 3          |
-| 6   | Sprint 2   | Como um administrador, eu quero ver todos os portais de notícias cadastrados, para que eu possa analisar quais dados serão buscados.                | Alta       | Pendente | 1          |
-| 7   | Sprint 2   | Como um administrador, eu quero relacionar tags com outras tags, para que seja possível construir uma rede de informações estruturadas.             | Média      | Pendente | 6          |
+| 6   | Sprint 2   |  Como um administrador, eu quero relacionar tags com regionalismos, para que seja possível buscar notícias relevantes de várias regiões do Brasil.               | Alta       | Pendente | 9          |
+| 7   | Sprint 2   | Como um administrador, eu quero ver todos os portais de notícias cadastrados, para que eu possa analisar quais dados serão buscados.                | Alta       | Pendente | 1          |
 | 8   | Sprint 2   | Como um administrador, eu quero cadastrar portais de notícias, para que eu possa gerenciar as fontes de onde as notícias serão capturadas.          | Alta       | Pendente | 1          |
 | 9   | Sprint 2   | Como um administrador, eu quero editar portais de notícias, para que eu possa atualizar os dados de um portal.                                      | Média      | Pendente | 1          |
 | 10  | Sprint 2   | Como um administrador, eu quero capturar notícias de portais previamente cadastrados, para que as informações sejam armazenadas no banco de dados.  | Alta       | Pendente | 5 , 4         |
@@ -74,7 +81,7 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 
 ### Modelo conceitual 
 
-![image](/img/modelofisico.jpg)
+![image](/img/Cerberus2.0.jpg)
 
 ### Modelo físico
 
@@ -90,8 +97,9 @@ Ao abrir os cards do kanbam será possível ver a priorização no lado direito 
 | Clara Santos ![Static Badge](https://img.shields.io/badge/Scrum_master-pink)  ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/c137santos/) |
 | Marília Borgo ![Static Badge](https://img.shields.io/badge/Product_owner-blue) ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mariliaborgo/) |
 | Matheus Marciano ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/matheus-marciano-leite/) |
-| Christiane Lima Alvares ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cristiane-alvares/) |
+| Cristiane Lima Alvares ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cristiane-alvares/) |
 | Guilherme Bezerra Junqueira ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-bezerra-a01035170/) |
 | Pedro Henrique Lopes de Souza ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pelopes7/) |
 | Yan Costa Yamim ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yan-yamim-185220278/) |
+| Eduardo da Silva Lima ![Static Badge](https://img.shields.io/badge/Dev-black) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/edu-datamarketing/) |
 
