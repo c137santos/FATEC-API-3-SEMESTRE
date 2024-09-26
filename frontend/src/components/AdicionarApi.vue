@@ -31,14 +31,14 @@
   
             <div class="form-group">
               <label>
-                <input type="checkbox" v-model="api.ativa" /> ativa
+                <input type="checkbox" v-model="api.active" /> ativa
               </label>
             </div>
   
             <div class="form-group">
               <label for="capture-period" id="form-label">Período de captura</label>
               <div class="select-container">
-              <select id="capture-period" v-model="api.periodoCaptura">
+              <select id="capture-period" v-model="api.frequencia">
                 <option value="diariamente">Diariamente</option>
                 <option value="semanalmente">Semanalmente</option>
                 <option value="mensalmente">Mensalmente</option>
@@ -64,8 +64,8 @@
         api: {
           nome: "",
           url: "",
-          ativa: true, // Checkbox por padrão ativo
-          periodoCaptura: "diariamente",
+          active: true,
+          frequencia: "diariamente",
         },
         erros: {
           nome: "",
@@ -77,7 +77,7 @@
       validarFormulario() {
         let valido = true;
   
-        // Validação do nome (obrigatório, letras e números apenas)
+       
         if (!this.api.nome) {
           this.erros.nome = "O nome da API é obrigatório.";
           valido = false;
@@ -88,7 +88,7 @@
           this.erros.nome = "";
         }
   
-        // Validação da URL (obrigatória, deve ser uma URL válida)
+        
         const urlPattern =
           /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
         if (!this.api.url) {
@@ -137,8 +137,8 @@
         this.api = {
           nome: "",
           url: "",
-          ativa: true,
-          periodoCaptura: "diariamente",
+          active: true,
+          frequencia: "diariamente",
         };
         this.erros = {
           nome: "",
@@ -160,18 +160,12 @@
   </script>
   
   <style scoped>
-  @font-face {
-    font-family: 'SF Pro';
-    src: url('frontend/src/components/fonts/SFPRODISPLAYREGULAR.OTF') format('truetype'); /* Adapte o caminho se necessário */
-    font-weight: 500;
-  }
-  
   
   /* Container principal*/
   .container {
     display: flex;
     height: 100vh;
-    font-family: 'SF Pro', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: black;
   }

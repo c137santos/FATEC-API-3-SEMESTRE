@@ -1,4 +1,6 @@
 package com.group.backend.entity;
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 
 
@@ -26,6 +28,77 @@ public class ApiPublica {
     @Column(name = "api_url", length = 2048)
     private String url;
     
+    @Column(name = "api_proximo_data_crawl")
+    private LocalDate dataFuturaCaptura;
+
+    public ApiPublica() {}
+
+    public ApiPublica(String nome, String frequencia, String descricao, Boolean active, String url, LocalDate dataFuturaCaptura) {
+        this.nome = nome;
+        this.frequencia = frequencia;
+        this.descricao = descricao;
+        this.active = active;
+        this.url = url;
+        this.dataFuturaCaptura = dataFuturaCaptura;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getFrequencia() {
+        return frequencia;
+    }
+
+    public void setFrequencia(String frequencia) {
+        this.frequencia = frequencia;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public LocalDate getDataFuturaCaptura() {
+        return dataFuturaCaptura;
+    }
+
+    public void setDataFuturaCaptura(LocalDate dataFuturaCaptura) {
+        this.dataFuturaCaptura = dataFuturaCaptura;
+    }
+
+    
     @Override
     public String toString() {
         return "ApiPublica{" +
@@ -35,13 +108,10 @@ public class ApiPublica {
                 ", descricao='" + descricao + '\'' +
                 ", active=" + active +
                 ", url='" + url + '\'' +
+                ", dataFuturaCaptura=" + dataFuturaCaptura +
                 '}';
     }
-    // getters and setters
-
-    // constructors
-
-    // other methods
+    
 }
 
 
