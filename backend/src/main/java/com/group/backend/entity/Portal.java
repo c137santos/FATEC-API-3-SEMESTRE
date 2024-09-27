@@ -1,5 +1,5 @@
 package com.group.backend.entity;
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.*;
 @Entity
@@ -17,7 +17,7 @@ public class Portal {
     private String url;
 
     @Column(name = "por_data")
-    private Date data;
+    private LocalDate data;
 
     @Column(name = "por_frequencia", length = 30)
     private String frequencia;
@@ -26,7 +26,7 @@ public class Portal {
 
     public Portal() {}
 
-    public Portal(String nome, String url, Date data, String frequencia) {
+    public Portal(String nome, String url, LocalDate data, String frequencia) {
         this.nome = nome;
         this.url = url;
         this.data = data;
@@ -57,11 +57,11 @@ public class Portal {
         this.url = url;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

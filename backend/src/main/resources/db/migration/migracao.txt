@@ -2,7 +2,6 @@ CREATE TABLE public.api_publica (
     api_id SERIAL PRIMARY KEY,
     api_nome VARCHAR(255) NOT NULL,
     api_frequencia VARCHAR(255) NOT NULL,
-    api_proximo_data_crawl DATE,
     descricao TEXT,
     api_active BOOLEAN,
     api_url VARCHAR(2048)
