@@ -2,6 +2,7 @@ package com.group.backend.entity;
 import jakarta.persistence.*;
 import lombok.Setter;
 import lombok.Getter;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "api_publica")
