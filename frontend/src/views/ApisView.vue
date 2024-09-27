@@ -1,13 +1,19 @@
 <template>
     <div class="apis-view">
-      <h1>APIs</h1>
-      <p>Aqui você verá as APIs disponíveis.</p>
+      <h1>APIs Cadastradas</h1>
+      <apisListar></apisListar>
     </div>
   </template>
   
   <script>
+  import apisListar from '@/components/apisListar.vue';
+
   export default {
     name: "ApisView",
+    components: {
+      apisListar,
+    },
+
   };
   </script>
   
