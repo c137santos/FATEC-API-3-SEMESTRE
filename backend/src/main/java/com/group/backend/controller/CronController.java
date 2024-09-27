@@ -22,10 +22,10 @@ public class CronController {
 
 	@PostMapping("semanal")
 	void triggerWeekly () {
-		cron.dailyAPIRegisterSchedule();
+		cron.weeklyAPIRegisterSchedule();
 	}
-	@PostMapping("anual")
+	@PostMapping("mensal")
 	void triggerMonthly () {
-		cron.dailyAPIRegisterSchedule();
+		cron.monthlyAPIRegisterSchedule();
 	}
 }
