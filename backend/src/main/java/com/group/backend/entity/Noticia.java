@@ -1,5 +1,5 @@
 package com.group.backend.entity;
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.*;
 
@@ -13,7 +13,7 @@ public class Noticia {
     private Long notiId;
 
     @Column(name = "noti_data")
-    private Date notiData;
+    private LocalDate notiData;
 
     @Column(name = "noti_text")
     private String notiText;

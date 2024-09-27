@@ -1,13 +1,12 @@
 package com.group.backend.entity;
 
-import java.util.Date;
-
-import org.hibernate.annotations.Type;
+import java.time.LocalDate;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "result_api")
@@ -19,7 +18,7 @@ public class ResultApi {
 
     @Column(name = "res_data")
     @Setter
-    private Date resData;
+    private LocalDate resData;
 
     @Column(name = "res_payload", columnDefinition = "jsonb")
     @Setter

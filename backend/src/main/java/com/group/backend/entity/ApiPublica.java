@@ -22,8 +22,7 @@ public class ApiPublica {
     @Setter
     private String frequencia;
 
-    @Column(name = "descricao", columnDefinition = "TEXT")
-    @Setter
+    @Column(name = "api_descricao")
     private String descricao;
 
     @Column(name = "api_active")
@@ -35,32 +34,13 @@ public class ApiPublica {
     @Getter
     private String url;
     
-    @Override
-    public String toString() {
-        return "ApiPublica{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", frequencia='" + frequencia + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", active=" + active +
-                ", url='" + url + '\'' +
-                '}';
+    public ApiPublica() {}
+
+    public ApiPublica(String nome, String frequencia, String descricao, Boolean active, String url) {
+        this.nome = nome;
+        this.frequencia = frequencia;
+        this.descricao = descricao;
+        this.active = active;
+        this.url = url;
     }
-    // getters and setters
-
-    // constructors
-
-    // other methods
 }
-
-
-
-// CREATE TABLE public.api_publica (
-//     api_id SERIAL PRIMARY KEY,
-//     api_nome VARCHAR(255) NOT NULL,
-//     api_frequencia VARCHAR(255) NOT NULL,
-//     api_proximo_data_crawl DATE,
-//     descricao TEXT,
-//     api_active BOOLEAN,
-//     api_url VARCHAR(2048)
-// );

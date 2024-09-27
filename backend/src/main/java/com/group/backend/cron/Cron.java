@@ -8,7 +8,7 @@ import com.group.backend.entity.ResultApi;
 import com.group.backend.domain.ResultApiRepository;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 public class Cron {
 	private final ApiPublicaRepository apiPublicaRepository;
 	private final ResultApiRepository resultApiRepository;
-
 
 	static String DAY_TIME = "PT5.0S";
 	static String WEEK_TIME = "PT10.0S";
@@ -34,7 +33,7 @@ public class Cron {
 	public ResultApi saveNew (ApiPublica api, String data) {
 		ResultApi result = new ResultApi();
 		result.setApiPublica(api);
-		result.setResData(new Date());
+		result.setResData(LocalDate.now());
 		result.setResPayload(data);
 		return resultApiRepository.save(result);
 	}

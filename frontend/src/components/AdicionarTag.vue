@@ -50,14 +50,17 @@
       validadorDadosNovaTag() {
         if(this.novaTag.tagNome && this.novaTag.tagDescricao) {
           this.salvarTag();
+          let tagSerSalva = { ...this.novaTag };
+          this.$emit('nova-tag', tagSerSalva);
           this.novaTag.tagDescricao = '' ;
           this.novaTag.tagNome = '' ;
+          this.novaTag.tagActive = true;
           this.exibirNovaTagForm = false;
         }
       },
   
       cancelarCadastro() {
-        this.novaTag = {tagNome: '', tagActive: false, tagDescricao: ''};
+        this.novaTag = {tagNome: '', tagActive: true, tagDescricao: ''};
         this.exibirNovaTagForm = false;
       }
     }
@@ -97,6 +100,7 @@ h2 {
 .checkbox {
   margin-top: 20px;
 }
+
 
 /* Imagem que é o ícone do lado das tags */
 .imagem_logo {

@@ -35,6 +35,7 @@ DB_PORT=5432
 DB_NAME=cdd
 DB_USERNAME=cdd
 DB_PASSWORD=cdd
+```
 
 ## Desenvolvendo o ambiente full docker - devConteiner
 
@@ -60,7 +61,6 @@ DB_PASSWORD=cdd
 
 ### Desenvolvimento dev em localmente e postgresql no docker
 
-
 1.  Npm install;
 
    1.1 Rode o comando `npm install` para instalar as dependências do projeto no terminal do VsCode conteiner.
@@ -74,6 +74,18 @@ DB_PASSWORD=cdd
    2.1 `npm run dev` para rodar o backend e o frontend;
 
 
+### Desenvolvimento dev localmente com banco local
+
+1. Voce precisa instalar o postgresql
+
+2. Crie um banco de dados chamado `cdd` com usuário `cdd` e senha `cdd`, conforme as variáveis de ambiente. 
+
+3. Rode o comando `npm install` para instalar as dependências do projeto.
+
+4. Rode o comando `npm run dev` para rodar o backend e o frontend. Realizando assim a migração do banco. 
+
+ps: A criação do DB no windows pode gerar usuários que não tenham permissão para criar tabelas. Caso haja uma recusa de acesso as tabelas, procure dar permissionamento adequado ao usuário cdd.
+
 ## Setup do Banco. 
 
 ## Subir API Mockada
@@ -84,58 +96,18 @@ esse o json `mock-data.json`. Para rodar a api mockada, basta usar `npm run up-m
 
 Nosso projeto contém o flyway e o hibernate. 
 
-*******
-NOSSA V1 ESTÁ VAZIA MESMO - E DEVE PERMANECER ASSIM
-*******
+Hibernate é um framework ORM (Object-Relational Mapping) que mapeia objetos Java para tabelas de banco de dados.
+Mas qualquer modificação deve ser feito manualmente via script do flyway.
 
-A primeira migração é realizada pelo hibernate, depois pelo flyway. 
-Para realizar isso é necessário que o hibernate seja o responsável pela criação do banco, e o flyway pelas migrações futuras.
-Isso só é possível depois de sobreescrever as configurações do flyway no [FlywayConfiguration.java](./backend/src/main/java/com/group/backend/config/FlywayConfiguration.java), que dispara primeiro o hibernate depois o flyway.
+Flyway é uma ferramenta de migração de banco de dados de código aberto. Ele traz ordem e controle para o processo de evolução de banco de dados.
 
 ### Para 1º migração
-Você deve desabilitar o flyway e habilitar o hibernate para a criação do banco.
-Vá até o arquivo [application.properties](./backend/src/main/resources/application.properties) e altere as seguintes propriedades:
 
-Ative:
-
-```
-# Habilite para Migração inicial | desabilite após a migração inicia
-
-spring.jpa.hibernate.ddl-auto=create
-spring.flyway.enabled=false
-```
-
-Deixando essas variáveis desativadas por meio de comentário
-
-```
-# Habilite após Migração inicial | desabilite se for sua migração inicial
-
-# spring.profiles.active=dev
-# spring.jpa.hibernate.ddl-auto=validate
-# spring.flyway.enabled=true
-```
+É necessário o postgresql está de pé e com conexões válidas para funcionar.
+Portanto, ao rodar o comando `npm run dev` o flyway irá criar o banco de dados e as tabelas necessárias. 
+Ou `mvnw clean spring-boot:run`
 
 ### Para migrações futuras
-Após a 1º migracação, você deve passar o hibernate para um validador e o flyway para migrações futuras.
-
-```
-# Habilite após Migração inicial | desabilite se for sua migração inicial 
-
-spring.profiles.active=dev
-spring.jpa.hibernate.ddl-auto=validate
-spring.flyway.enabled=true
-```
-
-e deixando comentados esses 
-
-```
-# Habilite para Migração inicial | desabilite após a migração inicial 
-
-# spring.jpa.hibernate.ddl-auto=create
-# spring.flyway.enabled=false
-```
-
-## Vai realizar um commit- ATENÇÃO
 
 Caso esteja tratando de uma migração (mudança no banco), você deve usar o padrão de nomeclatura para cada migração, além de guarda o SQL na pasta adequada. 
 
