@@ -1,13 +1,11 @@
 package com.group.backend.controller;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.group.backend.domain.ApiRepository;
 import com.group.backend.entity.ApiPublica;
 
-import jakarta.transaction.Transactional;
 
 @RequestMapping("/apis")
 @RestController
@@ -28,7 +25,7 @@ public class ApiController {
         this.apiRepository = apiRepository;
     }
 
-    @GetMapping("/listar")
+    @GetMapping("listar")
     public ResponseEntity<List<ApiPublica>> listarApis() {
     List<ApiPublica> apis = apiRepository.findAll();
     for (ApiPublica apiP : apis) {
@@ -37,4 +34,11 @@ public class ApiController {
     
     return ResponseEntity.ok(apis);
     }
+
+    @PostMapping("cadastrar")
+    public ResponseEntity<ApiPublica> cadastrarApi(@RequestBody ApiPublica apiPublica) {
+        ApiPublica novaApi = apiRepository.save(apiPublica);
+        return ResponseEntity.ok(novaApi);
+    }
+
 }

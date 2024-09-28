@@ -29,7 +29,7 @@
             id="checkbox-edicao"
             v-model="tagLocal.tagActive"
             class="checkboxEdicao"
-        />
+          />
         </div>
         <label for="relacionadas">Tags relacionadas</label>
         <select id="relacionadas" v-model="tagLocal.tagRelacionada" class="modal-select">
@@ -54,26 +54,24 @@ export default {
   },
   data() {
     return {
-      tagLocal: { ...this.tag }  // Cria uma cópia do objeto tag
-    };
+      tagLocal: { ...this.tag } // Cria uma cópia do objeto tag
+    }
   },
   methods: {
     salvarEdicao() {
-      // Validação simples para garantir que o nome da tag não esteja vazio
-      if (!this.tagLocal.tagNome || this.tagLocal.tagNome.trim() === "") {
-        alert("O campo Nome da tag é obrigatório.");
-        return;
+      if (!this.tagLocal.tagNome || this.tagLocal.tagNome.trim() === '') {
+        alert('O campo Nome da tag é obrigatório.')
+        return
       }
 
-      // Emitir o evento de salvar com a tag atualizada (tagLocal)
-      this.$emit('salvar-edicao', this.tagLocal);
+      this.$emit('salvar-edicao', this.tagLocal)
     }
   },
   watch: {
     tag: {
       immediate: true,
       handler(newTag) {
-        this.tagLocal = { ...newTag };  // Atualiza a cópia local quando a tag mudar
+        this.tagLocal = { ...newTag } // Atualiza a cópia local quando a tag mudar
       }
     }
   }
@@ -81,7 +79,6 @@ export default {
 </script>
 
 <style scoped>
-/* Estilo para o fundo opaco */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -111,7 +108,7 @@ export default {
 
 /* Título */
 .modal-title {
-  color: #4A148C; /* Cor roxa */
+  color: #4a148c; /* Cor roxa */
   font-size: 26px; /* Um pouco maior para se destacar */
   margin-bottom: 20px;
 }
@@ -124,31 +121,31 @@ export default {
 
 /* Campos de entrada */
 .modal-input {
-  border: 1px solid #D1C4E9;
+  border: 1px solid #d1c4e9;
   border-radius: 5px;
   padding: 12px;
   margin-bottom: 20px;
   font-size: 16px;
-  background-color: #F3E5F5; /* Fundo suave lilás */
+  background-color: #f3e5f5; /* Fundo suave lilás */
 }
 
 .checkboxEdicao {
-  border: 1px solid #D1C4E9;
+  border: 1px solid #d1c4e9;
   border-radius: 5px;
   padding: 6px;
   margin-left: 10px;
   font-size: 16px;
-  background-color: #F3E5F5;
+  background-color: #f3e5f5;
 }
 
 /* Select para tags relacionadas */
 .modal-select {
-  border: 1px solid #D1C4E9;
+  border: 1px solid #d1c4e9;
   border-radius: 5px;
   padding: 12px;
   margin-bottom: 20px;
   font-size: 16px;
-  background-color: #F3E5F5;
+  background-color: #f3e5f5;
 }
 
 /* Botões de ação */
@@ -161,7 +158,7 @@ export default {
 
 /* Botão de salvar */
 .salvar-btn {
-  background-color: #6A1B9A; /* Roxo */
+  background-color: #6a1b9a; /* Roxo */
   color: white;
   padding: 10px 20px;
   border: none;
@@ -171,13 +168,13 @@ export default {
 }
 
 .salvar-btn:hover {
-  background-color: #4A148C; /* Tom mais escuro de roxo */
+  background-color: #4a148c; /* Tom mais escuro de roxo */
 }
 
 /* Botão de cancelar */
 .cancelar-btn {
   background-color: transparent;
-  color: #6A1B9A;
+  color: #6a1b9a;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
