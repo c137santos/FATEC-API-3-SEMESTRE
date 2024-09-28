@@ -37,7 +37,7 @@ public class ApiPublica {
 
     public ApiPublica(String nome, String frequencia, String descricao, Boolean active, String url) {
         this.nome = nome;
-        this.frequencia = frequencia;
+        this.frequencia = frequencia.toLowerCase();
         this.descricao = descricao;
         this.active = active;
         this.url = url;
