@@ -26,7 +26,7 @@
           <vue-json-pretty :data="capturedData" />
         </div>
       </div>
-      <button class="button-black" @click="closeDialog">Fechar</button>
+      <button class="close-button" @click="closeDialog">Fechar</button>
     </dialog>
   </div>
 </template>
@@ -188,29 +188,26 @@ export default {
 }
 
 .data-item {
-  margin-bottom: 16px; /* Espaçamento entre os itens */
+  margin-bottom: 16px;
 }
 
-/* Estilo do botão de fechar */
 .close-button {
-  background-color: #6f3c91; /* Cor roxa */
-  color: white; /* Texto branco */
-  border: none; /* Sem borda */
-  padding: 10px 20px; /* Padding para aumentar o tamanho */
-  border-radius: 8px; /* Borda arredondada */
-  cursor: pointer; /* Cursor de ponteiro */
-  font-size: 16px; /* Tamanho da fonte */
-  transition: background-color 0.3s; /* Transição suave */
+  background-color: #6f3c91;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-/* Efeito de hover para o botão de fechar */
 .close-button:hover {
-  background-color: #5a3277; /* Cor mais escura ao passar o mouse */
+  background-color: #5a3277;
 }
 
-/* Personaliza o backdrop do dialog */
 .data-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
 
