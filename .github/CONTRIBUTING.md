@@ -88,7 +88,11 @@ ps: A criação do DB no windows pode gerar usuários que não tenham permissão
 
 ## Setup do Banco. 
 
-### Contexto
+## Subir API Mockada
+Esse repositório contém uma simples API feita em express que retorna um json aleatório, na pasta `mock/api`. Esse retorno sempre vai refletir o 
+esse o json `mock-data.json`. Para rodar a api mockada, basta usar `npm run up-mock-api`, e para testar o CRON, modificar o `mock-data.json`
+
+## Contexto
 
 Nosso projeto contém o flyway e o hibernate. 
 

@@ -1,41 +1,82 @@
 package com.group.backend.cron;
-import com.group.backend.model.ApiPublicaModelMock;
-import com.group.backend.model.ApiResultModelMock;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.group.backend.domain.ApiPublicaRepository;
+import com.group.backend.entity.ApiPublica;
+import com.group.backend.entity.ResultApi;
+import com.group.backend.domain.ResultApiRepository;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 
-import org.json.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Cron {
-	static String DAY_TIME = "PT1.0S";
-	static String WEEK_TIME = "PT5.0S";
-	static String MONTH_TIME = "PT10.0S";	
-	public static void apiRegister(ArrayList<ApiPublicaModelMock> apiList) {
-		for (ApiPublicaModelMock api : apiList) {
-			JSONObject data = ApiConsumer.getData(api.url);
-			ApiResultModelMock result = api.getLastResult();
-			if (result == null || !(result.payload.toString().equals(data.toString()))) {
-				api.storeResult(data);
-				System.out.println("Saving new data! Updates - " + api.name + " - Updates: " + data.get("updates"));
+	private final ApiPublicaRepository apiPublicaRepository;
+	private final ResultApiRepository resultApiRepository;
+
+	static String DAY_TIME = "PT5.0S";
+	static String WEEK_TIME = "PT10.0S";
+	static String MONTH_TIME = "PT20.0S";
+
+	public Cron(ApiPublicaRepository apiPublicaRepository, ResultApiRepository resultApiRepository) {
+		this.apiPublicaRepository = apiPublicaRepository;
+		this.resultApiRepository = resultApiRepository;
+		dailyAPIRegisterSchedule();
+		weeklyAPIRegisterSchedule();
+		monthlyAPIRegisterSchedule();
+	}
+
+	public ResultApi saveNew (ApiPublica api, String data) {
+		ResultApi result = new ResultApi();
+		result.setApiPublica(api);
+		result.setResData(LocalDate.now());
+		result.setResPayload(data);
+		return resultApiRepository.save(result);
+	}
+
+	public void apiRegister(ArrayList<ApiPublica> apiList) {
+		for (ApiPublica api : apiList) {
+			String data = ApiConsumer.getData(api.getUrl());
+			if (data == null) continue;
+
+			ResultApi lastResult = resultApiRepository.getLastFromResId(api.getId());
+			if(lastResult == null) {
+				saveNew(api, data);
+				continue;
 			}
+
+			try {
+				ObjectMapper mapper = new ObjectMapper();
+				JsonNode dataNode = mapper.readTree(data);
+				JsonNode lastPayloadNode = mapper.readTree(lastResult.getResPayload());
+				if (!dataNode.equals(lastPayloadNode)) {
+
+					saveNew(api, data);
+	
+					System.out.println("Saving new data! Updates - " + api.getNome());
+				}
+			} catch (Exception e) {}
+
+			
 		}
 	}
 
-	@Scheduled(fixedRateString = "PT1.0S")
+	@Scheduled(cron="0 0 * * * ?")
 	public void dailyAPIRegisterSchedule() {
-		apiRegister(ApiPublicaModelMock.getDailyList());
+		apiRegister(apiPublicaRepository.getDailyList());
 	}
 
-	@Scheduled(fixedRateString = "PT5.0S")
+	@Scheduled(cron="0 0 0 * * MON")
 	public void weeklyAPIRegisterSchedule() {
-		apiRegister(ApiPublicaModelMock.getWeeklyList());
+		apiRegister(apiPublicaRepository.getWeeklyList());
 	}
 
-	@Scheduled(fixedRateString = "PT10.0S")
-	public void monthlyAPIRegister() {
-		apiRegister(ApiPublicaModelMock.getMonthlyList());
+	@Scheduled(cron = "0 0 1 * * ?")
+	public void monthlyAPIRegisterSchedule() {
+		apiRegister(apiPublicaRepository.getMonthlyList());
 	}
 }

@@ -1,7 +1,9 @@
 package com.group.backend.entity;
 
 import jakarta.persistence.*;
+import lombok.Setter;
 import lombok.Getter;
+import java.time.LocalDate;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -13,13 +15,16 @@ public class ApiPublica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "api_id")
     @Getter
+    @Setter
     private Long id;
 
     @Column(name = "api_nome", nullable = false)
+    @Setter
     @Getter
     private String nome;
 
     @Column(name = "api_frequencia", nullable = false)
+    @Setter
     @Getter
     private String frequencia;
 
@@ -28,6 +33,7 @@ public class ApiPublica {
     private String descricao;
 
     @Column(name = "api_active")
+    @Setter
     @Getter
     private Boolean active;
 
