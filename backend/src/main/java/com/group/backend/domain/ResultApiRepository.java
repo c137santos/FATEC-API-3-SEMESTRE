@@ -1,5 +1,5 @@
 package com.group.backend.domain;
-
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -15,4 +15,8 @@ public interface ResultApiRepository extends JpaRepository<ResultApi, Long> {
 				"ORDER BY res_id, res_data;\n" + //
 				"", nativeQuery = true)
 	ResultApi getLastFromResId(Long id);
+
+	@Query("SELECT r FROM ResultApi r WHERE r.apiPublica.id = :apiId")
+    List<ResultApi> findAllByApiId(Long apiId);
+
 }
