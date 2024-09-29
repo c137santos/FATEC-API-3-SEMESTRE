@@ -38,11 +38,6 @@ public class ApiPublica {
     private Boolean active;
 
     @Column(name = "api_url", length = 2048)
-    @Setter
-    @Getter
-    private Boolean active;
-
-    @Column(name = "api_url", length = 2048)
     @Getter
     private String url;
 
