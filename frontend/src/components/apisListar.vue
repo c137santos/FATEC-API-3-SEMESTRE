@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import VueJsonPretty from 'vue-json-pretty';
 import 'vue-json-pretty/lib/styles.css';
 
@@ -52,29 +51,40 @@ export default {
   },
   methods: {
     fetchApiData() {
-      axios
-        .get('http://localhost:8081/apis/listar')
-        .then(response => {
-          this.apis = response.data;
-        })
-        .catch(error => {
-          console.error("Erro ao buscar APIs:", error);
-        });
-    },
+    fetch('http://localhost:8081/apis/listar')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        this.apis = data;
+      })
+      .catch(error => {
+        console.error("Erro ao buscar APIs:", error);
+      });
+  },
+
     editApi(id) {
       // TO-DO - parte de editar api
       console.log("Editar API com id:", id);
     },
     viewCapturedData(id) {
-      axios
-        .get(`http://localhost:8081/apis/resultados?apiId=${id}`)
-        .then(response => {
-          this.capturedData = response.data;
-          this.$refs.dataDialog.showModal();
-        })
-        .catch(error => {
-          console.error("Erro ao buscar dados capturados:", error);
-        });
+  fetch(`http://localhost:8081/apis/resultados?apiId=${id}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      this.capturedData = data;
+      this.$refs.dataDialog.showModal();
+    })
+    .catch(error => {
+      console.error("Erro ao buscar dados capturados:", error);
+    });
     },
     closeDialog() {
       this.$refs.dataDialog.close();
