@@ -7,7 +7,7 @@
           <p>{{ api.url }}</p>
           <p>{{ api.frequencia }}</p>
         </div>
-        <button class="edit-button" @click="editApi(api.id)">editar</button>
+        <button class="button-black" @click="editApi(api.id)">editar</button>
       </div>
       <button class="view-data-button" @click="viewCapturedData(api.id)">
         Clique aqui para ver os dados capturados
@@ -26,7 +26,7 @@
           <vue-json-pretty :data="capturedData" />
         </div>
       </div>
-      <button @click="closeDialog">Fechar</button>
+      <button class="button-black" @click="closeDialog">Fechar</button>
     </dialog>
   </div>
 </template>
@@ -123,7 +123,7 @@ export default {
   flex-direction: column;
 }
 
-.edit-button {
+.button-black {
   background-color: #333;
   color: white;
   border: none;
