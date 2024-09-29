@@ -59,3 +59,6 @@ yarn-error.log
 target/
 build/
 out/
+
+.vscode
+devcontainer*
