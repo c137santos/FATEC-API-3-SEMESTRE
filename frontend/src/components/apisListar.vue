@@ -13,9 +13,7 @@
         Clique aqui para ver os dados capturados
       </button>
     </div>
-    <div v-else>
-      Carregando APIs...
-    </div>
+    <div v-else>Carregando APIs...</div>
 
     <dialog ref="dataDialog" class="data-dialog">
       <div class="dialog-header">
@@ -32,71 +30,50 @@
 </template>
 
 <script>
-import VueJsonPretty from 'vue-json-pretty';
-import 'vue-json-pretty/lib/styles.css';
-
+import VueJsonPretty from 'vue-json-pretty'
+import 'vue-json-pretty/lib/styles.css'
 
 export default {
+  props: {
+    apis: Array
+  },
   data() {
     return {
-      apis: [],
-      capturedData: [],
-    };
+      capturedData: []
+    }
   },
   components: {
-    VueJsonPretty,
-  },
-  created() {
-    this.fetchApiData();
+    VueJsonPretty
   },
   methods: {
-    fetchApiData() {
-    fetch('http://localhost:8081/apis/listar')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.apis = data;
-      })
-      .catch(error => {
-        console.error("Erro ao buscar APIs:", error);
-      });
-  },
-
     editApi(id) {
       // TO-DO - parte de editar api
-      console.log("Editar API com id:", id);
+      console.log('Editar API com id:', id)
     },
     viewCapturedData(id) {
-  fetch(`http://localhost:8081/apis/resultados?apiId=${id}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      this.capturedData = data;
-      this.$refs.dataDialog.showModal();
-    })
-    .catch(error => {
-      console.error("Erro ao buscar dados capturados:", error);
-    });
+      fetch(`http://localhost:8081/apis/resultados?apiId=${id}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok')
+          }
+          return response.json()
+        })
+        .then((data) => {
+          this.capturedData = data
+          this.$refs.dataDialog.showModal()
+        })
+        .catch((error) => {
+          console.error('Erro ao buscar dados capturados:', error)
+        })
     },
     closeDialog() {
-      this.$refs.dataDialog.close();
+      this.$refs.dataDialog.close()
     },
     formatJson(data) {
-      console.log(this.capturedData[0])
-      return JSON.stringify(data, null, 2)
-        .replace(/\\n/g, '<br>')
-        .replace(/ /g, '&nbsp;');
+      return JSON.stringify(data, null, 2).replace(/\\n/g, '<br>').replace(/ /g, '&nbsp;')
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -210,4 +187,3 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
-

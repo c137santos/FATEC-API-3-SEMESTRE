@@ -1,73 +1,87 @@
 <template>
-    
-    <div class="tags-cadastradas">
-        <div class="Nova-Tag">
-          <button class="cadastrar-tag-nova" @click="toggleNovaTagForm">Cadastrar Tag</button>
+  <div class="tags-cadastradas">
+    <div class="Nova-Tag">
+      <button class="cadastrar-tag-nova" @click="toggleNovaTagForm">Cadastrar Tag</button>
 
       <div v-if="exibirNovaTagForm" class="formulario-cadastro">
         <form @submit.prevent="validadorDadosNovaTag">
-            <img class="imagem_logo" src="@/assets/Logo_padrao.jpeg">
-            <input class="Campo_nome_cadastro" type="text" v-model="novaTag.tagNome" placeholder="Nome da tag">
-            <input class="Campo_descricao_cadastro" type="text" v-model="novaTag.tagDescricao" placeholder="Descrição da tag">
+          <img class="imagem_logo" src="@/assets/Logo_padrao.jpeg" />
+          <input
+            class="Campo_nome_cadastro"
+            type="text"
+            v-model="novaTag.tagNome"
+            placeholder="Nome da tag"
+          />
+          <input
+            class="Campo_descricao_cadastro"
+            type="text"
+            v-model="novaTag.tagDescricao"
+            placeholder="Descrição da tag"
+          />
           <div>
             <label for="checkbox-cadastro"> Ativo</label>
-            <input class="checkAtivo" type="checkbox" id="checkbox-cadastro" v-model="novaTag.tagActive">
+            <input
+              class="checkAtivo"
+              type="checkbox"
+              id="checkbox-cadastro"
+              v-model="novaTag.tagActive"
+            />
           </div>
           <button class="botao-salvar" type="submit">Salvar</button>
           <button class="botao-cancelar" @click.prevent="cancelarCadastro">Cancelar</button>
         </form>
       </div>
-      </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        tags: [],
-        novaTag: {tagNome: '', tagDescricao: '', tagActive: true},
-        exibirNovaTagForm: false,
-        selectedTag: ''
-      };
-    },
-    
-    methods: {
-      toggleNovaTagForm() {
-        this.exibirNovaTagForm = !this.exibirNovaTagForm;
-      },
+  </div>
+</template>
 
-      salvarTag() {
-        const requestOptions = {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(this.novaTag)
-        };
-        fetch('http://localhost:8080/tags/cadastrar', requestOptions)
-        .then(response => response.json())
-      },
-  
-      validadorDadosNovaTag() {
-        if(this.novaTag.tagNome && this.novaTag.tagDescricao) {
-          this.salvarTag();
-          let tagSerSalva = { ...this.novaTag };
-          this.$emit('nova-tag', tagSerSalva);
-          this.novaTag.tagDescricao = '' ;
-          this.novaTag.tagNome = '' ;
-          this.novaTag.tagActive = true;
-          this.exibirNovaTagForm = false;
-        }
-      },
-  
-      cancelarCadastro() {
-        this.novaTag = {tagNome: '', tagActive: true, tagDescricao: ''};
-        this.exibirNovaTagForm = false;
+<script>
+export default {
+  data() {
+    return {
+      tags: [],
+      novaTag: { tagNome: '', tagDescricao: '', tagActive: true },
+      exibirNovaTagForm: false,
+      selectedTag: ''
+    }
+  },
+
+  methods: {
+    toggleNovaTagForm() {
+      this.exibirNovaTagForm = !this.exibirNovaTagForm
+    },
+
+    salvarTag() {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.novaTag)
       }
+      fetch('http://localhost:8080/tags/cadastrar', requestOptions).then((response) =>
+        response.json()
+      )
+    },
+
+    validadorDadosNovaTag() {
+      if (this.novaTag.tagNome && this.novaTag.tagDescricao) {
+        this.salvarTag()
+        let tagSerSalva = { ...this.novaTag }
+        this.$emit('nova-tag', tagSerSalva)
+        this.novaTag.tagDescricao = ''
+        this.novaTag.tagNome = ''
+        this.novaTag.tagActive = true
+        this.exibirNovaTagForm = false
+      }
+    },
+
+    cancelarCadastro() {
+      this.novaTag = { tagNome: '', tagActive: true, tagDescricao: '' }
+      this.exibirNovaTagForm = false
     }
   }
+}
 </script>
-  
-  
+
 <style scoped>
 /* Título das tags cadastradas */
 h2 {
@@ -101,7 +115,6 @@ h2 {
   margin-top: 20px;
 }
 
-
 /* Imagem que é o ícone do lado das tags */
 .imagem_logo {
   width: 25px;
@@ -114,7 +127,8 @@ h2 {
 }
 
 /* Campos de entrada para o cadastro de nova Tag */
-.Campo_nome_cadastro, .Campo_descricao_cadastro {
+.Campo_nome_cadastro,
+.Campo_descricao_cadastro {
   display: block;
   width: 600px;
   padding: 8px;
@@ -134,7 +148,9 @@ h2 {
 }
 
 /* Botões de salvar, cancelar e cadastrar */
-.botao-salvar, .botao-cancelar, .cadastrar-tag-nova {
+.botao-salvar,
+.botao-cancelar,
+.cadastrar-tag-nova {
   padding: 8px 16px;
   margin-top: 10px;
   color: white;
@@ -146,7 +162,7 @@ h2 {
 /* Botão cadastrar nova tag */
 .cadastrar-tag-nova {
   background-color: black;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 /* Botão salvar */
@@ -164,7 +180,6 @@ h2 {
 /* Ajuste de layout para a seção de tags cadastradas */
 .tags-cadastradas {
   margin-top: 10px;
-  width: 100%; 
+  width: 100%;
 }
-
-  </style>
+</style>

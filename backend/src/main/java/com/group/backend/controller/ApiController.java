@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.group.backend.domain.ApiRepository;
 import com.group.backend.entity.ApiPublica;
+import com.group.backend.domain.ApiPublicaRepository;
 
 import com.group.backend.domain.ResultApiRepository;
 import com.group.backend.entity.ResultApi;
@@ -24,13 +24,12 @@ import com.group.backend.entity.ResultApi;
 @CrossOrigin(origins = "*")
 public class ApiController {
 
-    private final ApiRepository apiRepository;
+    private final ApiPublicaRepository apiRepository;
     private final ResultApiRepository resultApiRepository;
 
-    public ApiController(ApiRepository apiRepository, ResultApiRepository resultApiRepository) {
+    public ApiController(ApiPublicaRepository apiRepository, ResultApiRepository resultApiRepository) {
         this.apiRepository = apiRepository;
         this.resultApiRepository = resultApiRepository;
-
     }
 
     @GetMapping("listar")

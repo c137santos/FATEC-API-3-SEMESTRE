@@ -118,6 +118,8 @@ export default {
     salvarApi() {
       this.mostrarFormulario = false
       if (this.validarFormulario()) {
+        let apiSerSalva = { ...this.api }
+        this.$emit('nova-api', apiSerSalva)
         this.salvandoAPiBackend()
       }
     },
@@ -131,8 +133,6 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           this.mostrarFormulario = false
-          console.log('API salva com sucesso:', data)
-          alert('API salva com sucesso!')
         })
         .catch((error) => {
           console.error('Erro ao salvar API:', error)
@@ -142,7 +142,6 @@ export default {
       if (this.validarFormulario()) {
         console.log('API salva com sucesso:', this.api)
         alert('API salva com sucesso!')
-        this.$emit('api-salva', this.api)
         this.cancelar()
       }
     },
@@ -185,7 +184,7 @@ export default {
 <style scoped>
 .api-cadastrar {
   display: flex;
-  flex-direction: column; /* Ensure elements are stacked vertically */
+  flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   color: black;

@@ -32,7 +32,7 @@ public class TagController {
         this.tagRepository = tagRepository;
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping("cadastrar")
     @Transactional
     public ResponseEntity<Tag> cadastrarTag(@RequestBody DadosCadastroTag dados) {
         Tag novaTag = new Tag();
@@ -45,7 +45,7 @@ public class TagController {
         return ResponseEntity.ok(tagSalva);
     }
 
-    @GetMapping("/listar")
+    @GetMapping("listar")
     public ResponseEntity<List<Tag>> listarTags() {
     List<Tag> tags = tagRepository.findAll();
     
@@ -56,7 +56,7 @@ public class TagController {
     return ResponseEntity.ok(tags);
 }
 
-    @PutMapping("/editar/{id}")
+    @PutMapping("editar/{id}")
     @Transactional
     public ResponseEntity<Tag> editarTag(@PathVariable Long id, @RequestBody DadosAtualizarTag dados) {
         Optional<Tag> tagExistente = tagRepository.findById(id);
