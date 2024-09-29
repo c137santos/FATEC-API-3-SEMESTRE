@@ -31,7 +31,7 @@ public class ApiPublicaModelMock {
 	public static ArrayList<ApiPublicaModelMock> getDailyList() {
 		ArrayList<ApiPublicaModelMock> list = new ArrayList<ApiPublicaModelMock>();
 		
-		list.add(dailyMock);
+		// list.add(dailyMock);
 
 		return list;
 	}
@@ -39,7 +39,7 @@ public class ApiPublicaModelMock {
 	public static ArrayList<ApiPublicaModelMock> getWeeklyList() {
 		ArrayList<ApiPublicaModelMock> list = new ArrayList<ApiPublicaModelMock>();
 		
-		list.add(weeklyMock);
+		// list.add(weeklyMock);
 
 		return list;
 	}
@@ -47,7 +47,7 @@ public class ApiPublicaModelMock {
 	public static ArrayList<ApiPublicaModelMock> getMonthlyList() {
 		ArrayList<ApiPublicaModelMock> list = new ArrayList<ApiPublicaModelMock>();
 		
-		list.add(monthlyMock);
+		// list.add(monthlyMock);
 
 		return list;
 	}
