@@ -1,13 +1,24 @@
 <template>
-    <div class="portais-view">
-      <h1>Portais</h1>
-      <p>Aqui você verá os portais disponíveis.</p>
+    <div>
+      <AdicionarPortal @novo-portal="adicionarPortal"/>
     </div>
   </template>
   
   <script>
+  import AdicionarPortal from '@/components/AdicionarPortal.vue';
+  
   export default {
     name: "PortaisView",
+    components: {
+      AdicionarPortal
+    },
+
+    methods: {
+      adicionarPortal(novoPortal) {
+        this.portais.push(novoPortal)
+      }
+    }
+    
   };
   </script>
   
