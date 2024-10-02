@@ -11,6 +11,12 @@
     name: "PortaisView",
     components: {
       AdicionarPortal
+
+    },
+    data() {
+      return {
+        portais: []
+      }
     },
 
     methods: {

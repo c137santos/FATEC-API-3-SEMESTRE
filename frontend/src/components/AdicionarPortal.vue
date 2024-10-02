@@ -3,7 +3,7 @@
     <div class="novo-portal">
       <button class="cadastrar-portal-novo" @click="toggleNovoPortalForm">Cadastrar Portal</button>
 
-      <div v-if="exibirNovaTagForm" class="formulario-cadastro-portal">
+      <div v-if="exibirNovoPortalForm" class="formulario-cadastro-portal">
         <form @submit.prevent="validadorDadosNovoPortal">
             <img class="imagem-logo" src="@/assets/Logo_padrao.jpeg">
             <input
@@ -29,8 +29,9 @@
           </div>
           <div>
             <p>Tags: </p>
-            <select class="seletorTags">
-                <ListaTags/>
+            <select v-model = "seletorTags" class="seletorTags">
+                <option v-for="tag in tags" :key="tag.name" :value="tag.name">{{ tag.tagNome }}</option>
+
             </select>
           </div>
           <button class="botao-salvar-portal" type="submit">Salvar</button>
@@ -42,29 +43,46 @@
 
 <script>
 export default {
-import ListaTags from '@/components/ListaTags.vue',
-name: ListaTags,
     data() {
             return {
+                seletorTags: '',
                 portais: [],
+                tags: [],
                 novoPortal: {portalNome: '', portalUrl: '', portalAtivo: true},
-                exibirNovaTagForm: false,
+                exibirNovoPortalForm: false,
                 selectPortal: ''
             }
         },
 
+    mounted() {
+        this.carregarTags()
+    },
+
         methods: {
             toggleNovoPortalForm() {
-                this.exibirNovaTagForm = !this.exibirNovaTagForm;
+                this.exibirNovoPortalForm = !this.exibirNovoPortalForm;
             },
 
+            async carregarTags() {
+                try {
+                const response = await fetch('http://localhost:8080/tags/listar')
+                    if (!response.ok) {
+                    throw new Error('Falha ao carregar tags do backend')
+                    }
+                    const tags = await response.json()
+                    this.tags = tags
+                } catch (error) {
+                    alert('Erro ao carregar as tags. Tente novamente mais tarde.')
+                }
+                },
+
         salvarPortal() {
-            const resquestionOption = {
+            const requestOption = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(this.novoPortal),
             }
-            fetch('http://localhost:8080/portais/cadastrar', resquestionOption).then((Response) =>
+            fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) =>
                 response.json()
                 )
         },
@@ -77,13 +95,13 @@ name: ListaTags,
                 this.novoPortal.portalUrl = ''
                 this.novoPortal.portalNome = ''
                 this.novoPortal.portalAtivo = true
-                this.exibirNovaPortalForm = false
+                this.exibirNovoPortalForm = false
             }
         },
 
         cancelarCadastro() {
             this.novoPortal = {portalNome: '', portalUrl: '', portalAtivo: true}
-            this.exibirNovaPortalForm = fase
+            this.exibirNovoPortalForm = false
         }
     }
 }
@@ -128,8 +146,13 @@ name: ListaTags,
 }
 
 .seletorTags {
-    width: 150px;
-    height: 20px;
+    width: 300px;
+    border: 1px solid #d1c4e9;
+    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #f3e5f5;
 }
 
 /* Botões de salvar, cancelar e cadastrar */

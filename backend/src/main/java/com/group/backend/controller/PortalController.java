@@ -1,5 +1,7 @@
 package com.group.backend.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,20 +26,18 @@ public class PortalController {
         this.portalRepository = portalRepository;
     }
 
-    @PostMapping("cadadstrar")
+    @PostMapping("cadastrar")
     @Transactional
     public ResponseEntity<Portal> cadastrarPortal(@RequestBody DadosCadastroPortal dados) {
     
         Portal novoPortal = new Portal();
         novoPortal.setNome(dados.portalNome());
         novoPortal.setUrl(dados.portalUrl());
+        novoPortal.setData(LocalDate.now());
         novoPortal.setFrequencia(dados.portalFrequencia());
-        novoPortal.setData(dados.portalData());
         
         Portal portalSalvo = portalRepository.save(novoPortal);
         return ResponseEntity.ok(portalSalvo);
     }
-    
-
 }
 
