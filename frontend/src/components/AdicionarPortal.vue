@@ -5,37 +5,32 @@
 
       <div v-if="exibirNovoPortalForm" class="formulario-cadastro-portal">
         <form @submit.prevent="validadorDadosNovoPortal">
-            <img class="imagem-logo" src="@/assets/Logo_padrao.jpeg">
-            <input
-                class="campo-cadastro-nome"
-                type="text"
-                v-model="novoPortal.portalNome"
-                placeholder="Nome do Portal"
-            />
-            <input
-                class="campo-cadastro-url"
-                type="url"
-                v-model="novoPortal.portalUrl"
-                placeholder="Url do Portal"
-            />
+          <img class="imagem-logo" src="@/assets/Logo_padrao.jpeg" />
+          <input
+            class="campo-cadastro-nome"
+            type="text"
+            v-model="novoPortal.portalNome"
+            placeholder="Nome do Portal"
+          />
+          <input
+            class="campo-cadastro-url"
+            type="url"
+            v-model="novoPortal.portalUrl"
+            placeholder="Url do Portal"
+          />
         </form>
-          <div>
-            <label class="checkbox-portal">Ativo</label>
-            <input
-                class="checkAtivoPortal"
-                type="checkbox"
-                v-model="novoPortal.portalAtivo"
-            />
-          </div>
-          <div>
-            <p>Tags: </p>
-            <select v-model = "seletorTags" class="seletorTags">
-                <option v-for="tag in tags" :key="tag.name" :value="tag.name">{{ tag.tagNome }}</option>
-
-            </select>
-          </div>
-          <button class="botao-salvar-portal" type="submit">Salvar</button>
-          <button class="botao-cancelar-portal" @click.prevent="cancelarCadastro">Cancelar</button>
+        <div>
+          <label class="checkbox-portal">Ativo</label>
+          <input class="checkAtivoPortal" type="checkbox" v-model="novoPortal.portalAtivo" />
+        </div>
+        <div>
+          <p>Tags:</p>
+          <select v-model="seletorTags" class="seletorTags">
+            <option v-for="tag in tags" :key="tag.name" :value="tag.name">{{ tag.tagNome }}</option>
+          </select>
+        </div>
+        <button class="botao-salvar-portal" type="submit">Salvar</button>
+        <button class="botao-cancelar-portal" @click.prevent="cancelarCadastro">Cancelar</button>
       </div>
     </div>
   </div>
@@ -43,145 +38,141 @@
 
 <script>
 export default {
-    data() {
-            return {
-                seletorTags: '',
-                portais: [],
-                tags: [],
-                novoPortal: {portalNome: '', portalUrl: '', portalAtivo: true},
-                exibirNovoPortalForm: false,
-                selectPortal: ''
-            }
-        },
+  data() {
+    return {
+      seletorTags: '',
+      portais: [],
+      tags: [],
+      novoPortal: { portalNome: '', portalUrl: '', portalAtivo: true },
+      exibirNovoPortalForm: false,
+      selectPortal: ''
+    }
+  },
 
-    mounted() {
-        this.carregarTags()
+  mounted() {
+    this.carregarTags()
+  },
+
+  methods: {
+    toggleNovoPortalForm() {
+      this.exibirNovoPortalForm = !this.exibirNovoPortalForm
     },
 
-        methods: {
-            toggleNovoPortalForm() {
-                this.exibirNovoPortalForm = !this.exibirNovoPortalForm;
-            },
-
-            async carregarTags() {
-                try {
-                const response = await fetch('http://localhost:8080/tags/listar')
-                    if (!response.ok) {
-                    throw new Error('Falha ao carregar tags do backend')
-                    }
-                    const tags = await response.json()
-                    this.tags = tags
-                } catch (error) {
-                    alert('Erro ao carregar as tags. Tente novamente mais tarde.')
-                }
-                },
-
-        salvarPortal() {
-            const requestOption = {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(this.novoPortal),
-            }
-            fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) =>
-                response.json()
-                )
-        },
-
-        validadorDadosNovoPortal() {
-            if(this.novoPortal.portalNome && this.novoPortal.portalUrl) {
-                this.salvarPortal()
-                let portalSerSalvo = {... this.novoPortal}
-                this.$emit('novo-portal', portalSerSalvo)
-                this.novoPortal.portalUrl = ''
-                this.novoPortal.portalNome = ''
-                this.novoPortal.portalAtivo = true
-                this.exibirNovoPortalForm = false
-            }
-        },
-
-        cancelarCadastro() {
-            this.novoPortal = {portalNome: '', portalUrl: '', portalAtivo: true}
-            this.exibirNovoPortalForm = false
+    async carregarTags() {
+      try {
+        const response = await fetch('http://localhost:8080/tags/listar')
+        if (!response.ok) {
+          throw new Error('Falha ao carregar tags do backend')
         }
-    }
-}
+        const tags = await response.json()
+        this.tags = tags
+      } catch (error) {
+        alert('Erro ao carregar as tags. Tente novamente mais tarde.')
+      }
+    },
 
+    salvarPortal() {
+      const requestOption = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.novoPortal)
+      }
+      fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) =>
+        response.json()
+      )
+    },
+
+    validadorDadosNovoPortal() {
+      if (this.novoPortal.portalNome && this.novoPortal.portalUrl) {
+        this.salvarPortal()
+        let portalSerSalvo = { ...this.novoPortal }
+        this.$emit('novo-portal', portalSerSalvo)
+        this.novoPortal.portalUrl = ''
+        this.novoPortal.portalNome = ''
+        this.novoPortal.portalAtivo = true
+        this.exibirNovoPortalForm = false
+      }
+    },
+
+    cancelarCadastro() {
+      this.novoPortal = { portalNome: '', portalUrl: '', portalAtivo: true }
+      this.exibirNovoPortalForm = false
+    }
+  }
+}
 </script>
 
 <style scoped>
-
 .portal-cadastrado {
-    margin-top: 10px;
-    width: 100%;
+  margin-top: 10px;
+  width: 100%;
 }
 
-/* Formulário de cadastro de novo portal */
-.formulario-cadastrar-portal {
-    width: 700px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: #f9f9f9;
+.formulario-cadastro-portal {
+  width: 700px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
 }
 
-/* Imagem que é o ícone do lado das tags */
 .imagem-logo {
-    width: 25px;
-    margin-right: 35px;
+  width: 25px;
+  margin-right: 35px;
 }
 
 .campo-cadastro-nome,
 .campo-cadastro-url {
-    display: block;
-    width: 600px;
-    padding: 8px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    background-color: #e4ceff;
+  display: block;
+  width: 600px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #e4ceff;
 }
 
 .checkbox-portal {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .seletorTags {
-    width: 300px;
-    border: 1px solid #d1c4e9;
-    border-radius: 5px;
-    padding: 12px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    background-color: #f3e5f5;
+  width: 300px;
+  border: 1px solid #d1c4e9;
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: #f3e5f5;
 }
 
 /* Botões de salvar, cancelar e cadastrar */
 .botao-salvar-portal,
 .botao-cancelar-portal,
 .cadastrar-portal-novo {
-    padding: 8px 16px;
-    margin-top: 10px;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
+  padding: 8px 16px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 /* Botão cadastrar nova tag */
 .cadastrar-portal-novo {
-    background-color: black;
-    margin-bottom: 20px;
+  background-color: black;
+  margin-bottom: 20px;
 }
 
 /* Botão salvar */
 .botao-salvar-portal {
-    background-color: rgb(141, 107, 207);
+  background-color: rgb(141, 107, 207);
 }
 
 /* Botão cancelar */
 .botao-cancelar-portal {
-    color: mediumpurple;
-    border: none;
-    background-color: white;
+  color: mediumpurple;
+  border: none;
+  background-color: white;
 }
 </style>
