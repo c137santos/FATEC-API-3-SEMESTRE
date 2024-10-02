@@ -29,7 +29,7 @@
             <option v-for="tag in tags" :key="tag.name" :value="tag.name">{{ tag.tagNome }}</option>
           </select>
         </div>
-        <button class="botao-salvar-portal" type="submit">Salvar</button>
+        <button class="botao-salvar-portal" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
         <button class="botao-cancelar-portal" @click.prevent="cancelarCadastro">Cancelar</button>
       </div>
     </div>
