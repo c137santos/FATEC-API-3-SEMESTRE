@@ -16,9 +16,21 @@ import com.group.backend.service.TagPortalService;
 
 import jakarta.transaction.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
-@RequestMapping("/portais")
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.group.backend.domain.PortalRepository;
+import com.group.backend.dto.PortalTagDTO;
+import com.group.backend.entity.Portal;
+
 @RestController
+@RequestMapping("/portais")
 @CrossOrigin(origins = "*")
 public class PortalController {
 
@@ -44,6 +56,31 @@ public class PortalController {
         
         return ResponseEntity.ok(portalSalvo);
     }
-}
-    
 
+
+    @GetMapping("/listar")
+    public ResponseEntity<List<PortalTagDTO>> listarPortais() {
+        // Buscar todos os portais e converter para DTO, incluindo o campo ativo e a data
+        List<PortalTagDTO> portalTagDTOs = portalRepository.findAll().stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(portalTagDTOs);
+    }
+
+    // Método auxiliar para converter Portal em PortalTagDTO
+    private PortalTagDTO convertToDTO(Portal portal) {
+        List<String> tagNomes = portal.getTagPortals().stream()
+                .map(tagPortal -> tagPortal.getTag().getTagNome())
+                .collect(Collectors.toList());
+
+        return new PortalTagDTO(
+                portal.getId(),
+                portal.getNome(),
+                portal.getUrl(),
+                portal.getFrequencia(),
+                tagNomes,
+                portal.isAtivo(),
+                portal.getData() // Adicionar a data aqui
+        );
+    }
+}

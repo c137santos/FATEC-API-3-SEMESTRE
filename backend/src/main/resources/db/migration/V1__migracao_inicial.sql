@@ -44,7 +44,9 @@ CREATE TABLE portal (
     por_nome varchar(30),
     por_url varchar(2048),
     por_data DATE,
-    por_frequencia varchar(30)
+    por_frequencia varchar(30),
+    por_ativo BOOLEAN DEFAULT TRUE  
+
 );
 
 
