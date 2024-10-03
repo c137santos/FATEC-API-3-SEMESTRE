@@ -15,13 +15,17 @@
     },
     data() {
       return {
-        portais: []
+        portais: [],
+        tagPortaisId: []
       }
     },
 
     methods: {
       adicionarPortal(novoPortal) {
         this.portais.push(novoPortal)
+      },
+      adicionarTagPortalId(novoTagPortalId) {
+        this.tagPortaisId.push(novoTagPortalId)
       }
     }
     

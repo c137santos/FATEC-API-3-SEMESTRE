@@ -43,7 +43,7 @@ export default {
       seletorTags: '',
       portais: [],
       tags: [],
-      novoPortal: { portalNome: '', portalUrl: '', portalAtivo: true },
+      novoPortal: { portalNome: '', portalUrl: '', portalAtivo: true, portalFrequencia: '' },
       exibirNovoPortalForm: false,
       selectPortal: ''
     }
@@ -75,7 +75,7 @@ export default {
       const requestOption = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.novoPortal)
+        body: JSON.stringify(this.novoPortal),
       }
       fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) =>
         response.json()
@@ -84,12 +84,14 @@ export default {
 
     validadorDadosNovoPortal() {
       if (this.novoPortal.portalNome && this.novoPortal.portalUrl) {
+        this.novoPortal.tags = [this.seletorTags]
         this.salvarPortal()
         let portalSerSalvo = { ...this.novoPortal }
         this.$emit('novo-portal', portalSerSalvo)
         this.novoPortal.portalUrl = ''
         this.novoPortal.portalNome = ''
         this.novoPortal.portalAtivo = true
+        this.novoPortal.portalFrequencia = ''
         this.exibirNovoPortalForm = false
       }
     },

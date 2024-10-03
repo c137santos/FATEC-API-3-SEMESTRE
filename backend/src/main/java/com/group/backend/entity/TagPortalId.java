@@ -1,8 +1,9 @@
 package com.group.backend.entity;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class TagPortalId implements Serializable {
