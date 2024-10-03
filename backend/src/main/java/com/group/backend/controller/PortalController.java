@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.group.backend.domain.DadosCadastroPortal;
 import com.group.backend.domain.PortalRepository;
-import com.group.backend.domain.TagPortalRepository;
 import com.group.backend.entity.Portal;
-import com.group.backend.service.TagService;
+import com.group.backend.service.TagPortalService;
 
 import jakarta.transaction.Transactional;
 
@@ -22,10 +21,13 @@ import jakarta.transaction.Transactional;
 @RestController
 @CrossOrigin(origins = "*")
 public class PortalController {
-    private final PortalRepository portalRepository;
 
-    public PortalController(PortalRepository portalRepository, TagPortalRepository tagPortalRepository) {
+    private final PortalRepository portalRepository;
+    private final TagPortalService tagPortalService;
+
+    public PortalController(PortalRepository portalRepository, TagPortalService tagPortalService) {
         this.portalRepository = portalRepository;
+        this.tagPortalService = tagPortalService;
     }
 
     @PostMapping("/cadastrar")
@@ -38,8 +40,7 @@ public class PortalController {
         novoPortal.setFrequencia(dados.portalFrequencia());
         Portal portalSalvo = portalRepository.save(novoPortal);
         
-        TagService ts = new TagService();
-        ts.cadastrarTagPortal(dados.portalId(), dados.tagId());
+        tagPortalService.cadastrarTagPortal(dados.tagId(), portalSalvo);
         
         return ResponseEntity.ok(portalSalvo);
     }
