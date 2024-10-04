@@ -25,11 +25,15 @@
         </div>
         <div>
           <p>Tags:</p>
-          <select v-model="seletorTags" class="seletorTags">
-            <option v-for="tag in tags" :key="tag.name" :value="tag.name">{{ tag.tagNome }}</option>
+          <select v-model="novoPortal.tagId" class="seletorTags">
+            <option v-for="tag in tags" :key="tag.tagId" :value="tag.tagId">
+              {{ tag.tagNome }}
+            </option>
           </select>
         </div>
-        <button class="botao-salvar-portal" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
+        <button class="botao-salvar-portal" type="submit" @click="validadorDadosNovoPortal">
+          Salvar
+        </button>
         <button class="botao-cancelar-portal" @click.prevent="cancelarCadastro">Cancelar</button>
       </div>
     </div>
@@ -43,7 +47,13 @@ export default {
       seletorTags: '',
       portais: [],
       tags: [],
-      novoPortal: { portalNome: '', portalUrl: '', portalAtivo: true, portalFrequencia: '' },
+      novoPortal: {
+        portalNome: '',
+        portalUrl: '',
+        portalAtivo: true,
+        portalFrequencia: '',
+        tagId: ''
+      },
       exibirNovoPortalForm: false,
       selectPortal: ''
     }
@@ -75,7 +85,7 @@ export default {
       const requestOption = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.novoPortal),
+        body: JSON.stringify(this.novoPortal)
       }
       fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) =>
         response.json()
@@ -84,7 +94,6 @@ export default {
 
     validadorDadosNovoPortal() {
       if (this.novoPortal.portalNome && this.novoPortal.portalUrl) {
-        this.novoPortal.tags = [this.seletorTags]
         this.salvarPortal()
         let portalSerSalvo = { ...this.novoPortal }
         this.$emit('novo-portal', portalSerSalvo)

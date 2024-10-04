@@ -40,7 +40,7 @@ public class PortalController {
         novoPortal.setFrequencia(dados.portalFrequencia());
         Portal portalSalvo = portalRepository.save(novoPortal);
         
-        tagPortalService.cadastrarTagPortal(dados.tagId(), portalSalvo.getId());
+        tagPortalService.cadastrarTagPortal(dados.tagId(), portalSalvo);
         
         return ResponseEntity.ok(portalSalvo);
     }

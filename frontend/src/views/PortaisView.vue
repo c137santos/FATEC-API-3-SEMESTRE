@@ -1,40 +1,37 @@
 <template>
-    <div>
-      <AdicionarPortal @novo-portal="adicionarPortal"/>
-    </div>
-  </template>
-  
-  <script>
-  import AdicionarPortal from '@/components/AdicionarPortal.vue';
-  
-  export default {
-    name: "PortaisView",
-    components: {
-      AdicionarPortal
+  <div>
+    <AdicionarPortal @novo-portal="adicionarPortal" />
+  </div>
+</template>
 
-    },
-    data() {
-      return {
-        portais: [],
-        tagPortaisId: []
-      }
-    },
+<script>
+import AdicionarPortal from '@/components/AdicionarPortal.vue'
 
-    methods: {
-      adicionarPortal(novoPortal) {
-        this.portais.push(novoPortal)
-      },
-      adicionarTagPortalId(novoTagPortalId) {
-        this.tagPortaisId.push(novoTagPortalId)
-      }
+export default {
+  name: 'PortaisView',
+  components: {
+    AdicionarPortal
+  },
+  data() {
+    return {
+      portais: [],
+      tagPortaisId: []
     }
-    
-  };
-  </script>
-  
-  <style scoped>
-  .portais-view {
-    padding: 20px;
+  },
+
+  methods: {
+    adicionarPortal(novoPortal) {
+      this.portais.push(novoPortal)
+    },
+    adicionarTagPortalId(novoTagPortalId) {
+      this.tagPortaisId.push(novoTagPortalId)
+    }
   }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+.portais-view {
+  padding: 20px;
+}
+</style>
