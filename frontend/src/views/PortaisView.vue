@@ -1,19 +1,37 @@
 <template>
-    <div class="portais-view">
-      <h1>Portais</h1>
-      <p>Aqui você verá os portais disponíveis.</p>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "PortaisView",
-  };
-  </script>
-  
-  <style scoped>
-  .portais-view {
-    padding: 20px;
+  <div>
+    <AdicionarPortal @novo-portal="adicionarPortal" />
+  </div>
+</template>
+
+<script>
+import AdicionarPortal from '@/components/AdicionarPortal.vue'
+
+export default {
+  name: 'PortaisView',
+  components: {
+    AdicionarPortal
+  },
+  data() {
+    return {
+      portais: [],
+      tagPortaisId: []
+    }
+  },
+
+  methods: {
+    adicionarPortal(novoPortal) {
+      this.portais.push(novoPortal)
+    },
+    adicionarTagPortalId(novoTagPortalId) {
+      this.tagPortaisId.push(novoTagPortalId)
+    }
   }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+.portais-view {
+  padding: 20px;
+}
+</style>
