@@ -2,15 +2,22 @@
   <div>
     <AdicionarPortal @novo-portal="adicionarPortal" />
   </div>
+  <div class="portais-view">
+    <h1>Portais Cadastrados</h1>
+    <ListaPortais />
+  </div>
 </template>
 
 <script>
 import AdicionarPortal from '@/components/AdicionarPortal.vue'
+import ListaPortais from '@/components/ListaPortais.vue';
+
 
 export default {
   name: 'PortaisView',
   components: {
-    AdicionarPortal
+    AdicionarPortal,
+    ListaPortais
   },
   data() {
     return {
