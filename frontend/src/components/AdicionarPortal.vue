@@ -24,6 +24,15 @@
           <input class="checkAtivoPortal" type="checkbox" v-model="novoPortal.portalAtivo" />
         </div>
         <div>
+          <label>
+            <select v-model="novoPortal.portalFrequencia" class="seletorFrequencia">
+              <option value="diaria">Diária</option>
+              <option value="semanal">Semanal</option>
+              <option value="mensal">Mensal</option>
+            </select>
+          </label>
+        </div>
+        <div>
           <p>Tags:</p>
           <select v-model="novoPortal.tagId" class="seletorTags">
             <option v-for="tag in tags" :key="tag.tagId" :value="tag.tagId">
@@ -106,7 +115,7 @@ export default {
     },
 
     cancelarCadastro() {
-      this.novoPortal = { portalNome: '', portalUrl: '', portalAtivo: true }
+      this.novoPortal = { portalNome: '', portalUrl: '', portalAtivo: true, portalFrequencia: '' }
       this.exibirNovoPortalForm = false
     }
   }
@@ -147,7 +156,7 @@ export default {
   margin-top: 20px;
 }
 
-.seletorTags {
+.seletorTags, .seletorFrequencia {
   width: 300px;
   border: 1px solid #d1c4e9;
   border-radius: 5px;

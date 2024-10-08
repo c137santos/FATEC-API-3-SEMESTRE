@@ -34,4 +34,7 @@ public class Portal {
     @Column(name = "por_frequencia", length = 30)
     private String frequencia;
 
+    @Column(name = "por_ativa")
+    private boolean ativo;
+
 }

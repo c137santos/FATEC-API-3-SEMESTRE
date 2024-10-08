@@ -43,7 +43,8 @@ CREATE TABLE public.portal (
     por_nome VARCHAR(30),
     por_url VARCHAR(2048),
     por_data DATE,
-    por_frequencia VARCHAR(30)
+    por_frequencia VARCHAR(30),
+    por_ativo BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE public.tag_portal (

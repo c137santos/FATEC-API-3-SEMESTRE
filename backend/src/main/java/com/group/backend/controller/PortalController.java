@@ -37,6 +37,7 @@ public class PortalController {
         novoPortal.setNome(dados.portalNome());
         novoPortal.setUrl(dados.portalUrl());
         novoPortal.setData(LocalDate.now());
+        novoPortal.setAtivo(dados.portalAtivo());
         novoPortal.setFrequencia(dados.portalFrequencia());
         Portal portalSalvo = portalRepository.save(novoPortal);
         
