@@ -8,40 +8,47 @@ import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ControllerCrawler {
-    public static void main(String[] args) throws Exception {
-        CrawlConfig config = new CrawlConfig();
 
-        // Set the folder where intermediate crawl data is stored.
-        config.setCrawlStorageFolder("backend/src/main/java/com/group/backend/crawler/dadosCrawler/frontier/");
+    private static final Logger logger = LoggerFactory.getLogger(ControllerCrawler.class);
+    private static final String CRAWL_STORAGE_FOLDER = "./dadosCrawler";
+    private static final int POLITENESS_DELAY = 1000; // 1 segundo
+    private static final int MAX_PAGES_TO_FETCH = 1000; // Número máximo de páginas a serem buscadas
+    private static final boolean INCLUDE_BINARY_CONTENT = false; // Não incluir conteúdo binário no crawling
 
-        // Configurações adicionais...
-        config.setPolitenessDelay(1000);
-        config.setMaxDepthOfCrawling(-1);
-        config.setMaxPagesToFetch(1000);
-        config.setIncludeBinaryContentInCrawling(false);
-        config.setResumableCrawling(false);
+    public void startCrawlWithSeed(String seedUrl) {
+        try {
+            // Configuração do crawler
+            CrawlConfig config = new CrawlConfig();
+            config.setCrawlStorageFolder(CRAWL_STORAGE_FOLDER);
+            config.setPolitenessDelay(POLITENESS_DELAY);
+            config.setMaxDepthOfCrawling(-1); // Sem limite de profundidade
+            config.setMaxPagesToFetch(MAX_PAGES_TO_FETCH);
+            config.setIncludeBinaryContentInCrawling(INCLUDE_BINARY_CONTENT);
+            config.setResumableCrawling(false);
 
-        PageFetcher pageFetcher = new PageFetcher(config);
-        RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
-        robotstxtConfig.setEnabled(false);
-        RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
-        CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
+            // Inicializando os componentes do crawler
+            PageFetcher pageFetcher = new PageFetcher(config);
+            RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
+            robotstxtConfig.setEnabled(false); // Desativar o respeito ao arquivo robots.txt
+            RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
 
-        // Adicionando seeds iniciais
-        controller.addSeed("https://www.ics.uci.edu/");
-        controller.addSeed("https://ics.uci.edu/faculty-staff-resources/");
-        controller.addSeed("https://www.ics.uci.edu/~welling/");
+            CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
 
-        // Número de crawlers a serem utilizados
-        int numberOfCrawlers = 2;
+            // aqui que pega a url mesmo
+            controller.addSeed(seedUrl);
 
-        AtomicInteger numSeenImages = new AtomicInteger();
+            int numberOfCrawlers = 1;
+            AtomicInteger numSeenImages = new AtomicInteger();
 
-        // Passando o controlador para o MainCrawler
-        CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, controller);
+            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, controller);
 
-        // Iniciando o crawl
-        controller.start(factory, numberOfCrawlers);
+            controller.start(factory, numberOfCrawlers);
+        } catch (Exception e) {
+            logger.error("Erro ao iniciar o crawling: {}", e.getMessage());
+        }
     }
 }

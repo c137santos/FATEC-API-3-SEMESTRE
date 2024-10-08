@@ -31,13 +31,7 @@ public class MainCrawler extends WebCrawler {
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
-        // Ignorar URLs com extensões de imagem
-        if (IMAGE_EXTENSIONS.matcher(href).matches()) {
-            numSeenImages.incrementAndGet();
-            return false;
-        }
-        // Aceitar URLs no domínio "www.ics.uci.edu"
-        return href.startsWith("https://www.ics.uci.edu/");
+        return href.startsWith("https://thenewscc.beehiiv.com");
     }
 
     @Override
@@ -74,7 +68,9 @@ public class MainCrawler extends WebCrawler {
             // Adicionando novas seeds com base nos links encontrados
             for (WebURL link : links) {
                 String newUrl = link.getURL();
-                controller.addSeed(newUrl);
+                if (shouldVisit(page, link)){
+                    controller.addSeed(newUrl);
+                }
             }
         }
 
