@@ -31,12 +31,6 @@
             class="checkboxEdicao"
           />
         </div>
-        <label for="relacionadas">Tags relacionadas</label>
-        <select id="relacionadas" v-model="tagLocal.tagRelacionada" class="modal-select">
-          <option value="agricultura">Agricultura</option>
-          <option value="política">Política</option>
-          <!-- Adicionar outras opções conforme necessário -->
-        </select>
 
         <div class="modal-actions">
           <button type="submit" class="salvar-btn">Salvar</button>
@@ -54,7 +48,7 @@ export default {
   },
   data() {
     return {
-      tagLocal: { ...this.tag } // Cria uma cópia do objeto tag
+      tagLocal: { ...this.tag }
     }
   },
   methods: {
@@ -85,7 +79,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  background: rgba(0, 0, 0, 0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
