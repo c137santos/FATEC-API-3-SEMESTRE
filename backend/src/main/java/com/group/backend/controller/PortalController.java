@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.group.backend.domain.DadosCadastroPortal;
 import com.group.backend.domain.PortalRepository;
@@ -17,6 +18,8 @@ import com.group.backend.entity.Portal;
 import com.group.backend.service.TagPortalService;
 
 import jakarta.transaction.Transactional;
+
+@RestController
 @RequestMapping("/portais")
 @CrossOrigin(origins = "*")
 public class PortalController {
