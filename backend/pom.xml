@@ -31,6 +31,12 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>edu.uci.ics</groupId>
+			<artifactId>crawler4j</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -122,6 +128,12 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.15.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -131,6 +143,9 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<executable>true</executable>
+					<configuration>
+                		<jvmArguments>--add-exports java.management/sun.management=ALL-UNNAMED</jvmArguments>
+            		</configuration>
 				</configuration>
 			</plugin>
 			<plugin>
