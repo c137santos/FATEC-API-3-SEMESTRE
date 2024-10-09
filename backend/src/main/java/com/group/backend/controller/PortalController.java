@@ -1,14 +1,16 @@
 package com.group.backend.controller;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping; // acrescentei 
 
 import com.group.backend.domain.DadosCadastroPortal;
 import com.group.backend.domain.PortalRepository;
@@ -16,9 +18,6 @@ import com.group.backend.entity.Portal;
 import com.group.backend.service.TagPortalService;
 
 import jakarta.transaction.Transactional;
-
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/portais")
@@ -40,6 +39,7 @@ public class PortalController {
         novoPortal.setNome(dados.portalNome());
         novoPortal.setUrl(dados.portalUrl());
         novoPortal.setData(LocalDate.now());
+        novoPortal.setAtivo(dados.portalAtivo());
         novoPortal.setFrequencia(dados.portalFrequencia());
         Portal portalSalvo = portalRepository.save(novoPortal);
         
