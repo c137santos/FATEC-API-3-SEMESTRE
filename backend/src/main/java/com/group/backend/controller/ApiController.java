@@ -64,22 +64,4 @@ public class ApiController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    @PutMapping("/editar/{id}")
-    public ResponseEntity<ApiPublica> editarApi(@PathVariable Long id, @RequestBody ApiPublica apiAtualizada) {
-        Optional<ApiPublica> apiOptional = apiRepository.findById(id);
-        if (apiOptional.isPresent()) {
-            ApiPublica apiExistente = apiOptional.get();
-            apiExistente.setApiNome(apiAtualizada.getApiNome());
-            apiExistente.setApiFrequencia(apiAtualizada.getApiFrequencia());
-            apiExistente.setApiDescricao(apiAtualizada.getApiDescricao());
-            apiExistente.setApiUrl(apiAtualizada.getApiUrl());
-            apiExistente.setApiActive(apiAtualizada.isApiActive());
-            apiExistente.setApiData(new java.util.Date());
-            ApiPublica apiSalva = apiRepository.save(apiExistente);
-            return ResponseEntity.ok(apiSalva);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
 }
