@@ -6,16 +6,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.group.backend.entity.ApiPublica;
 import com.group.backend.domain.ApiPublicaRepository;
-
 import com.group.backend.domain.ResultApiRepository;
+import com.group.backend.entity.ApiPublica;
 import com.group.backend.entity.ResultApi;
+
+
 
 @RequestMapping("/apis")
 @RestController
@@ -32,12 +33,12 @@ public class ApiController {
 
     @GetMapping("listar")
     public ResponseEntity<List<ApiPublica>> listarApis() {
-        List<ApiPublica> apis = apiRepository.findAll();
-        for (ApiPublica apiP : apis) {
-            System.out.println(apiP);
-        }
-        
-        return ResponseEntity.ok(apis);
+    List<ApiPublica> apis = apiRepository.findAll();
+    for (ApiPublica apiP : apis) {
+        System.out.println(apiP);
+    }
+    
+    return ResponseEntity.ok(apis);
     }
 
     @PostMapping("cadastrar")
