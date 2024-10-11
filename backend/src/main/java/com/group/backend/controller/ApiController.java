@@ -1,19 +1,19 @@
 package com.group.backend.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.group.backend.entity.ApiPublica;
 import com.group.backend.domain.ApiPublicaRepository;
+
 import com.group.backend.domain.ResultApiRepository;
 import com.group.backend.entity.ResultApi;
 
@@ -36,6 +36,7 @@ public class ApiController {
         for (ApiPublica apiP : apis) {
             System.out.println(apiP);
         }
+        
         return ResponseEntity.ok(apis);
     }
 
@@ -48,18 +49,9 @@ public class ApiController {
     @GetMapping("resultados")
     public ResponseEntity<List<ResultApi>> getAllResultsByApiId(@RequestParam Long apiId) {
         List<ResultApi> results = resultApiRepository.findAllByApiId(apiId);
+        
         if (!results.isEmpty()) {
             return ResponseEntity.ok(results);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/buscar/{id}")
-    public ResponseEntity<ApiPublica> buscarApiPorId(@PathVariable Long id) {
-        Optional<ApiPublica> apiOptional = apiRepository.findById(id);
-        if (apiOptional.isPresent()) {
-            return ResponseEntity.ok(apiOptional.get());
         } else {
             return ResponseEntity.notFound().build();
         }
