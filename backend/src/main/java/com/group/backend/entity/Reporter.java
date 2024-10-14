@@ -22,28 +22,5 @@ public class Reporter {
         this.portal = portal;
     }
     
-    public Long getId() {
-        return repId;
-    }
-    
-    public void setId(Long id) {
-        this.repId = id;
-    }
-    
-    public String getNome() {
-        return nome;
-    }
-    
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    public Portal getPortal() {
-        return portal;
-    }
-    
-    public void setPortal(Portal portal) {
-        this.portal = portal;
-    }
     
 }

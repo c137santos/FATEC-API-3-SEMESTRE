@@ -27,7 +27,8 @@ export default {
         { title: 'Tags', to: '/tags', icon: '@/components/icons/tags-icon.png' },
         { title: 'Notícias', to: '/noticias', icon: '@/components/icons/news-icon.png' },
         { title: 'APIs', to: '/apis', icon: '@/components/icons/apis-icon.png' },
-        { title: 'Portais', to: '/portais', icon: '@/components/icons/portals-icon.png' }
+        { title: 'Portais', to: '/portais', icon: '@/components/icons/portals-icon.png' },
+        { title: 'Regionalismo', to: '/regionalismo', icon: '@/components/icons/portals-icon.png' }
       ]
     };
   }

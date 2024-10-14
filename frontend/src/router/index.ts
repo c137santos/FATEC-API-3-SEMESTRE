@@ -1,6 +1,7 @@
 import ApisView from '@/views/ApisView.vue';
 import HomeView from '@/views/HomeView.vue';
 import PortaisView from '@/views/PortaisView.vue';
+import RegionalismoView from '@/views/RegionalismoView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -29,6 +30,10 @@ const router = createRouter({
       path: '/apis',
       name: 'apis',
       component: ApisView 
+    },
+    {
+      path: '/regionalismo',
+      component: RegionalismoView
     }
   ]
 });
