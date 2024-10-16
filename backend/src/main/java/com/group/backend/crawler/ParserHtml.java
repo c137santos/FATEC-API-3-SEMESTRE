@@ -4,13 +4,24 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.group.backend.domain.NoticiaRepository;
+import com.group.backend.entity.Noticia;
 
 @Component
 public class ParserHtml {
+
+    @Autowired
+    private NoticiaRepository noticiaRepository;
 
     public void parseAllFilesInFolder(String folderPath) {
         try {
@@ -18,7 +29,7 @@ public class ParserHtml {
                     .filter(Files::isRegularFile)
                     .filter(path -> path.toString().endsWith(".html"))
                     .forEach(this::parseAndDeleteFile);
-
+            System.err.println("End of loop parser");
         } catch (IOException e) {
             System.err.println("Erro ao listar ou processar arquivos no diretório: " + e.getMessage());
         }
@@ -27,53 +38,71 @@ public class ParserHtml {
     private void parseAndDeleteFile(Path filePath) {
         try {
             System.out.println("Processando arquivo: " + filePath.getFileName());
-    
             String html = new String(Files.readAllBytes(filePath));
             Document doc = Jsoup.parse(html);
-    
-            StringBuilder readableText = new StringBuilder();
-    
-            // Extraindo o texto inicial
-            Elements paragraphs = doc.select("p");
-            for (Element paragraph : paragraphs) {
-                readableText.append(paragraph.text()).append("\n");
+            String textoCompleto = extractText(doc);
+
+            LocalDate date = null;
+            String corpo = extractCorpo(textoCompleto);
+            String data = extractData(textoCompleto);
+            String jornalista = extractJornalista(textoCompleto);
+
+            if (data != null) {
+                date = parseDate(data);
             }
-    
-            // Convertendo para String
-            String textoCompleto = readableText.toString();
-    
-            // Variáveis para armazenar partes específicas
-            String corpo = "";
-            String jornalista = "";
-            String data = "";
-    
-            // Captura o corpo da notícia até encontrar links
-            corpo = textoCompleto.split("Link:")[0].trim(); // Assume que o corpo termina antes da seção "Link:"
-    
-            // Captura a data
-            java.util.regex.Matcher dataMatcher = java.util.regex.Pattern.compile("(\\d{1,2} de \\w+ de \\d{4})").matcher(textoCompleto);
-            if (dataMatcher.find()) {
-                data = dataMatcher.group(1);
+
+            if (corpo.isEmpty() || date == null) {
+                Files.delete(filePath);
+                return;
             }
-    
-            // Captura o jornalista (ajuste conforme necessário)
-            java.util.regex.Matcher jornalistaMatcher = java.util.regex.Pattern.compile("([A-Za-zÀ-ÖØ-ÿ]+ \\s+[A-Za-zÀ-ÖØ-ÿ]+)").matcher(textoCompleto);
-            if (jornalistaMatcher.find()) {
-                jornalista = jornalistaMatcher.group(1);
-            }
-    
+
             System.out.println("Texto processado:\n" + textoCompleto);
             System.out.println("Corpo da notícia:\n" + corpo);
             System.out.println("Data:\n" + data);
             System.out.println("Jornalista:\n" + jornalista);
-    
-            textoCompleto = textoCompleto.replace(corpo, "").replace(data, "").replace(jornalista, "").trim();
-    
+
+            Noticia noticia = new Noticia();
+            noticia.setNotiData(date);
+            noticia.setNotiText(corpo);
+            noticiaRepository.save(noticia);
+
             Files.delete(filePath);
             System.out.println("Arquivo processado e excluído: " + filePath.getFileName());
-    
+
         } catch (IOException e) {
             System.err.println("Erro ao processar o arquivo " + filePath.getFileName() + ": " + e.getMessage());
         }
+    }
+
+    private String extractText(Document doc) {
+        StringBuilder readableText = new StringBuilder();
+        Elements paragraphs = doc.select("p");
+        for (Element paragraph : paragraphs) {
+            readableText.append(paragraph.text()).append("\n");
+        }
+        return readableText.toString();
+    }
+
+    private String extractCorpo(String textoCompleto) {
+        try {
+            return textoCompleto.split("Link:")[0].trim(); // Assume que o corpo termina antes da seção "Link:"
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    private String extractData(String textoCompleto) {
+        Matcher dataMatcher = Pattern.compile("(\\d{1,2} de \\w+ de \\d{4})").matcher(textoCompleto);
+        return dataMatcher.find() ? dataMatcher.group(1) : null;
+    }
+
+    private String extractJornalista(String textoCompleto) {
+        Matcher jornalistaMatcher = Pattern.compile("([A-Za-zÀ-ÖØ-ÿ]+ \\s+[A-Za-zÀ-ÖØ-ÿ]+)").matcher(textoCompleto);
+        return jornalistaMatcher.find() ? jornalistaMatcher.group(1) : null;
+    }
+
+    private LocalDate parseDate(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy");
+        return LocalDate.parse(date, formatter);
     }
 }
