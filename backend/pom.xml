@@ -136,6 +136,17 @@
 
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>oracleReleases</id>
+			<url>https://download.oracle.com/maven</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+
 	<build>
 		<plugins>
 			<plugin>

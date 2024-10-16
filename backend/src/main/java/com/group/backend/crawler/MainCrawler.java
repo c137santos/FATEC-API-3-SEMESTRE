@@ -31,7 +31,7 @@ public class MainCrawler extends WebCrawler {
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
-        return href.startsWith("https://thenewscc.beehiiv.com");
+        return href.startsWith("https://br.fashion");
     }
 
     @Override

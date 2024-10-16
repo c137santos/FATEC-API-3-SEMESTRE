@@ -16,12 +16,11 @@ public class ControllerCrawler {
     private static final Logger logger = LoggerFactory.getLogger(ControllerCrawler.class);
     private static final String CRAWL_STORAGE_FOLDER = "./dadosCrawler";
     private static final int POLITENESS_DELAY = 1000; // 1 segundo
-    private static final int MAX_PAGES_TO_FETCH = 1000; // Número máximo de páginas a serem buscadas
+    private static final int MAX_PAGES_TO_FETCH = 10; // Número máximo de páginas a serem buscadas
     private static final boolean INCLUDE_BINARY_CONTENT = false; // Não incluir conteúdo binário no crawling
 
     public void startCrawlWithSeed(String seedUrl) {
         try {
-            // Configuração do crawler
             CrawlConfig config = new CrawlConfig();
             config.setCrawlStorageFolder(CRAWL_STORAGE_FOLDER);
             config.setPolitenessDelay(POLITENESS_DELAY);
@@ -30,7 +29,6 @@ public class ControllerCrawler {
             config.setIncludeBinaryContentInCrawling(INCLUDE_BINARY_CONTENT);
             config.setResumableCrawling(false);
 
-            // Inicializando os componentes do crawler
             PageFetcher pageFetcher = new PageFetcher(config);
             RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
             robotstxtConfig.setEnabled(false); // Desativar o respeito ao arquivo robots.txt
