@@ -18,7 +18,7 @@ public class ControllerCrawler {
     private static final Logger logger = LoggerFactory.getLogger(ControllerCrawler.class);
     private static final String CRAWL_STORAGE_FOLDER = "./dadosCrawler";
     private static final int POLITENESS_DELAY = 1000; // 1 segundo
-    private static final int MAX_PAGES_TO_FETCH = 10; // Número máximo de páginas a serem buscadas
+    private static final int MAX_PAGES_TO_FETCH = 1000; // Número máximo de páginas a serem buscadas
     private static final boolean INCLUDE_BINARY_CONTENT = false; // Não incluir conteúdo binário no crawling
 
     public void startCrawlWithSeed(String seedUrl, Noticia noticia) {
@@ -41,7 +41,7 @@ public class ControllerCrawler {
             // Adiciona a URL semente
             controller.addSeed(seedUrl);
 
-            int numberOfCrawlers = 1;
+            int numberOfCrawlers = 3;
             AtomicInteger numSeenImages = new AtomicInteger();
 
             // Passa o objeto Noticia para o MainCrawler
