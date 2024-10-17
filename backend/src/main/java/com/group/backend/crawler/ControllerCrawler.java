@@ -42,7 +42,7 @@ public class ControllerCrawler {
             int numberOfCrawlers = 1;
             AtomicInteger numSeenImages = new AtomicInteger();
 
-            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, controller);
+            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, seedUrl, controller);
 
             controller.start(factory, numberOfCrawlers);
         } catch (Exception e) {

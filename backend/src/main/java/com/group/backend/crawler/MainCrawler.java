@@ -21,17 +21,19 @@ public class MainCrawler extends WebCrawler {
 
     private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png)$");
     private AtomicInteger numSeenImages = new AtomicInteger();
+    private String seedUrl = new String();
     private CrawlController controller;
 
-    public MainCrawler(AtomicInteger numSeenImages, CrawlController controller) {
+    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller) {
         this.numSeenImages = numSeenImages;
         this.controller = controller;
+        this.seedUrl = seedUrl;
     }
 
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
-        return href.startsWith("https://br.fashion");
+        return href.startsWith(seedUrl);
     }
 
     @Override
