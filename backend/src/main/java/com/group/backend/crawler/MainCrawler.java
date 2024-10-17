@@ -7,8 +7,6 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
-
-
 import org.apache.http.Header;
 
 import edu.uci.ics.crawler4j.crawler.Page;
@@ -16,18 +14,21 @@ import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
+import com.group.backend.entity.Noticia;
 
 public class MainCrawler extends WebCrawler {
 
     private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png)$");
     private AtomicInteger numSeenImages = new AtomicInteger();
-    private String seedUrl = new String();
+    private String seedUrl;
     private CrawlController controller;
+    private Noticia noticia; // Adicionando objeto Noticia
 
-    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller) {
+    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia) {
         this.numSeenImages = numSeenImages;
         this.controller = controller;
         this.seedUrl = seedUrl;
+        this.noticia = noticia; // Inicializando o objeto Noticia
     }
 
     @Override
@@ -54,6 +55,8 @@ public class MainCrawler extends WebCrawler {
         logger.debug("Parent page: {}", parentUrl);
         logger.debug("Anchor text: {}", anchor);
 
+        noticia.setUrl(url);
+
         if (page.getParseData() instanceof HtmlParseData) {
             HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
             String text = htmlParseData.getText();
@@ -70,7 +73,7 @@ public class MainCrawler extends WebCrawler {
             // Adicionando novas seeds com base nos links encontrados
             for (WebURL link : links) {
                 String newUrl = link.getURL();
-                if (shouldVisit(page, link)){
+                if (shouldVisit(page, link)) {
                     controller.addSeed(newUrl);
                 }
             }
@@ -91,7 +94,6 @@ public class MainCrawler extends WebCrawler {
     private void saveHtmlToFile(String url, String html, String outputDir) {
         String fileName = url.replaceAll("[^a-zA-Z0-9]", "_") + ".html";
         String filePath = outputDir + fileName;
-
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(html);

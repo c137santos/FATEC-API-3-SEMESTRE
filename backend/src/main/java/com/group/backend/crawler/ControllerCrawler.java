@@ -10,6 +10,8 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.group.backend.entity.Noticia;
+ 
 
 public class ControllerCrawler {
 
@@ -19,7 +21,7 @@ public class ControllerCrawler {
     private static final int MAX_PAGES_TO_FETCH = 10; // Número máximo de páginas a serem buscadas
     private static final boolean INCLUDE_BINARY_CONTENT = false; // Não incluir conteúdo binário no crawling
 
-    public void startCrawlWithSeed(String seedUrl) {
+    public void startCrawlWithSeed(String seedUrl, Noticia noticia) {
         try {
             CrawlConfig config = new CrawlConfig();
             config.setCrawlStorageFolder(CRAWL_STORAGE_FOLDER);
@@ -36,14 +38,16 @@ public class ControllerCrawler {
 
             CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
 
-            // aqui que pega a url mesmo
+            // Adiciona a URL semente
             controller.addSeed(seedUrl);
 
             int numberOfCrawlers = 1;
             AtomicInteger numSeenImages = new AtomicInteger();
 
-            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, seedUrl, controller);
+            // Passa o objeto Noticia para o MainCrawler
+            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, seedUrl, controller, noticia);
 
+            // Inicia o crawling
             controller.start(factory, numberOfCrawlers);
         } catch (Exception e) {
             logger.error("Erro ao iniciar o crawling: {}", e.getMessage());
