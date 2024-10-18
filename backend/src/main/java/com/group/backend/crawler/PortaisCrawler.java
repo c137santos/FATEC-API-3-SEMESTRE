@@ -17,16 +17,16 @@ import java.util.List;
 public class PortaisCrawler {
 
     private final PortalRepository portalRepository;
-    private final NoticiaRepository noticiaRepository; // Adicionando o repositório de notícias
-    private final ReporterRepository reporterRepository; // Adicionando o repositório de notícias
+    private final NoticiaRepository noticiaRepository;
+    private final ReporterRepository reporterRepository;
     private final ParserHtml parserHtml;
 
     @Autowired
     public PortaisCrawler(PortalRepository portalRepository, NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
         this.portalRepository = portalRepository;
-        this.noticiaRepository = noticiaRepository; // Inicializando o repositório
-        this.parserHtml = parserHtml; // Inicializando o ParserHtml
-        this.reporterRepository = reporterRepository; // Inicializando o repositório
+        this.noticiaRepository = noticiaRepository;
+        this.parserHtml = parserHtml;
+        this.reporterRepository = reporterRepository;
     }
 
     @EventListener(ApplicationReadyEvent.class)
@@ -35,10 +35,15 @@ public class PortaisCrawler {
 
         List<Portal> portals = portalRepository.findAll();
 
+        if (portals.isEmpty()) {
+            System.out.println("Não existem portais disponíveis para crawling.");
+            return; // Retorna para não executar o loop
+        }
+
         for (Portal portal : portals) {
             String url = portal.getUrl();
             Long portalId = portal.getId();
-            
+
             try {
                 System.out.println("Iniciando crawl para: " + url);
                 
