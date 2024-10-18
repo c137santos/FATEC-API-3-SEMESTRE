@@ -96,7 +96,7 @@ Siga as instruções do Contributing!
 
 ## Manual do usuário
 
-[Manual do Usuário](../documentação/Manual_do_usuario.md)
+[Manual do Usuário](./documentação/Manual_do_usuario.md)
 
 
 ## Equipe
