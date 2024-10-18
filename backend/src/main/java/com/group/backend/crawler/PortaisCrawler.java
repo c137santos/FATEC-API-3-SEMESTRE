@@ -1,5 +1,6 @@
 package com.group.backend.crawler;
 
+import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.PortalRepository;
 import com.group.backend.entity.Noticia;
 import com.group.backend.entity.Portal;
@@ -14,17 +15,19 @@ import java.util.List;
 public class PortaisCrawler {
 
     private final PortalRepository portalRepository;
+    private final NoticiaRepository noticiaRepository; // Adicionando o repositório de notícias
     private final ParserHtml parserHtml;
 
     @Autowired
-    public PortaisCrawler(PortalRepository portalRepository, ParserHtml parserHtml) {
+    public PortaisCrawler(PortalRepository portalRepository, NoticiaRepository noticiaRepository, ParserHtml parserHtml) {
         this.portalRepository = portalRepository;
-        this.parserHtml = parserHtml;
+        this.noticiaRepository = noticiaRepository; // Inicializando o repositório
+        this.parserHtml = parserHtml; // Inicializando o ParserHtml
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void startCrawlForAllPortals() {
-        ControllerCrawler controllerCrawler = new ControllerCrawler();
+        ControllerCrawler controllerCrawler = new ControllerCrawler(noticiaRepository); // Passando o repositório
 
         // Obtém todos os portais para também pegar o id
         List<Portal> portals = portalRepository.findAll();
@@ -40,14 +43,10 @@ public class PortaisCrawler {
                 noticia.setUrl(url);
                 noticia.setPorId(portalId.intValue());
 
-                controllerCrawler.startCrawlWithSeed(url, noticia);
-
-                String folderPath = "backend/src/main/java/com/group/backend/crawler/dadosCrawler";
-                parserHtml.parseAllFilesInFolder(folderPath, noticia);
+                controllerCrawler.startCrawlWithSeed(url, noticia, parserHtml); // Passando o ParserHtml também
 
             } catch (Exception e) {
-                System.err.println("Erro ao iniciar o crawler para a URL: " + url);
-                e.printStackTrace();
+                System.out.println("Erro ao iniciar o crawl para " + url + ": " + e.getMessage());
             }
         }
     }

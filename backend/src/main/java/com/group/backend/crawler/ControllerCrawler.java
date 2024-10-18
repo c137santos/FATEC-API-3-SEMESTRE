@@ -11,7 +11,7 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.group.backend.entity.Noticia;
- 
+import com.group.backend.domain.NoticiaRepository;
 
 public class ControllerCrawler {
 
@@ -21,7 +21,13 @@ public class ControllerCrawler {
     private static final int MAX_PAGES_TO_FETCH = 1000; // Número máximo de páginas a serem buscadas
     private static final boolean INCLUDE_BINARY_CONTENT = false; // Não incluir conteúdo binário no crawling
 
-    public void startCrawlWithSeed(String seedUrl, Noticia noticia) {
+    private NoticiaRepository noticiaRepository; // Adicionando o repositório aqui
+
+    public ControllerCrawler(NoticiaRepository noticiaRepository) {
+        this.noticiaRepository = noticiaRepository; // Inicializando o repositório
+    }
+
+    public void startCrawlWithSeed(String seedUrl, Noticia noticia, ParserHtml parserHtml) {
         try {
             CrawlConfig config = new CrawlConfig();
             config.setCrawlStorageFolder(CRAWL_STORAGE_FOLDER);
@@ -44,8 +50,8 @@ public class ControllerCrawler {
             int numberOfCrawlers = 1;
             AtomicInteger numSeenImages = new AtomicInteger();
 
-            // Passa o objeto Noticia para o MainCrawler
-            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, seedUrl, controller, noticia);
+            // Passa o objeto Noticia e o repositório para o MainCrawler
+            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, seedUrl, controller, noticia, noticiaRepository, parserHtml);
 
             // Inicia o crawling
             controller.start(factory, numberOfCrawlers);
@@ -54,3 +60,4 @@ public class ControllerCrawler {
         }
     }
 }
+// Compare this snippet from backend/src/main/java/com/group/backend/crawler/ParserHtml.java

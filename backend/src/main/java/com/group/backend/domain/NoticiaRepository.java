@@ -7,6 +7,6 @@ import com.group.backend.entity.Noticia;
 
 @Repository
 public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
-    
+    boolean existsByUrl(String url);
 }
 

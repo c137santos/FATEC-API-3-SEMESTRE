@@ -40,7 +40,7 @@ public class ParserHtml {
         }
     }
 
-    private void parseAndDeleteFile(Path filePath, Noticia noticia) {
+    public void parseAndDeleteFile(Path filePath, Noticia noticia) {
         try {
             System.out.println("Processando arquivo: " + filePath.getFileName());
             String html = new String(Files.readAllBytes(filePath));
@@ -49,6 +49,7 @@ public class ParserHtml {
 
             String corpo = extractCorpo(textoCompleto);
             String data = extractData(textoCompleto);
+            noticia.setNotiId(null);
 
             LocalDate date = null;
             if (data != null) {

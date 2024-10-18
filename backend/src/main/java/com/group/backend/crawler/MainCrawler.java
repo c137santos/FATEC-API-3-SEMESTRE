@@ -3,6 +3,7 @@ package com.group.backend.crawler;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
@@ -15,6 +16,7 @@ import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
 import com.group.backend.entity.Noticia;
+import com.group.backend.domain.NoticiaRepository;
 
 public class MainCrawler extends WebCrawler {
 
@@ -22,13 +24,17 @@ public class MainCrawler extends WebCrawler {
     private AtomicInteger numSeenImages = new AtomicInteger();
     private String seedUrl;
     private CrawlController controller;
-    private Noticia noticia; // Adicionando objeto Noticia
+    private Noticia noticia;
+    private NoticiaRepository noticiaRepository; // Repositório para verificar a URL
+    private ParserHtml parserHtml;
 
-    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia) {
+    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia, NoticiaRepository noticiaRepository, ParserHtml parserHtml) {
         this.numSeenImages = numSeenImages;
         this.controller = controller;
         this.seedUrl = seedUrl;
-        this.noticia = noticia; // Inicializando o objeto Noticia
+        this.noticia = noticia;
+        this.noticiaRepository = noticiaRepository; // Inicializando o repositório
+        this.parserHtml = parserHtml;
     }
 
     @Override
@@ -41,34 +47,34 @@ public class MainCrawler extends WebCrawler {
     public void visit(Page page) {
         int docid = page.getWebURL().getDocid();
         String url = page.getWebURL().getURL();
-        String domain = page.getWebURL().getDomain();
-        String path = page.getWebURL().getPath();
-        String subDomain = page.getWebURL().getSubDomain();
-        String parentUrl = page.getWebURL().getParentUrl();
-        String anchor = page.getWebURL().getAnchor();
 
-        logger.debug("Docid: {}", docid);
         logger.info("URL: {}", url);
-        logger.debug("Domain: '{}'", domain);
-        logger.debug("Sub-domain: '{}'", subDomain);
-        logger.debug("Path: '{}'", path);
-        logger.debug("Parent page: {}", parentUrl);
-        logger.debug("Anchor text: {}", anchor);
+
+        // Verifica se a URL já foi salva no banco de dados
+        if (noticiaRepository.existsByUrl(url)) {
+            logger.info("A URL já foi processada: {}", url);
+            return; // Se já existe, não processa novamente
+        }
 
         noticia.setUrl(url);
 
         if (page.getParseData() instanceof HtmlParseData) {
             HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
-            String text = htmlParseData.getText();
             String html = htmlParseData.getHtml();
             Set<WebURL> links = htmlParseData.getOutgoingUrls();
 
-            logger.debug("Text length: {}", text.length());
             logger.debug("Html length: {}", html.length());
             logger.debug("Number of outgoing links: {}", links.size());
 
             // Salvar o HTML em um arquivo
-            saveHtmlToFile(url, html, "backend/src/main/java/com/group/backend/crawler/dadosCrawler/");
+            String filePath = saveHtmlToFile(url, html, "backend/src/main/java/com/group/backend/crawler/dadosCrawler/");
+
+            // Parsear e deletar o arquivo imediatamente após salvar
+            try {
+                parserHtml.parseAndDeleteFile(Paths.get(filePath), noticia);
+            } catch (Exception e) {
+                logger.error("Erro ao parsear o arquivo após salvar: {}", e.getMessage());
+            }
 
             // Adicionando novas seeds com base nos links encontrados
             for (WebURL link : links) {
@@ -91,7 +97,7 @@ public class MainCrawler extends WebCrawler {
         logger.debug("=============");
     }
 
-    private void saveHtmlToFile(String url, String html, String outputDir) {
+    private String saveHtmlToFile(String url, String html, String outputDir) {
         String fileName = url.replaceAll("[^a-zA-Z0-9]", "_") + ".html";
         String filePath = outputDir + fileName;
 
@@ -101,5 +107,7 @@ public class MainCrawler extends WebCrawler {
         } catch (IOException e) {
             logger.error("Error saving HTML to file: {}", e.getMessage());
         }
+
+        return filePath; // Retorne o caminho do arquivo salvo
     }
 }
