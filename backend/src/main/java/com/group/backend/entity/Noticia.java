@@ -1,6 +1,6 @@
 package com.group.backend.entity;
-import java.time.LocalDate;
 
+import java.time.LocalDate;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,11 +32,7 @@ public class Noticia {
     @JoinColumn(name = "por_id", referencedColumnName = "por_id", insertable = false, updatable = false)
     private Portal portal;
 
-    @Column(name = "rep_id")
-    private Integer resId;
-
     @ManyToOne
-    @JoinColumn(name = "rep_id", referencedColumnName = "rep_id", insertable = false, updatable = false)
+    @JoinColumn(name = "rep_id", referencedColumnName = "rep_id")
     private Reporter reporte;
-
 }

@@ -16,7 +16,10 @@ import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
 import com.group.backend.entity.Noticia;
+import com.group.backend.entity.Reporter;
 import com.group.backend.domain.NoticiaRepository;
+import com.group.backend.domain.ReporterRepository;
+
 
 public class MainCrawler extends WebCrawler {
 
@@ -26,15 +29,17 @@ public class MainCrawler extends WebCrawler {
     private CrawlController controller;
     private Noticia noticia;
     private NoticiaRepository noticiaRepository; // Repositório para verificar a URL
+    private ReporterRepository reporterRepository; // Repositório para verificar a URL
     private ParserHtml parserHtml;
 
-    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia, NoticiaRepository noticiaRepository, ParserHtml parserHtml) {
+    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia, NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
         this.numSeenImages = numSeenImages;
         this.controller = controller;
         this.seedUrl = seedUrl;
         this.noticia = noticia;
         this.noticiaRepository = noticiaRepository; // Inicializando o repositório
         this.parserHtml = parserHtml;
+        this.reporterRepository = reporterRepository; // Inicializando o repositório
     }
 
     @Override
@@ -67,7 +72,7 @@ public class MainCrawler extends WebCrawler {
             logger.debug("Number of outgoing links: {}", links.size());
 
             // Salvar o HTML em um arquivo
-            String filePath = saveHtmlToFile(url, html, "backend/src/main/java/com/group/backend/crawler/dadosCrawler/");
+            String filePath = saveHtmlToFile(url, html, "./src/main/java/com/group/backend/crawler/dadosCrawler/");
 
             // Parsear e deletar o arquivo imediatamente após salvar
             try {

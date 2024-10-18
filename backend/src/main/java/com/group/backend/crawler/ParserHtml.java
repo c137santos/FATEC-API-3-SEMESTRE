@@ -1,8 +1,10 @@
 package com.group.backend.crawler;
 
 import com.group.backend.domain.NoticiaRepository;
+import com.group.backend.domain.ReporterRepository;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Noticia;
+import com.group.backend.entity.Reporter;
 import com.group.backend.entity.Regionalismo;
 import com.group.backend.entity.Tag;
 import org.jsoup.Jsoup;
@@ -29,6 +31,9 @@ public class ParserHtml {
 
     @Autowired
     private TagRepository tagRepository;
+
+    @Autowired
+    private ReporterRepository reporterRepository;
 
     public void parseAllFilesInFolder(String folderPath, Noticia noticia) {
         try {
@@ -64,6 +69,16 @@ public class ParserHtml {
                 return;
             }
 
+            String reporterName = extractReporterName(textoCompleto);
+            if (reporterName != null) {
+                Reporter reporter = reporterRepository.findByNome(reporterName);
+                if (reporter == null) {
+                    reporter = new Reporter(reporterName, noticia.getPortal()); 
+                    reporterRepository.save(reporter);
+                }
+                noticia.setReporte(reporter);
+            }            
+
             if (checkTagsAndRegionalismosInCorpo(corpo)) {
                 noticia.setNotiText(corpo);
                 noticiaRepository.save(noticia);
@@ -86,12 +101,12 @@ public class ParserHtml {
 
     private String extractCorpo(String textoCompleto) {
         try {
-            return textoCompleto.split("Link:")[0].trim().substring(0, Math.min(245, textoCompleto.length())).trim();
+            return textoCompleto.split("Link:")[0].trim();
         } catch (Exception e) {
             return "";
         }
     }
-    
+
     private String extractData(String textoCompleto) {
         String regex = "(\\d{1,2} 'de' \\w+ 'de' \\d{4})|(\\d{1,2}/\\d{1,2}/\\d{4})|(\\d{2}/\\d{2}/\\d{4})|(\\d{4}-\\d{2}-\\d{2})|(\\w+ \\d{1,2}, \\d{4})|(\\d{1,2} 'de' \\w+ 'de' \\d{4})";
         Matcher dataMatcher = Pattern.compile(regex).matcher(textoCompleto);
@@ -111,8 +126,15 @@ public class ParserHtml {
         return LocalDate.parse(dataStr, formatter);
     }
 
+    private String extractReporterName(String textoCompleto) {
+        String regex = "(?i)(autor|reporter|jornalista):?\\s*([A-ZÀ-ÿ][a-zà-ÿ]+(?:[-'\\s][A-ZÀ-ÿ][a-zà-ÿ]+)*)";
+        Matcher matcher = Pattern.compile(regex).matcher(textoCompleto);
+        
+        return matcher.find() ? matcher.group(2) : null;
+    }
+
     private boolean checkTagsAndRegionalismosInCorpo(String corpo) {
-        List<Tag> tags = tagRepository.findAllWithRegionalismos(); // Busca todas as tags e seus regionalismos
+        List<Tag> tags = tagRepository.findAllWithRegionalismos();
         boolean existe = false;
 
         for (Tag tag : tags) {

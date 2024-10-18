@@ -9,6 +9,6 @@ import com.group.backend.entity.Portal;
 
 @Repository
 public interface PortalRepository extends JpaRepository<Portal, Long> {
-    @Query("SELECT p.url FROM Portal p")
+    @Query("SELECT p.url FROM Portal p WHERE p.ativo = true")
     List<String> findAllUrlsBy();
 }

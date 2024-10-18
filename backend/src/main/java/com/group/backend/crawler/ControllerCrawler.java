@@ -11,7 +11,9 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.group.backend.entity.Noticia;
+import com.group.backend.entity.Reporter;
 import com.group.backend.domain.NoticiaRepository;
+import com.group.backend.domain.ReporterRepository;
 
 public class ControllerCrawler {
 
@@ -23,11 +25,14 @@ public class ControllerCrawler {
 
     private NoticiaRepository noticiaRepository; // Adicionando o repositório aqui
 
-    public ControllerCrawler(NoticiaRepository noticiaRepository) {
+    private ReporterRepository reporterRepository; // Adicionando o repositório aqui
+
+    public ControllerCrawler(NoticiaRepository noticiaRepository, ReporterRepository reporterRepository) {
         this.noticiaRepository = noticiaRepository; // Inicializando o repositório
+        this.reporterRepository = reporterRepository; // Inicializando o repositório
     }
 
-    public void startCrawlWithSeed(String seedUrl, Noticia noticia, ParserHtml parserHtml) {
+    public void startCrawlWithSeed(String seedUrl, Noticia noticia, ParserHtml parserHtml, ReporterRepository reporterRepository) {
         try {
             CrawlConfig config = new CrawlConfig();
             config.setCrawlStorageFolder(CRAWL_STORAGE_FOLDER);
@@ -51,7 +56,7 @@ public class ControllerCrawler {
             AtomicInteger numSeenImages = new AtomicInteger();
 
             // Passa o objeto Noticia e o repositório para o MainCrawler
-            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, seedUrl, controller, noticia, noticiaRepository, parserHtml);
+            CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> new MainCrawler(numSeenImages, seedUrl, controller, noticia, noticiaRepository, parserHtml, reporterRepository);
 
             // Inicia o crawling
             controller.start(factory, numberOfCrawlers);
@@ -60,4 +65,3 @@ public class ControllerCrawler {
         }
     }
 }
-// Compare this snippet from backend/src/main/java/com/group/backend/crawler/ParserHtml.java
