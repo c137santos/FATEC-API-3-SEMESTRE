@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.group.backend.domain.RegionalismoRepository;
-import com.group.backend.entity.ApiPublica;
 import com.group.backend.entity.Regionalismo;
 
 @RequestMapping("/regionalismo")

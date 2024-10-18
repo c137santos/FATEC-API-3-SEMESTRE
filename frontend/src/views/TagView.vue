@@ -95,7 +95,6 @@ export default {
       }
     },
 
-    // Fecha o modal de edição
     fecharModal() {
       this.tagEmEdicao = null
     }

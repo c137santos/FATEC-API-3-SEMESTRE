@@ -36,7 +36,6 @@ public class TagPortalService {
     }
     
     public List<Map<String, Object>> listarPortaisComTags() {
-        // Buscar todos os portais e suas tags
         List<Portal> portais = portalRepository.findAll();
         List<Map<String, Object>> resposta = new ArrayList<>();
 
@@ -48,8 +47,6 @@ public class TagPortalService {
             portalMap.put("frequencia", portal.getFrequencia());
             portalMap.put("ativo", portal.isAtivo());
             portalMap.put("data", portal.getData());
-
-            // Obter os nomes das tags associadas a cada portal
             List<String> nomesTags = listarTagsPortal(portal.getId());
             portalMap.put("tags", nomesTags);
 

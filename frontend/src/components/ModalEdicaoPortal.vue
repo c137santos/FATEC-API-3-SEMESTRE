@@ -1,40 +1,35 @@
 <template>
   <div class="modal-overlay">
     <div class="modal-content">
-      <h2 class="modal-title">Editando Tag:</h2>
-      <form @submit.prevent="salvarEdicao" class="modal-form">
-        <label for="nome">Nome da tag</label>
-        <input
+      <h2 class="modal-title">Editando Portal Notícia:</h2>
+      <form @submit.prevent="editarPortal" class="modal-form">
+          <label for="nome">Nome:</label>
+          <input 
+          v-model="portalEmEdit.nome"
           type="text"
           id="nome"
-          v-model="tagLocal.tagNome"
+          required 
           class="modal-input"
-          required
-          placeholder="Digite o nome da tag"
-        />
-
-        <label for="descricao">Descrição</label>
-        <input
-          type="text"
-          id="descricao"
-          v-model="tagLocal.tagDescricao"
-          class="modal-input"
-          placeholder="Digite a descrição da tag"
-        />
-
-        <div>
-          <label for="checkbox-edicao">Ativo</label>
-          <input
-            type="checkbox"
-            id="checkbox-edicao"
-            v-model="tagLocal.tagActive"
-            class="checkboxEdicao"
           />
-        </div>
 
+          <label for="frequencia">Frequência:</label>
+            <div class="select-container" >
+              <select class="modal-input" id="capture-period" v-model="portalEmEdit.frequencia">
+                <option value="diariamente">Diariamente</option>
+                <option value="semanalmente">Semanalmente</option>
+                <option value="mensalmente">Mensalmente</option>
+              </select>
+            </div>
+          
+          <label for="url" >URL:</label>
+          <input v-model="portalEmEdit.url" class="modal-input" type="url" id="url" />
+          <div class="active-group">
+          <label for="active">Ativo:</label>
+          <input v-model="portalEmEdit.ativo" class="modal-input" type="checkbox" id="active" />
+          </div>        
         <div class="modal-actions">
           <button type="submit" class="salvar-btn">Salvar</button>
-          <button type="button" class="cancelar-btn" @click="$emit('fechar')">Cancelar</button>
+          <button type="button" class="cancelar-btn" @click="fecharModal">Cancelar</button>
         </div>
       </form>
     </div>
@@ -43,30 +38,45 @@
 
 <script>
 export default {
+  name: 'modalEdicaoPortal',
+  emits: ['close', 'save'],
   props: {
-    tag: Object
+    portal: Object,
+    modalAberto: Boolean
   },
   data() {
     return {
-      tagLocal: { ...this.tag }
+      portalEmEdit: { ...this.portal }
     }
   },
   methods: {
-    salvarEdicao() {
-      if (!this.tagLocal.tagNome || this.tagLocal.tagNome.trim() === '') {
-        alert('O campo Nome da tag é obrigatório.')
-        return
-      }
-
-      this.$emit('salvar-edicao', this.tagLocal)
-    }
-  },
-  watch: {
-    tag: {
-      immediate: true,
-      handler(newTag) {
-        this.tagLocal = { ...newTag } // Atualiza a cópia local quando a tag mudar
-      }
+    fecharModal() {
+      this.$emit('close')
+    },
+    saveChanges() {
+      this.$emit('save', this.portal)
+      fecharModal()
+    },
+    editarPortal() {
+      fetch(`http://localhost:8081/apis/editar/${this.portalEmEdit.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.portalEmEdit)
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Erro ao atualizar API')
+          }
+          return response.json()
+        })
+        .then((data) => {
+          this.saveChanges()
+        })
+        .catch((error) => {
+          console.error('Erro ao editar API:', error)
+        })
     }
   }
 }
@@ -166,6 +176,12 @@ export default {
   font-size: 16px;
   border-radius: 5px;
   border: 2px solid black;
+}
+
+.active-group {
+  display: flex;
+  align-items: baseline;
+  gap: 10px; 
 }
 
 .cancelar-btn:hover {

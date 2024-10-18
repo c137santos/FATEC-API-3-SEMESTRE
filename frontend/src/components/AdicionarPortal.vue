@@ -26,9 +26,9 @@
         <div>
           <label>
             <select v-model="novoPortal.portalFrequencia" class="seletorFrequencia">
-              <option value="diaria">Diária</option>
-              <option value="semanal">Semanal</option>
-              <option value="mensal">Mensal</option>
+              <option value="diariamente">Diária</option>
+              <option value="semanalmente">Semanal</option>
+              <option value="mensalmente">Mensal</option>
             </select>
           </label>
         </div>
@@ -156,7 +156,8 @@ export default {
   margin-top: 20px;
 }
 
-.seletorTags, .seletorFrequencia {
+.seletorTags,
+.seletorFrequencia {
   width: 300px;
   border: 1px solid #d1c4e9;
   border-radius: 5px;
