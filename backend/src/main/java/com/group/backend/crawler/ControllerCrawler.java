@@ -41,7 +41,7 @@ public class ControllerCrawler {
             // Adiciona a URL semente
             controller.addSeed(seedUrl);
 
-            int numberOfCrawlers = 3;
+            int numberOfCrawlers = 1;
             AtomicInteger numSeenImages = new AtomicInteger();
 
             // Passa o objeto Noticia para o MainCrawler

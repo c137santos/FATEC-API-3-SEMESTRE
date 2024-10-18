@@ -149,6 +149,15 @@
 
 	<build>
 		<plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <jvmArguments>
+                    --add-exports=java.management/sun.management=ALL-UNNAMED
+                </jvmArguments>
+            </configuration>
+        </plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
