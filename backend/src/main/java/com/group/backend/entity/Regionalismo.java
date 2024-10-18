@@ -20,7 +20,6 @@ public class Regionalismo {
     @JoinColumn(name = "tag_id", referencedColumnName = "tag_id", insertable = false, updatable = false)
     private Tag tag;
 
-    // getters and setters
 
     public Long getRegId() {
         return regId;

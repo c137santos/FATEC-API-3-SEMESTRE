@@ -1,0 +1,2 @@
+ALTER TABLE noticia
+ALTER COLUMN noti_text TYPE TEXT;
