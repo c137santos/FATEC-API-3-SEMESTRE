@@ -92,6 +92,13 @@ Siga as instruções do Contributing!
 
 [Burdown da 1º sprint](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXRHVQpU5eI4LoDabcDIMd5JyNLnffdLF4DwnGZlrQGtpdmEBwshaBsn3KOH8GVLW6xHc2C3y7cMRR/pubhtml)
 
+
+
+## Manual do usuário
+
+[Manual do Usuário](./documentação/Manual_do_usuario.md)
+
+
 ## Equipe
 
 | Integrante                                                                                                                             | LinkedIn                                                                                                                                                                |
