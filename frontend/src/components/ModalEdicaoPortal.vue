@@ -1,29 +1,38 @@
 <template>
-  <div v-if="modalAberto" class="modal-overlay"></div>
-  <div class="modal-content">
-    <h2 class="modal-title">Editando Portal Notícia:</h2>
-    <form @submit.prevent="editarPortal" class="modal-form">
-      <div>
-        <label for="nome">Nome:</label>
-        <input v-model="portalLocal.nome" type="text" id="nome" required />
-      </div>
-      <div>
-        <label for="frequencia">Frequência:</label>
-        <input v-model="portalLocal.frequencia" type="text" id="frequencia" required />
-      </div>
-      <div>
-        <label for="url">URL:</label>
-        <input v-model="portalLocal.url" type="url" id="url" />
-      </div>
-      <div>
-        <label for="active">Ativo:</label>
-        <input v-model="portalLocal.ativo" type="checkbox" id="active" />
-      </div>
-      <div class="modal-actions">
-        <button type="submit" class="salvar-btn">Salvar</button>
-        <button type="button" class="cancelar-btn" @click="fecharModal">Cancelar</button>
-      </div>
-    </form>
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <h2 class="modal-title">Editando Portal Notícia:</h2>
+      <form @submit.prevent="editarPortal" class="modal-form">
+          <label for="nome">Nome:</label>
+          <input 
+          v-model="portalEmEdit.nome"
+          type="text"
+          id="nome"
+          required 
+          class="modal-input"
+          />
+
+          <label for="frequencia">Frequência:</label>
+            <div class="select-container" >
+              <select class="modal-input" id="capture-period" v-model="portalEmEdit.frequencia">
+                <option value="diariamente">Diariamente</option>
+                <option value="semanalmente">Semanalmente</option>
+                <option value="mensalmente">Mensalmente</option>
+              </select>
+            </div>
+          
+          <label for="url" >URL:</label>
+          <input v-model="portalEmEdit.url" class="modal-input" type="url" id="url" />
+          <div class="active-group">
+          <label for="active">Ativo:</label>
+          <input v-model="portalEmEdit.ativo" class="modal-input" type="checkbox" id="active" />
+          </div>        
+        <div class="modal-actions">
+          <button type="submit" class="salvar-btn">Salvar</button>
+          <button type="button" class="cancelar-btn" @click="fecharModal">Cancelar</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -163,9 +172,16 @@ export default {
   background-color: transparent;
   color: #6a1b9a;
   padding: 10px 20px;
-  border: none;
   cursor: pointer;
   font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.active-group {
+  display: flex;
+  align-items: baseline;
+  gap: 10px; 
 }
 
 .cancelar-btn:hover {

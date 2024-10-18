@@ -162,9 +162,10 @@ export default {
   background-color: transparent;
   color: #6a1b9a;
   padding: 10px 20px;
-  border: none;
   cursor: pointer;
   font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .cancelar-btn:hover {

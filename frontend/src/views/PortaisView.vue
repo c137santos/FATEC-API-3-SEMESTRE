@@ -6,9 +6,8 @@
     <h1>Portais Cadastrados</h1>
     <ListaPortais @editar-portal="abrirModalEdicao" />
     <ModalEdicaoPortal
-      v-if="modalAberto"
+      v-if="portalSelecionado"
       :portal="portalSelecionado"
-      :modalAberto="modalAberto"
       @close="fecharModal"
       @save="salvarEdicao"
     >
@@ -32,7 +31,6 @@ export default {
     return {
       portais: [],
       tagPortaisId: [],
-      modalAberto: false,
       portalSelecionado: null
     }
   },
@@ -49,7 +47,6 @@ export default {
       this.modalAberto = true
     },
     fecharModal() {
-      this.modalAberto = false
       this.portalSelecionado = null
     },
     salvarEdicao(portalEditado) {
