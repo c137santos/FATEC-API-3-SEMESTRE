@@ -17,7 +17,7 @@ O sistema permite o cadastro de APIs que fornecem dados estratégicos. Ao cadast
 - Marcar se a API está *ativa*.
 - Definir o *período de captura* (diariamente, semanalmente, etc).
 
-![Exemplo de cadastro de API](#) [Adicionar print aqui]
+![Exemplo de cadastro de API](../documentação/assets/cadastraApi.jpeg)
 
 ### 2. Cadastro de Portais
 
@@ -27,7 +27,7 @@ Além das APIs, o sistema permite cadastrar portais de notícias de onde os dado
 - Inserir a *URL do portal*.
 - Associar *tags* ao portal (ex.: agricultura, tecnologia).
 
-![Exemplo de cadastro de Portal](#) [Adicionar print aqui]
+![Exemplo de cadastro de portal](../documentação/assets/cadastraPortal.jpeg)
 
 ### 3. Cadastro de Tags
 
@@ -37,7 +37,7 @@ O usuário também pode cadastrar *tags* que ajudarão a categorizar e filtrar a
 - Adicionar uma *descrição* da tag.
 - Associar *tags relacionadas* (ex.: soja, milho, exportação).
 
-![Exemplo de cadastro de Tag](#) [Adicionar print aqui]
+![Exemplo de cadastro de tag](../documentação/assets/cadastraTag.jpeg)
 
 ### 4. Consulta de Notícias
 
@@ -49,8 +49,7 @@ O *Cérberus* oferece uma tela de consulta para buscar notícias já capturadas.
 - *Jornalista*.
 - *Tags associadas*.
 
-![Exemplo de consulta de Notícias](#) [Adicionar print aqui]
-
+![Exemplo de Consulta de Notícia](../documentação/assets/consultaNoticia.jpeg)
 ## Processos de Uso
 
 ### Cadastro de APIs
@@ -93,13 +92,3 @@ O *Cérberus* oferece uma tela de consulta para buscar notícias já capturadas.
 - O sistema utiliza scraping para capturar dados de portais de notícias e APIs. Certifique-se de que os portais cadastrados estão ativos e disponíveis para captura.
 - Todas as entidades (APIs, Portais, Tags) podem ser editadas ou excluídas diretamente pela interface do sistema.
 - As capturas de notícias ocorrem de acordo com o período de captura definido no cadastro de cada API ou portal.
-
----
-
-[Adicionar print de exemplo de consulta de notícias]
-
----
-
-### Suporte
-
-Em caso de dúvidas ou problemas, consulte a equipe de desenvolvimento responsável.
