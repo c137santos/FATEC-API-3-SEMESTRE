@@ -1,4 +1,5 @@
 package com.group.backend.crawler;
+
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Noticia;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -54,10 +56,15 @@ public class ParserHtml {
             LocalDate date = null;
             if (data != null) {
                 date = parseDate(data);
-                noticia.setNotiData(date); // Preenche a data
+                noticia.setNotiData(date);
             }
 
-            if (checkTagsAndRegionalismosInCorpo(corpo)){
+            if (noticiaRepository.existsByUrl(noticia.getUrl())) {
+                System.out.println("Notícia com a URL já existente: " + noticia.getUrl());
+                return;
+            }
+
+            if (checkTagsAndRegionalismosInCorpo(corpo)) {
                 noticia.setNotiText(corpo);
                 noticiaRepository.save(noticia);
             }
@@ -86,12 +93,21 @@ public class ParserHtml {
     }
     
     private String extractData(String textoCompleto) {
-        Matcher dataMatcher = Pattern.compile("(\\d{1,2} de \\w+ de \\d{4})").matcher(textoCompleto);
+        String regex = "(\\d{1,2} 'de' \\w+ 'de' \\d{4})|(\\d{1,2}/\\d{1,2}/\\d{4})|(\\d{2}/\\d{2}/\\d{4})|(\\d{4}-\\d{2}-\\d{2})|(\\w+ \\d{1,2}, \\d{4})|(\\d{1,2} 'de' \\w+ 'de' \\d{4})";
+        Matcher dataMatcher = Pattern.compile(regex).matcher(textoCompleto);
+
         return dataMatcher.find() ? dataMatcher.group(0) : null;
     }
 
     private LocalDate parseDate(String dataStr) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy");
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendOptional(DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy"))
+                .appendOptional(DateTimeFormatter.ofPattern("d/MM/yyyy"))
+                .appendOptional(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                .appendOptional(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                .appendOptional(DateTimeFormatter.ofPattern("MMMM d, yyyy"))
+                .toFormatter();
+
         return LocalDate.parse(dataStr, formatter);
     }
 
@@ -108,7 +124,6 @@ public class ParserHtml {
                 for (Regionalismo regionalismo : tag.listRegionalismos()) {
                     if (corpo.contains(regionalismo.getNome())) {
                         System.out.println("Regionalismo encontrado: " + regionalismo.getNome());
-                        existe = true;
                     } else {
                         System.out.println("Regionalismo não encontrado: " + regionalismo.getNome());
                     }
