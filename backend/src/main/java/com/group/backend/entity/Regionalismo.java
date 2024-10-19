@@ -1,6 +1,7 @@
 package com.group.backend.entity;
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "regionalismo")
@@ -18,8 +19,8 @@ public class Regionalismo {
 
     @ManyToOne
     @JoinColumn(name = "tag_id", referencedColumnName = "tag_id", insertable = false, updatable = false)
+    @JsonBackReference
     private Tag tag;
-
 
     public Long getRegId() {
         return regId;
@@ -52,5 +53,4 @@ public class Regionalismo {
     public void setTag(Tag tag) {
         this.tag = tag;
     }
-    
 }

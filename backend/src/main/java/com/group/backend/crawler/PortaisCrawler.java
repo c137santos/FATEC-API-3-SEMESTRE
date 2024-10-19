@@ -53,6 +53,7 @@ public class PortaisCrawler {
 
                 controllerCrawler.startCrawlWithSeed(url, noticia, parserHtml, reporterRepository);
 
+
             } catch (Exception e) {
                 System.out.println("Erro ao iniciar o crawl para " + url + ": " + e.getMessage());
             }

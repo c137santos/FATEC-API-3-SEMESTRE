@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @NoArgsConstructor
 @Entity
@@ -50,6 +51,7 @@ public class Tag {
     @OneToMany(mappedBy = "tag")
     @Getter
     @Setter
+    @JsonManagedReference
     private List<Regionalismo> regionalismos;
 
     public List<Regionalismo> listRegionalismos() {

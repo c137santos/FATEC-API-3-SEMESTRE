@@ -60,6 +60,7 @@ public class ControllerCrawler {
 
             // Inicia o crawling
             controller.start(factory, numberOfCrawlers);
+            controller.shutdown();
         } catch (Exception e) {
             logger.error("Erro ao iniciar o crawling: {}", e.getMessage());
         }
