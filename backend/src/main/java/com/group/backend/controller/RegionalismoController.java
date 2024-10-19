@@ -11,19 +11,17 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/regionalismos")
-@CrossOrigin(origins = "http://localhost:8080")  // Ajuste a origem conforme necessário
+@CrossOrigin(origins = "http://localhost:8080")
 public class RegionalismoController {
 
     @Autowired
     private RegionalismoRepository regionalismoRepository;
 
-    // Listar todos os regionalismos
     @GetMapping("/listar")
     public List<Regionalismo> listarRegionalismos() {
         return regionalismoRepository.findAll();
     }
 
-    // Buscar regionalismo por ID
     @GetMapping("/{id}")
     public ResponseEntity<Regionalismo> buscarPorId(@PathVariable Long id) {
         Optional<Regionalismo> regionalismo = regionalismoRepository.findById(id);
@@ -34,14 +32,12 @@ public class RegionalismoController {
         }
     }
 
-    // Criar um novo regionalismo
     @PostMapping("/criar")
     public ResponseEntity<Regionalismo> criarRegionalismo(@RequestBody Regionalismo regionalismo) {
         Regionalismo novoRegionalismo = regionalismoRepository.save(regionalismo);
         return ResponseEntity.ok(novoRegionalismo);
     }
 
-    // Editar um regionalismo existente
     @PutMapping("/editar/{id}")
     public ResponseEntity<Regionalismo> editarRegionalismo(@PathVariable Long id, @RequestBody Regionalismo dadosAtualizados) {
         Optional<Regionalismo> regionalismoExistente = regionalismoRepository.findById(id);
@@ -50,7 +46,6 @@ public class RegionalismoController {
             Regionalismo regionalismo = regionalismoExistente.get();
             regionalismo.setNome(dadosAtualizados.getNome());
             regionalismo.setTagId(dadosAtualizados.getTagId());
-            // Outros campos que você desejar atualizar
 
             Regionalismo regionalismoAtualizado = regionalismoRepository.save(regionalismo);
             return ResponseEntity.ok(regionalismoAtualizado);
@@ -59,7 +54,6 @@ public class RegionalismoController {
         }
     }
 
-    // Deletar um regionalismo
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity<Void> deletarRegionalismo(@PathVariable Long id) {
         Optional<Regionalismo> regionalismoExistente = regionalismoRepository.findById(id);
@@ -69,5 +63,11 @@ public class RegionalismoController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping("/cadastrar")
+    public ResponseEntity<Regionalismo> save(@RequestBody Regionalismo regionalismo) {
+        Regionalismo newRegionalismo = regionalismoRepository.save(regionalismo);
+        return ResponseEntity.ok(newRegionalismo);
     }
 }

@@ -1,0 +1,56 @@
+.portal-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.portal-card:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.editar-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.editar-btn:hover {
+    background-color: #45a049;
+}
+
+.status-ativo::before {
+    content: "●";
+    color: green;
+    margin-right: 8px;
+}
+
+.status-inativo::before {
+    content: "●";
+    color: black;
+    margin-right: 8px;
+}
+
+.portal-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.portal-info p {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.portal-info p strong {
+    color: #333;
+}

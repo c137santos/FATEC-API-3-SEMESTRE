@@ -1,17 +1,17 @@
 package com.group.backend.cron;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.group.backend.domain.ApiPublicaRepository;
-import com.group.backend.entity.ApiPublica;
-import com.group.backend.entity.ResultApi;
-import com.group.backend.domain.ResultApiRepository;
-
-import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.group.backend.domain.ApiPublicaRepository;
+import com.group.backend.domain.ResultApiRepository;
+import com.group.backend.entity.ApiPublica;
+import com.group.backend.entity.ResultApi;
 
 @Component
 public class Cron {

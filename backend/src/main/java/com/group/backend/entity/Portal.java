@@ -1,14 +1,35 @@
 package com.group.backend.entity;
 import java.time.LocalDate;
+import java.util.List;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "portal")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Portal {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "por_id")
     private Long id;
+
+    @Column(name = "por_ativo")
+    private boolean ativo;
 
     @Column(name = "por_nome", length = 30)
     private String nome;
@@ -22,54 +43,7 @@ public class Portal {
     @Column(name = "por_frequencia", length = 30)
     private String frequencia;
 
-    // Construtores, getters e setters
-
-    public Portal() {}
-
-    public Portal(String nome, String url, LocalDate data, String frequencia) {
-        this.nome = nome;
-        this.url = url;
-        this.data = data;
-        this.frequencia = frequencia;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-
-    public String getFrequencia() {
-        return frequencia;
-    }
-
-    public void setFrequencia(String frequencia) {
-        this.frequencia = frequencia;
-    }
+    // Relacionamento com TagPortal
+    @OneToMany(mappedBy = "portal", cascade = CascadeType.ALL)
+    private List<TagPortal> tagPortals; // Associação com TagPortal
 }
