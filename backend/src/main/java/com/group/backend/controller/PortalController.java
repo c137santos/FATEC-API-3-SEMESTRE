@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.group.backend.domain.DadosCadastroPortal;
 import com.group.backend.domain.PortalRepository;
@@ -18,6 +20,7 @@ import com.group.backend.entity.Portal;
 import com.group.backend.service.TagPortalService;
 
 import jakarta.transaction.Transactional;
+
 
 @RestController
 @RequestMapping("/portais")
@@ -50,8 +53,22 @@ public class PortalController {
 
     @GetMapping("/listar")
     public ResponseEntity<List<Map<String, Object>>> listarPortais() {
-        // Mover a lógica de listar portais e tags para o serviço
         List<Map<String, Object>> portaisComTags = tagPortalService.listarPortaisComTags();
         return ResponseEntity.ok(portaisComTags);
     }
+
+    @PutMapping("/editar/{id}")
+    public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody Portal portalAtualizado) {
+        return portalRepository.findById(id)
+                .map(portal -> {
+                    portal.setNome(portalAtualizado.getNome());
+                    portal.setUrl(portalAtualizado.getUrl());
+                    portal.setFrequencia(portalAtualizado.getFrequencia());
+                    portal.setData(LocalDate.now());
+                    portalRepository.save(portal);
+                    return ResponseEntity.ok(portal);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 }
