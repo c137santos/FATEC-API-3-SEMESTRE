@@ -1,5 +1,7 @@
 FROM ubuntu:noble
 
+USER root
+
 RUN apt update -y
 RUN apt upgrade -y
 RUN apt install -y
@@ -13,11 +15,6 @@ ENV TZ America/Sao_Paulo
 
 # Install Dependencies
 RUN apt install -y curl xz-utils
-
-# Configure sudo
-RUN apt install -y sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
-/etc/sudoers
 
 # Install Git
 RUN apt install -y git
@@ -35,6 +32,10 @@ RUN ln -s /opt/node/bin/node /usr/local/bin/node && ln -s /opt/node/bin/npm /usr
 RUN npm config set prefix /usr/local
 RUN rm /root/node.tar.xz
 
+# Install Postgres
+ARG POSTGRES_VERSION
+RUN apt install -y postgresql-${POSTGRES_VERSION} postgresql-contrib
+
 # Install Gitmoji
 RUN npm i -g gitmoji-cli
 
@@ -47,32 +48,15 @@ RUN cp -r /root/.oh-my-zsh /etc/skel/.oh-my-zsh
 RUN cp /root/.zshrc /etc/skel/.zshrc
 RUN chsh -s /bin/zsh root
 
-# Configure User
-ARG USERNAME
-ARG UID
-ARG GID
-
-RUN userdel ubuntu
-RUN rm -r /home/ubuntu
-RUN groupadd ${USERNAME} -g ${GID}
-RUN useradd -m -d /home/${USERNAME} -g ${GID} -G sudo -u ${UID} -s /bin/zsh ${USERNAME}
-
-RUN echo "${USERNAME} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/NOPASSWD
-
-USER ${USERNAME}
-RUN mkdir /home/${USERNAME}/app
-
-# GIT config
-ARG GIT_USER
-ARG GIT_EMAIL
-RUN git config --global user.name "${GIT_USER}"
-RUN git config --global user.email "${GIT_EMAIL}"
-RUN git config --global core.filemode false
-RUN git config --global --add safe.directory /home/${USERNAME}/app
-
-WORKDIR /home/${USERNAME}/app
+RUN mkdir /app
+WORKDIR /app
 
 EXPOSE 8080
 EXPOSE 5173
+EXPOSE 5433
 
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT sh /entrypoint.sh
 CMD [ "zsh" ]
