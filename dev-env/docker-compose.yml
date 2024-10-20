@@ -1,0 +1,24 @@
+services:
+  dev-env:
+    build:
+      args:
+        POSTGRES_VERSION: ${POSTGRES_VERSION}
+        JAVA_VERSION: ${JAVA_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
+
+    restart: always
+    volumes:
+      - ../:/app
+      - ~/.ssh:/root/.ssh
+      - ~/.gitconfig:/root/.gitconfig
+
+    tty: true
+    environment:
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+
+    ports:
+      - 127.0.0.1:8080:8080
+      - 127.0.0.1:5173:5173
+      - 127.0.0.1:5433:5432
