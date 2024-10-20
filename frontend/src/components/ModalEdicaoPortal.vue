@@ -3,30 +3,32 @@
     <div class="modal-content">
       <h2 class="modal-title">Editando Portal Notícia:</h2>
       <form @submit.prevent="editarPortal" class="modal-form">
-          <label for="nome">Nome:</label>
-          <input 
+        <label for="nome">Nome:</label>
+        <input 
           v-model="portalEmEdit.nome"
           type="text"
           id="nome"
           required 
           class="modal-input"
-          />
+        />
 
-          <label for="frequencia">Frequência:</label>
-            <div class="select-container" >
-              <select class="modal-input" id="capture-period" v-model="portalEmEdit.frequencia">
-                <option value="diariamente">Diariamente</option>
-                <option value="semanalmente">Semanalmente</option>
-                <option value="mensalmente">Mensalmente</option>
-              </select>
-            </div>
-          
-          <label for="url" >URL:</label>
-          <input v-model="portalEmEdit.url" class="modal-input" type="url" id="url" />
-          <div class="active-group">
+        <label for="frequencia">Frequência:</label>
+        <div class="select-container">
+          <select class="modal-input" id="capture-period" v-model="portalEmEdit.frequencia">
+            <option value="diariamente">Diariamente</option>
+            <option value="semanalmente">Semanalmente</option>
+            <option value="mensalmente">Mensalmente</option>
+          </select>
+        </div>
+
+        <label for="url">URL:</label>
+        <input v-model="portalEmEdit.url" class="modal-input" type="url" id="url" />
+
+        <div class="active-group">
           <label for="active">Ativo:</label>
           <input v-model="portalEmEdit.ativo" class="modal-input" type="checkbox" id="active" />
-          </div>        
+        </div>        
+
         <div class="modal-actions">
           <button type="submit" class="salvar-btn">Salvar</button>
           <button type="button" class="cancelar-btn" @click="fecharModal">Cancelar</button>
@@ -54,11 +56,11 @@ export default {
       this.$emit('close')
     },
     saveChanges() {
-      this.$emit('save', this.portal)
-      fecharModal()
+      this.$emit('save', this.portalEmEdit)
+      this.fecharModal()  // Fecha o modal após salvar
     },
     editarPortal() {
-      fetch(`http://localhost:8081/apis/editar/${this.portalEmEdit.id}`, {
+      fetch(`http://localhost:8081/portais/editar/${this.portalEmEdit.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -72,11 +74,16 @@ export default {
           return response.json()
         })
         .then((data) => {
-          this.saveChanges()
+          this.saveChanges()  // Salva as alterações e fecha o modal
         })
         .catch((error) => {
           console.error('Erro ao editar API:', error)
         })
+    }
+  },
+  watch: {
+    portal(newPortal) {
+      this.portalEmEdit = { ...newPortal }
     }
   }
 }
@@ -125,15 +132,6 @@ export default {
   border-radius: 5px;
   padding: 12px;
   margin-bottom: 20px;
-  font-size: 16px;
-  background-color: #f3e5f5;
-}
-
-.checkboxEdicao {
-  border: 1px solid #d1c4e9;
-  border-radius: 5px;
-  padding: 6px;
-  margin-left: 10px;
   font-size: 16px;
   background-color: #f3e5f5;
 }

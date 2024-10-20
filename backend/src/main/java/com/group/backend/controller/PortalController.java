@@ -64,7 +64,7 @@ public class PortalController {
                     portal.setNome(portalAtualizado.getNome());
                     portal.setUrl(portalAtualizado.getUrl());
                     portal.setFrequencia(portalAtualizado.getFrequencia());
-                    portal.setData(LocalDate.now()); // Atualiza a data de criação
+                    portal.setData(LocalDate.now());
                     portalRepository.save(portal);
                     return ResponseEntity.ok(portal);
                 })
