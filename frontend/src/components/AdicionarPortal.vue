@@ -26,9 +26,9 @@
         <div>
           <label>
             <select v-model="novoPortal.portalFrequencia" class="seletorFrequencia">
-              <option value="diaria">Diária</option>
-              <option value="semanal">Semanal</option>
-              <option value="mensal">Mensal</option>
+              <option value="diariamente">Diária</option>
+              <option value="semanalmente">Semanal</option>
+              <option value="mensalmente">Mensal</option>
             </select>
           </label>
         </div>
