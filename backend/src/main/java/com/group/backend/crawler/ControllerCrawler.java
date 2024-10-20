@@ -11,7 +11,6 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.group.backend.entity.Noticia;
-import com.group.backend.entity.Reporter;
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.ReporterRepository;
 

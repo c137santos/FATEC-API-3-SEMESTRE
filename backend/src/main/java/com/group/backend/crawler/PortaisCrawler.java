@@ -33,7 +33,7 @@ public class PortaisCrawler {
     public void startCrawlForAllPortals() {
         ControllerCrawler controllerCrawler = new ControllerCrawler(noticiaRepository, reporterRepository);
 
-        List<Portal> portals = portalRepository.findAll();
+        List<Portal> portals = portalRepository.findByAtivoTrue();
 
         if (portals.isEmpty()) {
             System.out.println("Não existem portais disponíveis para crawling.");

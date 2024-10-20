@@ -16,7 +16,6 @@ import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
 import com.group.backend.entity.Noticia;
-import com.group.backend.entity.Reporter;
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.ReporterRepository;
 
