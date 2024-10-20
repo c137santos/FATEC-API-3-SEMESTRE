@@ -2,6 +2,7 @@ package com.group.backend.crawler;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Set;
@@ -9,7 +10,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
 import org.apache.http.Header;
-
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
@@ -28,18 +28,19 @@ public class MainCrawler extends WebCrawler {
     private String seedUrl;
     private CrawlController controller;
     private Noticia noticia;
-    private NoticiaRepository noticiaRepository; // Repositório para verificar a URL
-    private ReporterRepository reporterRepository; // Repositório para verificar a URL
+    private NoticiaRepository noticiaRepository;
+    private ReporterRepository reporterRepository;
     private ParserHtml parserHtml;
 
-    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia, NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
+    public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia,
+                       NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
         this.numSeenImages = numSeenImages;
-        this.controller = controller;
         this.seedUrl = seedUrl;
+        this.controller = controller;
         this.noticia = noticia;
-        this.noticiaRepository = noticiaRepository; // Inicializando o repositório
+        this.noticiaRepository = noticiaRepository;
         this.parserHtml = parserHtml;
-        this.reporterRepository = reporterRepository; // Inicializando o repositório
+        this.reporterRepository = reporterRepository;
     }
 
     @Override
@@ -55,10 +56,10 @@ public class MainCrawler extends WebCrawler {
 
         logger.info("URL: {}", url);
 
-        // Verifica se a URL já foi salva no banco de dados
+        // Verifica se a URL já foi processada
         if (noticiaRepository.existsByUrl(url)) {
             logger.info("A URL já foi processada: {}", url);
-            return; // Se já existe, não processa novamente
+            return; // Evita processamento duplicado
         }
 
         noticia.setUrl(url);
@@ -68,20 +69,17 @@ public class MainCrawler extends WebCrawler {
             String html = htmlParseData.getHtml();
             Set<WebURL> links = htmlParseData.getOutgoingUrls();
 
-            logger.debug("Html length: {}", html.length());
-            logger.debug("Number of outgoing links: {}", links.size());
+            logger.debug("Tamanho do HTML: {}", html.length());
+            logger.debug("Número de links externos: {}", links.size());
 
-            // Salvar o HTML em um arquivo
             String filePath = saveHtmlToFile(url, html, "./src/main/java/com/group/backend/crawler/dadosCrawler/");
 
-            // Parsear e deletar o arquivo imediatamente após salvar
             try {
                 parserHtml.parseAndDeleteFile(Paths.get(filePath), noticia);
             } catch (Exception e) {
                 logger.error("Erro ao parsear o arquivo após salvar: {}", e.getMessage());
             }
 
-            // Adicionando novas seeds com base nos links encontrados
             for (WebURL link : links) {
                 String newUrl = link.getURL();
                 if (shouldVisit(page, link)) {
@@ -90,10 +88,9 @@ public class MainCrawler extends WebCrawler {
             }
         }
 
-        // Exibindo headers de resposta
         Header[] responseHeaders = page.getFetchResponseHeaders();
         if (responseHeaders != null) {
-            logger.debug("Response headers:");
+            logger.debug("Headers de resposta:");
             for (Header header : responseHeaders) {
                 logger.debug("\t{}: {}", header.getName(), header.getValue());
             }
@@ -103,16 +100,35 @@ public class MainCrawler extends WebCrawler {
     }
 
     private String saveHtmlToFile(String url, String html, String outputDir) {
+        // Gera um nome de arquivo seguro, substituindo caracteres especiais
         String fileName = url.replaceAll("[^a-zA-Z0-9]", "_") + ".html";
         String filePath = outputDir + fileName;
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write(html);
-            logger.info("HTML saved to {}", filePath);
+    
+        try {
+            // Cria o diretório se ele não existir
+            File directory = new File(outputDir);
+            if (!directory.exists()) {
+                boolean dirCreated = directory.mkdirs(); // Cria os diretórios
+                if (dirCreated) {
+                    logger.info("Diretório criado: {}", outputDir);
+                } else {
+                    logger.error("Erro ao criar o diretório: {}", outputDir);
+                    return null; // Falha ao criar diretório, encerra o processo
+                }
+            }
+    
+            // Salva o arquivo HTML
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                writer.write(html);
+                logger.info("HTML salvo em {}", filePath);
+            }
+    
         } catch (IOException e) {
-            logger.error("Error saving HTML to file: {}", e.getMessage());
+            logger.error("Erro ao salvar HTML em arquivo: {}", e.getMessage());
+            return null; // Falha ao salvar, retorna nulo
         }
-
-        return filePath; // Retorne o caminho do arquivo salvo
+    
+        return filePath; // Retorna o caminho do arquivo salvo
     }
+    
 }
