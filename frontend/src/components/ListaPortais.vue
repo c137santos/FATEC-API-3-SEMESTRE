@@ -4,12 +4,12 @@
         <div v-for="portal in portais" :key="portal.portalId" class="portal-card">
           <div class="portal-header">
             <img src="@/assets/Logo_padrao.jpeg" alt="Logo do portal" class="info-icon" />
-            <h3>{{ portal.portalNome }}</h3>
+           <h3> {{ portal.nome }}</h3>
           </div>
           <div class="portal-info">
-            <p>{{ portal.portalUrl }}</p>
+            <p><strong>Url:</strong>{{ portal.url }}</p>
             <p><strong>Tags:</strong> {{ portal.tags.join(', ') }}</p>
-            <p><strong>Frequência:</strong> {{ portal.portalFrequencia }}</p>
+            <p><strong>Frequência:</strong> {{ portal.frequencia }}</p>
           </div>
           <div class="portal-actions">
             <p><strong>Status:</strong>
@@ -20,7 +20,7 @@
             <button @click="editarPortal(portal)" class="editar-btn">Editar</button>
           </div>
           <div class="portal-data">
-            <p><strong>Data:</strong> {{ new Date(portal.data).toLocaleDateString() }}</p>
+            <p><strong>Data de cadastro:</strong> {{ new Date(portal.data).toLocaleDateString() }}</p>
           </div>
         </div>
       </div>

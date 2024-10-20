@@ -3,6 +3,9 @@ package com.group.backend.controller;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.group.backend.domain.DadosCadastroPortal;
+import com.group.backend.domain.DadosEdicaoPortal;
 import com.group.backend.domain.PortalRepository;
 import com.group.backend.entity.Portal;
 import com.group.backend.service.TagPortalService;
@@ -26,7 +30,6 @@ import jakarta.transaction.Transactional;
 @RequestMapping("/portais")
 @CrossOrigin(origins = "*")
 public class PortalController {
-
     private final PortalRepository portalRepository;
     private final TagPortalService tagPortalService;
 
@@ -58,17 +61,22 @@ public class PortalController {
     }
 
     @PutMapping("/editar/{id}")
-    public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody Portal portalAtualizado) {
-        return portalRepository.findById(id)
-                .map(portal -> {
-                    portal.setNome(portalAtualizado.getNome());
-                    portal.setUrl(portalAtualizado.getUrl());
-                    portal.setFrequencia(portalAtualizado.getFrequencia());
-                    portal.setData(LocalDate.now());
-                    portalRepository.save(portal);
-                    return ResponseEntity.ok(portal);
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody DadosEdicaoPortal portalAtualizado) {
+  
+        Optional<Portal> optionalPortal = portalRepository.findById(id);
+        if (optionalPortal.isPresent()) {
+            Portal portal = optionalPortal.get();
+            portal.setNome(portalAtualizado.nome());
+            portal.setUrl(portalAtualizado.url());
+            portal.setFrequencia(portalAtualizado.frequencia());
+            portal.setAtivo(portalAtualizado.ativo());
+            portal.setData(LocalDate.now());
+            portalRepository.save(portal);
+            Portal portalAtual = portalRepository.findById(id).orElse(null);
+            return ResponseEntity.ok(portalAtual);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

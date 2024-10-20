@@ -48,7 +48,13 @@ export default {
   },
   data() {
     return {
-      portalEmEdit: { ...this.portal }
+      portalEmEdit: {
+        id: this.portal.id,
+        nome: this.portal.nome,
+        url: this.portal.url,
+        ativo: this.portal.ativo,
+        frequencia: this.portal.frequencia,
+      }
     }
   },
   methods: {
@@ -57,15 +63,18 @@ export default {
     },
     saveChanges() {
       this.$emit('save', this.portalEmEdit)
-      this.fecharModal()  // Fecha o modal após salvar
+      this.fecharModal()
     },
     editarPortal() {
-      fetch(`http://localhost:8081/portais/editar/${this.portalEmEdit.id}`, {
+      const { id, nome, url, ativo, frequencia } = this.portalEmEdit;
+      const portalAtualizado = { id, nome, url, ativo, frequencia };
+
+      fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(this.portalEmEdit)
+        body: JSON.stringify(portalAtualizado)
       })
         .then((response) => {
           if (!response.ok) {

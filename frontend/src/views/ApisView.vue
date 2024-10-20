@@ -31,7 +31,7 @@ export default {
       this.apis = [...this.apis, novaApi]
     },
     fetchApiData() {
-      fetch('http://localhost:8081/apis/listar')
+      fetch('http://localhost:8080/apis/listar')
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok')
