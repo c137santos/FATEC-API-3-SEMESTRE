@@ -57,16 +57,16 @@ Siga as instruções do Contributing!
 
 | Nº  | Sprint   | User Story                                                                                                                                         | Prioridade | Status   | Requisitos |
 | --- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ---------- |
-| 1   | Sprint 1 | Como um administrador, eu quero cadastrar APIs de terceiros, para que eu possa integrar e coletar dados de notícias de diferentes fontes.          | Alta       | Pendente | 2          |
-| 2   | Sprint 1 | Como um administrador, eu quero capturar dados de APIs previamente cadastradas, para que as informações sejam armazenadas no banco de dados.       | Alta       | Pendente | 5          |
-| 3   | Sprint 1 | Como um administrador, eu quero cadastrar tags, para que as notícias possam ser classificadas e relacionadas.                                      | Média      | Pendente | 3          |
-| 4   | Sprint 1 | Como um administrador, eu quero editar tags, para que eu possa atualizar informações previamente cadastradas.                                      | Média      | Pendente | 3          |
-| 5   | Sprint 1 | Como um administrador, eu quero desativar tags, para que tags obsoletas não fiquem disponíveis no sistema.                                         | Baixa      | Pendente | 3          |
-| 6   | Sprint 2 | Como um administrador, eu quero relacionar tags com regionalismos, para que seja possível buscar notícias relevantes de várias regiões do Brasil.  | Alta       | Pendente | 9          |
-| 7   | Sprint 2 | Como um administrador, eu quero ver todos os portais de notícias cadastrados, para que eu possa analisar quais dados serão buscados.               | Alta       | Pendente | 1          |
-| 8   | Sprint 2 | Como um administrador, eu quero cadastrar portais de notícias, para que eu possa gerenciar as fontes de onde as notícias serão capturadas.         | Alta       | Pendente | 1          |
-| 9   | Sprint 2 | Como um administrador, eu quero editar portais de notícias, para que eu possa atualizar os dados de um portal.                                     | Média      | Pendente | 1          |
-| 10  | Sprint 2 | Como um administrador, eu quero capturar notícias de portais previamente cadastrados, para que as informações sejam armazenadas no banco de dados. | Alta       | Pendente | 5 , 4      |
+| 1   | Sprint 1 | Como um administrador, eu quero cadastrar APIs de terceiros, para que eu possa integrar e coletar dados de notícias de diferentes fontes.          | Alta       | Realizada| 2          |
+| 2   | Sprint 1 | Como um administrador, eu quero capturar dados de APIs previamente cadastradas, para que as informações sejam armazenadas no banco de dados.       | Alta       | Realizada| 5          |
+| 3   | Sprint 1 | Como um administrador, eu quero cadastrar tags, para que as notícias possam ser classificadas e relacionadas.                                      | Média      | Realizada| 3          |
+| 4   | Sprint 1 | Como um administrador, eu quero editar tags, para que eu possa atualizar informações previamente cadastradas.                                      | Média      | Realizada| 3          |
+| 5   | Sprint 1 | Como um administrador, eu quero desativar tags, para que tags obsoletas não fiquem disponíveis no sistema.                                         | Baixa      | Realizada| 3          |
+| 6   | Sprint 2 | Como um administrador, eu quero relacionar tags com regionalismos, para que seja possível buscar notícias relevantes de várias regiões do Brasil.  | Alta       | Realizada| 9          |
+| 7   | Sprint 2 | Como um administrador, eu quero ver todos os portais de notícias cadastrados, para que eu possa analisar quais dados serão buscados.               | Alta       | Realizada| 1          |
+| 8   | Sprint 2 | Como um administrador, eu quero cadastrar portais de notícias, para que eu possa gerenciar as fontes de onde as notícias serão capturadas.         | Alta       | Realizada| 1          |
+| 9   | Sprint 2 | Como um administrador, eu quero editar portais de notícias, para que eu possa atualizar os dados de um portal.                                     | Média      | Realizada| 1          |
+| 10  | Sprint 2 | Como um administrador, eu quero capturar notícias de portais previamente cadastrados, para que as informações sejam armazenadas no banco de dados. | Alta       | Realizada| 5 , 4      |
 | 11  | Sprint 3 | Como um administrador, eu quero editar APIs de terceiros, para que eu possa atualizar as informações.                                              | Média      | Pendente | 2          |
 | 12  | Sprint 3 | Como um administrador, eu quero consultar APIs cadastradas, para que eu possa gerenciar e verificar a integração com as fontes de dados.           | Média      | Pendente | 8          |
 | 13  | Sprint 4 | Como um usuário, eu quero consultar notícias por meio de uma tela com filtros de pesquisa, para que eu possa encontrar notícias relevantes.        | Alta       | Pendente | 7          |
@@ -91,6 +91,13 @@ Siga as instruções do Contributing!
 ## Burndown do projeto
 
 [Burdown da 1º sprint](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXRHVQpU5eI4LoDabcDIMd5JyNLnffdLF4DwnGZlrQGtpdmEBwshaBsn3KOH8GVLW6xHc2C3y7cMRR/pubhtml)
+
+
+
+## Manual do usuário
+
+[Manual do Usuário](./documentação/Manual_do_usuario.md)
+
 
 ## Equipe
 

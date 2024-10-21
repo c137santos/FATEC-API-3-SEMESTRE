@@ -51,7 +51,7 @@ export default {
       console.log('Editar API com id:', id)
     },
     viewCapturedData(id) {
-      fetch(`http://localhost:8081/apis/resultados?apiId=${id}`)
+      fetch(`http://localhost:8080/apis/resultados?apiId=${id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok')

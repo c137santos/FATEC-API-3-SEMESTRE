@@ -1,15 +1,21 @@
 package com.group.backend.entity;
-import java.time.LocalDate;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "tag")
 public class Tag {
@@ -40,4 +46,15 @@ public class Tag {
     @Getter
     @Setter
     private boolean tagActive;
+
+    // Relacionamento com Regionalismo
+    @OneToMany(mappedBy = "tag")
+    @Getter
+    @Setter
+    @JsonManagedReference
+    private List<Regionalismo> regionalismos;
+
+    public List<Regionalismo> listRegionalismos() {
+        return regionalismos;
+    }
 }

@@ -1,10 +1,20 @@
 package com.group.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tag_portal")
 @IdClass(TagPortalId.class)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TagPortal {
 
     @Id
@@ -15,30 +25,6 @@ public class TagPortal {
     @Id
     @ManyToOne
     @JoinColumn(name = "por_id")
+    @JsonBackReference
     private Portal portal;
-
-
-    public TagPortal() {}
-
-    public TagPortal(Tag tag, Portal portal) {
-        this.tag = tag;
-        this.portal = portal;
-    }
-
-    public Tag getTag() {
-        return tag;
-    }
-
-    public void setTag(Tag tag) {
-        this.tag = tag;
-    }
-
-    public Portal getPortal() {
-        return portal;
-    }
-
-    public void setPortal(Portal portal) {
-        this.portal = portal;
-    }
-
 }

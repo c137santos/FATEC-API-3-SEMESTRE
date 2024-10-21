@@ -18,6 +18,7 @@ import com.group.backend.domain.DadosAtualizarTag;
 import com.group.backend.domain.DadosCadastroTag;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Tag;
+import com.group.backend.service.TagService;
 
 import jakarta.transaction.Transactional;
 
@@ -28,26 +29,24 @@ public class TagController {
 
     private final TagRepository tagRepository;
 
-    public TagController(TagRepository tagRepository) {
+    private final TagService tagService;
+
+    public TagController(TagRepository tagRepository, TagService tagService) {
         this.tagRepository = tagRepository;
+        this.tagService = tagService;
     }
 
     @PostMapping("cadastrar")
     @Transactional
     public ResponseEntity<Tag> cadastrarTag(@RequestBody DadosCadastroTag dados) {
-        Tag novaTag = new Tag();
-        novaTag.setTagNome(dados.tagNome());
-        novaTag.setTagDescricao(dados.tagDescricao());
-        novaTag.setTagActive(dados.tagActive());
-        novaTag.setTagData(LocalDate.now());
 
-        Tag tagSalva = tagRepository.save(novaTag);
+        Tag tagSalva = tagService.cadastrarTag(dados.tagNome(), dados.tagDescricao(), dados.tagActive()); 
         return ResponseEntity.ok(tagSalva);
     }
 
     @GetMapping("listar")
     public ResponseEntity<List<Tag>> listarTags() {
-    List<Tag> tags = tagRepository.findAll();
+    List<Tag> tags = tagService.listarTag();
     
     for (Tag tag : tags) {
         System.out.println("Tag: " + tag.getTagNome() + ", ID: " + tag.getTagId());

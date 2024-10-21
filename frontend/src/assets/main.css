@@ -47,3 +47,33 @@ p {
   font-size: 16px;
   color: #49454F;
 }
+
+.mtb-small {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mtb-medium {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.plr-small {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.plr-medium {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+
+.ptb-small {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.pa-medium {
+  padding: 2rem;
+}
