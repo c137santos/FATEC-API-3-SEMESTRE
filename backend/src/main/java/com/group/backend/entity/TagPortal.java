@@ -1,5 +1,7 @@
 package com.group.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,5 +25,6 @@ public class TagPortal {
     @Id
     @ManyToOne
     @JoinColumn(name = "por_id")
+    @JsonBackReference
     private Portal portal;
 }
