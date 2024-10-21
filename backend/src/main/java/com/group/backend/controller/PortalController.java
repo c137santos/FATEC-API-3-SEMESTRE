@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -62,7 +60,6 @@ public class PortalController {
 
     @PutMapping("/editar/{id}")
     public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody DadosEdicaoPortal portalAtualizado) {
-  
         Optional<Portal> optionalPortal = portalRepository.findById(id);
         if (optionalPortal.isPresent()) {
             Portal portal = optionalPortal.get();
