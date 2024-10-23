@@ -4,13 +4,7 @@
       <h2 class="modal-title">Editando Portal Notícia:</h2>
       <form @submit.prevent="editarPortal" class="modal-form">
         <label for="nome">Nome:</label>
-        <input 
-          v-model="portalEmEdit.nome"
-          type="text"
-          id="nome"
-          required 
-          class="modal-input"
-        />
+        <input v-model="portalEmEdit.nome" type="text" id="nome" required class="modal-input" />
 
         <label for="frequencia">Frequência:</label>
         <div class="select-container">
@@ -27,12 +21,27 @@
         <div class="active-group">
           <label for="active">Ativo:</label>
           <input v-model="portalEmEdit.ativo" class="modal-input" type="checkbox" id="active" />
-        </div>        
-
-        <div class="modal-actions">
-          <button type="submit" class="salvar-btn">Salvar</button>
-          <button type="button" class="cancelar-btn" @click="fecharModal">Cancelar</button>
         </div>
+
+        <div>
+          <p>Tags:</p>
+          <button type="button" @click="abrirModal = true" class="botao-selecionar-tags">Selecionar Tags</button>
+          <p>Tags selecionadas: {{ tagsSelecionadasNomes }}</p>
+        </div>
+        <button class="botao-salvar-portal" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
+        <button class="botao-cancelar-portal" @click.prevent="cancelarCadastro">Cancelar</button>
+
+        <div v-if="abrirModal" class="modal-overlay">
+          <div class="modal-content">
+            <h3>Selecione as Tags</h3>
+            <div v-for="tag in tags" :key="tag.tagId">
+              <input type="checkbox" :id="tag.tagId" :value="tag.tagId" v-model="tagsSelecionadas">
+              <label :for="tag.tagId">{{ tag.tagNome }}</label>
+            </div>
+            <button @click="abrirModal = false" class="botao-salvar-multiplas-tags">Salvar</button>
+          </div>
+        </div>
+
       </form>
     </div>
   </div>
@@ -67,7 +76,7 @@ export default {
     },
     editarPortal() {
       const { id, nome, url, ativo, frequencia } = this.portalEmEdit;
-      const portalAtualizado = { id, nome, url, ativo, frequencia };
+      const portalAtualizado = { id, nome, url, ativo, frequencia, tags: this.tagsSelecionadas };
 
       fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
         method: 'PUT',
@@ -161,7 +170,7 @@ export default {
   gap: 15px;
 }
 
-.salvar-btn {
+.salvar-btn, .botao-salvar-multiplas-tags {
   background-color: #6a1b9a;
   color: white;
   padding: 10px 20px;
@@ -188,7 +197,7 @@ export default {
 .active-group {
   display: flex;
   align-items: baseline;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .cancelar-btn:hover {

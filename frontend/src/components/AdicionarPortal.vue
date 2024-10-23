@@ -6,23 +6,14 @@
       <div v-if="exibirNovoPortalForm" class="formulario-cadastro-portal">
         <form @submit.prevent="validadorDadosNovoPortal">
           <img class="imagem-logo" src="@/assets/Logo_padrao.jpeg" />
-          <input
-            class="campo-cadastro-nome"
-            type="text"
-            v-model="novoPortal.portalNome"
-            placeholder="Nome do Portal"
-          />
-          <input
-            class="campo-cadastro-url"
-            type="url"
-            v-model="novoPortal.portalUrl"
-            placeholder="Url do Portal"
-          />
+          <input class="campo-cadastro-nome" type="text" v-model="novoPortal.portalNome" placeholder="Nome do Portal" />
+          <input class="campo-cadastro-url" type="url" v-model="novoPortal.portalUrl" placeholder="Url do Portal" />
         </form>
         <div>
           <label class="checkbox-portal">Ativo</label>
           <input class="checkAtivoPortal" type="checkbox" v-model="novoPortal.portalAtivo" />
         </div>
+        
         <div>
           <label>
             <select v-model="novoPortal.portalFrequencia" class="seletorFrequencia">
@@ -32,24 +23,35 @@
             </select>
           </label>
         </div>
+        
         <div>
           <p>Tags:</p>
-          <select v-model="novoPortal.tagId" class="seletorTags">
-            <option v-for="tag in tags" :key="tag.tagId" :value="tag.tagId">
-              {{ tag.tagNome }}
-            </option>
-          </select>
+          <button type="button" @click="abrirModal = true" class="botao-selecionar-tags">
+            Selecionar Tags
+          </button>
+          <p>Tags selecionadas: {{ tagsSelecionadasNomes }}</p>
         </div>
-        <button class="botao-salvar-portal" type="submit" @click="validadorDadosNovoPortal">
-          Salvar
-        </button>
+        <button class="botao-salvar-portal" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
         <button class="botao-cancelar-portal" @click.prevent="cancelarCadastro">Cancelar</button>
+      </div>
+    </div>
+
+    <div v-if="abrirModal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>Selecione as Tags</h3>
+        <div v-for="tag in tags" :key="tag.tagId">
+          <input type="checkbox" :id="tag.tagId" :value="tag.tagId" v-model="tagsSelecionadas">
+          <label :for="tag.tagId">{{ tag.tagNome }}</label>
+        </div>
+        <button @click="abrirModal = false" class="botao-salvar-multiplcas-tags">salvar</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { computed } from 'vue';
+
 export default {
   data() {
     return {
@@ -64,6 +66,8 @@ export default {
         tagId: ''
       },
       exibirNovoPortalForm: false,
+      abrirModal: false,
+      tagsSelecionadas: [],
       selectPortal: ''
     }
   },
@@ -110,13 +114,24 @@ export default {
         this.novoPortal.portalNome = ''
         this.novoPortal.portalAtivo = true
         this.novoPortal.portalFrequencia = ''
+        this.tagsSelecionadas = []
         this.exibirNovoPortalForm = false
       }
     },
 
     cancelarCadastro() {
       this.novoPortal = { portalNome: '', portalUrl: '', portalAtivo: true, portalFrequencia: '' }
+      this.tagsSelecionadas = []
       this.exibirNovoPortalForm = false
+    },
+
+    computed: {
+      tagsSelecionadasNomes() {
+        return this.tags
+        .filter(tag => this.tagsSelecionadas.includes(tag.tagId))
+        .map(tag => tag.tagNome)
+        .join(', ')
+      }
     }
   }
 }
@@ -154,6 +169,7 @@ export default {
 
 .checkbox-portal {
   margin-top: 20px;
+  margin-right: 5px;
 }
 
 .seletorTags,
@@ -185,8 +201,40 @@ export default {
   margin-bottom: 20px;
 }
 
+.botao-selecionar-tags {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: mediumpurple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
 /* Botão salvar */
-.botao-salvar-portal {
+.botao-salvar-portal, .botao-salvar-multiplcas-tags {
   background-color: rgb(141, 107, 207);
 }
 
