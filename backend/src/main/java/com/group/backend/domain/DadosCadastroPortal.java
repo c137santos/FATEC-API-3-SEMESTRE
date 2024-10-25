@@ -5,5 +5,5 @@ public record DadosCadastroPortal(
     String portalUrl,
     boolean portalAtivo,
     String portalFrequencia,
-    Long tagId
+    List<Long> tagsSelecionadas
 ) {}

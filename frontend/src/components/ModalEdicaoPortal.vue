@@ -28,8 +28,8 @@
           <button type="button" @click="abrirModal = true" class="botao-selecionar-tags">Selecionar Tags</button>
           <p>Tags selecionadas: {{ tagsSelecionadasNomes }}</p>
         </div>
-        <button class="botao-salvar-portal" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
-        <button class="botao-cancelar-portal" @click.prevent="cancelarCadastro">Cancelar</button>
+        <button class="salvar-btn" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
+      <button class="cancelar-btn" @click.prevent="cancelarEdicao">Cancelar</button>
 
         <div v-if="abrirModal" class="modal-overlay">
           <div class="modal-content">
@@ -39,6 +39,7 @@
               <label :for="tag.tagId">{{ tag.tagNome }}</label>
             </div>
             <button @click="abrirModal = false" class="botao-salvar-multiplas-tags">Salvar</button>
+            <button @click="abrirModal = false" class="botao-cancelar-multiplas-tags">Cancelar</button>
           </div>
         </div>
 
@@ -63,7 +64,10 @@ export default {
         url: this.portal.url,
         ativo: this.portal.ativo,
         frequencia: this.portal.frequencia,
-      }
+      },
+      abrirModal: false,
+      tagsSelecionadas: [],
+      tagsSelecionadasNomes: ''
     }
   },
   methods: {
@@ -89,14 +93,17 @@ export default {
           if (!response.ok) {
             throw new Error('Erro ao atualizar API')
           }
-          return response.json()
+          return response.json();
         })
         .then((data) => {
-          this.saveChanges()  // Salva as alterações e fecha o modal
+          this.saveChanges();
         })
         .catch((error) => {
-          console.error('Erro ao editar API:', error)
-        })
+          console.error('Erro ao editar API:', error);
+        });
+    },
+    cancelarEdicao() {
+      this.fecharModal();
     }
   },
   watch: {
@@ -170,6 +177,25 @@ export default {
   gap: 15px;
 }
 
+.botao-selecionar-tags {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.botao-selecionar-tags:hover {
+  background-color: #4a148c;
+}
+
+.botao-salvar-multiplas-tags:hover {
+  background-color: #4a148c;
+}
+
 .salvar-btn, .botao-salvar-multiplas-tags {
   background-color: #6a1b9a;
   color: white;
@@ -184,7 +210,7 @@ export default {
   background-color: #4a148c;
 }
 
-.cancelar-btn {
+.cancelar-btn, .botao-cancelar-multiplas-tags {
   background-color: transparent;
   color: #6a1b9a;
   padding: 10px 20px;
@@ -202,5 +228,14 @@ export default {
 
 .cancelar-btn:hover {
   text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #4a148c;
 }
 </style>

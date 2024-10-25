@@ -30,14 +30,14 @@ import jakarta.transaction.Transactional;
 public class PortalController {
     private final PortalRepository portalRepository;
     private final TagPortalService tagPortalService;
+    private final List<Long> tagsSelecionadas;
 
     public PortalController(PortalRepository portalRepository, TagPortalService tagPortalService) {
         this.portalRepository = portalRepository;
         this.tagPortalService = tagPortalService;
     }
 
-    @PostMapping("cadastrar")
-    @Transactional
+    @PostMapping("/cadastrar")
     public ResponseEntity<Portal> cadastrarPortal(@RequestBody DadosCadastroPortal dados) {
         Portal novoPortal = new Portal();
         novoPortal.setNome(dados.portalNome());
@@ -47,7 +47,9 @@ public class PortalController {
         novoPortal.setFrequencia(dados.portalFrequencia());
         Portal portalSalvo = portalRepository.save(novoPortal);
         
-        tagPortalService.cadastrarTagPortal(dados.tagId(), portalSalvo);
+        System.out.println(dados);
+
+        tagPortalService.cadastrarTagPortal(dados.tagsSelecionadas(), portalSalvo);
         
         return ResponseEntity.ok(portalSalvo);
     }

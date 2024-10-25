@@ -29,9 +29,10 @@ public class TagPortalService {
         this.portalRepository = portalRepository;
     }
 
-    public TagPortal cadastrarTagPortal(Long tagId, Portal portal) {
-        Tag tag = tagRepository.findById(tagId).orElseThrow(() -> new IllegalArgumentException("Tag not found with id: " + tagId));
+    public TagPortal cadastrarTagPortal(List tagsSelecionadas, Portal portal) {
+        Tag tag = tagRepository.findAllById(tagsSelecionadas).orElseThrow(() -> new IllegalArgumentException("Tag not found with id: " + tagsSelecionadas));
         TagPortal tagPortal = new TagPortal(tag, portal);
+        List<Long> tagsSelecionadas = new tag(IdsTags);
         return tagPortalRepository.save(tagPortal);
     }
     
