@@ -30,7 +30,6 @@ import jakarta.transaction.Transactional;
 public class PortalController {
     private final PortalRepository portalRepository;
     private final TagPortalService tagPortalService;
-    private final List<Long> tagsSelecionadas;
 
     public PortalController(PortalRepository portalRepository, TagPortalService tagPortalService) {
         this.portalRepository = portalRepository;

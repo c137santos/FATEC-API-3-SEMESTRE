@@ -13,6 +13,7 @@ import com.group.backend.domain.TagPortalRepository;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Portal;
 import com.group.backend.entity.TagPortal;
+import com.group.backend.entity.TagPortalId;
 import com.group.backend.entity.Tag;
 
 @Service
@@ -29,11 +30,16 @@ public class TagPortalService {
         this.portalRepository = portalRepository;
     }
 
-    public TagPortal cadastrarTagPortal(List tagsSelecionadas, Portal portal) {
-        Tag tag = tagRepository.findAllById(tagsSelecionadas).orElseThrow(() -> new IllegalArgumentException("Tag not found with id: " + tagsSelecionadas));
-        TagPortal tagPortal = new TagPortal(tag, portal);
-        List<Long> tagsSelecionadas = new tag(IdsTags);
-        return tagPortalRepository.save(tagPortal);
+    public TagPortal cadastrarTagPortal(List<Long> tagsSelecionadas, Portal portal) {
+        List<TagPortal> tagPortais = new ArrayList<>();
+        
+        for(Long tagId : tagsSelecionadas) {
+        Tag tag = tagRepository.findById(tagsSelecionadas).orElseThrow(() -> new IllegalArgumentException("Tag not found with id: " + tagsSelecionadas));
+        TagPortal tagPortal = new TagPortal(new TagPortalId(tagId, portal.getId()), portal);
+        tagPortais.add(tagPortal);
+        }
+
+        return tagPortalRepository.saveAll(tagPortais);
     }
     
     public List<Map<String, Object>> listarPortaisComTags() {

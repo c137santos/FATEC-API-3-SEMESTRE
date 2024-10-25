@@ -125,8 +125,8 @@ export default {
       this.tagsSelecionadas = []
       this.exibirNovoPortalForm = false
     },
-
-    computed: {
+  },
+  computed: {
       tagsSelecionadasNomes() {
         return this.tags
         .filter(tag => this.tagsSelecionadas.includes(tag.tagId))
@@ -134,7 +134,6 @@ export default {
         .join(', ')
       }
     }
-  }
 }
 </script>
 
