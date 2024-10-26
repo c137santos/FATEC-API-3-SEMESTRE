@@ -70,8 +70,7 @@
       },
       editarApi() {
         const apiAtualizado = this.apiEmEdit;
-  
-        fetch(`http://localhost:8080/api/editar/${apiAtualizado.id}`, {
+        fetch(`http://localhost:8080/apis/editar/${apiAtualizado.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'

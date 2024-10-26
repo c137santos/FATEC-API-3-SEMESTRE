@@ -52,7 +52,7 @@ export default {
       this.apiSelecionada = null
     },
     salvarEdicao(){
-      fetchApiData()
+      this.fetchApiData()
     },
     fetchApiData() {
       fetch('http://localhost:8080/apis/listar')

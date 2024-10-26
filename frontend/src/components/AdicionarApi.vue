@@ -147,7 +147,7 @@ export default {
     },
     cancelar() {
       this.mostrarFormulario = false
-      clearAllInput()
+      this.clearAllInput()
       this.erros = {
         nome: '',
         url: ''
