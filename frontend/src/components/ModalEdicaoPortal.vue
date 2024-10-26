@@ -67,7 +67,8 @@ export default {
       },
       abrirModal: false,
       tagsSelecionadas: [],
-      tagsSelecionadasNomes: ''
+      tagsSelecionadasNomes: '',
+      tags: []
     }
   },
   methods: {
@@ -104,9 +105,33 @@ export default {
     },
     cancelarEdicao() {
       this.fecharModal();
+    },
+
+    carregarTags() {
+    fetch('http://localhost:8080/tags')
+    .then((response) => response.json())
+    .then((data) => {
+      this.tags = data;
+      console.log("Tags carregadas:", this.tags);
+    })
+    .catch((error) => {
+      console.error('Erro ao carregar tags:', error);
+    });
+  },
+
+    atualizarNomeTagsSelecionadas() {
+      this.tagsSelecionadasNomes = this.tags
+      .filter(tag => this.tagsSelecionadas.includes(tag.tagId))
+      .map(tag => tag.tagNome)
+      .join(', ');
     }
   },
   watch: {
+    abrirModal(novoValor) {
+      if(novoValor) {
+        this.carregarTags();
+      }
+    },
     portal(newPortal) {
       this.portalEmEdit = { ...newPortal }
     }
