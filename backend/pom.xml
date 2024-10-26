@@ -31,6 +31,12 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>edu.uci.ics</groupId>
+			<artifactId>crawler4j</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -122,15 +128,44 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.15.3</version>
+		</dependency>
+
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>oracleReleases</id>
+			<url>https://download.oracle.com/maven</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
 
 	<build>
 		<plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <jvmArguments>
+                    --add-exports=java.management/sun.management=ALL-UNNAMED
+                </jvmArguments>
+            </configuration>
+        </plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<executable>true</executable>
+					<configuration>
+                		<jvmArguments>--add-exports java.management/sun.management=ALL-UNNAMED</jvmArguments>
+            		</configuration>
 				</configuration>
 			</plugin>
 			<plugin>

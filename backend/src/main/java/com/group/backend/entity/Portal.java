@@ -43,7 +43,6 @@ public class Portal {
     @Column(name = "por_frequencia", length = 30)
     private String frequencia;
 
-    // Relacionamento com TagPortal
     @OneToMany(mappedBy = "portal", cascade = CascadeType.ALL)
-    private List<TagPortal> tagPortals; // Associação com TagPortal
+    private List<TagPortal> tagPortals; 
 }
