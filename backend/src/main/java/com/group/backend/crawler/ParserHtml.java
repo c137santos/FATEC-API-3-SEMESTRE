@@ -13,6 +13,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -25,6 +27,8 @@ import java.util.regex.Pattern;
 
 @Component
 public class ParserHtml {
+
+    private static final Logger logger = LoggerFactory.getLogger(ParserHtml.class);
 
     @Autowired
     private NoticiaRepository noticiaRepository;
@@ -44,31 +48,34 @@ public class ParserHtml {
             System.err.println("End of loop parser");
         } catch (IOException e) {
             System.err.println("Erro ao listar ou processar arquivos no diretório: " + e.getMessage());
+            logger.error("Erro ao listar ou processar arquivos no diretório: {}", e.getMessage());
         }
     }
 
     public void parseAndDeleteFile(Path filePath, Noticia noticia) {
+        logger.info("Iniciando parsing do arquivo: {}", filePath.getFileName());
         try {
             System.out.println("Processando arquivo: " + filePath.getFileName());
             String html = new String(Files.readAllBytes(filePath));
             Document doc = Jsoup.parse(html);
             String textoCompleto = extractText(doc);
 
+            // Extraindo corpo da notícia
             String corpo = extractCorpo(textoCompleto);
-            String data = extractData(textoCompleto);
-            noticia.setNotiId(null);
+            logger.debug("Corpo extraído da notícia: {}", corpo);
 
+            // Extraindo data
+            String data = extractData(textoCompleto);
             LocalDate date = null;
             if (data != null) {
                 date = parseDate(data);
                 noticia.setNotiData(date);
+                logger.info("Data extraída da notícia: {}", date);
+            } else {
+                logger.warn("Data não encontrada no conteúdo da notícia.");
             }
 
-            if (noticiaRepository.existsByUrl(noticia.getUrl())) {
-                System.out.println("Notícia com a URL já existente: " + noticia.getUrl());
-                return;
-            }
-
+            // Verificando e associando o repórter
             String reporterName = extractReporterName(textoCompleto);
             if (reporterName != null) {
                 Reporter reporter = reporterRepository.findByNome(reporterName);
@@ -77,16 +84,26 @@ public class ParserHtml {
                     reporterRepository.save(reporter);
                 }
                 noticia.setReporte(reporter);
-            }            
+                logger.info("Repórter encontrado e associado: {}", reporterName);
+            } else {
+                logger.warn("Repórter não encontrado no conteúdo da notícia.");
+            }
 
-            if (checkTagsAndRegionalismosInCorpo(corpo)) {
+            // Verificação de tags e regionalismos
+            if (checkTagsAndRegionalismosInCorpo(corpo, noticia)) {
                 noticia.setNotiText(corpo);
                 noticiaRepository.save(noticia);
+                logger.info("Notícia salva com sucesso para a URL: {}", noticia.getUrl());
+            } else {
+                logger.warn("Nenhuma tag relevante encontrada para a URL: {}. Notícia não salva.", noticia.getUrl());
             }
-            
+
+            // Deleta o arquivo HTML processado
             Files.delete(filePath);
+            logger.info("Arquivo deletado após parsing: {}", filePath.getFileName());
         } catch (IOException e) {
             System.err.println("Erro ao processar o arquivo " + filePath.getFileName() + ": " + e.getMessage());
+            logger.error("Erro ao processar o arquivo {}: {}", filePath.getFileName(), e.getMessage());
         }
     }
 
@@ -133,28 +150,32 @@ public class ParserHtml {
         return matcher.find() ? matcher.group(2) : null;
     }
 
-    private boolean checkTagsAndRegionalismosInCorpo(String corpo) {
+    private boolean checkTagsAndRegionalismosInCorpo(String corpo, Noticia noticia) {
         List<Tag> tags = tagRepository.findAllWithRegionalismos();
-        boolean existe = false;
+        boolean existeTagRelevante = false;
 
         for (Tag tag : tags) {
             if (corpo.contains(tag.getTagNome())) {
                 System.out.println("Tag encontrada: " + tag.getTagNome());
-                existe = true;
+                logger.info("Tag '{}' encontrada no corpo da notícia da URL {}", tag.getTagNome(), noticia.getUrl());
+                existeTagRelevante = true;
 
                 // Verifica se algum regionalismo relacionado à Tag está presente no corpo
                 for (Regionalismo regionalismo : tag.listRegionalismos()) {
                     if (corpo.contains(regionalismo.getNome())) {
                         System.out.println("Regionalismo encontrado: " + regionalismo.getNome());
+                        logger.info("Regionalismo '{}' encontrado para a tag '{}' na URL {}", regionalismo.getNome(), tag.getTagNome(), noticia.getUrl());
                     } else {
                         System.out.println("Regionalismo não encontrado: " + regionalismo.getNome());
+                        logger.debug("Regionalismo '{}' não encontrado para a tag '{}' na URL {}", regionalismo.getNome(), tag.getTagNome(), noticia.getUrl());
                     }
                 }
             } else {
                 System.out.println("Tag não encontrada: " + tag.getTagNome());
+                logger.debug("Tag '{}' não encontrada no corpo da notícia da URL {}", tag.getTagNome(), noticia.getUrl());
             }
         }
 
-        return existe;
+        return existeTagRelevante;
     }
 }

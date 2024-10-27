@@ -18,10 +18,12 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 import com.group.backend.entity.Noticia;
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.ReporterRepository;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MainCrawler extends WebCrawler {
 
+    private static final Logger logger = LoggerFactory.getLogger(MainCrawler.class);
     private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png)$");
     private AtomicInteger numSeenImages = new AtomicInteger();
     private String seedUrl;
@@ -50,14 +52,12 @@ public class MainCrawler extends WebCrawler {
 
     @Override
     public void visit(Page page) {
-        int docid = page.getWebURL().getDocid();
         String url = page.getWebURL().getURL();
-
-        logger.info("URL: {}", url);
+        logger.info("Visitando URL: {}", url); // Log para registrar a URL visitada
 
         // Verifica se a URL já foi processada
         if (noticiaRepository.existsByUrl(url)) {
-            logger.info("A URL já foi processada: {}", url);
+            logger.info("A URL {} já foi processada anteriormente, ignorando...", url);
             return; // Evita processamento duplicado
         }
 
@@ -71,12 +71,15 @@ public class MainCrawler extends WebCrawler {
             logger.debug("Tamanho do HTML: {}", html.length());
             logger.debug("Número de links externos: {}", links.size());
 
+            // Salva o HTML em um arquivo para processamento posterior
             String filePath = saveHtmlToFile(url, html, "./src/main/java/com/group/backend/crawler/dadosCrawler/");
+            logger.info("HTML da URL {} salvo em {}", url, filePath); // Log para confirmar o salvamento do HTML
 
+            // Passa o arquivo para o ParserHtml processar com as tags e o portal atuais
             try {
                 parserHtml.parseAndDeleteFile(Paths.get(filePath), noticia);
             } catch (Exception e) {
-                logger.error("Erro ao parsear o arquivo após salvar: {}", e.getMessage());
+                logger.error("Erro ao parsear o arquivo da URL {}: {}", url, e.getMessage());
             }
 
             for (WebURL link : links) {
@@ -129,5 +132,4 @@ public class MainCrawler extends WebCrawler {
     
         return filePath; // Retorna o caminho do arquivo salvo
     }
-    
 }
