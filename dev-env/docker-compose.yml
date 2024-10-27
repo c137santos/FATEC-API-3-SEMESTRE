@@ -1,5 +1,8 @@
+
 services:
   dev-env:
+    env_file:
+      - path: ./dev.env
     build:
       args:
         POSTGRES_VERSION: ${POSTGRES_VERSION}
@@ -8,11 +11,12 @@ services:
 
     restart: always
     volumes:
-      - ../:/app
-      - ~/.ssh:/root/.ssh
-      - ~/.gitconfig:/root/.gitconfig
+      - ../:/home/ubuntu/app
+      - ~/.ssh:/home/ubuntu/.ssh
+      - ~/.gitconfig:/home/ubuntu/.gitconfig
 
     tty: true
+    user: 1000:1000
     environment:
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
