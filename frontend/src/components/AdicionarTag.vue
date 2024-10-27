@@ -51,22 +51,22 @@ export default {
       this.exibirNovaTagForm = !this.exibirNovaTagForm
     },
 
-    salvarTag() {
+    async salvarTag() {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.novaTag)
       }
-      fetch('http://localhost:8080/tags/cadastrar', requestOptions).then((response) =>
-        response.json()
-      )
+      const response = await fetch('http://localhost:8080/tags/cadastrar', requestOptions)
+      
+      const data = await response.json()
+      this.$emit('nova-tag', data)
     },
 
     validadorDadosNovaTag() {
       if (this.novaTag.tagNome && this.novaTag.tagDescricao) {
         this.salvarTag()
         let tagSerSalva = { ...this.novaTag }
-        this.$emit('nova-tag', tagSerSalva)
         this.novaTag.tagDescricao = ''
         this.novaTag.tagNome = ''
         this.novaTag.tagActive = true
