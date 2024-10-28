@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -24,9 +26,11 @@ import org.slf4j.LoggerFactory;
 public class MainCrawler extends WebCrawler {
 
     private static final Logger logger = LoggerFactory.getLogger(MainCrawler.class);
-    private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png)$");
+    private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png|svg|woff2)$");
+    private static final int MAX_HTML_SIZE = 10 * 1024 * 1024; // 10 MB
     private AtomicInteger numSeenImages = new AtomicInteger();
     private String seedUrl;
+    private String mainDomain; // Armazena o domínio principal extraído da seed
     private CrawlController controller;
     private Noticia noticia;
     private NoticiaRepository noticiaRepository;
@@ -37,23 +41,58 @@ public class MainCrawler extends WebCrawler {
                        NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
         this.numSeenImages = numSeenImages;
         this.seedUrl = seedUrl;
+        this.mainDomain = extractMainDomain(seedUrl); // Extrai o domínio principal na inicialização
         this.controller = controller;
         this.noticia = noticia;
         this.noticiaRepository = noticiaRepository;
         this.parserHtml = parserHtml;
         this.reporterRepository = reporterRepository;
+        logger.info("Iniciando processo de crawling com a seed: {}", seedUrl);
+        logger.info("Domínio principal extraído: {}", mainDomain);
+    }
+
+    // Função para extrair o domínio principal da URL completa
+    private String extractMainDomain(String url) {
+        try {
+            URI uri = new URI(url.toLowerCase());
+            String host = uri.getHost();
+            if (host != null) {
+                String[] parts = host.split("\\.");
+                if (parts.length > 1) {
+                    // Pega os dois últimos segmentos do domínio (ex: "globo.com" em "sub.globo.com")
+                    return parts[parts.length - 2] + "." + parts[parts.length - 1];
+                }
+                return host; // Retorna o host completo caso não siga o padrão esperado
+            }
+        } catch (URISyntaxException e) {
+            logger.error("Erro ao extrair o domínio da seed URL: {}", url);
+        }
+        return null;
     }
 
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
-        return href.startsWith(seedUrl);
+
+        // Verifica se a URL contém o domínio principal extraído da seed
+        boolean shouldVisit = href.contains(mainDomain) && !IMAGE_EXTENSIONS.matcher(href).matches();
+        logger.debug("Verificação de visita para URL '{}', domínio principal '{}', resultado: {}", href, mainDomain, shouldVisit);
+        
+        return shouldVisit;
     }
 
     @Override
     public void visit(Page page) {
         String url = page.getWebURL().getURL();
-        logger.info("Visitando URL: {}", url); // Log para registrar a URL visitada
+        double pageSizeMB = page.getContentData().length / (1024.0 * 1024.0); // Tamanho em MB
+    
+        logger.info("Visitando URL: {} (Tamanho: {:.2f} MB)", url, pageSizeMB);
+
+        // Verifica o tamanho do conteúdo antes de processar
+        if (page.getContentData().length > MAX_HTML_SIZE) {
+            logger.warn("Ignorando a URL {} devido ao tamanho excessivo do conteúdo (acima de 10 MB).", url);
+            return;
+        }
 
         // Verifica se a URL já foi processada
         if (noticiaRepository.existsByUrl(url)) {
@@ -71,9 +110,14 @@ public class MainCrawler extends WebCrawler {
             logger.debug("Tamanho do HTML: {}", html.length());
             logger.debug("Número de links externos: {}", links.size());
 
+            // Log das URLs encontradas na página atual
+            for (WebURL link : links) {
+                logger.info("URL encontrada: {}", link.getURL());
+            }
+
             // Salva o HTML em um arquivo para processamento posterior
             String filePath = saveHtmlToFile(url, html, "./src/main/java/com/group/backend/crawler/dadosCrawler/");
-            logger.info("HTML da URL {} salvo em {}", url, filePath); // Log para confirmar o salvamento do HTML
+            logger.info("HTML da URL {} salvo em {}", url, filePath);
 
             // Passa o arquivo para o ParserHtml processar com as tags e o portal atuais
             try {
@@ -82,10 +126,14 @@ public class MainCrawler extends WebCrawler {
                 logger.error("Erro ao parsear o arquivo da URL {}: {}", url, e.getMessage());
             }
 
+            // Adiciona links a serem visitados na fila do crawler
             for (WebURL link : links) {
                 String newUrl = link.getURL();
                 if (shouldVisit(page, link)) {
-                    controller.addSeed(newUrl);
+                    controller.addSeed(newUrl);  // Atualize se necessário para `controller.addUrlToQueue(newUrl);`
+                    logger.info("URL adicionada à fila para visita: {}", newUrl);
+                } else {
+                    logger.debug("URL ignorada: {}", newUrl);
                 }
             }
         }
@@ -102,34 +150,26 @@ public class MainCrawler extends WebCrawler {
     }
 
     private String saveHtmlToFile(String url, String html, String outputDir) {
-        // Gera um nome de arquivo seguro, substituindo caracteres especiais
         String fileName = url.replaceAll("[^a-zA-Z0-9]", "_") + ".html";
         String filePath = outputDir + fileName;
-    
+
         try {
-            // Cria o diretório se ele não existir
             File directory = new File(outputDir);
-            if (!directory.exists()) {
-                boolean dirCreated = directory.mkdirs(); // Cria os diretórios
-                if (dirCreated) {
-                    logger.info("Diretório criado: {}", outputDir);
-                } else {
-                    logger.error("Erro ao criar o diretório: {}", outputDir);
-                    return null; // Falha ao criar diretório, encerra o processo
-                }
+            if (!directory.exists() && !directory.mkdirs()) {
+                logger.error("Erro ao criar o diretório: {}", outputDir);
+                return null;
             }
-    
-            // Salva o arquivo HTML
+
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                 writer.write(html);
                 logger.info("HTML salvo em {}", filePath);
             }
-    
+
         } catch (IOException e) {
             logger.error("Erro ao salvar HTML em arquivo: {}", e.getMessage());
-            return null; // Falha ao salvar, retorna nulo
+            return null;
         }
-    
-        return filePath; // Retorna o caminho do arquivo salvo
+
+        return filePath;
     }
 }
