@@ -64,6 +64,7 @@ export default {
         url: this.portal.url,
         ativo: this.portal.ativo,
         frequencia: this.portal.frequencia,
+        tags: this.tagsSelecionadas
       },
       abrirModal: false,
       tagsSelecionadas: [],
@@ -79,9 +80,10 @@ export default {
       this.$emit('save', this.portalEmEdit)
       this.fecharModal()
     },
-    editarPortal() {
-      const { id, nome, url, ativo, frequencia } = this.portalEmEdit;
-      const portalAtualizado = { id, nome, url, ativo, frequencia, tags: this.tagsSelecionadas };
+    
+    async editarPortal() {
+      const { id, nome, url, ativo, frequencia, tags } = this.portalEmEdit;
+      const portalAtualizado = { id, nome, url, ativo, frequencia, tags};
 
       fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
         method: 'PUT',
@@ -103,21 +105,23 @@ export default {
           console.error('Erro ao editar API:', error);
         });
     },
+
     cancelarEdicao() {
       this.fecharModal();
     },
 
-    carregarTags() {
-    fetch('http://localhost:8080/tags')
-    .then((response) => response.json())
-    .then((data) => {
-      this.tags = data;
-      console.log("Tags carregadas:", this.tags);
-    })
-    .catch((error) => {
-      console.error('Erro ao carregar tags:', error);
-    });
-  },
+    async carregarTags() {
+      try {
+        const response = await fetch('http://localhost:8080/tags/listar')
+        if (!response.ok) {
+          throw new Error('Falha ao carregar tags do backend')
+        }
+        const tags = await response.json()
+        this.tags = tags
+      } catch (error) {
+        alert('Erro ao carregar as tags. Tente novamente mais tarde.')
+      }
+    },
 
     atualizarNomeTagsSelecionadas() {
       this.tagsSelecionadasNomes = this.tags

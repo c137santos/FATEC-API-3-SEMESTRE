@@ -13,7 +13,6 @@ import com.group.backend.domain.TagPortalRepository;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Portal;
 import com.group.backend.entity.TagPortal;
-import com.group.backend.entity.TagPortalId;
 import com.group.backend.entity.Tag;
 
 @Service

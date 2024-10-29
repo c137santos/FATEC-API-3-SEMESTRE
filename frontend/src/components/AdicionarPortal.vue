@@ -46,6 +46,7 @@
           <label :for="tag.tagId" class="nome-tags-selecionadas">{{ tag.tagNome }}</label>
         </div>
         <button @click="abrirModal = false" class="botao-salvar-multiplcas-tags">salvar</button>
+        <button @click="abrirModal = false" class="botao-cancelar-multiplcas-tags">cancelar</button>
       </div>
     </div>
   </div>
@@ -187,7 +188,8 @@ export default {
 .botao-salvar-portal,
 .botao-cancelar-portal,
 .cadastrar-portal-novo,
-.botao-salvar-multiplcas-tags {
+.botao-salvar-multiplcas-tags,
+.botao-cancelar-multiplcas-tags {
   padding: 8px 16px;
   margin-top: 10px;
   color: white;
@@ -245,7 +247,7 @@ export default {
 }
 
 /* Botão cancelar */
-.botao-cancelar-portal {
+.botao-cancelar-portal, .botao-cancelar-multiplcas-tags {
   color: mediumpurple;
   border: none;
   background-color: white;

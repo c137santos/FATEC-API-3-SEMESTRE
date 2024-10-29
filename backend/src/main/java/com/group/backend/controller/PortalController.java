@@ -21,9 +21,6 @@ import com.group.backend.domain.PortalRepository;
 import com.group.backend.entity.Portal;
 import com.group.backend.service.TagPortalService;
 
-import jakarta.transaction.Transactional;
-
-
 @RestController
 @RequestMapping("/portais")
 @CrossOrigin(origins = "*")
@@ -69,6 +66,8 @@ public class PortalController {
             portal.setFrequencia(portalAtualizado.frequencia());
             portal.setAtivo(portalAtualizado.ativo());
             portal.setData(LocalDate.now());
+
+            tagPortalService.cadastrarTagPortal(portalAtualizado.tagsSelecionadas(), portal);
             portalRepository.save(portal);
             Portal portalAtual = portalRepository.findById(id).orElse(null);
             return ResponseEntity.ok(portalAtual);
