@@ -9,4 +9,5 @@ import com.group.backend.entity.Portal;
 @Repository
 public interface PortalRepository extends JpaRepository<Portal, Long> {
     List<Portal> findByAtivoTrue();
+    List<Portal> findByAtivoTrueAndFrequencia(String frequencia);
 }
