@@ -36,6 +36,9 @@ RUN rm /root/node.tar.xz
 ARG POSTGRES_VERSION
 RUN apt install -y postgresql-${POSTGRES_VERSION} postgresql-contrib
 RUN sed -i 's/peer/trust/g' /etc/postgresql/16/main/pg_hba.conf
+RUN sed -i 's/scram-sha-256/trust/g' /etc/postgresql/16/main/pg_hba.conf
+RUN sed -i 's/127.0.0.1\/32/0.0.0.0\/0/g' /etc/postgresql/16/main/pg_hba.conf
+RUN echo "listen_addresses = '*'" >> /etc/postgresql/16/main/postgresql.conf 
 
 # Install Gitmoji
 RUN npm i -g gitmoji-cli
@@ -64,6 +67,12 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT sh /entrypoint.sh
 
 USER ubuntu
+
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV TZ America/Sao_Paulo
+
 RUN mkdir /home/ubuntu/app
 WORKDIR /home/ubuntu/app
 
