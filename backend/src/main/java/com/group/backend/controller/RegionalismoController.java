@@ -10,13 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+
 @RequestMapping("/regionalismos")
 @CrossOrigin(origins = "http://localhost:8080")
 public class RegionalismoController {
-
     @Autowired
     private RegionalismoRepository regionalismoRepository;
-
     @GetMapping("/listar")
     public List<Regionalismo> listarRegionalismos() {
         return regionalismoRepository.findAll();
