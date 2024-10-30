@@ -19,3 +19,7 @@ app.get('/news/foo', (_, res) => {
 app.get('/news/bar', (_, res) => {
 	res.render('bar.html')
 })
+
+app.get('/news/baz', (_, res) => {
+	res.render('baz.html')
+})
