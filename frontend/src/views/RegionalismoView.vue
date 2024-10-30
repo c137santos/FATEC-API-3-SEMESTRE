@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import CerbButton from '@/components/CerbButton.vue';
+import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue'; // Importa o modal de edição
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
 const tagList = ref<any[]>([]); // Lista de tags
 const regionalismoInput = ref(''); // Input para regionalismo
 const tagSelect = ref<string | null>(null); // Tag selecionada
+
+const showModal = ref(false); // Controla a exibição do modal de edição
+const regionalismoEdit = ref<any>(null); // Regionalismo que será editado
 
 const resetFields = () => {
     regionalismoInput.value = '';
@@ -35,6 +39,23 @@ const save = async () => {
         await fetch(); // Recarrega os dados após salvar
     } catch (error) {
         console.error('Erro ao salvar regionalismo:', error);
+    }
+};
+
+// Função para abrir o modal com o regionalismo selecionado para edição
+const editarRegionalismo = (regionalismo: any) => {
+    regionalismoEdit.value = { ...regionalismo }; // Define o regionalismo que será editado
+    showModal.value = true; // Exibe o modal
+};
+
+// Função para salvar as edições
+const salvarEdicao = async (regionalismoAtualizado: any) => {
+    try {
+        await axios.put(`http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`, regionalismoAtualizado);
+        await fetch(); // Recarrega a lista de tags e regionalismos
+        showModal.value = false; // Fecha o modal após salvar
+    } catch (error) {
+        console.error('Erro ao salvar edição:', error);
     }
 };
 
@@ -84,10 +105,19 @@ onMounted(() => {
                     </span>
                 </div>
                 <div>
-                    <CerbButton fill-type="mute">Editar</CerbButton>
+                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag)">Editar</CerbButton>
                 </div>
             </div>
         </div>
+
+        <!-- Modal de edição -->
+        <ModalEdicaoRegionalismo
+            v-if="showModal"
+            :regionalismo="regionalismoEdit"
+            :tags="tagList"
+            @salvar-edicao="salvarEdicao"
+            @fechar="showModal = false"
+        />
     </div>
 </template>
 
