@@ -62,5 +62,7 @@ export default {
 <style scoped>
 .portais-view {
   padding: 20px;
+  position: relative;
+  z-index: 0;
 }
 </style>

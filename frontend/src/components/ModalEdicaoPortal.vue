@@ -64,7 +64,7 @@ export default {
         url: this.portal.url,
         ativo: this.portal.ativo,
         frequencia: this.portal.frequencia,
-        tags: this.tagsSelecionadas
+        tags: []
       },
       abrirModal: false,
       tagsSelecionadas: [],
@@ -82,6 +82,7 @@ export default {
     },
     
     async editarPortal() {
+      this.portalEmEdit.tags = this.tagsSelecionadas;
       const { id, nome, url, ativo, frequencia, tags } = this.portalEmEdit;
       const portalAtualizado = { id, nome, url, ativo, frequencia, tags};
 
@@ -138,6 +139,8 @@ export default {
     },
     portal(newPortal) {
       this.portalEmEdit = { ...newPortal }
+      this.tagsSelecionadas = newPortal.tags.map(tag => tag.tagId);
+      this.atualizarNomeTagsSelecionadas();
     }
   }
 }

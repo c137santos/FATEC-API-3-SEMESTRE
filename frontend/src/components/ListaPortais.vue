@@ -68,6 +68,7 @@
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
+    z-index: 0;
   }
   
   .portal-header {

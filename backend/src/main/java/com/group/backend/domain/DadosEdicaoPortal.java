@@ -7,6 +7,6 @@ public record DadosEdicaoPortal(
     String url,
     boolean ativo,
     String frequencia,
-    List<Long> tagsSelecionadas
+    List<Long> tags
 
 ) {}

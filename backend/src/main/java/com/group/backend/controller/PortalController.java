@@ -66,10 +66,10 @@ public class PortalController {
             portal.setFrequencia(portalAtualizado.frequencia());
             portal.setAtivo(portalAtualizado.ativo());
             portal.setData(LocalDate.now());
-
-            tagPortalService.cadastrarTagPortal(portalAtualizado.tagsSelecionadas(), portal);
             portalRepository.save(portal);
             Portal portalAtual = portalRepository.findById(id).orElse(null);
+            tagPortalService.cadastrarTagPortal(portalAtualizado.tags(), portalAtual);
+            
             return ResponseEntity.ok(portalAtual);
         } else {
             return ResponseEntity.notFound().build();
