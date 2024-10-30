@@ -28,9 +28,8 @@ public class MainCrawler extends WebCrawler {
     private static final Logger logger = LoggerFactory.getLogger(MainCrawler.class);
     private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png|svg|woff2)$");
     private static final int MAX_HTML_SIZE = 10 * 1024 * 1024; // 10 MB
-    private AtomicInteger numSeenImages = new AtomicInteger();
+    private AtomicInteger numSeenImages;
     private String seedUrl;
-    private String mainDomain; // Armazena o domínio principal extraído da seed
     private CrawlController controller;
     private Noticia noticia;
     private NoticiaRepository noticiaRepository;
@@ -40,44 +39,20 @@ public class MainCrawler extends WebCrawler {
     public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia,
                        NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
         this.numSeenImages = numSeenImages;
-        this.seedUrl = seedUrl;
-        this.mainDomain = extractMainDomain(seedUrl); // Extrai o domínio principal na inicialização
+        this.seedUrl = seedUrl.toLowerCase();
         this.controller = controller;
         this.noticia = noticia;
         this.noticiaRepository = noticiaRepository;
         this.parserHtml = parserHtml;
         this.reporterRepository = reporterRepository;
         logger.info("Iniciando processo de crawling com a seed: {}", seedUrl);
-        logger.info("Domínio principal extraído: {}", mainDomain);
-    }
-
-    // Função para extrair o domínio principal da URL completa
-    private String extractMainDomain(String url) {
-        try {
-            URI uri = new URI(url.toLowerCase());
-            String host = uri.getHost();
-            if (host != null) {
-                String[] parts = host.split("\\.");
-                if (parts.length > 1) {
-                    // Pega os dois últimos segmentos do domínio (ex: "globo.com" em "sub.globo.com")
-                    return parts[parts.length - 2] + "." + parts[parts.length - 1];
-                }
-                return host; // Retorna o host completo caso não siga o padrão esperado
-            }
-        } catch (URISyntaxException e) {
-            logger.error("Erro ao extrair o domínio da seed URL: {}", url);
-        }
-        return null;
     }
 
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
-
-        // Verifica se a URL contém o domínio principal extraído da seed
-        boolean shouldVisit = href.contains(mainDomain) && !IMAGE_EXTENSIONS.matcher(href).matches();
-        logger.debug("Verificação de visita para URL '{}', domínio principal '{}', resultado: {}", href, mainDomain, shouldVisit);
-        
+        boolean shouldVisit = href.startsWith(seedUrl) && !IMAGE_EXTENSIONS.matcher(href).matches();
+        logger.debug("Verificação de visita para URL '{}', seed '{}', resultado: {}", href, seedUrl, shouldVisit);
         return shouldVisit;
     }
 
@@ -85,7 +60,7 @@ public class MainCrawler extends WebCrawler {
     public void visit(Page page) {
         String url = page.getWebURL().getURL();
         double pageSizeMB = page.getContentData().length / (1024.0 * 1024.0); // Tamanho em MB
-    
+
         logger.info("Visitando URL: {} (Tamanho: {:.2f} MB)", url, pageSizeMB);
 
         // Verifica o tamanho do conteúdo antes de processar
