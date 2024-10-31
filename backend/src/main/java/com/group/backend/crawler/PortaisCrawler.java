@@ -7,9 +7,7 @@ import com.group.backend.entity.Noticia;
 import com.group.backend.entity.Portal;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
 
 import java.util.List;
 
@@ -29,11 +27,10 @@ public class PortaisCrawler {
         this.reporterRepository = reporterRepository;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void startCrawlForAllPortals() {
+    public void startCrawlForFrequency(String frequencia) {
         ControllerCrawler controllerCrawler = new ControllerCrawler(noticiaRepository, reporterRepository);
 
-        List<Portal> portals = portalRepository.findByAtivoTrue();
+        List<Portal> portals = portalRepository.findByAtivoTrueAndFrequencia(frequencia);
 
         if (portals.isEmpty()) {
             System.out.println("Não existem portais disponíveis para crawling.");
