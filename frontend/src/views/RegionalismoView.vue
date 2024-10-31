@@ -1,23 +1,31 @@
 <script setup lang="ts">
 import CerbButton from '@/components/CerbButton.vue';
+import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
-const tagList = ref<any[]>([]); // Lista de tags
-const regionalismoInput = ref(''); // Input para regionalismo
-const tagSelect = ref<string | null>(null); // Tag selecionada
+const tagList = ref<any[]>([]);
+const regionalismoInput = ref('');
+const tagSelect = ref<string | null>(null);
+
+const showModal = ref(false);
+const regionalismoEdit = ref<any>(null);
+
+const errorMessage = ref('');
 
 const resetFields = () => {
     regionalismoInput.value = '';
-    tagSelect.value = null; // Resetado para null
+    tagSelect.value = null;
 };
 
 const fetch = async () => {
     try {
         const tagsResponse = await axios.get('http://localhost:8080/tags/listar');
-        tagList.value = tagsResponse.data; // Atribui a resposta diretamente à tagList
+        tagList.value = tagsResponse.data;
+        errorMessage.value = '';
     } catch (error) {
         console.error('Erro ao buscar dados:', error);
+        errorMessage.value = 'Erro ao conectar com o servidor. Verifique se o backend está ativo.';
     }
 };
 
@@ -32,9 +40,24 @@ const save = async () => {
             tagId: tagSelect.value,
             nome: regionalismoInput.value
         });
-        await fetch(); // Recarrega os dados após salvar
+        await fetch();
     } catch (error) {
         console.error('Erro ao salvar regionalismo:', error);
+    }
+};
+
+const editarRegionalismo = (regionalismo: any) => {
+    regionalismoEdit.value = { ...regionalismo };
+    showModal.value = true;
+};
+
+const salvarEdicao = async (regionalismoAtualizado: any) => {
+    try {
+        await axios.put(`http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`, regionalismoAtualizado);
+        await fetch();
+        showModal.value = false;
+    } catch (error) {
+        console.error('Erro ao salvar edição:', error);
     }
 };
 
@@ -45,6 +68,9 @@ onMounted(() => {
 
 <template>
     <div class="wrapper">
+        <!-- Mensagem de erro condicional -->
+        <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+
         <div>
             <div class="d-flex plr-medium ptb-small flex-column border-1">
                 <h2>Cadastrar Regionalismos</h2>
@@ -66,6 +92,7 @@ onMounted(() => {
                 </div>
             </div>
         </div>
+
         <div>
             <h2 class="mtb-medium">Tags com regionalismos conectados</h2>
             <div v-if="tagList.length > 0" 
@@ -78,16 +105,23 @@ onMounted(() => {
                             <span v-for="(regionalismo, idx) in tag.regionalismos" :key="idx">
                                 <span v-if="idx > 0">, </span>
                                 {{ regionalismo.nome }}
+                                <CerbButton fill-type="mute" @click="editarRegionalismo(regionalismo)">Editar</CerbButton>
                             </span>
                         </span>
                         <span v-else>Nenhum regionalismo cadastrado</span>
                     </span>
                 </div>
-                <div>
-                    <CerbButton fill-type="mute">Editar</CerbButton>
-                </div>
             </div>
         </div>
+
+        <!-- Modal de edição -->
+        <ModalEdicaoRegionalismo
+            v-if="showModal"
+            :regionalismo="regionalismoEdit"
+            :tags="tagList"
+            @salvar-edicao="salvarEdicao"
+            @fechar="showModal = false"
+        />
     </div>
 </template>
 
@@ -124,5 +158,10 @@ onMounted(() => {
 }
 .bg-transparent {
     background-color: transparent;
+}
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin: 1rem 0;
 }
 </style>
