@@ -1,5 +1,7 @@
 FROM ubuntu:noble
 
+USER root
+
 RUN apt update -y
 RUN apt upgrade -y
 RUN apt install -y
@@ -12,12 +14,7 @@ ENV LANGUAGE en_US.UTF-8
 ENV TZ America/Sao_Paulo
 
 # Install Dependencies
-RUN apt install -y curl xz-utils
-
-# Configure sudo
-RUN apt install -y sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
-/etc/sudoers
+RUN apt install -y curl xz-utils sudo
 
 # Install Git
 RUN apt install -y git
@@ -35,6 +32,14 @@ RUN ln -s /opt/node/bin/node /usr/local/bin/node && ln -s /opt/node/bin/npm /usr
 RUN npm config set prefix /usr/local
 RUN rm /root/node.tar.xz
 
+# Install Postgres
+ARG POSTGRES_VERSION
+RUN apt install -y postgresql-${POSTGRES_VERSION} postgresql-contrib
+RUN sed -i 's/peer/trust/g' /etc/postgresql/16/main/pg_hba.conf
+RUN sed -i 's/scram-sha-256/trust/g' /etc/postgresql/16/main/pg_hba.conf
+RUN sed -i 's/127.0.0.1\/32/0.0.0.0\/0/g' /etc/postgresql/16/main/pg_hba.conf
+RUN echo "listen_addresses = '*'" >> /etc/postgresql/16/main/postgresql.conf 
+
 # Install Gitmoji
 RUN npm i -g gitmoji-cli
 
@@ -47,32 +52,32 @@ RUN cp -r /root/.oh-my-zsh /etc/skel/.oh-my-zsh
 RUN cp /root/.zshrc /etc/skel/.zshrc
 RUN chsh -s /bin/zsh root
 
+
 # Configure User
-ARG USERNAME
-ARG UID
-ARG GID
+RUN passwd -d root
+RUN passwd -d ubuntu
+RUN echo ' ubuntu ALL=(ALL)   ALL' >> /etc/sudoers
+RUN cp -r /etc/skel/. /home/ubuntu
+RUN chown -R 1000:1000 /home/ubuntu
+RUN chsh -s /bin/zsh ubuntu
 
-RUN userdel ubuntu
-RUN rm -r /home/ubuntu
-RUN groupadd ${USERNAME} -g ${GID}
-RUN useradd -m -d /home/${USERNAME} -g ${GID} -G sudo -u ${UID} -s /bin/zsh ${USERNAME}
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
-RUN echo "${USERNAME} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/NOPASSWD
+ENTRYPOINT sh /entrypoint.sh
 
-USER ${USERNAME}
-RUN mkdir /home/${USERNAME}/app
+USER ubuntu
 
-# GIT config
-ARG GIT_USER
-ARG GIT_EMAIL
-RUN git config --global user.name "${GIT_USER}"
-RUN git config --global user.email "${GIT_EMAIL}"
-RUN git config --global core.filemode false
-RUN git config --global --add safe.directory /home/${USERNAME}/app
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV TZ America/Sao_Paulo
 
-WORKDIR /home/${USERNAME}/app
+RUN mkdir /home/ubuntu/app
+WORKDIR /home/ubuntu/app
 
 EXPOSE 8080
 EXPOSE 5173
+EXPOSE 5433
 
 CMD [ "zsh" ]
