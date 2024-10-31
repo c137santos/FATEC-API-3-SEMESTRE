@@ -1,17 +1,11 @@
 <script setup lang="ts">
 import CerbButton from '@/components/CerbButton.vue';
-import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
-const tagList = ref<any[]>([]);
-const regionalismoInput = ref('');
-const tagSelect = ref<string | null>(null);
-
-const showModal = ref(false);
-const regionalismoEdit = ref<any>(null);
-
-const errorMessage = ref('');
+const tagList = ref<any[]>([]); // Lista de tags
+const regionalismoInput = ref(''); // Input para regionalismo
+const tagSelect = ref<string | null>(null); // Tag selecionada
 
 const resetFields = () => {
     regionalismoInput.value = '';
@@ -43,21 +37,6 @@ const save = async () => {
         await fetch();
     } catch (error) {
         console.error('Erro ao salvar regionalismo:', error);
-    }
-};
-
-const editarRegionalismo = (regionalismo: any) => {
-    regionalismoEdit.value = { ...regionalismo };
-    showModal.value = true;
-};
-
-const salvarEdicao = async (regionalismoAtualizado: any) => {
-    try {
-        await axios.put(`http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`, regionalismoAtualizado);
-        await fetch();
-        showModal.value = false;
-    } catch (error) {
-        console.error('Erro ao salvar edição:', error);
     }
 };
 
@@ -110,6 +89,9 @@ onMounted(() => {
                         </span>
                         <span v-else>Nenhum regionalismo cadastrado</span>
                     </span>
+                </div>
+                <div>
+                    <CerbButton fill-type="mute">Editar</CerbButton>
                 </div>
             </div>
         </div>
