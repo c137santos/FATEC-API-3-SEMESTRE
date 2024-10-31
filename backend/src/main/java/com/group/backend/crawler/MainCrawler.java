@@ -4,9 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.Paths;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
@@ -34,48 +33,68 @@ public class MainCrawler extends WebCrawler {
     private Noticia noticia;
     private NoticiaRepository noticiaRepository;
     private ReporterRepository reporterRepository;
-    private ParserHtml parserHtml;
+    private HtmlParserService htmlParserService;
+    private static Set<String> portaisVisitados = new HashSet<>();
 
     public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia,
-                       NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
+                       NoticiaRepository noticiaRepository, HtmlParserService htmlParserService, ReporterRepository reporterRepository) {
         this.numSeenImages = numSeenImages;
-        this.seedUrl = seedUrl.toLowerCase();
+        this.seedUrl = normalizeUrl(seedUrl);
         this.controller = controller;
         this.noticia = noticia;
         this.noticiaRepository = noticiaRepository;
-        this.parserHtml = parserHtml;
+        this.htmlParserService = htmlParserService;
         this.reporterRepository = reporterRepository;
         logger.info("Iniciando processo de crawling com a seed: {}", seedUrl);
     }
 
     @Override
-    public boolean shouldVisit(Page referringPage, WebURL url) {
-        String href = url.getURL().toLowerCase();
-        boolean shouldVisit = href.startsWith(seedUrl) && !IMAGE_EXTENSIONS.matcher(href).matches();
-        logger.debug("Verificação de visita para URL '{}', seed '{}', resultado: {}", href, seedUrl, shouldVisit);
-        return shouldVisit;
+public boolean shouldVisit(Page referringPage, WebURL url) {
+    String href = normalizeUrl(url.getURL());
+    String normalizedSeedUrl = normalizeUrl(seedUrl);
+
+    if (IMAGE_EXTENSIONS.matcher(href).matches()) {
+        logger.debug("Ignorando URL com extensão irrelevante: {}", href);
+        return false;
     }
+
+    boolean shouldVisit = href.startsWith(normalizedSeedUrl);
+    logger.debug("Verificação de visita: href = {}, seedUrl = {}, resultado = {}", href, normalizedSeedUrl, shouldVisit);
+
+    return shouldVisit;
+}
+
+private String normalizeUrl(String url) {
+    if (url == null) return null;
+
+    // Remove 'http://', 'https://', e 'www.' para normalização
+    url = url.replaceAll("^(https?://)?(www\\.)?", "").toLowerCase().trim();
+
+    // Adiciona 'http://' para garantir um formato consistente
+    url = "http://" + url;
+
+    return url;
+}
+
 
     @Override
     public void visit(Page page) {
-        String url = page.getWebURL().getURL();
+        String url = normalizeUrl(page.getWebURL().getURL());
         double pageSizeMB = page.getContentData().length / (1024.0 * 1024.0); // Tamanho em MB
-
         logger.info("Visitando URL: {} (Tamanho: {:.2f} MB)", url, pageSizeMB);
 
-        // Verifica o tamanho do conteúdo antes de processar
         if (page.getContentData().length > MAX_HTML_SIZE) {
             logger.warn("Ignorando a URL {} devido ao tamanho excessivo do conteúdo (acima de 10 MB).", url);
             return;
         }
 
-        // Verifica se a URL já foi processada
         if (noticiaRepository.existsByUrl(url)) {
             logger.info("A URL {} já foi processada anteriormente, ignorando...", url);
-            return; // Evita processamento duplicado
+            return;
         }
 
         noticia.setUrl(url);
+        portaisVisitados.add(seedUrl); // Marca a seed como visitada
 
         if (page.getParseData() instanceof HtmlParseData) {
             HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
@@ -85,27 +104,19 @@ public class MainCrawler extends WebCrawler {
             logger.debug("Tamanho do HTML: {}", html.length());
             logger.debug("Número de links externos: {}", links.size());
 
-            // Log das URLs encontradas na página atual
-            for (WebURL link : links) {
-                logger.info("URL encontrada: {}", link.getURL());
-            }
-
-            // Salva o HTML em um arquivo para processamento posterior
             String filePath = saveHtmlToFile(url, html, "./src/main/java/com/group/backend/crawler/dadosCrawler/");
             logger.info("HTML da URL {} salvo em {}", url, filePath);
 
-            // Passa o arquivo para o ParserHtml processar com as tags e o portal atuais
             try {
-                parserHtml.parseAndDeleteFile(Paths.get(filePath), noticia);
+                htmlParserService.parseAndDeleteFile(Paths.get(filePath), noticia);
             } catch (Exception e) {
                 logger.error("Erro ao parsear o arquivo da URL {}: {}", url, e.getMessage());
             }
 
-            // Adiciona links a serem visitados na fila do crawler
             for (WebURL link : links) {
                 String newUrl = link.getURL();
                 if (shouldVisit(page, link)) {
-                    controller.addSeed(newUrl);  // Atualize se necessário para `controller.addUrlToQueue(newUrl);`
+                    controller.addSeed(newUrl);
                     logger.info("URL adicionada à fila para visita: {}", newUrl);
                 } else {
                     logger.debug("URL ignorada: {}", newUrl);
@@ -146,5 +157,17 @@ public class MainCrawler extends WebCrawler {
         }
 
         return filePath;
+    }
+
+    @Override
+    public void onBeforeExit() {
+        // Log final ao sair do processo de crawling
+        if (!portaisVisitados.isEmpty()) {
+            logger.info("Portais com seeds vasculhados: {}", String.join(", ", portaisVisitados));
+            System.out.println("Portais com seeds vasculhados: " + String.join(", ", portaisVisitados));
+        } else {
+            logger.info("Nenhum portal foi completamente vasculhado.");
+            System.out.println("Nenhum portal foi completamente vasculhado.");
+        }
     }
 }

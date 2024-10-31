@@ -19,19 +19,19 @@ public class PortaisCrawler {
     private final PortalRepository portalRepository;
     private final NoticiaRepository noticiaRepository;
     private final ReporterRepository reporterRepository;
-    private final ParserHtml parserHtml;
+    private final HtmlParserService htmlParserService; // Usando o serviço modularizado
 
     @Autowired
-    public PortaisCrawler(PortalRepository portalRepository, NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
+    public PortaisCrawler(PortalRepository portalRepository, NoticiaRepository noticiaRepository, HtmlParserService htmlParserService, ReporterRepository reporterRepository) {
         this.portalRepository = portalRepository;
         this.noticiaRepository = noticiaRepository;
-        this.parserHtml = parserHtml;
+        this.htmlParserService = htmlParserService;
         this.reporterRepository = reporterRepository;
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void startCrawlForAllPortals() {
-        ControllerCrawler controllerCrawler = new ControllerCrawler(noticiaRepository, reporterRepository);
+        ControllerCrawler controllerCrawler = new ControllerCrawler(noticiaRepository, reporterRepository, htmlParserService);
 
         List<Portal> portals = portalRepository.findByAtivoTrue();
 
@@ -41,7 +41,7 @@ public class PortaisCrawler {
         }
 
         for (Portal portal : portals) {
-            String url = portal.getUrl();
+            String url = normalizeUrl(portal.getUrl());
             Long portalId = portal.getId();
 
             try {
@@ -51,12 +51,23 @@ public class PortaisCrawler {
                 noticia.setUrl(url);
                 noticia.setPorId(portalId.intValue());
 
-                controllerCrawler.startCrawlWithSeed(url, noticia, parserHtml, reporterRepository);
-
+                controllerCrawler.startCrawlWithSeed(new String[]{url}, noticia);
 
             } catch (Exception e) {
                 System.out.println("Erro ao iniciar o crawl para " + url + ": " + e.getMessage());
             }
         }
+    }
+
+    private String normalizeUrl(String url) {
+        if (url == null) return null;
+        url = url.toLowerCase().trim();
+        if (url.startsWith("www.")) {
+            url = url.substring(4);
+        }
+        if (!url.startsWith("http")) {
+            url = "https://" + url; // Adiciona "https://" se não houver protocolo
+        }
+        return url;
     }
 }
