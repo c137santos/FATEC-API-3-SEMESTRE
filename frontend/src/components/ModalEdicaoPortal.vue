@@ -35,7 +35,7 @@
           <div class="modal-content">
             <h3>Selecione as Tags</h3>
             <div v-for="tag in tags" :key="tag.tagId">
-              <input type="checkbox" :id="tag.tagId" :value="tag.tagId" v-model="tagsSelecionadas">
+              <input class="modal-input" type="checkbox" :id="tag.tagId" :value="tag.tagId" v-model="tagsSelecionadas[tag.tagId]">
               <label :for="tag.tagId">{{ tag.tagNome }}</label>
             </div>
             <button @click="abrirModal = false" class="botao-salvar-multiplas-tags">Salvar</button>
@@ -54,7 +54,8 @@ export default {
   emits: ['close', 'save'],
   props: {
     portal: Object,
-    modalAberto: Boolean
+    modalAberto: Boolean,
+    tags: Array
   },
   data() {
     return {
@@ -64,25 +65,49 @@ export default {
         url: this.portal.url,
         ativo: this.portal.ativo,
         frequencia: this.portal.frequencia,
-        tags: []
+        tags: this.portal.tags
       },
       abrirModal: false,
-      tagsSelecionadas: [],
+      tagsSelecionadas: {},
       tagsSelecionadasNomes: '',
-      tags: []
     }
   },
+  watch: {
+    portal(newPortal) {
+      this.portalEmEdit = { ...newPortal }
+      this.constroeListaTagsSeleciona();
+    }
+  },
+    mounted() {
+    this.constroeListaTagsSeleciona();
+  },
   methods: {
+    constroeListaTagsSeleciona() {
+      this.tags.forEach(tag => {
+        var c = tag.tagId;
+        if (this.portalEmEdit.tags.includes(c)){
+          this.tagsSelecionadas[tag.tagId] = true
+        } else {
+          this.tagsSelecionadas[tag.tagId] = false
+        }
+      })
+    },
     fecharModal() {
       this.$emit('close')
     },
     saveChanges() {
+      if(this.tagMarcada === true) {
+        this.portalEmEdit.tags = this.tagsSelecionadas
+          .map(tagId => ({tagId}));
+      } else {
+        this.portalEmEdit.tags = [];
+      }
+        
       this.$emit('save', this.portalEmEdit)
       this.fecharModal()
     },
     
     async editarPortal() {
-      this.portalEmEdit.tags = this.tagsSelecionadas;
       const { id, nome, url, ativo, frequencia, tags } = this.portalEmEdit;
       const portalAtualizado = { id, nome, url, ativo, frequencia, tags};
 
@@ -110,20 +135,6 @@ export default {
     cancelarEdicao() {
       this.fecharModal();
     },
-
-    async carregarTags() {
-      try {
-        const response = await fetch('http://localhost:8080/tags/listar')
-        if (!response.ok) {
-          throw new Error('Falha ao carregar tags do backend')
-        }
-        const tags = await response.json()
-        this.tags = tags
-      } catch (error) {
-        alert('Erro ao carregar as tags. Tente novamente mais tarde.')
-      }
-    },
-
     atualizarNomeTagsSelecionadas() {
       this.tagsSelecionadasNomes = this.tags
       .filter(tag => this.tagsSelecionadas.includes(tag.tagId))
@@ -131,18 +142,6 @@ export default {
       .join(', ');
     }
   },
-  watch: {
-    abrirModal(novoValor) {
-      if(novoValor) {
-        this.carregarTags();
-      }
-    },
-    portal(newPortal) {
-      this.portalEmEdit = { ...newPortal }
-      this.tagsSelecionadas = newPortal.tags.map(tag => tag.tagId);
-      this.atualizarNomeTagsSelecionadas();
-    }
-  }
 }
 </script>
 
