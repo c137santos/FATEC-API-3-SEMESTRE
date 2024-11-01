@@ -1,20 +1,24 @@
 <template>
-  <div v-if="show" class="modal-overlay">
+  <div class="modal-overlay">
     <div class="modal-content">
       <h2 class="modal-title">Editando Regionalismo:</h2>
       <form @submit.prevent="salvarEdicao" class="modal-form">
-        <label for="regionalismoNome">Regionalismo:</label>
+        <label for="regionalismoNome">Nome do Regionalismo:</label>
         <input
-          v-model="regionalismoEdit.nome"
-          id="regionalismoNome"
           type="text"
+          id="regionalismoNome"
+          v-model="regionalismoLocal.nome"
           class="modal-input"
           required
           placeholder="Digite o nome do regionalismo"
         />
 
-        <label for="tagRelacionada">Tag relacionada:</label>
-        <select v-model="regionalismoEdit.tagId" id="tagRelacionada" class="modal-select">
+        <label for="tagSelect">Tag Relacionada:</label>
+        <select
+          id="tagSelect"
+          v-model="regionalismoLocal.tagId"
+          class="modal-select"
+        >
           <option v-for="tag in tags" :key="tag.tagId" :value="tag.tagId">
             {{ tag.tagNome }}
           </option>
@@ -29,7 +33,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineProps, defineEmits, ref, watch } from 'vue';
 import axios from 'axios';
 
 export default {
@@ -38,57 +43,50 @@ export default {
       type: Object,
       required: true,
     },
-    show: {
-      type: Boolean,
+    tags: {
+      type: Array,
       required: true,
     },
   },
-  data() {
-    return {
-      regionalismoEdit: { ...this.regionalismo },
-      tags: [],
-    };
-  },
-  mounted() {
-    this.carregarTags();
-  },
-  methods: {
-    async carregarTags() {
-      try {
-        const response = await axios.get('http://localhost:8080/tags/listar');
-        this.tags = response.data;
-      } catch (error) {
-        console.error('Erro ao carregar tags:', error);
-      }
-    },
-    async salvarEdicao() {
-      if (!this.regionalismoEdit.nome || this.regionalismoEdit.nome.trim() === '') {
+  setup(props) {
+    const emit = defineEmits(['salvar-edicao', 'fechar']);
+    const regionalismoLocal = ref({ ...props.regionalismo });
+
+    // Método para salvar a edição do regionalismo
+    const salvarEdicao = async () => {
+      if (!regionalismoLocal.value.nome || regionalismoLocal.value.nome.trim() === '') {
         alert('O campo Nome do regionalismo é obrigatório.');
         return;
       }
+
       try {
-        await axios.put(
-          `http://localhost:8080/regionalismos/editar/${this.regionalismoEdit.id}`,
-          {
-            nome: this.regionalismoEdit.nome,
-            tagId: this.regionalismoEdit.tagId,
-          }
+        // Chamada ao backend para salvar a edição
+        const response = await axios.put(
+          `http://localhost:8080/regionalismos/editar/${regionalismoLocal.value.id}`, // Certifique-se de que o ID esteja correto
+          regionalismoLocal.value
         );
-        this.$emit('salvar-edicao', this.regionalismoEdit);
-        this.fechar();
+        
+        // Emite o evento com o regionalismo atualizado
+        emit('salvar-edicao', response.data);
       } catch (error) {
-        console.error('Erro ao salvar edição:', error);
-        alert('Erro ao salvar a edição. Por favor, tente novamente.');
+        console.error('Erro ao salvar regionalismo:', error);
+        alert('Erro ao salvar regionalismo.');
       }
-    },
-    fechar() {
-      this.$emit('fechar');
-    },
-  },
-  watch: {
-    regionalismo(newValue) {
-      this.regionalismoEdit = { ...newValue };
-    },
+    };
+
+    // Observa mudanças na prop regionalismo para atualizar a cópia local
+    watch(
+      () => props.regionalismo,
+      (newRegionalismo) => {
+        regionalismoLocal.value = { ...newRegionalismo };
+      },
+      { immediate: true }
+    );
+
+    return {
+      regionalismoLocal,
+      salvarEdicao,
+    };
   },
 };
 </script>
@@ -131,7 +129,8 @@ export default {
   flex-direction: column;
 }
 
-.modal-input, .modal-select {
+.modal-input,
+.modal-select {
   border: 1px solid #d1c4e9;
   border-radius: 5px;
   padding: 12px;
