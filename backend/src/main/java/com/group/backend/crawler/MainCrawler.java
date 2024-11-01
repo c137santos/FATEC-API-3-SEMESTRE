@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
@@ -18,50 +19,82 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 import com.group.backend.entity.Noticia;
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.ReporterRepository;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MainCrawler extends WebCrawler {
 
-    private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png)$");
-    private AtomicInteger numSeenImages = new AtomicInteger();
+    private static final Logger logger = LoggerFactory.getLogger(MainCrawler.class);
+    private static final Pattern IMAGE_EXTENSIONS = Pattern.compile(".*\\.(bmp|gif|jpg|png|svg|woff2)$");
+    private static final int MAX_HTML_SIZE = 10 * 1024 * 1024; // 10 MB
+    private AtomicInteger numSeenImages;
     private String seedUrl;
     private CrawlController controller;
     private Noticia noticia;
     private NoticiaRepository noticiaRepository;
     private ReporterRepository reporterRepository;
-    private ParserHtml parserHtml;
+    private HtmlParserService htmlParserService;
+    private static Set<String> portaisVisitados = new HashSet<>();
 
     public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia,
-                       NoticiaRepository noticiaRepository, ParserHtml parserHtml, ReporterRepository reporterRepository) {
+                       NoticiaRepository noticiaRepository, HtmlParserService htmlParserService, ReporterRepository reporterRepository) {
         this.numSeenImages = numSeenImages;
-        this.seedUrl = seedUrl;
+        this.seedUrl = normalizeUrl(seedUrl);
         this.controller = controller;
         this.noticia = noticia;
         this.noticiaRepository = noticiaRepository;
-        this.parserHtml = parserHtml;
+        this.htmlParserService = htmlParserService;
         this.reporterRepository = reporterRepository;
+        logger.info("Iniciando processo de crawling com a seed: {}", seedUrl);
     }
 
     @Override
-    public boolean shouldVisit(Page referringPage, WebURL url) {
-        String href = url.getURL().toLowerCase();
-        return href.startsWith(seedUrl);
+public boolean shouldVisit(Page referringPage, WebURL url) {
+    String href = normalizeUrl(url.getURL());
+    String normalizedSeedUrl = normalizeUrl(seedUrl);
+
+    if (IMAGE_EXTENSIONS.matcher(href).matches()) {
+        logger.debug("Ignorando URL com extensão irrelevante: {}", href);
+        return false;
     }
+
+    boolean shouldVisit = href.startsWith(normalizedSeedUrl);
+    logger.debug("Verificação de visita: href = {}, seedUrl = {}, resultado = {}", href, normalizedSeedUrl, shouldVisit);
+
+    return shouldVisit;
+}
+
+private String normalizeUrl(String url) {
+    if (url == null) return null;
+
+    // Remove 'http://', 'https://', e 'www.' para normalização
+    url = url.replaceAll("^(https?://)?(www\\.)?", "").toLowerCase().trim();
+
+    // Adiciona 'http://' para garantir um formato consistente
+    url = "http://" + url;
+
+    return url;
+}
+
 
     @Override
     public void visit(Page page) {
-        int docid = page.getWebURL().getDocid();
-        String url = page.getWebURL().getURL();
+        String url = normalizeUrl(page.getWebURL().getURL());
+        double pageSizeMB = page.getContentData().length / (1024.0 * 1024.0); // Tamanho em MB
+        logger.info("Visitando URL: {} (Tamanho: {:.2f} MB)", url, pageSizeMB);
 
-        logger.info("URL: {}", url);
+        if (page.getContentData().length > MAX_HTML_SIZE) {
+            logger.warn("Ignorando a URL {} devido ao tamanho excessivo do conteúdo (acima de 10 MB).", url);
+            return;
+        }
 
-        // Verifica se a URL já foi processada
         if (noticiaRepository.existsByUrl(url)) {
-            logger.info("A URL já foi processada: {}", url);
-            return; // Evita processamento duplicado
+            logger.info("A URL {} já foi processada anteriormente, ignorando...", url);
+            return;
         }
 
         noticia.setUrl(url);
+        portaisVisitados.add(seedUrl); // Marca a seed como visitada
 
         if (page.getParseData() instanceof HtmlParseData) {
             HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
@@ -72,17 +105,21 @@ public class MainCrawler extends WebCrawler {
             logger.debug("Número de links externos: {}", links.size());
 
             String filePath = saveHtmlToFile(url, html, "./src/main/java/com/group/backend/crawler/dadosCrawler/");
+            logger.info("HTML da URL {} salvo em {}", url, filePath);
 
             try {
-                parserHtml.parseAndDeleteFile(Paths.get(filePath), noticia);
+                htmlParserService.parseAndDeleteFile(Paths.get(filePath), noticia);
             } catch (Exception e) {
-                logger.error("Erro ao parsear o arquivo após salvar: {}", e.getMessage());
+                logger.error("Erro ao parsear o arquivo da URL {}: {}", url, e.getMessage());
             }
 
             for (WebURL link : links) {
                 String newUrl = link.getURL();
                 if (shouldVisit(page, link)) {
                     controller.addSeed(newUrl);
+                    logger.info("URL adicionada à fila para visita: {}", newUrl);
+                } else {
+                    logger.debug("URL ignorada: {}", newUrl);
                 }
             }
         }
@@ -99,35 +136,38 @@ public class MainCrawler extends WebCrawler {
     }
 
     private String saveHtmlToFile(String url, String html, String outputDir) {
-        // Gera um nome de arquivo seguro, substituindo caracteres especiais
         String fileName = url.replaceAll("[^a-zA-Z0-9]", "_") + ".html";
         String filePath = outputDir + fileName;
-    
+
         try {
-            // Cria o diretório se ele não existir
             File directory = new File(outputDir);
-            if (!directory.exists()) {
-                boolean dirCreated = directory.mkdirs(); // Cria os diretórios
-                if (dirCreated) {
-                    logger.info("Diretório criado: {}", outputDir);
-                } else {
-                    logger.error("Erro ao criar o diretório: {}", outputDir);
-                    return null; // Falha ao criar diretório, encerra o processo
-                }
+            if (!directory.exists() && !directory.mkdirs()) {
+                logger.error("Erro ao criar o diretório: {}", outputDir);
+                return null;
             }
-    
-            // Salva o arquivo HTML
+
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                 writer.write(html);
                 logger.info("HTML salvo em {}", filePath);
             }
-    
+
         } catch (IOException e) {
             logger.error("Erro ao salvar HTML em arquivo: {}", e.getMessage());
-            return null; // Falha ao salvar, retorna nulo
+            return null;
         }
-    
-        return filePath; // Retorna o caminho do arquivo salvo
+
+        return filePath;
     }
-    
+
+    @Override
+    public void onBeforeExit() {
+        // Log final ao sair do processo de crawling
+        if (!portaisVisitados.isEmpty()) {
+            logger.info("Portais com seeds vasculhados: {}", String.join(", ", portaisVisitados));
+            System.out.println("Portais com seeds vasculhados: " + String.join(", ", portaisVisitados));
+        } else {
+            logger.info("Nenhum portal foi completamente vasculhado.");
+            System.out.println("Nenhum portal foi completamente vasculhado.");
+        }
+    }
 }
