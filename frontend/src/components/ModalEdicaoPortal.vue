@@ -83,6 +83,7 @@ export default {
           return response.json()
         })
         .then((data) => {
+          this.$emit('portal-registrado', data)
           this.saveChanges()  // Salva as alterações e fecha o modal
         })
         .catch((error) => {
