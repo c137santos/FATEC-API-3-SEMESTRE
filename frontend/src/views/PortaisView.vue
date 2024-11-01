@@ -1,17 +1,11 @@
 <template>
   <div>
-    <AdicionarPortal @novo-portal="adicionarPortal" />
+    <AdicionarPortal @novo-portal="adicionarPortal" @portal-registrado="(id) => this.newId = id" />
   </div>
   <div class="portais-view">
     <h1>Portais Cadastrados</h1>
-    <ListaPortais @editar-portal="abrirModalEdicao" />
-    <ModalEdicaoPortal
-      v-if="portalSelecionado"
-      :portal="portalSelecionado"
-      @close="fecharModal"
-      @save="salvarEdicao"
-    >
-    </ModalEdicaoPortal>
+    <ListaPortais :key="newId" @editar-portal="abrirModalEdicao" />
+    <ModalEdicaoPortal v-if="portalSelecionado" :portal="portalSelecionado" @close="fecharModal" @save="salvarEdicao" @portal-registrado="(id) => this.newId = id"/>
   </div>
 </template>
 
@@ -31,7 +25,8 @@ export default {
     return {
       portais: [],
       tagPortaisId: [],
-      portalSelecionado: null
+      portalSelecionado: null,
+      newId: -1
     }
   },
 
