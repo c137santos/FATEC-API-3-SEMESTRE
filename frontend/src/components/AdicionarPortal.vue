@@ -96,9 +96,13 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.novoPortal)
       }
-      fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) =>
-        response.json()
-      )
+      fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) => 
+      {
+
+        return response.json()
+      }).then((data) => {
+        this.$emit('portal-registrado', data)
+      })
     },
 
     validadorDadosNovoPortal() {
