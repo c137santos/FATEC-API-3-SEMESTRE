@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <!-- Logo da empresa no topo da sidebar -->
-    <img src="@/components/icons/logo.png" alt="Logo" class="logo" />
+    <img @click="voltarParaHome" src="@/components/icons/logo.png" alt="Logo" class="logo"  />
 
     <!-- Navegação com links para outras páginas -->
     <nav>
@@ -20,6 +20,12 @@ import SideBarButton from '@/components/SideBarButton.vue';
 export default {
   components: {
     SideBarButton 
+  },
+
+  methods: {
+    voltarParaHome(){
+      this.$router.push({path: '/'});
+    },
   },
   data() {
     return {
@@ -51,6 +57,12 @@ export default {
   width: 60px;
   height: 60px;
   margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover{
+  transform: scale(1.2);
 }
 
 nav ul {
