@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CerbButton from '@/components/CerbButton.vue';
 import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue'; // Importa o modal de edição
+import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue'; // Importa o modal de edição
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
@@ -11,14 +12,19 @@ const tagSelect = ref<string | null>(null); // Tag selecionada
 const showModal = ref(false); // Controla a exibição do modal de edição
 const regionalismoEdit = ref<any>(null); // Regionalismo que será editado
 
+const showModal = ref(false); // Controla a exibição do modal de edição
+const regionalismoEdit = ref<any>(null); // Regionalismo que será editado
+
 const resetFields = () => {
     regionalismoInput.value = '';
+    tagSelect.value = null; // Resetado para null
     tagSelect.value = null; // Resetado para null
 };
 
 const fetch = async () => {
     try {
         const tagsResponse = await axios.get('http://localhost:8080/tags/listar');
+        tagList.value = tagsResponse.data; // Atribui a resposta diretamente à tagList
         tagList.value = tagsResponse.data; // Atribui a resposta diretamente à tagList
     } catch (error) {
         console.error('Erro ao buscar dados:', error);
@@ -37,8 +43,26 @@ const save = async () => {
             nome: regionalismoInput.value
         });
         await fetch(); // Recarrega os dados após salvar
+        await fetch(); // Recarrega os dados após salvar
     } catch (error) {
         console.error('Erro ao salvar regionalismo:', error);
+    }
+};
+
+// Função para abrir o modal com o regionalismo selecionado para edição
+const editarRegionalismo = (regionalismo: any) => {
+    regionalismoEdit.value = { ...regionalismo }; // Define o regionalismo que será editado
+    showModal.value = true; // Exibe o modal
+};
+
+// Função para salvar as edições
+const salvarEdicao = async (regionalismoAtualizado: any) => {
+    try {
+        await axios.put(`http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`, regionalismoAtualizado);
+        await fetch(); // Recarrega a lista de tags e regionalismos
+        showModal.value = false; // Fecha o modal após salvar
+    } catch (error) {
+        console.error('Erro ao salvar edição:', error);
     }
 };
 
@@ -105,6 +129,7 @@ onMounted(() => {
                     </span>
                 </div>
                 <div>
+                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag)">Editar</CerbButton>
                     <CerbButton fill-type="mute" @click="editarRegionalismo(tag)">Editar</CerbButton>
                 </div>
             </div>
