@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/regionalismos")
-@CrossOrigin(origins = "http://localhost:8080")
+@RequestMapping("/regionalismo")
+@CrossOrigin(origins = "http://localhost:5173")
 public class RegionalismoController {
 
     @Autowired
@@ -30,12 +30,6 @@ public class RegionalismoController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
-
-    @PostMapping("/criar")
-    public ResponseEntity<Regionalismo> criarRegionalismo(@RequestBody Regionalismo regionalismo) {
-        Regionalismo novoRegionalismo = regionalismoRepository.save(regionalismo);
-        return ResponseEntity.ok(novoRegionalismo);
     }
 
     @PutMapping("/editar/{id}")

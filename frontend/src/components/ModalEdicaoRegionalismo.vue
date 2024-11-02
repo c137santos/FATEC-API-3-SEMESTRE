@@ -34,44 +34,31 @@
 </template>
 
 <script lang="ts">
-import { defineProps, defineEmits, ref, watch } from 'vue';
-import axios from 'axios';
+import { defineComponent, ref, watch, type PropType } from 'vue';
 
-export default {
+export default defineComponent({
   props: {
     regionalismo: {
-      type: Object,
+      type: Object as PropType<{ id: number; nome: string; tagId: number }>,
       required: true,
     },
     tags: {
-      type: Array,
+      type: Array as PropType<Array<{ tagId: number; tagNome: string }>>,
       required: true,
     },
   },
-  setup(props) {
-    const emit = defineEmits(['salvar-edicao', 'fechar']);
+  emits: ['salvar-edicao', 'fechar'],
+  setup(props, { emit }) {
     const regionalismoLocal = ref({ ...props.regionalismo });
 
     // Método para salvar a edição do regionalismo
-    const salvarEdicao = async () => {
+    const salvarEdicao = () => {
       if (!regionalismoLocal.value.nome || regionalismoLocal.value.nome.trim() === '') {
         alert('O campo Nome do regionalismo é obrigatório.');
         return;
       }
 
-      try {
-        // Chamada ao backend para salvar a edição
-        const response = await axios.put(
-          `http://localhost:8080/regionalismos/editar/${regionalismoLocal.value.id}`, // Certifique-se de que o ID esteja correto
-          regionalismoLocal.value
-        );
-        
-        // Emite o evento com o regionalismo atualizado
-        emit('salvar-edicao', response.data);
-      } catch (error) {
-        console.error('Erro ao salvar regionalismo:', error);
-        alert('Erro ao salvar regionalismo.');
-      }
+      emit('salvar-edicao', regionalismoLocal.value);
     };
 
     // Observa mudanças na prop regionalismo para atualizar a cópia local
@@ -88,7 +75,7 @@ export default {
       salvarEdicao,
     };
   },
-};
+});
 </script>
 
 <style scoped>
