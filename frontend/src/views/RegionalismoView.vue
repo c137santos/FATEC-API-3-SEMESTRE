@@ -8,17 +8,20 @@ const tagList = ref<any[]>([]); // Lista de tags
 const regionalismoInput = ref(''); // Input para regionalismo
 const tagSelect = ref<string | null>(null); // Tag selecionada
 
+
 const showModal = ref(false); // Controla a exibição do modal de edição
 const regionalismoEdit = ref<any>(null); // Regionalismo que será editado
 
 const resetFields = () => {
     regionalismoInput.value = '';
     tagSelect.value = null; // Resetado para null
+    tagSelect.value = null; // Resetado para null
 };
 
 const fetch = async () => {
     try {
         const tagsResponse = await axios.get('http://localhost:8080/tags/listar');
+        tagList.value = tagsResponse.data; // Atribui a resposta diretamente à tagList
         tagList.value = tagsResponse.data; // Atribui a resposta diretamente à tagList
     } catch (error) {
         console.error('Erro ao buscar dados:', error);
@@ -32,15 +35,17 @@ const save = async () => {
             return;
         }
 
-        await axios.post('http://localhost:8080/regionalismo/cadastrar', {
+        const response = await axios.post('http://localhost:8080/regionalismo/cadastrar', {
             tagId: tagSelect.value,
             nome: regionalismoInput.value
         });
+        await fetch(); // Recarrega os dados após salvar
         await fetch(); // Recarrega os dados após salvar
     } catch (error) {
         console.error('Erro ao salvar regionalismo:', error);
     }
 };
+
 
 // Função para abrir o modal com o regionalismo selecionado para edição
 const editarRegionalismo = (regionalismo: any) => {
@@ -106,18 +111,10 @@ onMounted(() => {
                 </div>
                 <div>
                     <CerbButton fill-type="mute" @click="editarRegionalismo(tag)">Editar</CerbButton>
+                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag)">Editar</CerbButton>
                 </div>
             </div>
         </div>
-
-        <!-- Modal de edição -->
-        <ModalEdicaoRegionalismo
-            v-if="showModal"
-            :regionalismo="regionalismoEdit"
-            :tags="tagList"
-            @salvar-edicao="salvarEdicao"
-            @fechar="showModal = false"
-        />
     </div>
 </template>
 
