@@ -30,7 +30,7 @@ public class PortaisCrawler {
     public void startCrawlForFrequency(String frequencia) {
         ControllerCrawler controllerCrawler = new ControllerCrawler(noticiaRepository, reporterRepository, htmlParserService);
 
-        List<Portal> portals = portalRepository.findByAtivoTrueAndFrequencia(frequencia);
+        List<Portal> portals = portalRepository.findByFrequenciaAndActiveTags(frequencia);
 
         if (portals.isEmpty()) {
             System.out.println("Não existem portais disponíveis para crawling com a frequência: " + frequencia);
