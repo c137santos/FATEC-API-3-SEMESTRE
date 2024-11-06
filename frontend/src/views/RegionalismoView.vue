@@ -1,76 +1,3 @@
-<script setup lang="ts">
-import CerbButton from '@/components/CerbButton.vue';
-import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue';
-import axios from 'axios';
-import { onMounted, ref } from 'vue';
-
-const tagList = ref<any[]>([]); // Lista de tags
-const regionalismoInput = ref(''); // Input para o nome do regionalismo
-const tagSelect = ref<string | null>(null); // Tag selecionada
-
-const showModal = ref(false); // Controla a exibição do modal de edição
-const regionalismoEdit = ref<any>(null); // Regionalismo que será editado
-
-// Função para resetar os campos do formulário de criação
-const resetFields = () => {
-    regionalismoInput.value = '';
-    tagSelect.value = null;
-};
-
-// Função para buscar as tags e regionalismos associados
-const fetch = async () => {
-    try {
-        const tagsResponse = await axios.get('http://localhost:8080/tags/listar');
-        tagList.value = tagsResponse.data;
-    } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-    }
-};
-
-// Função para salvar um novo regionalismo
-const save = async () => {
-    try {
-        if (!tagSelect.value || !regionalismoInput.value) {
-            console.warn('Por favor, preencha todos os campos antes de salvar.');
-            return;
-        }
-
-        // Envia a requisição para salvar o novo regionalismo
-        const response = await axios.post('http://localhost:8080/regionalismos/cadastrar', {
-            tagId: tagSelect.value,
-            nome: regionalismoInput.value
-        });
-        
-        console.log('Regionalismo salvo:', response.data);
-        await fetch(); // Recarrega os dados após salvar
-        resetFields(); // Limpa os campos após o salvamento
-    } catch (error) {
-        console.error('Erro ao salvar regionalismo:', error);
-    }
-};
-
-// Função para abrir o modal de edição
-const editarRegionalismo = (regionalismo: any) => {
-    regionalismoEdit.value = { ...regionalismo }; // Define o regionalismo que será editado
-    showModal.value = true; // Exibe o modal
-};
-
-// Função para salvar as edições feitas no modal
-const salvarEdicao = async (regionalismoAtualizado: any) => {
-    try {
-        await axios.put(`http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`, regionalismoAtualizado);
-        await fetch(); // Recarrega a lista após salvar
-        showModal.value = false; // Fecha o modal
-    } catch (error) {
-        console.error('Erro ao salvar edição:', error);
-    }
-};
-
-onMounted(() => {
-    fetch();
-});
-</script>
-
 <template>
     <div class="wrapper">
         <div>
@@ -128,6 +55,84 @@ onMounted(() => {
         />
     </div>
 </template>
+
+<script setup lang="ts">
+import CerbButton from '@/components/CerbButton.vue';
+import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+const tagList = ref<any[]>([]);
+const regionalismoInput = ref('');
+const tagSelect = ref<string | null>(null);
+
+const showModal = ref(false);
+const regionalismoEdit = ref<any>(null);
+
+const resetFields = () => {
+    regionalismoInput.value = '';
+    tagSelect.value = null;
+};
+
+const fetch = async () => {
+    try {
+        const tagsResponse = await axios.get('http://localhost:8080/tags/listar');
+        tagList.value = tagsResponse.data;
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+    }
+};
+
+const save = async () => {
+    try {
+        if (!tagSelect.value || !regionalismoInput.value) {
+            console.warn('Por favor, preencha todos os campos antes de salvar.');
+            return;
+        }
+
+        const response = await axios.post('http://localhost:8080/regionalismos/cadastrar', {
+            tagId: tagSelect.value,
+            nome: regionalismoInput.value
+        });
+        
+        console.log('Regionalismo salvo:', response.data);
+        await fetch();
+        resetFields();
+    } catch (error) {
+        console.error('Erro ao salvar regionalismo:', error);
+    }
+};
+
+const editarRegionalismo = (regionalismo: any) => {
+    regionalismoEdit.value = { 
+        id: regionalismo.id,  // Garanta que o ID está sendo definido aqui
+        nome: regionalismo.nome, 
+        tagId: regionalismo.tagId 
+    };
+    showModal.value = true;
+};
+
+const salvarEdicao = async (regionalismoAtualizado: any) => {
+    try {
+        const response = await axios.put(
+            `http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`,
+            regionalismoAtualizado
+        );
+        console.log('Edição salva com sucesso:', response.data);
+        // Atualizar a lista de regionalismos ou fechar o modal conforme necessário
+        showModal.value = false;
+        await fetch();  // Atualiza a lista
+    } catch (error) {
+        console.error('Erro ao salvar edição:', error);
+    }
+};
+
+
+
+onMounted(() => {
+    fetch();
+});
+</script>
 
 <style scoped>
 .border-1 {
