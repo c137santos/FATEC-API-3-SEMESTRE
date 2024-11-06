@@ -53,13 +53,14 @@ export default defineComponent({
 
     // Método para salvar a edição do regionalismo
     const salvarEdicao = () => {
-      if (!regionalismoLocal.value.nome || regionalismoLocal.value.nome.trim() === '') {
-        alert('O campo Nome do regionalismo é obrigatório.');
-        return;
-      }
+  console.log("Dados para salvar:", regionalismoLocal.value);  // Para verificar os dados antes de salvar
+  if (!regionalismoLocal.value.nome || regionalismoLocal.value.nome.trim() === '') {
+    alert('O campo Nome do regionalismo é obrigatório.');
+    return;
+  }
+  emit('salvar-edicao', regionalismoLocal.value);
+};
 
-      emit('salvar-edicao', regionalismoLocal.value);
-    };
 
     // Observa mudanças na prop regionalismo para atualizar a cópia local
     watch(
