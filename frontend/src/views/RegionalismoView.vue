@@ -102,6 +102,7 @@ const save = async () => {
     }
 };
 
+<<<<<<< HEAD
 const editarRegionalismo = (tag:any,regionalismo: any) => {
     regionalismoEdit.value = { 
         id: regionalismo.regId,  // Garanta que o ID está sendo definido aqui
@@ -109,11 +110,22 @@ const editarRegionalismo = (tag:any,regionalismo: any) => {
         tagId: regionalismo.tagId 
     };
 
+=======
+const editarRegionalismo = (regionalismo: any) => {
+    regionalismoEdit.value = { 
+        id: regionalismo.id,  // Garanta que o ID está sendo definido aqui
+        nome: regionalismo.nome, 
+        tagId: regionalismo.tagId 
+    };
+>>>>>>> c4973e03262e05813c22e99efa39af7c45fb7937
     showModal.value = true;
 };
 
 const salvarEdicao = async (regionalismoAtualizado: any) => {
+<<<<<<< HEAD
     console.log(regionalismoAtualizado);
+=======
+>>>>>>> c4973e03262e05813c22e99efa39af7c45fb7937
     try {
         const response = await axios.put(
             `http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`,
