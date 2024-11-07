@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "regionalismo")
 public class Regionalismo {
+    
     @Id    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reg_id")
@@ -22,6 +23,7 @@ public class Regionalismo {
     @JsonBackReference
     private Tag tag;
 
+    // Getters e Setters
     public Long getRegId() {
         return regId;
     }

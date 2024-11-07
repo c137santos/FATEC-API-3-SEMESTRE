@@ -1,74 +1,3 @@
-<script setup lang="ts">
-import CerbButton from '@/components/CerbButton.vue';
-import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue'; // Importa o modal de edição
-import axios from 'axios';
-import { onMounted, ref } from 'vue';
-
-const tagList = ref<any[]>([]); // Lista de tags
-const regionalismoInput = ref(''); // Input para regionalismo
-const tagSelect = ref<string | null>(null); // Tag selecionada
-
-
-const showModal = ref(false); // Controla a exibição do modal de edição
-const regionalismoEdit = ref<any>(null); // Regionalismo que será editado
-
-const resetFields = () => {
-    regionalismoInput.value = '';
-    tagSelect.value = null; // Resetado para null
-    tagSelect.value = null; // Resetado para null
-};
-
-const fetch = async () => {
-    try {
-        const tagsResponse = await axios.get('http://localhost:8080/tags/listar');
-        tagList.value = tagsResponse.data; // Atribui a resposta diretamente à tagList
-        tagList.value = tagsResponse.data; // Atribui a resposta diretamente à tagList
-    } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-    }
-};
-
-const save = async () => {
-    try {
-        if (!tagSelect.value || !regionalismoInput.value) {
-            console.warn('Por favor, preencha todos os campos antes de salvar.');
-            return;
-        }
-
-        const response = await axios.post('http://localhost:8080/regionalismo/cadastrar', {
-            tagId: tagSelect.value,
-            nome: regionalismoInput.value
-        });
-        await fetch(); // Recarrega os dados após salvar
-        await fetch(); // Recarrega os dados após salvar
-    } catch (error) {
-        console.error('Erro ao salvar regionalismo:', error);
-    }
-};
-
-
-// Função para abrir o modal com o regionalismo selecionado para edição
-const editarRegionalismo = (regionalismo: any) => {
-    regionalismoEdit.value = { ...regionalismo }; // Define o regionalismo que será editado
-    showModal.value = true; // Exibe o modal
-};
-
-// Função para salvar as edições
-const salvarEdicao = async (regionalismoAtualizado: any) => {
-    try {
-        await axios.put(`http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`, regionalismoAtualizado);
-        await fetch(); // Recarrega a lista de tags e regionalismos
-        showModal.value = false; // Fecha o modal após salvar
-    } catch (error) {
-        console.error('Erro ao salvar edição:', error);
-    }
-};
-
-onMounted(() => {
-    fetch();
-});
-</script>
-
 <template>
     <div class="wrapper">
         <div>
@@ -76,11 +5,12 @@ onMounted(() => {
                 <h2>Cadastrar Regionalismos</h2>
                 <h4>Regionalismo</h4>
                 <span class="d-flex mtb-small justify-stretch">
-                    <input v-model="regionalismoInput" class="w-100 plr-small border-1 h-medium" type="text" />
+                    <input v-model="regionalismoInput" class="w-100 plr-small border-1 h-medium" type="text" placeholder="Digite o nome do regionalismo" />
                 </span>
                 <div class="d-flex flex-column mtb-small w-33">
                     <div>Tags relacionadas</div>
                     <select v-model="tagSelect" class="h-medium plr-small mtb-small border-1 bg-transparent">
+                        <option value="" disabled>Selecione uma tag</option>
                         <option v-for="(tag, index) in tagList" :key="index" :value="tag.tagId"> 
                             {{ tag.tagNome }} 
                         </option>
@@ -99,24 +29,111 @@ onMounted(() => {
                  v-for="(tag, index) in tagList" :key="index">
                 <div>
                     <h4>Tag: {{ tag.tagNome }}</h4>
+                    
                     <span>Regionalismos:
-                        <span v-if="tag.regionalismos.length > 0">
-                            <span v-for="(regionalismo, idx) in tag.regionalismos" :key="idx">
-                                <span v-if="idx > 0">, </span>
+                        <span v-if="tag.regionalismos.length > 0" v-for="(regionalismo, idx) in tag.regionalismos" :key="idx">
+                            <span>
                                 {{ regionalismo.nome }}
+                                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag,regionalismo)">Editar</CerbButton>
                             </span>
+                            <br>
                         </span>
                         <span v-else>Nenhum regionalismo cadastrado</span>
                     </span>
                 </div>
-                <div>
-                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag)">Editar</CerbButton>
-                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag)">Editar</CerbButton>
-                </div>
             </div>
         </div>
+
+        <!-- Modal de Edição -->
+        <ModalEdicaoRegionalismo
+            v-if="showModal"
+            :regionalismo="regionalismoEdit"
+            :tags="tagList"
+            @salvar-edicao="salvarEdicao"
+            @fechar="showModal = false"
+        />
     </div>
 </template>
+
+<script setup lang="ts">
+import CerbButton from '@/components/CerbButton.vue';
+import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+const tagList = ref<any[]>([]);
+const regionalismoInput = ref('');
+const tagSelect = ref<string | null>(null);
+
+const showModal = ref(false);
+const regionalismoEdit = ref<any>(null);
+
+const resetFields = () => {
+    regionalismoInput.value = '';
+    tagSelect.value = null;
+};
+
+const fetch = async () => {
+    try {
+        const tagsResponse = await axios.get('http://localhost:8080/tags/listar');
+        tagList.value = tagsResponse.data;
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+    }
+};
+
+const save = async () => {
+    try {
+        if (!tagSelect.value || !regionalismoInput.value) {
+            console.warn('Por favor, preencha todos os campos antes de salvar.');
+            return;
+        }
+
+        const response = await axios.post('http://localhost:8080/regionalismos/cadastrar', {
+            tagId: tagSelect.value,
+            nome: regionalismoInput.value
+        });
+        
+        console.log('Regionalismo salvo:', response.data);
+        await fetch();
+        resetFields();
+    } catch (error) {
+        console.error('Erro ao salvar regionalismo:', error);
+    }
+};
+
+const editarRegionalismo = (tag:any,regionalismo: any) => {
+    regionalismoEdit.value = { 
+        id: regionalismo.regId,  // Garanta que o ID está sendo definido aqui
+        nome: regionalismo.nome, 
+        tagId: regionalismo.tagId 
+    };
+
+    showModal.value = true;
+};
+
+const salvarEdicao = async (regionalismoAtualizado: any) => {
+    console.log(regionalismoAtualizado);
+    try {
+        const response = await axios.put(
+            `http://localhost:8080/regionalismos/editar/${regionalismoAtualizado.id}`,
+            regionalismoAtualizado
+        );
+        console.log('Edição salva com sucesso:', response.data);
+        // Atualizar a lista de regionalismos ou fechar o modal conforme necessário
+        showModal.value = false;
+        await fetch();  // Atualiza a lista
+    } catch (error) {
+        console.error('Erro ao salvar edição:', error);
+    }
+};
+
+
+
+onMounted(() => {
+    fetch();
+});
+</script>
 
 <style scoped>
 .border-1 {
