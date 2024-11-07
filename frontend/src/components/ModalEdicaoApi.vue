@@ -22,7 +22,7 @@
           </div>
   
           <label for="url">URL:</label>
-          <input v-model="apiEmEdit.url" class="modal-input" type="url" id="url" />
+          <input v-model="apiEmEdit.url" class="modal-input" id="url" />
 
           <label for="descricao">Descrição:</label>
           <input v-model="apiEmEdit.descricao" class="modal-input" type="text" id="url" />

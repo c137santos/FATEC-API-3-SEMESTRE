@@ -22,7 +22,7 @@
         </div>
 
         <label for="url">URL:</label>
-        <input v-model="portalEmEdit.url" class="modal-input" type="url" id="url" />
+        <input v-model="portalEmEdit.url" class="modal-input" id="url" />
 
         <div class="active-group">
           <label for="active">Ativo:</label>
@@ -59,41 +59,55 @@ export default {
   },
   methods: {
     fecharModal() {
-      this.$emit('close')
+      this.$emit('close');
     },
     saveChanges() {
-      this.$emit('save', this.portalEmEdit)
-      this.fecharModal()
+      this.$emit('save', this.portalEmEdit);
+      this.fecharModal();
     },
     editarPortal() {
-      const { id, nome, url, ativo, frequencia } = this.portalEmEdit;
-      const portalAtualizado = { id, nome, url, ativo, frequencia };
+      let { id, nome, url, ativo, frequencia } = this.portalEmEdit;
+      const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+      if (url && !/^https?:\/\//i.test(url)) {
+        
+        if (/^www\./i.test(url)) {
+          url = 'https://' + url;
+        } else {
+          
+          url = 'https://www.' + url;
+        }
+      }
+      if (urlPattern.test(url)) {
+        const portalAtualizado = { id, nome, url, ativo, frequencia };
 
-      fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(portalAtualizado)
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Erro ao atualizar API')
-          }
-          return response.json()
+        fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(portalAtualizado)
         })
-        .then((data) => {
-          this.$emit('portal-registrado', data)
-          this.saveChanges()  // Salva as alterações e fecha o modal
-        })
-        .catch((error) => {
-          console.error('Erro ao editar API:', error)
-        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Erro ao atualizar API');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            this.$emit('portal-registrado', data);
+            this.saveChanges();  // Salva as alterações e fecha o modal
+          })
+          .catch((error) => {
+            console.error('Erro ao editar API:', error);
+          });
+      } else {
+        console.error('URL inválida');
+      }
     }
   },
   watch: {
     portal(newPortal) {
-      this.portalEmEdit = { ...newPortal }
+      this.portalEmEdit = { ...newPortal };
     }
   }
 }

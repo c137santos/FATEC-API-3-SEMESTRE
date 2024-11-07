@@ -12,9 +12,9 @@
             v-model="novoPortal.portalNome"
             placeholder="Nome do Portal"
           />
+          <!-- Removemos o tipo "url" aqui -->
           <input
             class="campo-cadastro-url"
-            type="url"
             v-model="novoPortal.portalUrl"
             placeholder="Url do Portal"
           />
@@ -96,9 +96,7 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.novoPortal)
       }
-      fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) => 
-      {
-
+      fetch('http://localhost:8080/portais/cadastrar', requestOption).then((response) => {
         return response.json()
       }).then((data) => {
         this.$emit('portal-registrado', data)
@@ -106,15 +104,31 @@ export default {
     },
 
     validadorDadosNovoPortal() {
-      if (this.novoPortal.portalNome && this.novoPortal.portalUrl) {
-        this.salvarPortal()
-        let portalSerSalvo = { ...this.novoPortal }
-        this.$emit('novo-portal', portalSerSalvo)
-        this.novoPortal.portalUrl = ''
-        this.novoPortal.portalNome = ''
-        this.novoPortal.portalAtivo = true
-        this.novoPortal.portalFrequencia = ''
-        this.exibirNovoPortalForm = false
+      let url = this.novoPortal.portalUrl;
+      const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+
+      if (url && !/^https?:\/\//i.test(url)) {
+        if (/^www\./i.test(url)) {
+          url = 'https://' + url;
+        } else {
+          url = 'https://www.' + url;
+        }
+      }
+      
+      if (urlPattern.test(url)) {
+        this.novoPortal.portalUrl = url;
+        if (this.novoPortal.portalNome && this.novoPortal.portalUrl) {
+          this.salvarPortal()
+          let portalSerSalvo = { ...this.novoPortal }
+          this.$emit('novo-portal', portalSerSalvo)
+          this.novoPortal.portalUrl = ''
+          this.novoPortal.portalNome = ''
+          this.novoPortal.portalAtivo = true
+          this.novoPortal.portalFrequencia = ''
+          this.exibirNovoPortalForm = false
+        }
+      } else {
+        console.error('URL inválida');
       }
     },
 
