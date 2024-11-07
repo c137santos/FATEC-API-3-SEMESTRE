@@ -8,8 +8,9 @@
           </div>
           <div class="portal-info">
             <p><strong>Url:</strong>{{ portal.url }}</p>
-            <p><strong>Tags:</strong> {{ portal.tags.join(', ') }}</p>
+            <p><strong>Tags:</strong> {{ Object.values(portal.tags).join(', ') }}</p>
             <p><strong>Frequência:</strong> {{ portal.frequencia }}</p>
+    
           </div>
           <div class="portal-actions">
             <p><strong>Status:</strong>
@@ -45,6 +46,7 @@
         axios.get('http://localhost:8080/portais/listar')
           .then(response => {
             this.portais = response.data;
+            console.log(this.portais[0]);
           })
           .catch(error => {
             console.error('Erro ao buscar portais:', error);

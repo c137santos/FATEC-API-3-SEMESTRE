@@ -35,7 +35,7 @@
           <div class="modal-content">
             <h3>Selecione as Tags</h3>
             <div v-for="tag in tags" :key="tag.tagId">
-              <input class="modal-input" type="checkbox" :id="tag.tagId" :value="tag.tagId" v-model="tagsSelecionadas[tag.tagId]">
+              <input class="modal-input" type="checkbox" :id="tag.tagId" v-model="tagsSelecionadas[tag.tagId]">
               <label :for="tag.tagId">{{ tag.tagNome }}</label>
             </div>
             <button @click="abrirModal = false" class="botao-salvar-multiplas-tags">Salvar</button>
@@ -83,33 +83,30 @@ export default {
   },
   methods: {
     constroeListaTagsSeleciona() {
-      this.tags.forEach(tag => {
-        var c = tag.tagId;
-        if (this.portalEmEdit.tags.includes(c)){
-          this.tagsSelecionadas[tag.tagId] = true
-        } else {
-          this.tagsSelecionadas[tag.tagId] = false
-        }
-      })
+      const tagsArray = Array.isArray(this.portalEmEdit.tags) 
+      ? this.portalEmEdit.tags 
+      : Object.keys(this.portalEmEdit.tags || {}).map(Number);
+
+    this.tags.forEach(tag => {
+      this.tagsSelecionadas[tag.tagId] = tagsArray.includes(tag.tagId);
+    });
+
     },
     fecharModal() {
       this.$emit('close')
     },
     saveChanges() {
-      if(this.tagMarcada === true) {
-        this.portalEmEdit.tags = this.tagsSelecionadas
-          .map(tagId => ({tagId}));
-      } else {
-        this.portalEmEdit.tags = [];
-      }
-        
+      this.portalEmEdit.tags = Object.keys(this.tagsSelecionadas)
+        .filter(tagId => this.tagsSelecionadas[tagId])
+        .map(Number);
+
       this.$emit('save', this.portalEmEdit)
       this.fecharModal()
     },
     
     async editarPortal() {
       const { id, nome, url, ativo, frequencia, tags } = this.portalEmEdit;
-      const portalAtualizado = { id, nome, url, ativo, frequencia, tags};
+      const portalAtualizado = { id, nome, url, ativo, frequencia, tags: Object.keys(this.tagsSelecionadas).filter((i) => this.tagsSelecionadas[i])};
 
       fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
         method: 'PUT',
@@ -137,7 +134,7 @@ export default {
     },
     atualizarNomeTagsSelecionadas() {
       this.tagsSelecionadasNomes = this.tags
-      .filter(tag => this.tagsSelecionadas.includes(tag.tagId))
+      .filter(tag => this.tagsSelecionadas(tag.tagId))
       .map(tag => tag.tagNome)
       .join(', ');
     }

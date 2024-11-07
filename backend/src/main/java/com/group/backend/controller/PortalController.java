@@ -42,8 +42,6 @@ public class PortalController {
         novoPortal.setAtivo(dados.portalAtivo());
         novoPortal.setFrequencia(dados.portalFrequencia());
         Portal portalSalvo = portalRepository.save(novoPortal);
-        
-        System.out.println(dados);
 
         tagPortalService.cadastrarTagPortal(dados.tagsSelecionadas(), portalSalvo);
         
@@ -58,7 +56,12 @@ public class PortalController {
 
     @PutMapping("/editar/{id}")
     public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody DadosEdicaoPortal portalAtualizado) {
+        System.out.println(portalAtualizado);
         Optional<Portal> optionalPortal = portalRepository.findById(id);
+        if(portalAtualizado.tags().isEmpty()) {
+            portalAtualizado.tags().add(id);
+        }
+
         if (optionalPortal.isPresent()) {
             Portal portal = optionalPortal.get();
             portal.setNome(portalAtualizado.nome());
@@ -69,6 +72,7 @@ public class PortalController {
             portalRepository.save(portal);
             Portal portalAtual = portalRepository.findById(id).orElse(null);
             tagPortalService.cadastrarTagPortal(portalAtualizado.tags(), portalAtual);
+
             
             return ResponseEntity.ok(portalAtual);
         } else {

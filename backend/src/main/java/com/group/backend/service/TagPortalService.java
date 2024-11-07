@@ -13,6 +13,7 @@ import com.group.backend.domain.TagPortalRepository;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Portal;
 import com.group.backend.entity.TagPortal;
+import com.group.backend.entity.TagPortalId;
 import com.group.backend.entity.Tag;
 
 @Service
@@ -32,6 +33,15 @@ public class TagPortalService {
     public List<TagPortal> cadastrarTagPortal(List<Long> tagsSelecionadas, Portal portal) {
         if (tagsSelecionadas == null) {
             tagsSelecionadas = new ArrayList<>();
+        }
+
+        Iterable<Long> allTagPortais = tagPortalRepository.getAllTagsByPortal(portal.getId());
+
+        for(Long tagRemove : allTagPortais) {
+            if(!tagsSelecionadas.contains(tagRemove)) {
+                TagPortalId tagPortalId = new TagPortalId(tagRemove, portal.getId());
+                tagPortalRepository.deleteById(tagPortalId);
+            }
         }
 
         List<TagPortal> tagPortais = new ArrayList<>();
@@ -57,7 +67,7 @@ public class TagPortalService {
             portalMap.put("frequencia", portal.getFrequencia());
             portalMap.put("ativo", portal.isAtivo());
             portalMap.put("data", portal.getData());
-            List<String> nomesTags = listarTagsPortal(portal.getId());
+            HashMap<Long, String> nomesTags = listarTagsPortal(portal.getId());
             portalMap.put("tags", nomesTags);
 
             resposta.add(portalMap);
@@ -65,14 +75,15 @@ public class TagPortalService {
         return resposta;
     }
 
-    public List<String> listarTagsPortal(Long portalId) {
+    public HashMap<Long, String> listarTagsPortal(Long portalId) {
         Iterable<Long> IdsTags = tagPortalRepository.getAllTagsByPortal(portalId);
         List<Tag> listaTags = tagRepository.findAllById(IdsTags);
 
-        List<String> nomesTags = new ArrayList<>();
+        HashMap<Long, String> idNomeTags = new HashMap<Long, String>();
         for (Tag tag : listaTags) {
-            nomesTags.add(tag.getTagNome());
+            idNomeTags.put(tag.getTagId(), tag.getTagNome());
         }
-        return nomesTags;
+        return idNomeTags;
     }
 }
+
