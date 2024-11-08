@@ -122,6 +122,7 @@ export default {
           return response.json();
         })
         .then((data) => {
+          this.$emit('portal-registrado', data)
           this.saveChanges();
         })
         .catch((error) => {

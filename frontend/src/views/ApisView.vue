@@ -5,22 +5,36 @@
 
   <div class="apis-view">
     <h1>APIs Cadastradas</h1>
-    <apisListar :apis="apis"></apisListar>
+    <apisListar 
+        :apis="apis"
+        @editar-api="abrirModalEdicao"
+      >
+    </apisListar>
+    <ModalEdicaoApi
+      v-if="apiSelecionada"
+      :api="apiSelecionada"
+      @close="fecharModal"
+      @save="salvarEdicao"
+      >
+    </ModalEdicaoApi>
   </div>
 </template>
 
 <script>
 import apisListar from '@/components/apisListar.vue'
 import AdicionarApi from '@/components/AdicionarApi.vue'
+import ModalEdicaoApi from '@/components/ModalEdicaoApi.vue';
 
 export default {
   components: {
     AdicionarApi,
-    apisListar
+    apisListar,
+    ModalEdicaoApi
   },
   data() {
     return {
-      apis: []
+      apis: [],
+      apiSelecionada: null
     }
   },
   mounted() {
@@ -29,6 +43,16 @@ export default {
   methods: {
     adicionarApi(novaApi) {
       this.apis = [...this.apis, novaApi]
+    },
+    abrirModalEdicao(api) {
+      this.apiSelecionada = api
+      this.modalAberto = true
+    },
+    fecharModal() {
+      this.apiSelecionada = null
+    },
+    salvarEdicao(){
+      this.fetchApiData()
     },
     fetchApiData() {
       fetch('http://localhost:8080/apis/listar')
