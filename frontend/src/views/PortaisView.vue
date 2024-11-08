@@ -5,7 +5,14 @@
   <div class="portais-view">
     <h1>Portais Cadastrados</h1>
     <ListaPortais :key="newId" @editar-portal="abrirModalEdicao" />
-    <ModalEdicaoPortal v-if="portalSelecionado" :portal="portalSelecionado" @close="fecharModal" @save="salvarEdicao" @portal-registrado="(id) => this.newId = id"/>
+    <ModalEdicaoPortal
+      v-if="portalSelecionado"
+      :portal="portalSelecionado"
+      :tags="tags"
+      @close="fecharModal"
+      @save="salvarEdicao"
+    >
+    </ModalEdicaoPortal>
   </div>
 </template>
 
@@ -26,10 +33,13 @@ export default {
       portais: [],
       tagPortaisId: [],
       portalSelecionado: null,
-      newId: -1
+      newId: -1,
+      tags: null,
     }
   },
-
+  async mounted(){
+    await this.carregarTags();
+  },
   methods: {
     adicionarPortal(novoPortal) {
       this.portais.push(novoPortal)
@@ -49,7 +59,19 @@ export default {
       if (index !== -1) {
         this.portais.splice(index, 1, portalEditado)
       }
-    }
+    },
+    async carregarTags() {
+      try {
+        const response = await fetch('http://localhost:8080/tags/listar')
+        if (!response.ok) {
+          throw new Error('Falha ao carregar tags do backend')
+        }
+        const tags = await response.json();
+        this.tags = tags;
+      } catch (error) {
+        alert('Erro ao carregar as tags. Tente novamente mais tarde.')
+      }
+    },
   }
 }
 </script>
@@ -57,5 +79,7 @@ export default {
 <style scoped>
 .portais-view {
   padding: 20px;
+  position: relative;
+  z-index: 0;
 }
 </style>

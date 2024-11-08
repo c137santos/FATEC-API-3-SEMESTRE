@@ -23,7 +23,6 @@ import com.group.backend.service.TagPortalService;
 
 import jakarta.transaction.Transactional;
 
-
 @RestController
 @RequestMapping("/portais")
 @CrossOrigin(origins = "*")
@@ -36,8 +35,7 @@ public class PortalController {
         this.tagPortalService = tagPortalService;
     }
 
-    @PostMapping("cadastrar")
-    @Transactional
+    @PostMapping("/cadastrar")
     public ResponseEntity<Portal> cadastrarPortal(@RequestBody DadosCadastroPortal dados) {
         Portal novoPortal = new Portal();
         novoPortal.setNome(dados.portalNome());
@@ -46,8 +44,8 @@ public class PortalController {
         novoPortal.setAtivo(dados.portalAtivo());
         novoPortal.setFrequencia(dados.portalFrequencia());
         Portal portalSalvo = portalRepository.save(novoPortal);
-        
-        tagPortalService.cadastrarTagPortal(dados.tagId(), portalSalvo);
+
+        tagPortalService.cadastrarTagPortal(dados.tagsSelecionadas(), portalSalvo);
         
         return ResponseEntity.ok(portalSalvo);
     }
@@ -58,9 +56,14 @@ public class PortalController {
         return ResponseEntity.ok(portaisComTags);
     }
 
+    @Transactional
     @PutMapping("/editar/{id}")
     public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody DadosEdicaoPortal portalAtualizado) {
         Optional<Portal> optionalPortal = portalRepository.findById(id);
+        if(portalAtualizado.tags().isEmpty()) {
+            portalAtualizado.tags().add(id);
+        }
+
         if (optionalPortal.isPresent()) {
             Portal portal = optionalPortal.get();
             portal.setNome(portalAtualizado.nome());
@@ -70,6 +73,9 @@ public class PortalController {
             portal.setData(LocalDate.now());
             portalRepository.save(portal);
             Portal portalAtual = portalRepository.findById(id).orElse(null);
+            tagPortalService.cadastrarTagPortal(portalAtualizado.tags(), portalAtual);
+
+            
             return ResponseEntity.ok(portalAtual);
         } else {
             return ResponseEntity.notFound().build();
