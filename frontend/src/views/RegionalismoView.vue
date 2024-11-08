@@ -1,45 +1,45 @@
 <template>
     <div class="wrapper">
-        <div>
-            <div class="d-flex plr-medium ptb-small flex-column border-1">
-                <h2>Cadastrar Regionalismos</h2>
-                <h4>Regionalismo</h4>
-                <span class="d-flex mtb-small justify-stretch">
-                    <input v-model="regionalismoInput" class="w-100 plr-small border-1 h-medium" type="text" placeholder="Digite o nome do regionalismo" />
-                </span>
-                <div class="d-flex flex-column mtb-small w-33">
-                    <div>Tags relacionadas</div>
-                    <select v-model="tagSelect" class="h-medium plr-small mtb-small border-1 bg-transparent">
-                        <option value="" disabled>Selecione uma tag</option>
-                        <option v-for="(tag, index) in tagList" :key="index" :value="tag.tagId"> 
-                            {{ tag.tagNome }} 
-                        </option>
-                    </select>
-                </div>
-                <div class="mtb-small d-flex flex-gap-1">
-                    <CerbButton :disabled="!regionalismoInput || !tagSelect" @click="save">Salvar</CerbButton>
-                    <CerbButton fill-type="revert" @click="resetFields">Cancelar</CerbButton>
-                </div>
+        <!-- Formulário de Cadastro -->
+        <div class="d-flex plr-medium ptb-small flex-column border-1">
+            <h2>Cadastrar Regionalismos</h2>
+            <h4>Regionalismo</h4>
+            <span class="d-flex mtb-small justify-stretch">
+                <input v-model="regionalismoInput" class="w-100 plr-small border-1 h-medium" type="text" placeholder="Digite o nome do regionalismo" />
+            </span>
+            <div class="d-flex flex-column mtb-small w-33">
+                <div>Tags relacionadas</div>
+                <select v-model="tagSelect" class="h-medium plr-small mtb-small border-1 bg-transparent">
+                    <option value="" disabled>Selecione uma tag</option>
+                    <option v-for="(tag, index) in tagList" :key="index" :value="tag.tagId"> 
+                        {{ tag.tagNome }} 
+                    </option>
+                </select>
+            </div>
+            <div class="mtb-small d-flex flex-gap-1">
+                <CerbButton :disabled="!regionalismoInput || !tagSelect" @click="save">Salvar</CerbButton>
+                <CerbButton fill-type="revert" @click="resetFields">Cancelar</CerbButton>
             </div>
         </div>
+
+        <!-- Listagem de Regionalismos por Tag -->
         <div>
             <h2 class="mtb-medium">Tags com regionalismos conectados</h2>
-            <div v-if="tagList.length > 0" 
-                 class="d-flex align-center plr-medium ptb-small mtb-small justify-between" 
-                 v-for="(tag, index) in tagList" :key="index">
-                <div>
+            <div v-if="tagList.length > 0">
+                <div v-for="(tag, index) in tagList" :key="index" class="tag-section">
                     <h4>Tag: {{ tag.tagNome }}</h4>
                     
-                    <span>Regionalismos:
-                        <span v-if="tag.regionalismos.length > 0" v-for="(regionalismo, idx) in tag.regionalismos" :key="idx">
-                            <span>
+                    <div class="regionalismo-list">
+                        <div v-if="tag.regionalismos.length > 0" v-for="(regionalismo, idx) in tag.regionalismos" :key="idx" class="regionalismo-item">
+                            <div class="regionalismo-nome">
                                 {{ regionalismo.nome }}
-                                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag,regionalismo)">Editar</CerbButton>
-                            </span>
-                            <br>
-                        </span>
-                        <span v-else>Nenhum regionalismo cadastrado</span>
-                    </span>
+                            </div>
+                            <div class="regionalismo-editar">
+                                <CerbButton fill-type="mute" @click="editarRegionalismo(tag, regionalismo)">Editar</CerbButton>
+                            </div>
+                        </div>
+                        <div v-else>Nenhum regionalismo cadastrado</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@ const save = async () => {
     }
 };
 
-const editarRegionalismo = (tag:any,regionalismo: any) => {
+const editarRegionalismo = (tag: any, regionalismo: any) => {
     regionalismoEdit.value = { 
         id: regionalismo.regId,  // Garanta que o ID está sendo definido aqui
         nome: regionalismo.nome, 
@@ -120,15 +120,12 @@ const salvarEdicao = async (regionalismoAtualizado: any) => {
             regionalismoAtualizado
         );
         console.log('Edição salva com sucesso:', response.data);
-        // Atualizar a lista de regionalismos ou fechar o modal conforme necessário
         showModal.value = false;
         await fetch();  // Atualiza a lista
     } catch (error) {
         console.error('Erro ao salvar edição:', error);
     }
 };
-
-
 
 onMounted(() => {
     fetch();
@@ -168,5 +165,31 @@ onMounted(() => {
 }
 .bg-transparent {
     background-color: transparent;
+}
+
+/* Estilos de Lista e Agrupamento */
+.tag-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.regionalismo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.regionalismo-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.regionalismo-nome {
+    flex-grow: 1;
+}
+.regionalismo-editar {
+    margin-left: 1rem;
 }
 </style>
