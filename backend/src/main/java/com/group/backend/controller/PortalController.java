@@ -21,6 +21,8 @@ import com.group.backend.domain.PortalRepository;
 import com.group.backend.entity.Portal;
 import com.group.backend.service.TagPortalService;
 
+import jakarta.transaction.Transactional;
+
 @RestController
 @RequestMapping("/portais")
 @CrossOrigin(origins = "*")
@@ -54,9 +56,9 @@ public class PortalController {
         return ResponseEntity.ok(portaisComTags);
     }
 
+    @Transactional
     @PutMapping("/editar/{id}")
     public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody DadosEdicaoPortal portalAtualizado) {
-        System.out.println(portalAtualizado);
         Optional<Portal> optionalPortal = portalRepository.findById(id);
         if(portalAtualizado.tags().isEmpty()) {
             portalAtualizado.tags().add(id);

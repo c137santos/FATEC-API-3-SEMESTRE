@@ -86,6 +86,7 @@ export default {
       const tagsArray = Array.isArray(this.portalEmEdit.tags) 
       ? this.portalEmEdit.tags 
       : Object.keys(this.portalEmEdit.tags || {}).map(Number);
+      console.log(this.tags)
 
     this.tags.forEach(tag => {
       this.tagsSelecionadas[tag.tagId] = tagsArray.includes(tag.tagId);

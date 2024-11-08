@@ -5,8 +5,6 @@
   <div class="portais-view">
     <h1>Portais Cadastrados</h1>
     <ListaPortais :key="newId" @editar-portal="abrirModalEdicao" />
-    <ModalEdicaoPortal v-if="portalSelecionado" :portal="portalSelecionado" @close="fecharModal" @save="salvarEdicao" @portal-registrado="(id) => this.newId = id"/>
-    <ListaPortais @editar-portal="abrirModalEdicao" />
     <ModalEdicaoPortal
       v-if="portalSelecionado"
       :portal="portalSelecionado"
