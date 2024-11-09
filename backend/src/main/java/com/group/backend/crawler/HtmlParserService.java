@@ -1,9 +1,12 @@
 package com.group.backend.crawler;
 
 import com.group.backend.entity.Noticia;
+import com.group.backend.entity.TagNoticia;
 import com.group.backend.entity.Reporter;
+import com.group.backend.entity.Tag;
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.ReporterRepository;
+import com.group.backend.domain.TagNoticiaRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
@@ -17,6 +20,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 @Component
 public class HtmlParserService {
@@ -41,8 +45,11 @@ public class HtmlParserService {
     @Autowired
     private ReporterRepository reporterRepository;
 
-    private static final boolean dataRequired = true;
-    private static final boolean reporterNameRequired = true;
+    @Autowired
+    private TagNoticiaRepository tagNoticiaRepository;
+
+    private static final boolean dataRequired = false;
+    private static final boolean reporterNameRequired = false;
 
     public HtmlParserService() {
         logger.info("HtmlParserService bean instanciado com sucesso.");
@@ -131,6 +138,8 @@ public class HtmlParserService {
 
                         noticiaRepository.save(newNoticia);
                         logger.info("Nova notícia salva: URL={}, ID={}", newNoticia.getUrl(), newNoticia.getNotiId());
+
+                        saveTagsForNoticia(newNoticia, corpo);
                     } else {
                         logger.info("Notícia já existente e com conteúdo igual. Nenhuma nova entrada foi criada: URL={}", noticia.getUrl());
                     }
@@ -138,6 +147,8 @@ public class HtmlParserService {
                     noticia.setNotiId(null); // Garante que o ID seja nulo para nova inserção
                     noticiaRepository.save(noticia);
                     logger.info("Notícia nova salva: ID={}, URL={}", noticia.getNotiId(), noticia.getUrl());
+
+                    saveTagsForNoticia(noticia, corpo);
                 }
             } else {
                 logger.warn("Notícia ignorada por dados insuficientes: URL: {}, Data presente: {}, Repórter presente: {}, Tags encontradas: {}",
@@ -153,6 +164,19 @@ public class HtmlParserService {
             } catch (IOException e) {
                 logger.error("Erro ao deletar o arquivo {}: {}", filePath.getFileName(), e.getMessage(), e);
             }
+        }
+    }
+
+    private void saveTagsForNoticia(Noticia noticia, String corpo) {
+        List<Tag> tags = tagChecker.extractTags(corpo, noticia);
+
+        for (Tag tag : tags) {
+            TagNoticia tagNoticia = new TagNoticia();
+
+            tagNoticia.setTagId(tag);
+            tagNoticia.setNotiId(noticia);
+
+            tagNoticiaRepository.save(tagNoticia);
         }
     }
 }
