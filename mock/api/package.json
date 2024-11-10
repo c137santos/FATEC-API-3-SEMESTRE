@@ -1,5 +1,5 @@
 {
-	"name": "frontend",
+	"name": "api-mock",
 	"private": true,
 	"type": "module"
 }

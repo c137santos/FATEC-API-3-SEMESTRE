@@ -146,12 +146,12 @@ export default {
       }
     },
     cancelar() {
-      clearAllInput()
+      this.mostrarFormulario = false
+      this.clearAllInput()
       this.erros = {
         nome: '',
         url: ''
       }
-      this.mostrarFormulario = false
     },
     clearInput(campo) {
       if (campo === 'nome') {

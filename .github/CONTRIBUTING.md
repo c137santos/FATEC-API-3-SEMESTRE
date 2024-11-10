@@ -21,7 +21,7 @@ O contêiner também usa o tema personalizado [Oh My ZSH](https://ohmyz.sh/), [F
 - Visual Studio Code.
 - sette as variáveis de ambientes necessárias no .env
 
-## Variáveis de ambientes necessárias
+## Variáveis de ambientes necessárias (Não necessario para o Docker)
 
 Para rodar o projeto é necessário criar um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
@@ -40,15 +40,8 @@ DB_PASSWORD=cdd
 ## Desenvolvendo o ambiente full docker - devConteiner
 
 1. Configurar o contêiner
-   1.1. Crie a imagem e o contêiner usando o comando:
-
-   ```bash
-   # Linux
-   sh ./scripts/up.sh
-   
-   # Windows
-   .\\scripts\\up.bat
-   ```
+   1.1. Entrar na pasta dev-env `cd dev-env`;
+   1.2 Subir o Docker `docker compose --env-file dev.env up -d --build `.
 
 2. Instale a extensão Docker no VSCode;
 

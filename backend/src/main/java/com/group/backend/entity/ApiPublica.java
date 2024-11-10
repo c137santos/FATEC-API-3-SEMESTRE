@@ -29,6 +29,7 @@ public class ApiPublica {
 
     @Column(name = "api_descricao")
     @Getter
+    @Setter
     private String descricao;
 
     @Column(name = "api_active")
@@ -38,6 +39,7 @@ public class ApiPublica {
 
     @Column(name = "api_url", length = 2048)
     @Getter
+    @Setter
     private String url;
 
     public ApiPublica(String nome, String frequencia, String descricao, Boolean active, String url) {

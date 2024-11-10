@@ -7,7 +7,7 @@
           <p>{{ api.url }}</p>
           <p>{{ api.frequencia }}</p>
         </div>
-        <button class="button-black" @click="editApi(api.id)">editar</button>
+        <button class="button-black" @click="editarApi(api)">editar</button>
       </div>
       <button class="view-data-button" @click="viewCapturedData(api.id)">
         Clique aqui para ver os dados capturados
@@ -46,9 +46,8 @@ export default {
     VueJsonPretty
   },
   methods: {
-    editApi(id) {
-      // TO-DO - parte de editar api
-      console.log('Editar API com id:', id)
+    editarApi(api) {
+      this.$emit('editar-api', api)
     },
     viewCapturedData(id) {
       fetch(`http://localhost:8080/apis/resultados?apiId=${id}`)
