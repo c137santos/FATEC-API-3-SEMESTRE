@@ -38,6 +38,7 @@
 import SearchBar from '@/components/SearchBar.vue';
 import DataRange from '@/components/DataRange.vue';
 import NewsCard from '@/components/NewsCard.vue';
+import ListaNoticias from '@/components/ListaNoticias.vue';
 
 export default {
   components: {
