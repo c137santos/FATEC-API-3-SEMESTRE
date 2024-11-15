@@ -50,37 +50,7 @@ export default {
     return {
       selectedTag: '',  
       selectedPortal: '',  
-      tags: [
-        { name: "Soja" },
-        { name: "Agricultura" },
-        { name: "Política" },
-        { name: "Economia" }
-      ],
-      portais: [
-        { name: "Portal Exemplo" },
-        { name: "Portal Exemplo 2" },
-        { name: "Portal 3" },
-        { name: "Portal 4" }
-      ],
-      startDate: '',
-      endDate: '',
-      filteredNoticias: [],
-      noticias: [
-        { 
-          titulo: "Notícia Mockada 1", 
-          portal: "Portal Exemplo", 
-          jornalista: "Jornalista Exemplo", 
-          data: "01/01/2023", 
-          categorias: ["Soja", "Agricultura"] 
-        },
-        { 
-          titulo: "Notícia Mockada 2", 
-          portal: "Portal Exemplo 2", 
-          jornalista: "Outro Jornalista", 
-          data: "02/01/2023", 
-          categorias: ["Política", "Economia"] 
-        }
-      ]
+      tags: []
     };
   },
   mounted() {
