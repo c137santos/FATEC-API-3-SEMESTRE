@@ -28,9 +28,11 @@
 
       <!-- Lista de notícias -->
       <div class="news-list">
-        <NewsCard v-for="noticia in filteredNoticias" :key="noticia.titulo" :noticia="noticia" />
+        <NewsCard v-for="noticia in filteredNoticias" :key="noticia.titulo" :noticia="noticia" @click.native="abrirModal(noticia)"/>
       </div>
     </div>
+      <!-- Modal de Notícia -->
+      <ModalNoticia v-if="noticiaModal" :noticia="noticiaModal" @fechar="fecharModal"/>
   </div>
 </template>
 
@@ -38,19 +40,23 @@
 import SearchBar from '@/components/SearchBar.vue';
 import DataRange from '@/components/DataRange.vue';
 import NewsCard from '@/components/NewsCard.vue';
-import ListaNoticias from '@/components/ListaNoticias.vue';
+import ModalNoticia from '@/components/ModalNoticia.vue';
 
 export default {
   components: {
     SearchBar,
     DataRange,
     NewsCard,
+    ModalNoticia
   },
   data() {
     return {
       selectedTag: '',  
       selectedPortal: '',  
-      tags: []
+      tags: [],
+      noticias: [],
+      filteredNoticias: [],
+      noticiaModal: null
     };
   },
   mounted() {
@@ -95,6 +101,12 @@ export default {
                this.filterByPortal(noticia) &&
                this.filterByDate(noticia);
       });
+    },
+    abrirModal(noticia) {
+      this.abrirModal = noticia;
+    },
+    fecharModal() {
+      this.noticiaModal = null;
     }
   }
 };

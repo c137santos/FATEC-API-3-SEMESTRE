@@ -2,10 +2,14 @@
     <div v-if="noticiaModal" class="modal-overlay">
       <div class="modal-content">
         <div class="modal-actions">
-          <button type="button" class="btn-fechar-noticia" @click="fecharModal">Fechar</button>
         </div>
         <div class="modal-body">
             <button class="btn-fechar" @click="fecharModal">X</button>
+            <h2>{{ noticia.notiText }}</h2>
+            <a>{{ noticia.Url }}</a>
+            <a>{{ noticia.notiData }}</a>
+            <a>Fonte: {{ portal.Nome }}</a>
+            <a>Escrito por: {{ reporter.Nome }}</a>
         </div>
       </div>
     </div>
@@ -14,7 +18,10 @@
   <script>
   export default {
     props: {
-      noticias: Array,
+      noticia: {
+        type: Object,
+        required: true,
+      }
     },
     data() {
       return {
@@ -93,14 +100,6 @@
   
   .modal-actions {
     text-align: right;
-  }
-  
-  .btn-fechar-noticia {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
   }
 
   .btn-fechar {
