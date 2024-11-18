@@ -17,11 +17,14 @@
 
     <dialog ref="dataDialog" class="data-dialog">
       <div class="dialog-header">
-        <h3>API</h3>
+        <h3>Resultados capturados</h3>
       </div>
       <div class="captured-data">
         <div>
-          <vue-json-pretty :data="capturedData" />
+          <div v-for="item in capturedData" :key="item">
+            <p> Dados do dia: {{ formatDate(item.resData) }}</p>
+            <vue-json-pretty :data="JSON.parse(item.resPayload)" />
+          </div>
         </div>
       </div>
       <button class="close-button" @click="closeDialog">Fechar</button>
@@ -70,8 +73,18 @@ export default {
     },
     formatJson(data) {
       return JSON.stringify(data, null, 2).replace(/\\n/g, '<br>').replace(/ /g, '&nbsp;')
+    },
+    formatDate(dateArray) {
+      console.log(typeof(dateArray))
+      console.log(dateArray)
+      const [year, month, day] = dateArray;
+
+      const formattedDay = String(day).padStart(2, "0");
+      const formattedMonth = String(month).padStart(2, "0");
+
+      return `${formattedDay}/${formattedMonth}/${year}`;
     }
-  }
+  },
 }
 </script>
 
