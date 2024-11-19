@@ -63,6 +63,9 @@ export default {
 }
 .news-content-wrapper {
   flex-grow: 0;
+  max-width: 30rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .news-card {
   display: flex;
