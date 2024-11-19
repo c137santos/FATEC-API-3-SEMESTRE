@@ -4,6 +4,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.group.backend.entity.ResultApi;
 
@@ -18,6 +21,6 @@ public interface ResultApiRepository extends JpaRepository<ResultApi, Long> {
 	ResultApi getLastFromResId(Long id);
 
 	@Query("SELECT r FROM ResultApi r WHERE r.apiPublica.id = :apiId")
-    List<ResultApi> findAllByApiId(Long apiId);
+	Page<ResultApi> findAllByApiId(Long apiId, Pageable pageable);
 
 }
