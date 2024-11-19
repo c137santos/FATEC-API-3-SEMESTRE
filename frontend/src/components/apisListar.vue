@@ -48,7 +48,7 @@ export default {
       capturedData: {},
       currentPage: 0,
       pageSize: 1,
-      apiId: null // Novo campo para armazenar o apiId
+      apiId: null
     }
   },
   components: {
@@ -59,7 +59,7 @@ export default {
       this.$emit('editar-api', api)
     },
     viewCapturedData(id, page) {
-      this.apiId = id; // Armazenar o apiId quando for buscar os dados
+      this.apiId = id; 
       fetch(`http://localhost:8080/apis/resultados?apiId=${id}&page=${page}&size=${this.pageSize}`)
         .then((response) => {
           if (!response.ok) {
@@ -90,7 +90,7 @@ export default {
     },
     changePage(page) {
       if (page >= 0 && page < this.capturedData.totalPages) {
-        this.viewCapturedData(this.apiId, page) // Passar o apiId corretamente
+        this.viewCapturedData(this.apiId, page) 
       }
     }
   },
@@ -98,7 +98,6 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos gerais */
 .api-card {
   border: 1px solid #ccc;
   padding: 16px;
