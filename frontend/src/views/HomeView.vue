@@ -147,9 +147,9 @@ export default {
       const mappedNoticiaList = noticiaList.map((n) => ({
         titulo: n.portal.nome,
         portal: n.portal.nome,
-        jornalista: n.reporte.nome,
+        jornalista: n.reporte.nome ?? '',
         content: n.notiText,
-        data: n.notiData.join('/'),
+        data: n.notiData ? n.notiData.join('/') : '',
         categorias: n.tagNoticia.map(tagNoticia => tagNoticia.tagId.tagNome)
       }))
       
