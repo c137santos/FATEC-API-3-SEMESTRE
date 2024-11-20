@@ -25,11 +25,25 @@
           <option v-for="portal in portais" :key="portal.name" :value="portal.name">{{ portal.name }}</option>
         </select>
       </div>
+      <div class="pagination-wrapper">
+        <div v-if="true" class="pagination-controls">
+          <button :disabled="pageIndex <= 0" @click="() => {
+            this.pageIndex --
+            this.fetchNoticias()
+          }">Anterior</button>
+          <span>Página {{ pageIndex + 1 }}</span>
+          <button :disabled="pageIndex + 1 >= totalPages" @click="() => {
+            this.pageIndex ++
+            this.fetchNoticias()
+          }">Próxima</button>
+        </div>
+      </div>
 
       <!-- Lista de notícias -->
-      <div class="news-list">
-        <NewsCard v-for="noticia in filteredNoticias" :key="noticia.titulo" :noticia="noticia" @click.native="abrirModal(noticia)"/>
+      <div class="news-list" :key="filteredNoticias">
+        <NewsCard v-for="noticia in filteredNoticias" :key="noticia" :noticia="noticia" @click.native="abrirModal(noticia)"/>
       </div>
+
     </div>
       <!-- Modal de Notícia -->
       <ModalNoticia v-if="noticiaModal" :noticia="noticiaModal" @fechar="fecharModal"/>
@@ -41,10 +55,13 @@ import SearchBar from '@/components/SearchBar.vue';
 import DataRange from '@/components/DataRange.vue';
 import NewsCard from '@/components/NewsCard.vue';
 import ModalNoticia from '@/components/ModalNoticia.vue';
+import axios from 'axios';
 
 export default {
   data() {
     return {
+      pageIndex: 0,
+      totalPages: 0,
       selectedTag: '',
       selectedPortal: '',
       tags: [],
@@ -56,7 +73,7 @@ export default {
     };
   },
   mounted() {
-    this.filteredNoticias = this.noticias;
+    this.fetchNoticias()
   },
   methods: {
     handleSearch(keyword) {
@@ -99,6 +116,24 @@ export default {
           this.filterByDate(noticia)
         );
       });
+    },
+    async fetchNoticias() {
+      const noticiaList = (await axios(`http://localhost:8080/noticias/listar/${this.pageIndex}`)).data
+      const mappedNoticiaList = noticiaList.map((n) => ({
+        titulo: n.portal.nome,
+        portal: n.portal.nome,
+        jornalista: n.reporte.nome ?? '',
+        content: n.notiText,
+        data: n.notiData ? n.notiData.join('/') : '',
+        categorias: n.tagNoticia.map(tagNoticia => tagNoticia.tagId.tagNome)
+      }))
+      
+      const count = (await axios('http://localhost:8080/noticias/total')).data
+      
+      this.totalPages = Math.ceil(count / 10)
+      this.noticias = mappedNoticiaList
+      this.filteredNoticias = this.noticias;
+      
     },
     abrirModal(noticia) {
       this.noticiaModal = noticia;
@@ -164,6 +199,32 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pagination-controls button {
+  padding: 8px 16px;
+  background-color: #6f3c91;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
