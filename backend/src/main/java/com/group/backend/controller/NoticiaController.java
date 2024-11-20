@@ -31,7 +31,11 @@ public class NoticiaController {
     public ResponseEntity<List<Noticia>> listarNoticias(@PathVariable Integer pageIndex) {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
         Page<Noticia> noticiaPage = noticiaRepository.findAll(pageable);
-        return ResponseEntity.ok(noticiaPage.toList());
+        List<Noticia> noticiaList = noticiaPage.toList();
+        for (Noticia noticia: noticiaList) {
+            noticia.setNotiText(noticia.getNotiText().substring(0, 255).concat("..."));
+        }
+        return ResponseEntity.ok(noticiaList);
     }
     
     @GetMapping("total")
