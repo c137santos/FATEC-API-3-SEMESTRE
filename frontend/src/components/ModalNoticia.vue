@@ -1,55 +1,52 @@
 <template>
-    <div v-if="noticiaModal" class="modal-overlay">
-      <div class="modal-content">
-        <div class="modal-actions">
-        </div>
-        <div class="modal-body">
-            <button class="btn-fechar" @click="fecharModal">X</button>
-            <h2>{{ noticia.notiText }}</h2>
-            <a>{{ noticia.Url }}</a>
-            <a>{{ noticia.notiData }}</a>
-            <a>Fonte: {{ portal.Nome }}</a>
-            <a>Escrito por: {{ reporter.Nome }}</a>
-        </div>
+  <div v-if="noticiaModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-actions">
+        <button class="btn-fechar" @click="fecharModal">X</button>
+      </div>
+      <div class="modal-body">
+        <h2>{{ noticia.notiText }}</h2>
+        <a :href="noticia.url" target="_blank">{{ noticia.url }}</a>
+        <p>{{ noticia.notiData }}</p>
+        <p>Fonte: {{ noticia.portalNome }}</p>
+        <p>Escrito por: {{ noticia.reporterNome }}</p>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      noticia: {
-        type: Object,
-        required: true,
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    noticia: {
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      noticiaModal: true,
+    };
+  },
+  methods: {
+    fecharModal() {
+      this.noticiaModal = false;
+      this.$emit('fechar');
+    },
+    handleEscKey(event) {
+      if (event.key === 'Escape') {
+        this.fecharModal();
       }
     },
-    data() {
-      return {
-        noticiaModal: null,
-      };
-    },
-    methods: {
-      abrirModalNoticia(noticia) {
-        this.noticiaModal = noticia;
-      },
-      fecharModal() {
-        this.noticiaModal = null;
-        this.$emit('fechar');
-      },
-      handleEscKey(event) {
-        if (event.key === 'Escape') {
-          this.fecharModal();
-        }
-      },
-    },
-    mounted() {
-      document.addEventListener('keydown', this.handleEscKey);
-    },
-    beforeDestroy() {
-      document.removeEventListener('keydown', this.handleEscKey);
-    },
-  };
-  </script>
+  },
+  mounted() {
+    document.addEventListener('keydown', this.handleEscKey);
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleEscKey);
+  },
+};
+</script>
   
 <style scoped>
 

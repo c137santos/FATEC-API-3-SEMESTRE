@@ -43,20 +43,16 @@ import NewsCard from '@/components/NewsCard.vue';
 import ModalNoticia from '@/components/ModalNoticia.vue';
 
 export default {
-  components: {
-    SearchBar,
-    DataRange,
-    NewsCard,
-    ModalNoticia
-  },
   data() {
     return {
-      selectedTag: '',  
-      selectedPortal: '',  
+      selectedTag: '',
+      selectedPortal: '',
       tags: [],
       noticias: [],
       filteredNoticias: [],
-      noticiaModal: null
+      noticiaModal: null,
+      startDate: null,
+      endDate: null,
     };
   },
   mounted() {
@@ -78,7 +74,7 @@ export default {
       return noticia.titulo.toLowerCase().includes(keyword.toLowerCase());
     },
     filterByTag(noticia) {
-      return this.selectedTag 
+      return this.selectedTag
         ? noticia.categorias.includes(this.selectedTag)
         : true;
     },
@@ -95,21 +91,25 @@ export default {
       return true;
     },
     filterNoticias(keyword = '') {
-      this.filteredNoticias = this.noticias.filter(noticia => {
-        return this.filterByKeyword(noticia, keyword) &&
-               this.filterByTag(noticia) &&
-               this.filterByPortal(noticia) &&
-               this.filterByDate(noticia);
+      this.filteredNoticias = this.noticias.filter((noticia) => {
+        return (
+          this.filterByKeyword(noticia, keyword) &&
+          this.filterByTag(noticia) &&
+          this.filterByPortal(noticia) &&
+          this.filterByDate(noticia)
+        );
       });
     },
     abrirModal(noticia) {
-      this.abrirModal = noticia;
+      this.noticiaModal = noticia;
     },
     fecharModal() {
       this.noticiaModal = null;
-    }
-  }
+    },
+  },
 };
+
+
 </script>
 
 <style scoped>
@@ -123,7 +123,7 @@ export default {
   flex-direction: column;
   flex-grow: 1;
   padding: 20px;
-  margin-top: 15px; /* Removida a margem da esquerda */
+  margin-top: 15px; 
 }
 
 .search-section {

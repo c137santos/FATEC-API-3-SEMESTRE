@@ -18,9 +18,9 @@ import com.group.backend.entity.Reporter;
 @Service
 public class NoticiaPortalService {
     private final PortalRepository portalRepository;
-    private final NoticiaRepository noticiaRepository;    
-    private ReporterRepository reporterRepository;
-    
+    private final NoticiaRepository noticiaRepository;
+    private final ReporterRepository reporterRepository;
+
     @Autowired
     public NoticiaPortalService(PortalRepository portalRepository, NoticiaRepository noticiaRepository, ReporterRepository reporterRepository) {
         this.portalRepository = portalRepository;
@@ -28,44 +28,39 @@ public class NoticiaPortalService {
         this.reporterRepository = reporterRepository;
     }
 
-    
     public List<Map<String, Object>> listarNoticiasComPortais() {
         List<Noticia> noticias = noticiaRepository.findAll();
         List<Map<String, Object>> resposta = new ArrayList<>();
 
-        if(noticias == null || noticias.isEmpty()) {
-            return resposta;
-        }
-        
         for (Noticia noticia : noticias) {
             Map<String, Object> notiMap = new HashMap<>();
             notiMap.put("id", noticia.getNotiId());
             notiMap.put("url", noticia.getUrl());
             notiMap.put("texto", noticia.getNotiText());
             notiMap.put("data", noticia.getNotiData());
-            HashMap<Long, String> nomePortais = listarNoticiaPortal(noticia.getNotiId());
-            notiMap.put("portais", nomePortais);
+            notiMap.put("portais", listarNoticiaPortal(noticia.getNotiId()));
 
-            resposta.add(notiMap);   
+            resposta.add(notiMap);
         }
         return resposta;
     }
-    
-    private HashMap<Long, String> listarNoticiaPortal(Long notiId) {
-        HashMap<Long, String> portais = new HashMap<>();
+
+    private Map<Long, String> listarNoticiaPortal(Long notiId) {
+        Map<Long, String> portais = new HashMap<>();
         List<Portal> portaisRelacionados = portalRepository.findByNoticiaId(notiId);
-        for(Portal portal : portaisRelacionados) {
+        for (Portal portal : portaisRelacionados) {
             portais.put(portal.getId(), portal.getNome());
         }
         return portais;
     }
-    
-    public HashMap<Long, String> listarReporterComNoticia(Long notiId) {
-        HashMap<Long, String> nomeReport = new HashMap<>();
+
+    public Map<Long, String> listarReporterComNoticia(Long notiId) {
+        Map<Long, String> nomeReport = new HashMap<>();
         List<Reporter> reporters = reporterRepository.findByPortalId(notiId);
         for (Reporter reporter : reporters) {
-          nomeReport.put(reporter.getRepId(), reporter.getNome());
+            nomeReport.put(reporter.getRepId(), reporter.getNome());
         }
         return nomeReport;
     }
 }
+
