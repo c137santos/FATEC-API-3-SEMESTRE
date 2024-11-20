@@ -41,12 +41,10 @@
 
       <!-- Lista de notícias -->
       <div class="news-list" :key="filteredNoticias">
-        <NewsCard v-for="noticia in filteredNoticias" :key="noticia" :noticia="noticia" @click.native="abrirModal(noticia)"/>
+        <NewsCard v-for="noticia in filteredNoticias" :key="noticia" :noticia="noticia" />
       </div>
 
     </div>
-      <!-- Modal de Notícia -->
-      <ModalNoticia v-if="noticiaModal" :noticia="noticiaModal" @fechar="fecharModal"/>
   </div>
 </template>
 
@@ -54,22 +52,51 @@
 import SearchBar from '@/components/SearchBar.vue';
 import DataRange from '@/components/DataRange.vue';
 import NewsCard from '@/components/NewsCard.vue';
-import ModalNoticia from '@/components/ModalNoticia.vue';
 import axios from 'axios';
 
 export default {
+  components: {
+    SearchBar,
+    DataRange,
+    NewsCard,
+  },
   data() {
     return {
       pageIndex: 0,
       totalPages: 0,
-      selectedTag: '',
-      selectedPortal: '',
-      tags: [],
-      noticias: [],
+      selectedTag: '',  
+      selectedPortal: '',  
+      tags: [
+        { name: "Soja" },
+        { name: "Agricultura" },
+        { name: "Política" },
+        { name: "Economia" }
+      ],
+      portais: [
+        { name: "Portal Exemplo" },
+        { name: "Portal Exemplo 2" },
+        { name: "Portal 3" },
+        { name: "Portal 4" }
+      ],
+      startDate: '',
+      endDate: '',
       filteredNoticias: [],
-      noticiaModal: null,
-      startDate: null,
-      endDate: null,
+      noticias: [
+        { 
+          titulo: "Notícia Mockada 1", 
+          portal: "Portal Exemplo", 
+          jornalista: "Jornalista Exemplo", 
+          data: "01/01/2023", 
+          categorias: ["Soja", "Agricultura"] 
+        },
+        { 
+          titulo: "Notícia Mockada 2", 
+          portal: "Portal Exemplo 2", 
+          jornalista: "Outro Jornalista", 
+          data: "02/01/2023", 
+          categorias: ["Política", "Economia"] 
+        }
+      ]
     };
   },
   mounted() {
@@ -91,7 +118,7 @@ export default {
       return noticia.titulo.toLowerCase().includes(keyword.toLowerCase());
     },
     filterByTag(noticia) {
-      return this.selectedTag
+      return this.selectedTag 
         ? noticia.categorias.includes(this.selectedTag)
         : true;
     },
@@ -108,13 +135,11 @@ export default {
       return true;
     },
     filterNoticias(keyword = '') {
-      this.filteredNoticias = this.noticias.filter((noticia) => {
-        return (
-          this.filterByKeyword(noticia, keyword) &&
-          this.filterByTag(noticia) &&
-          this.filterByPortal(noticia) &&
-          this.filterByDate(noticia)
-        );
+      this.filteredNoticias = this.noticias.filter(noticia => {
+        return this.filterByKeyword(noticia, keyword) &&
+               this.filterByTag(noticia) &&
+               this.filterByPortal(noticia) &&
+               this.filterByDate(noticia);
       });
     },
     async fetchNoticias() {
@@ -134,17 +159,9 @@ export default {
       this.noticias = mappedNoticiaList
       this.filteredNoticias = this.noticias;
       
-    },
-    abrirModal(noticia) {
-      this.noticiaModal = noticia;
-    },
-    fecharModal() {
-      this.noticiaModal = null;
-    },
-  },
+    }
+  }
 };
-
-
 </script>
 
 <style scoped>
@@ -158,7 +175,7 @@ export default {
   flex-direction: column;
   flex-grow: 1;
   padding: 20px;
-  margin-top: 15px; 
+  margin-top: 15px; /* Removida a margem da esquerda */
 }
 
 .search-section {

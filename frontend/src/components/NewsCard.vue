@@ -20,6 +20,8 @@
     <!-- Pop-up da notícia (pode ser implementado depois) -->
     <div v-if="showPopUp" class="popup-overlay">
       <div class="popup-content">
+        <div class="modal-actions">
+          <button class="btn-fechar" @click="fecharModal">X</button>
         <div class="popup-header">
           <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
           <div class="popup-header-text">
@@ -27,8 +29,14 @@
             <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
           </div>
         </div>
+        </div>
         
         <div class="popup-body">
+          <h2>{{ noticia.notiText }}</h2>
+          <a :href="noticia.url" target="_blank">{{ noticia.url }}</a>
+          <p>{{ noticia.notiData }}</p>
+          <p>Fonte: {{ noticia.portalNome }}</p>
+          <p>Escrito por: {{ noticia.reporterNome }}</p>
           <p class="popup-text">Aqui estará o conteúdo completo da notícia</p>
         </div>
         
@@ -40,17 +48,36 @@
 
 <script>
 export default {
-  props: ['noticia'],  // Recebe a notícia como prop
+  props: {
+    noticia: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
-      showPopUp: false,  // Controla a exibição do pop-up
+      noticiaModal: false, 
     };
   },
   methods: {
-    formatDate(dateString) {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
+    abrirModal() {
+      this.noticiaModal = true;
     },
+    fecharModal() {
+      this.noticiaModal = false;
+      this.$emit("fechar");
+    },
+    handleEscKey(event) {
+      if (event.key === "Escape") {
+        this.fecharModal();
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener("keydown", this.handleEscKey);
+  },
+  beforeDestroy() {
+    document.removeEventListener("keydown", this.handleEscKey);
   },
 };
 </script>
@@ -186,5 +213,19 @@ export default {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.modal-actions {
+  text-align: right;
+}
+
+.btn-fechar {
+position: absolute;
+top: 10px;
+right: 10px;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
 }
 </style>
