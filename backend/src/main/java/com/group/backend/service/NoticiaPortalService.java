@@ -38,16 +38,16 @@ public class NoticiaPortalService {
             notiMap.put("url", noticia.getUrl());
             notiMap.put("texto", noticia.getNotiText());
             notiMap.put("data", noticia.getNotiData());
-            notiMap.put("portais", listarNoticiaPortal(noticia.getNotiId()));
+            notiMap.put("portais", listarNoticiaPortal(noticia.getNotiId(), portal.getId()));
 
             resposta.add(notiMap);
         }
         return resposta;
     }
 
-    private Map<Long, String> listarNoticiaPortal(Long notiId) {
+    private Map<Long, String> listarNoticiaPortal(Long notiId, Long portalId) {
         Map<Long, String> portais = new HashMap<>();
-        List<Portal> portaisRelacionados = portalRepository.findByNoticiaId(notiId);
+        List<Portal> portaisRelacionados = portalRepository.findByPortalId(portalId);
         for (Portal portal : portaisRelacionados) {
             portais.put(portal.getId(), portal.getNome());
         }
