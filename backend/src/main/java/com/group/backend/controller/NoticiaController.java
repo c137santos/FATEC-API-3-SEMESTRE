@@ -32,8 +32,11 @@ public class NoticiaController {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
         Page<Noticia> noticiaPage = noticiaRepository.findAll(pageable);
         List<Noticia> noticiaList = noticiaPage.toList();
-        for (Noticia noticia: noticiaList) {
-            noticia.setNotiText(noticia.getNotiText().substring(0, 255).concat("..."));
+        for (Noticia noticia : noticiaList) {
+            String text = noticia.getNotiText();
+            if (text.length() > 255) {
+                noticia.setNotiText(text.substring(0, 255).concat("..."));
+            }
         }
         return ResponseEntity.ok(noticiaList);
     }

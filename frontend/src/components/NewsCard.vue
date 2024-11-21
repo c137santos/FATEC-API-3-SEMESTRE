@@ -21,7 +21,6 @@
     <div v-if="showPopUp" class="popup-overlay">
       <div class="popup-content">
         <div class="modal-actions">
-          <button class="btn-fechar" @click="fecharModal">X</button>
         <div class="popup-header">
           <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
           <div class="popup-header-text">
@@ -32,6 +31,7 @@
         </div>
         
         <div class="popup-body">
+          <button class="btn-fechar" @click="fecharModal">X</button>
           <h2>{{ noticia.notiText }}</h2>
           <a :href="noticia.url" target="_blank">{{ noticia.url }}</a>
           <p>{{ noticia.notiData }}</p>
@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      noticiaModal: false, 
+      showPopUp: false, 
     };
   },
   methods: {
@@ -72,6 +72,11 @@ export default {
         this.fecharModal();
       }
     },
+    formatDate(dateString) {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      const date = new Date(dateString);
+      return date.toLocaleDateString("pt-BR", options);
+    }
   },
   mounted() {
     document.addEventListener("keydown", this.handleEscKey);
