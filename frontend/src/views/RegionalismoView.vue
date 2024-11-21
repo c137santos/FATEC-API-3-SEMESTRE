@@ -125,14 +125,14 @@ const save = async () => {
 
 const editarRegionalismo = (tag: any, regionalismo: any) => {
     regionalismoEdit.value = { 
-        id: regionalismo.regId,
-        id: regionalismo.regId,
+        id: regionalismo.regId, // Corrigido: Apenas uma propriedade 'id'
         nome: regionalismo.nome, 
         tagId: regionalismo.tagId 
     };
 
     showModal.value = true;
 };
+
 
 const salvarEdicao = async (regionalismoAtualizado: any) => {
     console.log(regionalismoAtualizado);
