@@ -358,3 +358,965 @@ Filtros Aplicados:
   - Portais: [valor.globo.com]
   - Jornalistas: [Bloomberg]
 -----------------------------------
+Data/Hora: 2024-11-21T13:17:25.389323216
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:26.807283850
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:26.850580320
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:26.919757661
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:34.072943643
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:34.132683870
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:34.800062023
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:34.864385745
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:35.384735416
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:35.412754355
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:35.958596609
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:36.004345348
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:36.480094769
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:17:36.509360559
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:16.109395381
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:16.187168773
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:28.155204987
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:28.196702626
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:34.416758957
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:34.530556963
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:44.481964485
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:44.543451296
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:45.308675817
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:45.362869513
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:46.215618295
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:46.250813836
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:46.474174986
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:20:46.554430982
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:15.548777658
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:15.604774940
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:18.735995152
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:18.782165016
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:19.581760159
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:19.606190983
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:20.250678968
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:20.275029686
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:20.830779932
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:20.850851939
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:21.473183125
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:21.518477928
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:22.687315713
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:22.739488339
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:23.182964063
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:23.230911644
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:23.599618482
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:23.643728050
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:24.022782764
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:26.481128312
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:26.498070334
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:27.062177560
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:29.623713888
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:29.672253655
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:30.327823259
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:30.367104759
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:30.885687879
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:30.907538200
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:31.701702439
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:31.723704929
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:32.359133178
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:32.404598978
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:32.975034863
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:33.019585159
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:26:33.598903438
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T13:57:02.408468195
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T13:57:02.507784654
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T13:57:08.344264132
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Ana Luiza Tieghi]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T13:57:08.409053388
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Ana Luiza Tieghi]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:00.959502877
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:01.083770447
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:03.459694180
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:03.524566623
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:04.106003814
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:04.165531243
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:04.784890211
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:04.846397250
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:05.454866605
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:05.495772108
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:06.053769301
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:06.106310137
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:06.744262009
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:06.770048975
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:07.472905700
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:07.525597759
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:08.150206088
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:08.180003360
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:08.878708812
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:11.217818580
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:11.259663933
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:11.991220984
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:14.223698860
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:14.250703144
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:15.021115810
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:15.046951266
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:15.705441029
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:15.730983889
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:16.496724792
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:16.522562976
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:17.258676778
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:17.283076986
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:17.876835033
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:17.905713233
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:18.367656253
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:20.327771855
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:20.342578150
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:21.165328887
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:21.200482723
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:21.885562230
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:21.912991511
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:22.664452446
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:22.680284488
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:23.423600714
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:23.473049111
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:24.292300044
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:24.316209500
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:25.063890809
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:25.080682431
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:25.926540801
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:25.978834486
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:32.919269143
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Rejane Aguiar]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:32.985518086
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Rejane Aguiar]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:38.825114020
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:38.838888273
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:45.810059748
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+  - Data Início: 2024-10-03
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:08:56.362446422
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+  - Data Início: 2024-10-03
+  - Data Fim: 2024-11-30
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:04.302593844
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: 2024-10-03
+  - Data Fim: 2024-11-30
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:22.925114618
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: 2024-10-03
+  - Data Fim: 2024-11-30
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:34.421858192
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:34.481574603
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:36.916575690
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:36.959033899
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:41.011568528
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:41.069767002
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:43.371562700
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:43.411940291
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:45.986954267
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T14:09:46.048752497
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Valor — São Paulo, Edward Luce, Mario Mesquita, Valor, Fernando Exman, Raphael Di Cunto, Rejane Aguiar, Vincenzo Calcopietro, Marsílea Gombata, Fabio Murakawa, Chan Ho-him, Ana Luiza Tieghi, Jacilio Saraiva, Guilherme Naldis*, Marina Della Valle, Marcelo D’Agosto — De São Paulo, Murillo Camarotto, Fernanda Tanure, Pâmela Dias, Marcelo Ribeiro, Gabriela Guido*, Lucianne Carneiro, Ricardo Bomfim, Taís Hirata, Luiza Calegari, Roseli Loturco, Stephen Gandel, Suzana Liskauskas, Cheng Ting-Fang e Lauly Li, Edvaldo Santana, Adriana Mattos, Dow Jones Newswires, Sofia Esteves, Daniela Rocha, Luana Dandara, Estevão Taiar, Stella Fontes, Naiara Bertão, Lu Aiko Otta, Agência O Globo, Isabelle Lee, Rafael Gioielli, Taciano Custódio, Mariana Clark, Lucas Ferraz, Paula Martini, Gabriel Caldeira, Maria Cristina Fernandes, Isadora Peron, Laelya Longo, Bethan Staton, Marcela Villar, Hilton Hida, Dave Michaels, Robson Rodrigues, Marcela Villar — De São Paulo, Helena Benfica, Laura Ignacio, Patrick Temple-West, Gabriel Shinohara, Ricardo Alban, Arthur Cagliari e Maria Fernanda Salinet — De São Paulo, Edmundo Emerson Medeiros e Bruno Romano, Dani Rodrik, Madeleine Speed, Patrick Cruz, Dow Jones — Nova York, Daniela Braun,  Valor — São Paulo, Nikkei Asia, Cristian Favaro, Daniela Braun, Kana Inagaki, Rodrigo Rocha, Robson Rodrigues — De São Paulo, Barbara Bigarelli e Stela Campos, Brooke Masters, Liane Thedim, André Castro, Valeria Café, Roberta Andreoli, Adriana Fonseca, Rose Crespo, Álvaro Campos, Camila Zarur, Malu Nunes, Gustavo Pinheiro, Ana Beatriz Bartolo, Kariny Leal, Beatriz Olivon,  Valor — Brasília, Pedro Gomes, Rafael Vazquez, Jacky Wong — Dow Jones, Nelson Rocco, Santander, Gabriela Pereira, Valor — Brasília, Júlia Galvão, Gabriela Pereira,  Valor — Brasília, Fábio Couto, Rita Azevedo, Arthur Cagliari, Daniela Chiaretti, Michael Stott, Flávia Maia, Consultório Financeiro, Fernanda Gonçalves, Assis Moreira, Flávia Maia — De Brasília, Takashi Mochizuki, Nikkei Asia — Tóquio, Dow Jones — Cingapura, Felipe Laurence, Rafael Rosas, Fernanda Brigatti, Fernanda Guimarães, Mônica Scaramuzzo, Célia de Gouvêa Franco, Marcelo Osakabe, Adriana Cotias, Vitor Guedes, Rafaela Zampolli* — De São Paulo, Lucas Feitoza*, Victor Lacombe, Daryna Krasnolutska, Vicky Bloch, Stephanie Lai, Davi Vittorazzi, Ubiratan Brasil, Jorge Lucki, Joaquim Levy, Vivian Soares, Sanne Wass, Martin Wolf, banco BV, Edison Fernandes, Tathiane Piscitelli, Eduardo Salusse, Diego Viana, Roberto Lameirinhas, Bloomberg, Valor Com Dow Jones Newswires, Edna Simão, Mariana Ribeiro, Bruna Furlani, Stela Campos, Rafaela Zampolli, XP Empresas, Semíramis Biasoli, Microsoft, Marcos de Moura e Souza, Dow Jones — Washington e San Francisco, Cristiana Euclydes, Carlos Mercuri, Gabriel Roca, Bianca Guilherme, Nikkei Asia — Cidade do México, Nikkei Asia — Washington e Nova York, Marli Olmos, Fernando Pedroso, Victoria Netto, Genilson Cezar, Dow Jones — Barcelona, Matheus Olivera, Patricia Nilsson, Alex Ricciardi, Nikkei Asia — Taipei, Maria Fernanda Salinet, Bianca Ribeiro, Pedro Borg, Valor,  com agências internacionais — São Paulo, Beth Koike, Alessandra Saraiva, Natália Flach, John Foley, Artur Scaff*, Peter Prengaman, Delano Macêdo, Tracy Alloway, Roseli Lopes, William Salasar, Caetano Tonet, Murillo Camarotto — De Brasília, Beatriz Olivon — De Brasília, Fernanda Guimarães — De São Paulo, Marta Watanabe — De São Paulo, Renan Truffi,  Fabio Murakawa e Julia Lindner — De Brasília, Caio Sartori — Do Rio, Caio Sartori e Lucas Ferraz — Do Rio e de São Paulo, Andrea Jubé — De Brasília, Cristiane Agostine — São Paulo, Lucas Ferraz — De São Paulo, Lu Aiko Otta e Estevão Taiar — De Brasília, Maria Cristina Fernandes — De São Paulo, Luísa Martins e Isadora Peron — De Brasília, Lucianne Carneiro — Do Rio, EY, EY — G.Lab para EY, Domingos Zaparolli, Márcio Ferrari, Victor Meneses, Marli Lima Iacomini, Juliana Colombo, Carin Petti, Andrea Vialli, Katia Simões, Inaldo Cristoni, Chico Santos, Roberta Prescott, Roberto Rockmann, Carmen Nery, Lilian Caramel, Nelson Niero, Simone Goldberg, Fatima Fonseca, André De Moura, Ricardo Ivanov, Carlos Vasconcellos, Jéssica Sant'Ana, Guilherme Meirelles, Paulo Eduardo de Vasconcellos, Kátia Mello, Marcus Lopes, Martha Funke, Lauro Veiga Filho, Marcia Corradini, Luciana Del Caro, Dow, PressWorks, Machado Meyer Advogados, Bruno Henrique dos Santos e Henrique Zigart Pereira, Bruno Cação, Juliana Steil,  Valor — São Paulo, Toni Sciarretta,  Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------

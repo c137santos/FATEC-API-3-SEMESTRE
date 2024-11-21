@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.group.backend.entity.Noticia;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -19,11 +20,15 @@ public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
     @Query("SELECT n FROM Noticia n " +
            "WHERE (:tags IS NULL OR EXISTS (SELECT t FROM n.tagNoticia t WHERE t.tagId.tagNome IN :tags)) " +
            "AND (:portals IS NULL OR n.portal.nome IN :portals) " +
-           "AND (:reporters IS NULL OR n.reporte.nome IN :reporters)")
-    Page<Noticia> findByTagsPortalsAndReporters(
+           "AND (:reporters IS NULL OR n.reporte.nome IN :reporters) " +
+           "AND (:startDate IS NULL OR n.notiData >= :startDate) " +
+           "AND (:endDate IS NULL OR n.notiData <= :endDate)")
+    Page<Noticia> findByTagsPortalsReportersAndDate(
         @Param("tags") List<String> tags,
         @Param("portals") List<String> portals,
         @Param("reporters") List<String> reporters,
+        @Param("startDate") LocalDate startDate,
+        @Param("endDate") LocalDate endDate,
         Pageable pageable
     );
 

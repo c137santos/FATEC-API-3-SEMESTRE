@@ -1,5 +1,6 @@
 package com.group.backend.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -36,26 +37,33 @@ public class NoticiaController {
         @RequestParam(required = false) String tag,
         @RequestParam(required = false) String portal,
         @RequestParam(required = false) String reporter,
+        @RequestParam(required = false) String startDate,
+        @RequestParam(required = false) String endDate,
         @RequestParam(defaultValue = "0") Integer pageIndex
     ) {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
 
-        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter);
+        // Processando os filtros
+        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate);
 
+        // Paginação e filtro
         Page<Noticia> noticiaPage;
-        if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null) {
+        if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null && criteria.getStartDate() == null && criteria.getEndDate() == null) {
             noticiaPage = noticiaRepository.findAll(pageable);
         } else {
-            noticiaPage = noticiaRepository.findByTagsPortalsAndReporters(
+            noticiaPage = noticiaRepository.findByTagsPortalsReportersAndDate(
                 criteria.getTags(),
                 criteria.getPortals(),
                 criteria.getReporters(),
+                criteria.getStartDate(),
+                criteria.getEndDate(),
                 pageable
             );
         }
 
         List<Noticia> noticiaList = noticiaPage.toList();
 
+        // Limitar o tamanho do texto da notícia
         noticiaList.forEach(noticia -> {
             if (noticia.getNotiText() != null) {
                 noticia.setNotiText(new String(noticia.getNotiText()).substring(0, 255).concat("..."));
@@ -69,18 +77,22 @@ public class NoticiaController {
     public ResponseEntity<Long> getTotal(
         @RequestParam(required = false) String tag,
         @RequestParam(required = false) String portal,
-        @RequestParam(required = false) String reporter
+        @RequestParam(required = false) String reporter,
+        @RequestParam(required = false) String startDate,
+        @RequestParam(required = false) String endDate
     ) {
-        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter);
+        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate);
 
         long total;
-        if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null) {
+        if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null && criteria.getStartDate() == null && criteria.getEndDate() == null) {
             total = noticiaRepository.count();
         } else {
-            total = noticiaRepository.findByTagsPortalsAndReporters(
+            total = noticiaRepository.findByTagsPortalsReportersAndDate(
                 criteria.getTags(),
                 criteria.getPortals(),
                 criteria.getReporters(),
+                criteria.getStartDate(),
+                criteria.getEndDate(),
                 Pageable.unpaged()
             ).getTotalElements();
         }

@@ -67,6 +67,8 @@ export default {
       selectedTag: "",
       selectedPortal: "",
       selectedReporter: "",
+      selectedStartDate: "",
+      selectedEndDate: "",
       tags: [],
       portais: [],
       reporters: [],
@@ -112,15 +114,17 @@ export default {
 
       console.log(`Filtros aplicados: tag=${selectedTag}, portal=${selectedPortal}, reporter=${selectedReporter}`);
       this.pageIndex = 0;
-      this.fetchNoticias(selectedTag, selectedPortal, selectedReporter);
+      this.fetchNoticias(selectedTag, selectedPortal, selectedReporter, this.selectedStartDate, this.selectedEndDate);
     },
-    async fetchNoticias(selectedTag = "", selectedPortal = "", selectedReporter = "") {
+    async fetchNoticias(selectedTag = "", selectedPortal = "", selectedReporter = "", startDate = "", endDate = "") {
       try {
         const params = new URLSearchParams({
           tag: selectedTag,
           portal: selectedPortal,
           reporter: selectedReporter,
           pageIndex: this.pageIndex,
+          startDate: startDate,
+          endDate: endDate
         });
 
         const response = await fetch(`http://localhost:8080/noticias/listar?${params.toString()}`);
@@ -130,7 +134,7 @@ export default {
         this.noticias = noticiaList.map((n) => ({
           titulo: n.titulo || "Título não encontrado",
           portal: n.portal?.nome || "Portal não encontrado",
-          jornalista: n.jornalista || "Jornalista não identificado",
+          jornalista: n.reporte?.nome || "Jornalista não identificado",  // Corrigido para acessar o nome do jornalista
           content: n.notiText || "Conteúdo indisponível",
           data: n.notiData || "Data não informada",
           categorias: n.categorias || [],
@@ -161,6 +165,12 @@ export default {
       this.pageIndex = 0;
       this.fetchNoticias();
     },
+    setStartDate(date) {
+      this.selectedStartDate = date;
+    },
+    setEndDate(date) {
+      this.selectedEndDate = date;
+    }
   },
 };
 </script>
