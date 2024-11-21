@@ -26,33 +26,28 @@
         </select>
       </div>
       <div class="pagination-wrapper">
-        <div v-if="true" class="pagination-controls">
-          <button :disabled="pageIndex <= 0" @click="() => {
-            this.pageIndex --
-            this.fetchNoticias()
-          }">Anterior</button>
+        <!-- Removido v-if="true", pois era redundante -->
+        <div class="pagination-controls">
+          <button :disabled="pageIndex <= 0" @click="changePage(-1)">Anterior</button>
           <span>Página {{ pageIndex + 1 }}</span>
-          <button :disabled="pageIndex + 1 >= totalPages" @click="() => {
-            this.pageIndex ++
-            this.fetchNoticias()
-          }">Próxima</button>
+          <button :disabled="pageIndex + 1 >= totalPages" @click="changePage(1)">Próxima</button>
         </div>
       </div>
 
       <!-- Lista de notícias -->
-      <div class="news-list" :key="filteredNoticias">
-        <NewsCard v-for="noticia in filteredNoticias" :key="noticia" :noticia="noticia" />
+      <div class="news-list">
+        <!-- Ajustado o :key para usar propriedades únicas -->
+        <NewsCard v-for="noticia in filteredNoticias" :key="noticia.titulo + noticia.portal" :noticia="noticia" />
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import SearchBar from '@/components/SearchBar.vue';
-import DataRange from '@/components/DataRange.vue';
-import NewsCard from '@/components/NewsCard.vue';
-import axios from 'axios';
+import SearchBar from "@/components/SearchBar.vue";
+import DataRange from "@/components/DataRange.vue";
+import NewsCard from "@/components/NewsCard.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -64,43 +59,28 @@ export default {
     return {
       pageIndex: 0,
       totalPages: 0,
-      selectedTag: '',  
-      selectedPortal: '',  
+      selectedTag: "",
+      selectedPortal: "",
       tags: [
         { name: "Soja" },
         { name: "Agricultura" },
         { name: "Política" },
-        { name: "Economia" }
+        { name: "Economia" },
       ],
       portais: [
         { name: "Portal Exemplo" },
         { name: "Portal Exemplo 2" },
         { name: "Portal 3" },
-        { name: "Portal 4" }
+        { name: "Portal 4" },
       ],
-      startDate: '',
-      endDate: '',
+      startDate: "",
+      endDate: "",
       filteredNoticias: [],
-      noticias: [
-        { 
-          titulo: "Notícia Mockada 1", 
-          portal: "Portal Exemplo", 
-          jornalista: "Jornalista Exemplo", 
-          data: "01/01/2023", 
-          categorias: ["Soja", "Agricultura"] 
-        },
-        { 
-          titulo: "Notícia Mockada 2", 
-          portal: "Portal Exemplo 2", 
-          jornalista: "Outro Jornalista", 
-          data: "02/01/2023", 
-          categorias: ["Política", "Economia"] 
-        }
-      ]
+      noticias: [],
     };
   },
   mounted() {
-    this.fetchNoticias()
+    this.fetchNoticias();
   },
   methods: {
     handleSearch(keyword) {
@@ -118,7 +98,7 @@ export default {
       return noticia.titulo.toLowerCase().includes(keyword.toLowerCase());
     },
     filterByTag(noticia) {
-      return this.selectedTag 
+      return this.selectedTag
         ? noticia.categorias.includes(this.selectedTag)
         : true;
     },
@@ -130,41 +110,64 @@ export default {
     filterByDate(noticia) {
       if (this.startDate && this.endDate) {
         const noticiaDate = new Date(noticia.data);
-        return noticiaDate >= new Date(this.startDate) && noticiaDate <= new Date(this.endDate);
+        return (
+          noticiaDate >= new Date(this.startDate) &&
+          noticiaDate <= new Date(this.endDate)
+        );
       }
       return true;
     },
-    filterNoticias(keyword = '') {
-      this.filteredNoticias = this.noticias.filter(noticia => {
-        return this.filterByKeyword(noticia, keyword) &&
-               this.filterByTag(noticia) &&
-               this.filterByPortal(noticia) &&
-               this.filterByDate(noticia);
+    filterNoticias(keyword = "") {
+      this.filteredNoticias = this.noticias.filter((noticia) => {
+        return (
+          this.filterByKeyword(noticia, keyword) &&
+          this.filterByTag(noticia) &&
+          this.filterByPortal(noticia) &&
+          this.filterByDate(noticia)
+        );
       });
     },
+    changePage(step) {
+      this.pageIndex += step;
+      this.fetchNoticias();
+    },
     async fetchNoticias() {
-      const noticiaList = (await axios(`http://localhost:8080/noticias/listar/${this.pageIndex}`)).data
-      const mappedNoticiaList = noticiaList.map((n) => ({
-        titulo: n.portal.nome,
-        portal: n.portal.nome,
-        jornalista: n.reporte.nome ?? '',
-        content: n.notiText,
-        data: n.notiData ? n.notiData.join('/') : '',
-        categorias: n.tagNoticia.map(tagNoticia => tagNoticia.tagId.tagNome)
-      }))
-      
-      const count = (await axios('http://localhost:8080/noticias/total')).data
-      
-      this.totalPages = Math.ceil(count / 10)
-      this.noticias = mappedNoticiaList
-      this.filteredNoticias = this.noticias;
-      
-    }
-  }
+      try {
+        const noticiaList = (
+          await axios(`http://localhost:8080/noticias/listar/${this.pageIndex}`)
+        ).data;
+
+        const mappedNoticiaList = noticiaList
+          .filter(
+            (n) => n.reporte && n.portal && n.tagNoticia // Garante que todos os campos essenciais existem
+          )
+          .map((n) => ({
+            titulo: n.portal?.nome || "Título não encontrado",
+            portal: n.portal?.nome || "Portal não encontrado",
+            jornalista: n.reporte?.nome || "Jornalista não identificado",
+            content: n.notiText || "Conteúdo indisponível",
+            data: Array.isArray(n.notiData)
+              ? n.notiData.join("/")
+              : "Data não informada",
+            categorias:
+              n.tagNoticia?.map((tagNoticia) => tagNoticia.tagId?.tagNome) || [],
+          }));
+
+        const count = (await axios("http://localhost:8080/noticias/total")).data;
+
+        this.totalPages = Math.ceil(count / 10);
+        this.noticias = mappedNoticiaList;
+        this.filterNoticias(); // Atualiza `filteredNoticias` após buscar as notícias
+      } catch (error) {
+        console.error("Erro ao buscar notícias:", error);
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
+/* Mantido o estilo original */
 .home-view {
   display: flex;
   height: 100vh;
@@ -175,7 +178,7 @@ export default {
   flex-direction: column;
   flex-grow: 1;
   padding: 20px;
-  margin-top: 15px; /* Removida a margem da esquerda */
+  margin-top: 15px;
 }
 
 .search-section {
@@ -208,8 +211,8 @@ export default {
   width: 50%;
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid #ccc; 
-  outline: none; 
+  border: 1px solid #ccc;
+  outline: none;
 }
 
 .news-list {
@@ -250,7 +253,8 @@ export default {
     margin-left: 0;
   }
 
-  .search-section, .filters {
+  .search-section,
+  .filters {
     flex-direction: column;
   }
 
