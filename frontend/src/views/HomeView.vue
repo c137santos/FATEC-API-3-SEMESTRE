@@ -137,7 +137,7 @@ export default {
           jornalista: n.reporte?.nome || "Jornalista não identificado",  // Corrigido para acessar o nome do jornalista
           content: n.notiText || "Conteúdo indisponível",
           data: n.notiData || "Data não informada",
-          categorias: n.categorias || [],
+          categorias: n.tagNoticia ? n.tagNoticia.map(tag => tag.tagId.tagNome) : [],  // Certificando-se de que as tags estão aqui
         }));
         this.filteredNoticias = [...this.noticias];
 

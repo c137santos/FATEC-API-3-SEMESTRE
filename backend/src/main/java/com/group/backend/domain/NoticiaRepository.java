@@ -18,7 +18,9 @@ public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
     Page<Noticia> findAllNoticias(Pageable pageable);
 
     @Query("SELECT n FROM Noticia n " +
-           "WHERE (:tags IS NULL OR EXISTS (SELECT t FROM n.tagNoticia t WHERE t.tagId.tagNome IN :tags)) " +
+           "LEFT JOIN n.tagNoticia tn " +  // Utilizando LEFT JOIN para garantir que as tags sejam buscadas
+           "LEFT JOIN tn.tagId t " +
+           "WHERE (:tags IS NULL OR t.tagNome IN :tags) " +
            "AND (:portals IS NULL OR n.portal.nome IN :portals) " +
            "AND (:reporters IS NULL OR n.reporte.nome IN :reporters) " +
            "AND (:startDate IS NULL OR n.notiData >= :startDate) " +

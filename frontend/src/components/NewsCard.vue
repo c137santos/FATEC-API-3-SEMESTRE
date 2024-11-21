@@ -9,7 +9,10 @@
         <p><strong>Portal:</strong> {{ noticia.portal }}</p>
         <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
         <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
-        <p><strong>Tags:</strong> {{ noticia.categorias && noticia.categorias.length ? noticia.categorias.join(', ') : 'Sem tags' }}</p>
+        <p><strong>Tags:</strong> 
+          <!-- Exibe as tags associadas à notícia -->
+          {{ noticia.categorias && noticia.categorias.length ? noticia.categorias.join(', ') : 'Sem tags' }}
+        </p>
         <button class="read-more-btn" @click="showPopUp = true">Clique aqui para ler a notícia completa</button>
       </div>
       <div class="news-content-wrapper">
