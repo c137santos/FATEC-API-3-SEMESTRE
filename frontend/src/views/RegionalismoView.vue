@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <!-- Listagem de Regionalismos por Tag -->
+        <!-- Listagem de Regionalismos -->
         <div>
             <h2 class="mtb-medium">Tags com regionalismos conectados</h2>
             <div v-if="tagList.length > 0" class="tag-grid">
@@ -44,7 +44,7 @@
                                 {{ regionalismo.nome }}
                             </div>
                             <div class="regionalismo-editar">
-                                <CerbButton fill-type="mute" @click="editarRegionalismo(tag, regionalismo)">Editar</CerbButton>
+                                <CerbButton fill-type="mute" @click="editarRegionalismo(tag, regionalismo)" class="botao-grande">Editar</CerbButton>
                             </div>
                         </div>
                         <div v-else class="no-regionalismo">Nenhum regionalismo cadastrado</div>
@@ -78,6 +78,15 @@ const showCadastro = ref(false);
 const showModal = ref(false);
 const regionalismoEdit = ref<any>(null);
 
+const exibirFormulario = ref(false);
+
+const toggleFormulario = () => {
+    exibirFormulario.value = !exibirFormulario.value;
+    if (!exibirFormulario.value) {
+        resetFields();
+    }
+};
+
 const resetFields = () => {
     regionalismoInput.value = '';
     tagSelect.value = null;
@@ -108,6 +117,7 @@ const save = async () => {
         console.log('Regionalismo salvo:', response.data);
         await fetch();
         resetFields();
+        exibirFormulario.value = false;
     } catch (error) {
         console.error('Erro ao salvar regionalismo:', error);
     }
@@ -115,6 +125,7 @@ const save = async () => {
 
 const editarRegionalismo = (tag: any, regionalismo: any) => {
     regionalismoEdit.value = { 
+        id: regionalismo.regId,
         id: regionalismo.regId,
         nome: regionalismo.nome, 
         tagId: regionalismo.tagId 
@@ -132,6 +143,7 @@ const salvarEdicao = async (regionalismoAtualizado: any) => {
         );
         console.log('Edição salva com sucesso:', response.data);
         showModal.value = false;
+        await fetch();
         await fetch();
     } catch (error) {
         console.error('Erro ao salvar edição:', error);
