@@ -17,6 +17,12 @@
           <option value="">Selecionar Tag</option>
           <option v-for="tag in tags" :key="tag.name" :value="tag.name">{{ tag.name }}</option>
         </select>
+
+        <select v-model="selectedPortal">
+          <option value="">Selecionar Portal</option>
+          <option v-for="portal in portais" :key="portal.name" :value="portal.name">{{ portal.name }}</option>
+        </select>
+
         <button @click="applyFilters">Aplicar Filtros</button>
       </div>
 
@@ -42,7 +48,7 @@
 </template>
 
 <script>
-import "./../utils/HomeView.css"; // Importando o CSS específico para HomeView
+import "./../utils/HomeView.css";
 import SearchBar from "@/components/SearchBar.vue";
 import DataRange from "@/components/DataRange.vue";
 import NewsCard from "@/components/NewsCard.vue";
@@ -55,48 +61,75 @@ export default {
   },
   data() {
     return {
-      pageIndex: 0, // Índice da página atual
-      totalPages: 0, // Total de páginas
-      selectedTag: "", // Tag selecionada
-      tags: [], // Lista de tags disponíveis
-      filteredNoticias: [], // Notícias filtradas para exibição
-      noticias: [], // Notícias completas da API
+      pageIndex: 0,
+      totalPages: 0,
+      selectedTag: "",
+      selectedPortal: "",
+      tags: [],
+      portais: [],
+      filteredNoticias: [],
+      noticias: [],
     };
   },
   mounted() {
     console.log("Componente montado. Iniciando carregamento de dados...");
-    this.fetchFilters(); // Carrega os filtros disponíveis
-    this.fetchNoticias(); // Carrega todas as notícias inicialmente
+    this.fetchFilters();
+    this.fetchNoticias();
   },
   methods: {
-    // Carrega os filtros de tags
+    // Carrega os filtros de tags e portais
     async fetchFilters() {
       try {
-        const response = await fetch("http://localhost:8080/tags/listar");
-        const data = await response.json();
-        this.tags = data.map((tag) => ({ name: tag.tagNome }));
-        console.log("Tags carregadas:", this.tags);
+        const [tagsResponse, portaisResponse] = await Promise.all([
+          fetch("http://localhost:8080/tags/listar"),
+          fetch("http://localhost:8080/portais/listar"),
+        ]);
+
+        if (!tagsResponse.ok || !portaisResponse.ok) {
+          throw new Error("Falha ao carregar os filtros");
+        }
+
+        const tagsData = await tagsResponse.json();
+        const portaisData = await portaisResponse.json();
+
+        this.tags = tagsData.map((tag) => ({ name: tag.tagNome }));
+        this.portais = portaisData.map((portal) => ({ name: portal.nome }));
+
+        console.log("Tags e Portais carregados:", this.tags, this.portais);
       } catch (error) {
-        console.error("Erro ao buscar tags:", error);
+        console.error("Erro ao buscar filtros:", error);
+        alert("Erro ao carregar os filtros. Tente novamente mais tarde.");
       }
     },
 
     // Aplica os filtros selecionados
     applyFilters() {
       console.log("Aplicando filtros selecionados...");
-      this.pageIndex = 0; // Reinicia a página para a primeira
-      this.fetchNoticias();
+
+      // Se nenhum valor for selecionado, envia todas as opções disponíveis
+      const selectedTag = this.selectedTag || this.tags.map((tag) => tag.name).join(",");
+      const selectedPortal = this.selectedPortal || this.portais.map((portal) => portal.name).join(",");
+
+      console.log(`Filtros aplicados: tag=${selectedTag}, portal=${selectedPortal}`);
+
+      this.pageIndex = 0;
+      this.fetchNoticias(selectedTag, selectedPortal);
     },
 
     // Busca notícias filtradas
-    async fetchNoticias() {
+    async fetchNoticias(selectedTag = "", selectedPortal = "") {
       try {
         const params = new URLSearchParams({
-          tag: this.selectedTag || "",
+          tag: selectedTag,
+          portal: selectedPortal,
           pageIndex: this.pageIndex,
         });
 
         const response = await fetch(`http://localhost:8080/noticias/listar?${params.toString()}`);
+        if (!response.ok) {
+          throw new Error("Erro ao buscar notícias");
+        }
+
         const noticiaList = await response.json();
 
         this.noticias = noticiaList.map((n) => ({
@@ -111,12 +144,17 @@ export default {
         this.filteredNoticias = [...this.noticias];
 
         const totalResponse = await fetch(`http://localhost:8080/noticias/total?${params.toString()}`);
+        if (!totalResponse.ok) {
+          throw new Error("Erro ao buscar total de notícias");
+        }
+
         const total = await totalResponse.json();
         this.totalPages = Math.ceil(total / 10);
 
         console.log("Notícias atualizadas:", this.noticias);
       } catch (error) {
         console.error("Erro ao buscar notícias:", error);
+        alert("Erro ao carregar as notícias. Tente novamente mais tarde.");
       }
     },
 
@@ -127,6 +165,14 @@ export default {
         this.pageIndex = newPageIndex;
         this.fetchNoticias();
       }
+    },
+
+    // Define a palavra-chave de busca
+    handleSearch(keyword) {
+      console.log("Buscando por palavra-chave:", keyword);
+      this.selectedTag = keyword;
+      this.pageIndex = 0;
+      this.fetchNoticias();
     },
   },
 };

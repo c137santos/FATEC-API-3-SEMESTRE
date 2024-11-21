@@ -1,0 +1,60 @@
+Data/Hora: 2024-11-21T08:59:52.847429380
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T08:59:52.966137040
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:06.588461088
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:06.678227045
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:09.747522501
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [noticiasdatv.uol.com.br]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:09.772395670
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [noticiasdatv.uol.com.br]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:12.250785580
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:12.291804603
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:15.777492463
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.com]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:15.805308490
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.com]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:18.929605175
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+-----------------------------------
+Data/Hora: 2024-11-21T09:00:18.956063804
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+-----------------------------------

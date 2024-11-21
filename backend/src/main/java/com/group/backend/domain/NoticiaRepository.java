@@ -8,14 +8,25 @@ import org.springframework.stereotype.Repository;
 import com.group.backend.entity.Noticia;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 @Repository
 public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
 
+    @Query("SELECT n FROM Noticia n")
+    Page<Noticia> findAllNoticias(Pageable pageable);
+
     @Query("SELECT n FROM Noticia n " +
-           "WHERE (:tag IS NULL OR EXISTS (SELECT t FROM n.tagNoticia t WHERE t.tagId.tagNome = :tag))")
-    Page<Noticia> findByTag(@Param("tag") String tag, Pageable pageable);
+           "WHERE (:tags IS NULL OR EXISTS (SELECT t FROM n.tagNoticia t WHERE t.tagId.tagNome IN :tags)) " +
+           "AND (:portals IS NULL OR n.portal.nome IN :portals)")
+    Page<Noticia> findByTagsAndPortals(
+        @Param("tags") List<String> tags,
+        @Param("portals") List<String> portals,
+        Pageable pageable
+    );
 
     boolean existsByUrl(String url);
+
     Noticia findByUrl(String url);
 
     @Query("SELECT MAX(n.notiId) FROM Noticia n")
