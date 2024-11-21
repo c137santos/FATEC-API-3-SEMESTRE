@@ -17,6 +17,7 @@ public class ResultApi {
     private Long resId;
 
     @Column(name = "res_data")
+    @Getter
     @Setter
     private LocalDate resData;
 
