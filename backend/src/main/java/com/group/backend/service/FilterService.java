@@ -13,11 +13,12 @@ public class FilterService {
 
     private static final String LOG_FILE_PATH = "filter_logs.txt";
 
-    public FilterCriteria processFilters(String tag, String portal) {
+    public FilterCriteria processFilters(String tag, String portal, String reporter) {
         List<String> tags = (tag == null || tag.isEmpty()) ? null : List.of(tag.split(","));
         List<String> portals = (portal == null || portal.isEmpty()) ? null : List.of(portal.split(","));
+        List<String> reporters = (reporter == null || reporter.isEmpty()) ? null : List.of(reporter.split(","));
 
-        FilterCriteria criteria = new FilterCriteria(tags, portals);
+        FilterCriteria criteria = new FilterCriteria(tags, portals, reporters);
 
         logFilters(criteria);
 
@@ -30,6 +31,7 @@ public class FilterService {
             writer.write("Filtros Aplicados:\n");
             writer.write("  - Tags: " + (criteria.getTags() == null ? "Todas" : criteria.getTags()) + "\n");
             writer.write("  - Portais: " + (criteria.getPortals() == null ? "Todos" : criteria.getPortals()) + "\n");
+            writer.write("  - Jornalistas: " + (criteria.getReporters() == null ? "Todos" : criteria.getReporters()) + "\n");
             writer.write("-----------------------------------\n");
         } catch (IOException e) {
             System.err.println("Erro ao registrar filtros no arquivo: " + e.getMessage());

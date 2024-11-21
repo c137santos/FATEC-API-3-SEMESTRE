@@ -58,3 +58,303 @@ Filtros Aplicados:
   - Tags: [a, b]
   - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
 -----------------------------------
+Data/Hora: 2024-11-21T09:11:22.504677078
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:11:23.686196003
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:11:32.102059763
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:11:35.024315142
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:11:42.780932634
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:11:43.901538339
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:12:50.690396372
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:12:51.915617617
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:15:44.826049914
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:15:48.462349108
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:14.796609810
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:15.957099011
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:20.890517128
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:20.939235726
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:23.838455119
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:24.894181234
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:50.967302373
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:51.053967554
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:56.092848689
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Raphael Di Cunto]
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:56.165237575
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Raphael Di Cunto]
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:58.953721563
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Raphael Di Cunto]
+-----------------------------------
+Data/Hora: 2024-11-21T09:21:59.011956723
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Raphael Di Cunto]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:10.834908039
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:10.879523954
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:31.170723893
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:31.223619818
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:33.587228369
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:33.615616967
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:36.162546345
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:36.213486190
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:39.099396027
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:39.140065020
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Mario Mesquita]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:41.730219679
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Ana Luiza Tieghi]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:41.776550478
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Ana Luiza Tieghi]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:49.235397892
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Cristian Favaro]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:49.275866595
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Cristian Favaro]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:55.659568657
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Rafaela Zampolli* — De São Paulo]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:55.696759831
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Rafaela Zampolli* — De São Paulo]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:58.617482404
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Victoria Netto]
+-----------------------------------
+Data/Hora: 2024-11-21T09:22:58.658487417
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Victoria Netto]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:01.884414231
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Genilson Cezar]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:01.917912189
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Genilson Cezar]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:05.586643102
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Nikkei Asia — Taipei]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:05.625739125
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Nikkei Asia — Taipei]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:08.195910059
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:08.234524924
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Bianca Ribeiro]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:12.148500364
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Bloomberg]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:12.160702514
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com, noticiasdatv.uol.com.br]
+  - Jornalistas: [Bloomberg]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:15.876211945
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Bloomberg]
+-----------------------------------
+Data/Hora: 2024-11-21T09:23:15.888239571
+Filtros Aplicados:
+  - Tags: [a, b]
+  - Portais: [valor.globo.com]
+  - Jornalistas: [Bloomberg]
+-----------------------------------

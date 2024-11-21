@@ -35,17 +35,23 @@ public class NoticiaController {
     public ResponseEntity<List<Noticia>> listarNoticias(
         @RequestParam(required = false) String tag,
         @RequestParam(required = false) String portal,
+        @RequestParam(required = false) String reporter,
         @RequestParam(defaultValue = "0") Integer pageIndex
     ) {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
 
-        FilterCriteria criteria = filterService.processFilters(tag, portal);
+        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter);
 
         Page<Noticia> noticiaPage;
-        if (criteria.getTags() == null && criteria.getPortals() == null) {
+        if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null) {
             noticiaPage = noticiaRepository.findAll(pageable);
         } else {
-            noticiaPage = noticiaRepository.findByTagsAndPortals(criteria.getTags(), criteria.getPortals(), pageable);
+            noticiaPage = noticiaRepository.findByTagsPortalsAndReporters(
+                criteria.getTags(),
+                criteria.getPortals(),
+                criteria.getReporters(),
+                pageable
+            );
         }
 
         List<Noticia> noticiaList = noticiaPage.toList();
@@ -62,16 +68,21 @@ public class NoticiaController {
     @GetMapping("/total")
     public ResponseEntity<Long> getTotal(
         @RequestParam(required = false) String tag,
-        @RequestParam(required = false) String portal
+        @RequestParam(required = false) String portal,
+        @RequestParam(required = false) String reporter
     ) {
-        FilterCriteria criteria = filterService.processFilters(tag, portal);
+        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter);
 
         long total;
-        if (criteria.getTags() == null && criteria.getPortals() == null) {
+        if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null) {
             total = noticiaRepository.count();
         } else {
-            total = noticiaRepository.findByTagsAndPortals(criteria.getTags(), criteria.getPortals(), Pageable.unpaged())
-                    .getTotalElements();
+            total = noticiaRepository.findByTagsPortalsAndReporters(
+                criteria.getTags(),
+                criteria.getPortals(),
+                criteria.getReporters(),
+                Pageable.unpaged()
+            ).getTotalElements();
         }
 
         return ResponseEntity.ok(total);
