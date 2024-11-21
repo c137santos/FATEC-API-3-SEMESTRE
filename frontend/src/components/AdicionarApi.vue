@@ -236,20 +236,22 @@ export default {
 .form-group input[type='text'] {
   width: 100%;
   padding: 25px 10px 20px; /* Adiciona mais espaço no topo para o placeholder */
-  background-color: #e6e0e9;
+  background-color: #f3e5f5; /* Cor roxa para o fundo das caixas de texto */
   border: 0px;
   border-bottom: 2px solid black;
   border-radius: 5px;
+  border-color:#d1c4e9;
   font-size: 16px;
   box-sizing: border-box;
 }
 
 .form-group input::placeholder {
-  color: black;
+  color: black; /* Texto do placeholder branco */
   font-size: 11.4px;
   position: relative;
   top: -19px;
 }
+
 .form-label {
   font-size: 16px;
   font-weight: 600;
@@ -258,6 +260,7 @@ export default {
 .select-container {
   margin-top: 2px; /* Ajuste conforme necessário */
 }
+
 .form-group select {
   font-size: 16px;
   border-radius: 10px;
@@ -277,10 +280,15 @@ export default {
 .btn-show-form {
   padding: 8px 16px;
   margin-top: 10px;
-  color: black;
+  color: white; /* Cor do texto do botão */
+  background-color: #7a4eab; /* Cor roxa para botões dentro do formulário */
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.btn-show-form {
+  background-color: black; /* Cor preta para o botão "Cadastrar Nova Api" */
 }
 
 .error {
