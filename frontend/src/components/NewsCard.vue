@@ -24,19 +24,16 @@
         <div class="popup-header">
           <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
           <div class="popup-header-text">
-            <h3>{{ noticia.titulo }}</h3>
-            <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
+            <p><strong>Fonte: {{ noticia.portal }}</strong></p>
+            <p><strong>Escrito por:</strong> {{ noticia.jornalista }}</p>
+            <p><strong>{{ formatDate(noticia.data)}}</strong></p>
+            <p><strong>Url:</strong><a :href="noticia.url" target="_blank">{{ noticia.url }}</a></p>
           </div>
         </div>
         </div>
         
         <div class="popup-body">
-          <button class="btn-fechar" @click="fecharModal">X</button>
-          <h2>{{ noticia.notiText }}</h2>
-          <a :href="noticia.url" target="_blank">{{ noticia.url }}</a>
-          <p>{{ noticia.notiData }}</p>
-          <p>Fonte: {{ noticia.portalNome }}</p>
-          <p>Escrito por: {{ noticia.reporterNome }}</p>
+          <h2>{{ noticia.texto }}</h2>
           <p class="popup-text">Aqui estará o conteúdo completo da notícia</p>
         </div>
         
@@ -182,6 +179,7 @@ export default {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+  margin-bottom: 80px;
 }
 
 .popup-header-text h3 {
@@ -194,6 +192,7 @@ export default {
   margin: 0;
   color: #49454F;
   font-size: 16px;
+  text-align: left;
 }
 
 .popup-body {
@@ -232,5 +231,49 @@ background: none;
 border: none;
 font-size: 24px;
 cursor: pointer;
+}
+
+/* @media para dispositivos móveis */
+@media (max-width: 768px) {
+  .news-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .news-content-wrapper {
+    max-width: 100%;
+  }
+  .news-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+  .news-content {
+    margin-left: 0;
+    width: 100%;
+    text-wrap: wrap;
+  }
+  .news-content h3 {
+    font-size: 18px;
+  }
+  .news-content p {
+    font-size: 14px;
+  }
+  .read-more-btn {
+    margin-top: 8px;
+    padding: 6px 12px;
+  }
+  .popup-content {
+    width: 90%;
+    max-width: none;
+  }
+  .popup-header-text h3 {
+    font-size: 20px;
+  }
+  .popup-header-text p {
+    font-size: 14px;
+  }
+  .popup-body {
+    margin-bottom: 10px;
+  }
 }
 </style>
