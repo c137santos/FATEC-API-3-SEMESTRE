@@ -1,53 +1,51 @@
 <template>
   <div class="home-view">
     <div class="main-content">
-      <!-- Barra de pesquisa e datas -->
+      <!-- Seção de busca -->
       <div class="search-section">
         <div class="search-bar">
           <SearchBar @search="handleSearch" />
         </div>
-
-        <!-- DataRange -->
         <div class="date-section">
           <DataRange @start-date="setStartDate" @end-date="setEndDate" />
         </div>
       </div>
 
-      <!-- Filtros de Tags e Portais -->
+      <!-- Seção de filtros -->
       <div class="filters">
         <select v-model="selectedTag">
           <option value="">Selecionar Tag</option>
           <option v-for="tag in tags" :key="tag.name" :value="tag.name">{{ tag.name }}</option>
         </select>
-
-        <select v-model="selectedPortal">
-          <option value="">Selecionar Portal</option>
-          <option v-for="portal in portais" :key="portal.name" :value="portal.name">{{ portal.name }}</option>
-        </select>
+        <button @click="applyFilters">Aplicar Filtros</button>
       </div>
+
+      <!-- Paginação -->
       <div class="pagination-wrapper">
-        <!-- Removido v-if="true", pois era redundante -->
         <div class="pagination-controls">
           <button :disabled="pageIndex <= 0" @click="changePage(-1)">Anterior</button>
-          <span>Página {{ pageIndex + 1 }}</span>
+          <span>Página {{ pageIndex + 1 }} de {{ totalPages }}</span>
           <button :disabled="pageIndex + 1 >= totalPages" @click="changePage(1)">Próxima</button>
         </div>
       </div>
 
       <!-- Lista de notícias -->
       <div class="news-list">
-        <!-- Ajustado o :key para usar propriedades únicas -->
-        <NewsCard v-for="noticia in filteredNoticias" :key="noticia.titulo + noticia.portal" :noticia="noticia" />
+        <NewsCard
+          v-for="noticia in filteredNoticias"
+          :key="noticia.titulo + noticia.portal"
+          :noticia="noticia"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import "./../utils/HomeView.css"; // Importando o CSS específico para HomeView
 import SearchBar from "@/components/SearchBar.vue";
 import DataRange from "@/components/DataRange.vue";
 import NewsCard from "@/components/NewsCard.vue";
-import axios from "axios";
 
 export default {
   components: {
@@ -57,209 +55,79 @@ export default {
   },
   data() {
     return {
-      pageIndex: 0,
-      totalPages: 0,
-      selectedTag: "",
-      selectedPortal: "",
-      tags: [
-        { name: "Soja" },
-        { name: "Agricultura" },
-        { name: "Política" },
-        { name: "Economia" },
-      ],
-      portais: [
-        { name: "Portal Exemplo" },
-        { name: "Portal Exemplo 2" },
-        { name: "Portal 3" },
-        { name: "Portal 4" },
-      ],
-      startDate: "",
-      endDate: "",
-      filteredNoticias: [],
-      noticias: [],
+      pageIndex: 0, // Índice da página atual
+      totalPages: 0, // Total de páginas
+      selectedTag: "", // Tag selecionada
+      tags: [], // Lista de tags disponíveis
+      filteredNoticias: [], // Notícias filtradas para exibição
+      noticias: [], // Notícias completas da API
     };
   },
   mounted() {
-    this.fetchNoticias();
+    console.log("Componente montado. Iniciando carregamento de dados...");
+    this.fetchFilters(); // Carrega os filtros disponíveis
+    this.fetchNoticias(); // Carrega todas as notícias inicialmente
   },
   methods: {
-    handleSearch(keyword) {
-      this.filterNoticias(keyword);
-    },
-    setStartDate(date) {
-      this.startDate = date;
-      this.filterNoticias();
-    },
-    setEndDate(date) {
-      this.endDate = date;
-      this.filterNoticias();
-    },
-    filterByKeyword(noticia, keyword) {
-      return noticia.titulo.toLowerCase().includes(keyword.toLowerCase());
-    },
-    filterByTag(noticia) {
-      return this.selectedTag
-        ? noticia.categorias.includes(this.selectedTag)
-        : true;
-    },
-    filterByPortal(noticia) {
-      return this.selectedPortal
-        ? noticia.portal === this.selectedPortal
-        : true;
-    },
-    filterByDate(noticia) {
-      if (this.startDate && this.endDate) {
-        const noticiaDate = new Date(noticia.data);
-        return (
-          noticiaDate >= new Date(this.startDate) &&
-          noticiaDate <= new Date(this.endDate)
-        );
+    // Carrega os filtros de tags
+    async fetchFilters() {
+      try {
+        const response = await fetch("http://localhost:8080/tags/listar");
+        const data = await response.json();
+        this.tags = data.map((tag) => ({ name: tag.tagNome }));
+        console.log("Tags carregadas:", this.tags);
+      } catch (error) {
+        console.error("Erro ao buscar tags:", error);
       }
-      return true;
     },
-    filterNoticias(keyword = "") {
-      this.filteredNoticias = this.noticias.filter((noticia) => {
-        return (
-          this.filterByKeyword(noticia, keyword) &&
-          this.filterByTag(noticia) &&
-          this.filterByPortal(noticia) &&
-          this.filterByDate(noticia)
-        );
-      });
-    },
-    changePage(step) {
-      this.pageIndex += step;
+
+    // Aplica os filtros selecionados
+    applyFilters() {
+      console.log("Aplicando filtros selecionados...");
+      this.pageIndex = 0; // Reinicia a página para a primeira
       this.fetchNoticias();
     },
+
+    // Busca notícias filtradas
     async fetchNoticias() {
       try {
-        const noticiaList = (
-          await axios(`http://localhost:8080/noticias/listar/${this.pageIndex}`)
-        ).data;
+        const params = new URLSearchParams({
+          tag: this.selectedTag || "",
+          pageIndex: this.pageIndex,
+        });
 
-        const mappedNoticiaList = noticiaList
-          .filter(
-            (n) => n.reporte && n.portal && n.tagNoticia // Garante que todos os campos essenciais existem
-          )
-          .map((n) => ({
-            titulo: n.portal?.nome || "Título não encontrado",
-            portal: n.portal?.nome || "Portal não encontrado",
-            jornalista: n.reporte?.nome || "Jornalista não identificado",
-            content: n.notiText || "Conteúdo indisponível",
-            data: Array.isArray(n.notiData)
-              ? n.notiData.join("/")
-              : "Data não informada",
-            categorias:
-              n.tagNoticia?.map((tagNoticia) => tagNoticia.tagId?.tagNome) || [],
-          }));
+        const response = await fetch(`http://localhost:8080/noticias/listar?${params.toString()}`);
+        const noticiaList = await response.json();
 
-        const count = (await axios("http://localhost:8080/noticias/total")).data;
+        this.noticias = noticiaList.map((n) => ({
+          titulo: n.titulo || "Título não encontrado",
+          portal: n.portal?.nome || "Portal não encontrado",
+          jornalista: n.jornalista || "Jornalista não identificado",
+          content: n.notiText || "Conteúdo indisponível",
+          data: n.notiData || "Data não informada",
+          categorias: n.categorias || [],
+        }));
 
-        this.totalPages = Math.ceil(count / 10);
-        this.noticias = mappedNoticiaList;
-        this.filterNoticias(); // Atualiza `filteredNoticias` após buscar as notícias
+        this.filteredNoticias = [...this.noticias];
+
+        const totalResponse = await fetch(`http://localhost:8080/noticias/total?${params.toString()}`);
+        const total = await totalResponse.json();
+        this.totalPages = Math.ceil(total / 10);
+
+        console.log("Notícias atualizadas:", this.noticias);
       } catch (error) {
         console.error("Erro ao buscar notícias:", error);
+      }
+    },
+
+    // Altera a página atual
+    changePage(step) {
+      const newPageIndex = this.pageIndex + step;
+      if (newPageIndex >= 0 && newPageIndex < this.totalPages) {
+        this.pageIndex = newPageIndex;
+        this.fetchNoticias();
       }
     },
   },
 };
 </script>
-
-<style scoped>
-/* Mantido o estilo original */
-.home-view {
-  display: flex;
-  height: 100vh;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: 20px;
-  margin-top: 15px;
-}
-
-.search-section {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.search-bar {
-  flex: 2;
-}
-
-.date-section {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-}
-
-.filters {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.filters select {
-  flex: 1;
-  width: 50%;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  outline: none;
-}
-
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.pagination-wrapper {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.pagination-controls {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.pagination-controls button {
-  padding: 8px 16px;
-  background-color: #6f3c91;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.pagination-controls button:disabled {
-  background-color: #e0e0e0;
-  cursor: not-allowed;
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    padding: 10px;
-    margin-left: 0;
-  }
-
-  .search-section,
-  .filters {
-    flex-direction: column;
-  }
-
-  .filters select {
-    width: 100%;
-  }
-}
-</style>
