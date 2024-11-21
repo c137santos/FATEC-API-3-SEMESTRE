@@ -18,6 +18,12 @@ public interface PortalRepository extends JpaRepository<Portal, Long> {
            "WHERE p.ativo = true " +
            "AND t.tagActive = true " +
            "AND p.frequencia = :frequencia")
-
     List<Portal> findByFrequenciaAndActiveTags(@Param("frequencia") String frequencia);
+
+    Portal findByUrl(String url);
+
+    @Query("SELECT p FROM Portal p " +
+           "WHERE LOWER(FUNCTION('REPLACE', FUNCTION('REPLACE', p.url, 'http://', ''), 'https://', '')) = " +
+           "LOWER(FUNCTION('REPLACE', FUNCTION('REPLACE', :url, 'http://', ''), 'https://', ''))")
+    Portal findByNormalizedUrl(@Param("url") String url);
 }

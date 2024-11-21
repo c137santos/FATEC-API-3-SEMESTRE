@@ -20,7 +20,11 @@ public class PortaisCrawler {
     private final HtmlParserService htmlParserService; // Usando o serviço modularizado
 
     @Autowired
-    public PortaisCrawler(PortalRepository portalRepository, NoticiaRepository noticiaRepository, HtmlParserService htmlParserService, ReporterRepository reporterRepository) {
+    public PortaisCrawler(
+            PortalRepository portalRepository,
+            NoticiaRepository noticiaRepository,
+            HtmlParserService htmlParserService,
+            ReporterRepository reporterRepository) {
         this.portalRepository = portalRepository;
         this.noticiaRepository = noticiaRepository;
         this.htmlParserService = htmlParserService;
@@ -28,7 +32,9 @@ public class PortaisCrawler {
     }
 
     public void startCrawlForFrequency(String frequencia) {
-        ControllerCrawler controllerCrawler = new ControllerCrawler(noticiaRepository, reporterRepository, htmlParserService);
+        ControllerCrawler controllerCrawler = new ControllerCrawler(
+                noticiaRepository, reporterRepository, portalRepository, htmlParserService
+        );
 
         List<Portal> portals = portalRepository.findByFrequenciaAndActiveTags(frequencia);
 
@@ -43,7 +49,7 @@ public class PortaisCrawler {
 
             try {
                 System.out.println("Iniciando crawl para: " + url + " com a frequência: " + frequencia);
-                
+
                 Noticia noticia = new Noticia();
                 noticia.setUrl(url);
                 noticia.setPorId(portalId.intValue());

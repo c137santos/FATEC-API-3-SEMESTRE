@@ -3,6 +3,7 @@ package com.group.backend.crawler;
 import com.group.backend.entity.Noticia;
 import com.group.backend.entity.TagNoticia;
 import com.group.backend.entity.Reporter;
+import com.group.backend.entity.Portal; // Certifique-se de que esta importação está presente
 import com.group.backend.entity.Tag;
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.ReporterRepository;
@@ -101,16 +102,27 @@ public class HtmlParserService {
             String reporterName = authorExtractor.extractAuthor(doc, noticia.getUrl());
             if (reporterName != null) {
                 logger.info("Nome do repórter extraído: {}", reporterName);
-                Reporter reporter = reporterRepository.findByNome(reporterName);
-                if (reporter == null) {
-                    reporter = new Reporter(reporterName, noticia.getPortal());
-                    reporterRepository.save(reporter);
-                    logger.info("Novo repórter salvo no repositório: {}", reporterName);
-                } else {
-                    logger.debug("Repórter já existe no repositório: {}", reporterName);
+
+                // Valida se o portal está associado à notícia
+                Portal portal = noticia.getPortal();
+                if (portal == null) {
+                    logger.error("Portal não encontrado para a notícia: {}", noticia.getUrl());
+                    return; // Interrompe se o portal não estiver associado
                 }
+
+                // Busca ou cria o repórter associado ao portal
+                Reporter reporter = reporterRepository.findByNomeAndPortal(reporterName, portal);
+                if (reporter == null) {
+                    reporter = new Reporter(reporterName, portal);
+                    reporterRepository.save(reporter);
+                    logger.info("Novo repórter salvo: Nome={}, Portal={}", reporterName, portal.getNome());
+                } else {
+                    logger.debug("Repórter já existe: Nome={}, Portal={}", reporterName, portal.getNome());
+                }
+
+                // Associa o repórter à notícia
                 noticia.setReporte(reporter);
-                logger.info("Repórter associado à notícia: {}", reporterName);
+                logger.info("Repórter associado à notícia: Nome={}, Portal={}", reporterName, portal.getNome());
             } else {
                 logger.warn("Não foi possível extrair o nome do repórter do arquivo: {}", filePath.getFileName());
             }
