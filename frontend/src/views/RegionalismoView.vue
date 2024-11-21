@@ -1,22 +1,30 @@
 <template>
     <div class="wrapper">
+        <!-- Botão Cadastrar Regionalismo -->
+        <div class="botao-cadastrar-container">
+            <button class="botao-cadastrar" @click="showCadastro = true">Cadastrar Regionalismo</button>
+        </div>
+
         <!-- Formulário de Cadastro -->
-        <div class="d-flex plr-medium ptb-small flex-column border-1">
-            <h2>Cadastrar Regionalismos</h2>
-            <h4>Regionalismo</h4>
-            <span class="d-flex mtb-small justify-stretch">
-                <input v-model="regionalismoInput" class="w-100 plr-small border-1 h-medium" type="text" placeholder="Digite o nome do regionalismo" />
+        <div v-if="showCadastro" class="formulario-cadastro">
+            <div class="info-icon">
+                <span>ⓘ</span>
+            </div>
+            <h2>Cadastrar Regionalismo</h2>
+            <h4>Nome do regionalismo</h4>
+            <span class="input-container">
+                <input v-model="regionalismoInput" class="input-text" type="text" placeholder="Digite o nome do regionalismo" />
             </span>
-            <div class="d-flex flex-column mtb-small w-33">
+            <div class="input-container">
                 <div>Tags relacionadas</div>
-                <select v-model="tagSelect" class="h-medium plr-small mtb-small border-1 bg-transparent">
+                <select v-model="tagSelect" class="input-select">
                     <option value="" disabled>Selecione uma tag</option>
                     <option v-for="(tag, index) in tagList" :key="index" :value="tag.tagId"> 
                         {{ tag.tagNome }} 
                     </option>
                 </select>
             </div>
-            <div class="mtb-small d-flex flex-gap-1">
+            <div class="botoes-container">
                 <CerbButton :disabled="!regionalismoInput || !tagSelect" @click="save">Salvar</CerbButton>
                 <CerbButton fill-type="revert" @click="resetFields">Cancelar</CerbButton>
             </div>
@@ -25,10 +33,11 @@
         <!-- Listagem de Regionalismos por Tag -->
         <div>
             <h2 class="mtb-medium">Tags com regionalismos conectados</h2>
-            <div v-if="tagList.length > 0">
+            <div v-if="tagList.length > 0" class="tag-grid">
                 <div v-for="(tag, index) in tagList" :key="index" class="tag-section">
-                    <h4>Tag: {{ tag.tagNome }}</h4>
-                    
+                    <div class="tag-header">
+                        <h4>Tag: {{ tag.tagNome }}</h4>
+                    </div>
                     <div class="regionalismo-list">
                         <div v-if="tag.regionalismos.length > 0" v-for="(regionalismo, idx) in tag.regionalismos" :key="idx" class="regionalismo-item">
                             <div class="regionalismo-nome">
@@ -38,7 +47,7 @@
                                 <CerbButton fill-type="mute" @click="editarRegionalismo(tag, regionalismo)">Editar</CerbButton>
                             </div>
                         </div>
-                        <div v-else>Nenhum regionalismo cadastrado</div>
+                        <div v-else class="no-regionalismo">Nenhum regionalismo cadastrado</div>
                     </div>
                 </div>
             </div>
@@ -61,16 +70,18 @@ import ModalEdicaoRegionalismo from '@/components/ModalEdicaoRegionalismo.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
-const tagList = ref<any[]>([]);
+const tagList = ref<any[]>([]); 
 const regionalismoInput = ref('');
 const tagSelect = ref<string | null>(null);
 
+const showCadastro = ref(false);
 const showModal = ref(false);
 const regionalismoEdit = ref<any>(null);
 
 const resetFields = () => {
     regionalismoInput.value = '';
     tagSelect.value = null;
+    showCadastro.value = false;
 };
 
 const fetch = async () => {
@@ -104,7 +115,7 @@ const save = async () => {
 
 const editarRegionalismo = (tag: any, regionalismo: any) => {
     regionalismoEdit.value = { 
-        id: regionalismo.regId,  // Garanta que o ID está sendo definido aqui
+        id: regionalismo.regId,
         nome: regionalismo.nome, 
         tagId: regionalismo.tagId 
     };
@@ -121,7 +132,7 @@ const salvarEdicao = async (regionalismoAtualizado: any) => {
         );
         console.log('Edição salva com sucesso:', response.data);
         showModal.value = false;
-        await fetch();  // Atualiza a lista
+        await fetch();
     } catch (error) {
         console.error('Erro ao salvar edição:', error);
     }
@@ -133,63 +144,120 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.border-1 {
-    border: 1px solid #cdc6d8;
-}
-.d-flex {
-    display: flex;
-}
-.flex-gap-1 {
-    gap: 1rem;
-}
-.flex-column {
-    flex-direction: column;
-}
-.justify-stretch {
-    justify-content: stretch;
-}
-.justify-between {
-    justify-content: space-between;
-}
-.align-center {
-    align-items: center;
-}
-.w-100 {
-    width: 100%;
-}
-.w-33 {
-    width: 33%;
-}
-.h-medium {
-    height: 2rem;
-}
-.bg-transparent {
-    background-color: transparent;
+.wrapper {
+    padding: 1rem;
 }
 
-/* Estilos de Lista e Agrupamento */
-.tag-section {
+.botao-cadastrar-container {
     margin-bottom: 1rem;
+}
+
+.botao-cadastrar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.formulario-cadastro {
+    background-color: #f5f5f5;
     padding: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 8px;
 }
-.regionalismo-list {
+
+.info-icon {
+    font-size: 1.5rem;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+    padding: 0.3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+h4 {
+    margin-bottom: 0.3rem;
+}
+
+.input-container {
+    margin-bottom: 1rem;
+}
+
+.input-text,
+.input-select {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border: 1px solid #cdc6d8;
+    border-radius: 8px;
+    background-color: #e9d8fd;
+}
+
+.botoes-container {
     display: flex;
-    flex-direction: column;
     gap: 0.5rem;
 }
+
+CerbButton {
+    border-radius: 20px;
+}
+
+.tag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.tag-section {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.tag-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.regionalismo-list {
+    margin-top: 1rem;
+}
+
 .regionalismo-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
     padding: 0.5rem;
-    border: 1px solid #eee;
-    border-radius: 5px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
 }
+
 .regionalismo-nome {
-    flex-grow: 1;
+    font-size: 1rem;
 }
+
 .regionalismo-editar {
     margin-left: 1rem;
+}
+
+.no-regionalismo {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
 }
 </style>
