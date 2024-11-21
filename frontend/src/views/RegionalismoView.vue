@@ -2,7 +2,7 @@
     <div class="wrapper">
         <!-- Botão Cadastrar Regionalismo -->
         <div class="botao-cadastrar-container">
-            <button class="botao-cadastrar" @click="showCadastro = true">Cadastrar Regionalismo</button>
+            <button class="btn-show-form" @click="toggleFormulario">Cadastrar Regionalismo</button>
         </div>
 
         <!-- Formulário de Cadastro -->
@@ -80,8 +80,10 @@ const regionalismoEdit = ref<any>(null);
 
 const exibirFormulario = ref(false);
 
+// Método para alternar a exibição do formulário
 const toggleFormulario = () => {
     exibirFormulario.value = !exibirFormulario.value;
+    showCadastro.value = exibirFormulario.value; // Atualiza a variável para exibir ou esconder o formulário
     if (!exibirFormulario.value) {
         resetFields();
     }
@@ -133,7 +135,6 @@ const editarRegionalismo = (tag: any, regionalismo: any) => {
     showModal.value = true;
 };
 
-
 const salvarEdicao = async (regionalismoAtualizado: any) => {
     console.log(regionalismoAtualizado);
     try {
@@ -143,7 +144,6 @@ const salvarEdicao = async (regionalismoAtualizado: any) => {
         );
         console.log('Edição salva com sucesso:', response.data);
         showModal.value = false;
-        await fetch();
         await fetch();
     } catch (error) {
         console.error('Erro ao salvar edição:', error);
@@ -164,13 +164,14 @@ onMounted(() => {
     margin-bottom: 1rem;
 }
 
-.botao-cadastrar {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+.btn-show-form {
+  padding: 8px 16px;
+  margin-top: 10px;
+  color: white; /* Cor do texto do botão */
+  background-color: black; /* Cor preta para o botão "Cadastrar Regionalismo" */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .formulario-cadastro {
