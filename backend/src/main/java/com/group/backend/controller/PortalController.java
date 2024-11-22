@@ -60,7 +60,6 @@ public class PortalController {
     @PutMapping("/editar/{id}")
     public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody DadosEdicaoPortal portalAtualizado) {
         Optional<Portal> optionalPortal = portalRepository.findById(id);
-        System.out.println(portalAtualizado.tags());
     
 
         if (optionalPortal.isPresent()) {
