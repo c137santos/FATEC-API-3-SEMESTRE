@@ -48,7 +48,7 @@
           </div>
 
           <div class="form-group">
-            <label> <input type="checkbox" v-model="api.active" /> ativa </label>
+            <label> <input type="checkbox" v-model="api.active" /> Ativa </label>
           </div>
 
           <div class="form-group">
