@@ -10,10 +10,7 @@
          <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
          <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
          <p><strong>Tags:</strong> {{ noticia.categorias.join(', ') }}</p>
-         <button class="read-more-btn" @click="() => {
-          showPopUp = true
-          noticiaSelecionada(noticia.id)
-         }">Clique aqui para ler a notícia completa</button>
+         <button class="read-more-btn" @click="noticiaSelecionada(noticia.id); showPopUp = true">Clique aqui para ler a notícia completa</button>
        </div>
        <div class="news-content-wrapper">
           {{ noticia.content }}
@@ -27,17 +24,16 @@
         <div class="popup-header">
           <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
           <div class="popup-header-text">
-            <p><strong>Fonte: {{ noticia.portal }}</strong></p>
-            <p><strong>Escrito por:</strong> {{ noticia.jornalista }}</p>
-            <p><strong>{{ formatDate(noticia.data)}}</strong></p>
-            <p><strong>Url:</strong><a :href="noticia.url" target="_blank">{{ noticia.url }}</a></p>
+            <p><strong>Fonte: {{ noticiaCompleta.portal.nome }}</strong></p>
+            <p><strong>Escrito por:</strong> {{ noticiaCompleta.reporte.nome }}</p>
+            <p><strong>{{ formatDate(noticiaCompleta.data)}}</strong></p>
+            <p><strong>Url:</strong><a :href="noticiaCompleta.url" target="_blank">{{ noticiaCompleta.url }}</a></p>
           </div>
         </div>
         </div>
         
         <div class="popup-body">
-          <h2>{{ noticia.texto }}</h2>
-          <p class="popup-text">Aqui estará o conteúdo completo da notícia</p>
+          <h2>{{ noticiaCompleta.notiText }}</h2>
         </div>
         
         <button @click="showPopUp = false" class="close-popup-btn">Fechar</button>
@@ -57,16 +53,16 @@ export default {
   },
   data() {
     return {
-      noticiaPopup: {},
+      noticiaCompleta: null,
       showPopUp: false, 
     };
   },
   methods: {
     abrirModal() {
-      this.noticiaModal = true;
+      this.showPopUp = true;
     },
     fecharModal() {
-      this.noticiaModal = false;
+      this.showPopUp = false;
       this.$emit("fechar");
     },
     handleEscKey(event) {
@@ -80,13 +76,14 @@ export default {
       return date.toLocaleDateString("pt-BR", options);
     },
 
+    // Criar uma variável para exibir o texto inteiro da notícia
     noticiaSelecionada() {
-      console.log(this.noticia.id)
+      this.showPopUp = true;
       axios.get(`http://localhost:8080/noticias/${this.noticia.id}`)
       .then(response => {
-        this.noticiaPopup = response.data;
+        this.noticiaCompleta = response.data;
       }).catch(error => {
-        console.error('Erro ao selecionar noticia:', error);
+        console.error('Erro ao carregar noticia:', error);
       });  
     }
   },
@@ -175,9 +172,9 @@ export default {
   background-color: #fff;
   padding: 20px;
   border-radius: 16px;
-  width: 60%;
-  max-width: 800px;
-  max-height: 70vh;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 85vh;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;
