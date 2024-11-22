@@ -1,6 +1,7 @@
 <template>
   <div class="home-view">
     <div class="main-content">
+      <!-- Seção de busca -->
       <div class="search-section">
         <div class="search-bar">
           <SearchBar @search="handleSearch" />
@@ -10,6 +11,7 @@
         </div>
       </div>
 
+      <!-- Filtros -->
       <div class="filters">
         <select v-model="selectedTag">
           <option value="">Selecionar Tag</option>
@@ -29,6 +31,7 @@
         <button @click="applyFilters">Aplicar Filtros</button>
       </div>
 
+      <!-- Paginação -->
       <div class="pagination-wrapper">
         <div class="pagination-controls">
           <button :disabled="pageIndex <= 0" @click="changePage(-1)">Anterior</button>
@@ -37,6 +40,7 @@
         </div>
       </div>
 
+      <!-- Lista de notícias -->
       <div class="news-list">
         <NewsCard
           v-for="noticia in filteredNoticias"
@@ -62,6 +66,7 @@ export default {
   },
   data() {
     return {
+      keyword: "", // Palavra-chave para o filtro de texto livre
       pageIndex: 0,
       totalPages: 0,
       selectedTag: "",
@@ -89,42 +94,28 @@ export default {
           fetch("http://localhost:8080/reporters/listar"),
         ]);
 
-        if (!tagsResponse.ok) throw new Error("Erro ao carregar tags");
-        if (!portaisResponse.ok) throw new Error("Erro ao carregar portais");
-        if (!reportersResponse.ok) throw new Error("Erro ao carregar jornalistas");
+        if (!tagsResponse.ok || !portaisResponse.ok || !reportersResponse.ok) {
+          throw new Error("Erro ao carregar os filtros");
+        }
 
-        const tagsData = await tagsResponse.json();
-        const portaisData = await portaisResponse.json();
-        const reportersData = await reportersResponse.json();
-
-        this.tags = tagsData.map((tag) => ({ name: tag.tagNome }));
-        this.portais = portaisData.map((portal) => ({ name: portal.nome }));
-        this.reporters = reportersData.map((reporter) => ({ name: reporter.nome }));
-
-        console.log("Filtros carregados:", { tags: this.tags, portais: this.portais, reporters: this.reporters });
+        this.tags = (await tagsResponse.json()).map((tag) => ({ name: tag.tagNome }));
+        this.portais = (await portaisResponse.json()).map((portal) => ({ name: portal.nome }));
+        this.reporters = (await reportersResponse.json()).map((reporter) => ({ name: reporter.nome }));
       } catch (error) {
         console.error(error.message);
-        alert("Erro ao carregar os filtros. Verifique o backend.");
+        alert("Erro ao carregar os filtros.");
       }
     },
-    applyFilters() {
-      const selectedTag = this.selectedTag || this.tags.map((tag) => tag.name).join(",");
-      const selectedPortal = this.selectedPortal || this.portais.map((portal) => portal.name).join(",");
-      const selectedReporter = this.selectedReporter || this.reporters.map((reporter) => reporter.name).join(",");
-
-      console.log(`Filtros aplicados: tag=${selectedTag}, portal=${selectedPortal}, reporter=${selectedReporter}`);
-      this.pageIndex = 0;
-      this.fetchNoticias(selectedTag, selectedPortal, selectedReporter, this.selectedStartDate, this.selectedEndDate);
-    },
-    async fetchNoticias(selectedTag = "", selectedPortal = "", selectedReporter = "", startDate = "", endDate = "") {
+    async fetchNoticias() {
       try {
         const params = new URLSearchParams({
-          tag: selectedTag,
-          portal: selectedPortal,
-          reporter: selectedReporter,
+          keyword: this.keyword || "",
+          tag: this.selectedTag || "",
+          portal: this.selectedPortal || "",
+          reporter: this.selectedReporter || "",
+          startDate: this.selectedStartDate || "",
+          endDate: this.selectedEndDate || "",
           pageIndex: this.pageIndex,
-          startDate: startDate,
-          endDate: endDate
         });
 
         const response = await fetch(`http://localhost:8080/noticias/listar?${params.toString()}`);
@@ -134,24 +125,30 @@ export default {
         this.noticias = noticiaList.map((n) => ({
           titulo: n.titulo || "Título não encontrado",
           portal: n.portal?.nome || "Portal não encontrado",
-          jornalista: n.reporte?.nome || "Jornalista não identificado",  // Corrigido para acessar o nome do jornalista
+          jornalista: n.reporte?.nome || "Jornalista não identificado",
           content: n.notiText || "Conteúdo indisponível",
           data: n.notiData || "Data não informada",
-          categorias: n.tagNoticia ? n.tagNoticia.map(tag => tag.tagId.tagNome) : [],  // Certificando-se de que as tags estão aqui
+          categorias: n.tagNoticia ? n.tagNoticia.map(tag => tag.tagId.tagNome) : [],
         }));
         this.filteredNoticias = [...this.noticias];
 
         const totalResponse = await fetch(`http://localhost:8080/noticias/total?${params.toString()}`);
         if (!totalResponse.ok) throw new Error("Erro ao buscar total de notícias");
 
-        const total = await totalResponse.json();
-        this.totalPages = Math.ceil(total / 10);
-
-        console.log("Notícias atualizadas:", this.noticias);
+        this.totalPages = Math.ceil((await totalResponse.json()) / 10);
       } catch (error) {
         console.error(error.message);
         alert("Erro ao carregar as notícias.");
       }
+    },
+    handleSearch(keyword) {
+      this.keyword = keyword;
+      this.pageIndex = 0;
+      this.fetchNoticias();
+    },
+    applyFilters() {
+      this.pageIndex = 0;
+      this.fetchNoticias();
     },
     changePage(step) {
       const newPageIndex = this.pageIndex + step;
@@ -160,17 +157,12 @@ export default {
         this.fetchNoticias();
       }
     },
-    handleSearch(keyword) {
-      this.selectedTag = keyword;
-      this.pageIndex = 0;
-      this.fetchNoticias();
-    },
     setStartDate(date) {
       this.selectedStartDate = date;
     },
     setEndDate(date) {
       this.selectedEndDate = date;
-    }
+    },
   },
 };
 </script>

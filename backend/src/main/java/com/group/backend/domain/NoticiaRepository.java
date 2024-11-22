@@ -40,4 +40,8 @@ public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
 
     @Query("SELECT MAX(n.notiId) FROM Noticia n")
     Long findMaxNotiId();
+
+    @Query("SELECT n FROM Noticia n WHERE LOWER(n.notiText) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+    Page<Noticia> findByKeyword(@Param("keyword") String keyword, Pageable pageable);
+
 }
