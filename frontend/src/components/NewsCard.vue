@@ -17,7 +17,6 @@
        </div>
      </div>
 
-    <!-- Pop-up da notícia (pode ser implementado depois) -->
     <div v-if="showPopUp" class="popup-overlay">
       <div class="popup-content">
         <div class="modal-actions">
@@ -25,7 +24,6 @@
           <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
           <div class="popup-header-text">
             <p><strong>Fonte: {{ noticiaCompleta.portal.nome }}</strong></p>
-            <p><strong>Escrito por:</strong> {{ noticiaCompleta.reporte.nome }}</p>
             <p><strong>{{ formatDate(noticiaCompleta.data)}}</strong></p>
             <p><strong>Url:</strong><a :href="noticiaCompleta.url" target="_blank">{{ noticiaCompleta.url }}</a></p>
           </div>
