@@ -2560,3 +2560,2861 @@ Filtros Aplicados:
   - Data Início: Sem filtro
   - Data Fim: Sem filtro
 -----------------------------------
+Data/Hora: 2024-11-21T21:59:21.890585646
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:22.019713304
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:23.479690893
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:23.541606427
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:27.218426606
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:27.249576548
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:27.250962937
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:27.268276749
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:35.701852036
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:35.719876107
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:35.721775273
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:35.742123874
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:38.825864008
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:38.863083215
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:38.865978752
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:38.883301828
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:41.823285481
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:41.861417922
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:41.864199665
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:41.880666925
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:45.332759089
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:45.352668520
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:45.361679121
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:45.420297188
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:48.161776137
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:48.177967076
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:48.179935933
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:48.195729153
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:52.535874221
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:52.588107372
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:55.519260670
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:55.571810984
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:57.824026250
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [noticiasdatv.uol.com.br]
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T21:59:57.852988295
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [noticiasdatv.uol.com.br]
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T22:00:00.142642008
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T22:00:00.180988218
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T22:00:13.252249956
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T22:00:13.295763377
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T22:00:13.298144694
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T22:00:13.403067641
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+-----------------------------------
+Data/Hora: 2024-11-21T22:27:50.991852638
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:27:51.566192882
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:27:52.022273479
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:27:52.563477676
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:05.802138583
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:05.934161594
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.522241702
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.599828114
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.601630436
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.655336642
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.741158760
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.743146291
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: sã
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.783065916
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.823052148
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: sã
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.824486840
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: sã
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.836242180
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.947275814
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.955918645
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:12.959388045
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.002247237
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: sã
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.055605307
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.143577208
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: s
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.172045230
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.193339887
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.194468822
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.286682453
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.382524584
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pa
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.401675886
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.428833692
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.431382292
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.477891963
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pau
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.509614499
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pa
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.513102588
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pa
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.565709609
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.618111918
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pau
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.621665219
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pau
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.655202119
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pa
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.668071771
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paul
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.755172474
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são pau
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.801164370
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paul
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.802774467
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paul
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.819117072
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paulo
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.907807069
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paul
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.923060933
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paulo
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:13.924792555
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paulo
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:14.048975099
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: são paulo
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:15.669406991
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:15.719700097
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:15.721223825
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:15.837864402
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.544679154
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: M
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.618744424
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: M
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.621237373
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: M
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.640442227
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MA
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.697667576
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MA
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.699052091
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MA
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.756094018
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: M
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.834805557
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MA
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.941082951
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAI
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.997652700
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAI
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:17.999440950
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAI
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.095203114
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIR
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.127833219
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAI
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.151799319
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIR
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.154265773
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIR
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.217525592
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIR
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.232020734
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIRO
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.284107203
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIRO
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.285275556
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIRO
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:18.333172169
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: MAIRO
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:19.309687226
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:19.387662691
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:19.389294464
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:19.545181163
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.050639093
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: m
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.140983485
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: ma
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.168021250
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: m
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.169745966
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: m
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.195752405
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: ma
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.197821593
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: ma
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.297244233
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: m
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.330137733
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: ma
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.364376763
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mar
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.446662622
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mar
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.451742473
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mari
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.460853068
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mar
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.576226905
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mari
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.581807218
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mari
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.615073561
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mario
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.615442094
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mar
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.682452131
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mario
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.684261759
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mario
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.717308720
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mari
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:20.761145664
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: mario
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:23.735492249
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:23.844801232
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:23.846980962
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:23.963488267
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.585648915
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.619068916
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pr
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.676445469
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.678507316
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.691439719
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pr
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.693422205
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pr
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.779356454
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pre
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.825068535
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: p
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.840076572
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pr
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.865450695
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pre
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:26.867306956
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pre
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.010663280
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pres
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.020495549
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pre
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.120604526
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pres
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.121695263
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presi
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.128827935
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pres
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.201697261
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presid
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.259672443
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presi
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.266470721
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presi
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.303423861
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: pres
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.335208097
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presid
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.337627228
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presid
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.370314406
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: preside
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.436815214
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presiden
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.470244091
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presi
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.508662777
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: preside
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.517756591
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: president
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.530656372
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: preside
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.578987498
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presid
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.607368285
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presiden
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.664150690
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presiden
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.672790759
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: president
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.702266544
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: president
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.754358866
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.793473905
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: preside
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.906203649
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: president
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.906267948
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presiden
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.938239046
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:27.942413515
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:28.585583329
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:31.137907687
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Vincenzo Calcopietro]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:31.270644967
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Vincenzo Calcopietro]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:43.172759560
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:43.282867536
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Valor — São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:49.403797502
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Mario Mesquita]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:49.464867810
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Mario Mesquita]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:51.442376902
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Ana Luiza Tieghi]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:51.520773575
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Ana Luiza Tieghi]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:57.041096454
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Murillo Camarotto]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:30:57.132857525
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Murillo Camarotto]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:03.098441281
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [André Castro]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:03.185222210
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [André Castro]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:08.137768866
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Vivian Soares]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:08.229740938
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Vivian Soares]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:10.888933737
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Lucas Ferraz — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:10.975240706
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Lucas Ferraz — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:13.920933104
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Machado Meyer Advogados]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:14.009592363
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Machado Meyer Advogados]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:16.578230888
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Bruno Cação]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:16.661932803
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: Todos
+  - Jornalistas: [Bruno Cação]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:20.321252194
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: [valor.globo.]
+  - Jornalistas: [Bruno Cação]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:20.404413767
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: [valor.globo.]
+  - Jornalistas: [Bruno Cação]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:23.904503922
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:23.994741268
+Filtros Aplicados:
+  - Tags: Todas
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:28.826286474
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:28.912429692
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:32.306259933
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:32.331640441
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:35.201676980
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:35.293247079
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:37.856715258
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:37.949974161
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Nelson Niero]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:40.585208540
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Domingos Zaparolli]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:40.676726933
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Domingos Zaparolli]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:57.041108345
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:57.129430469
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:59.547318352
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:31:59.600368016
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:02.377014998
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:02.403313465
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: [valor.globo.]
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: presidente
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.304215591
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: n
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.312785257
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: n
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.315100990
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: n
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.323556950
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: n
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.479866028
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nu
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.503538654
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nu
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.507136339
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nu
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.556756400
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nu
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.632845168
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nub
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.639210865
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nub
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.640730274
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nub
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.683896471
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nub
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.714237448
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuba
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.720218218
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuba
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.721737395
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuba
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.762355218
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuba
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.824657434
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuban
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.830485717
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuban
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.831977869
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuban
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:07.873880263
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nuban
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:08.034246934
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:08.053126144
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:08.057428033
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:08.111051654
+Filtros Aplicados:
+  - Tags: [b]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:11.376740394
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:11.449854854
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: [Fernanda Guimarães — De São Paulo]
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:16.025700266
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:16.146155785
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: nubank
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:32.964186107
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:33.050902890
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:33.052752892
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:33.179141888
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.069172700
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: d
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.145746436
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: d
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.147816128
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: do
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.154006533
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: d
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.222305073
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: do
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.223650500
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: do
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.297989839
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: d
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.322176394
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: don
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.394163711
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: dona
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.394165375
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: do
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.401974170
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: don
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.434100591
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: don
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.532883128
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: dona
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.536951557
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: dona
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.561004955
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donal
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.588131865
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: don
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.642951882
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: dona
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.664127516
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donalt
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.678481815
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donal
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.680150301
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donal
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.719017929
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donalt
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.721537983
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donalt
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.774598
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donalt
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:37.782148934
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: donal
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:38.820467917
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:38.906447547
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:38.908778879
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:39.034708451
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:40.903498703
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: i
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:40.989109283
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: i
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:40.990824734
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: i
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.075429726
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: im
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.120759884
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: i
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.135395110
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: im
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.136681964
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: im
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.279620188
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: im
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.289079193
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: imp
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.345338218
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: imp
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.347255873
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: imp
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.431334743
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impo
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.501123001
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impor
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.502230947
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: imp
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.512707999
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impo
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.515273847
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impo
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.658704316
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impor
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.663799219
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impor
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.717327186
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impo
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.822187386
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: impor
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.871928435
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: import
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.980685461
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: import
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:41.982463053
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: import
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.018064056
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importa
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.114103203
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importan
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.118817884
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: import
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.135738330
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importa
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.138479823
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importa
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.197252149
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: important
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.217990563
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importan
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.222397042
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importan
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.304651049
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importa
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.337056436
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: important
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.341161729
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: important
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.372504482
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importante
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.422198986
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importan
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.512756968
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importante
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.515365142
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importante
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.533199932
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: important
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:42.687948502
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: importante
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:43.849435976
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:43.952242042
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:43.953924759
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------
+Data/Hora: 2024-11-21T22:32:44.082581517
+Filtros Aplicados:
+  - Tags: [a]
+  - Portais: Todos
+  - Jornalistas: Todos
+  - Data Início: Sem filtro
+  - Data Fim: Sem filtro
+  - Palavra-chave: 
+-----------------------------------

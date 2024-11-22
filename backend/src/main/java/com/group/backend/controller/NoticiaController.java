@@ -44,28 +44,19 @@ public class NoticiaController {
     ) {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
 
-        Page<Noticia> noticiaPage;
-        if (keyword != null && !keyword.isEmpty()) {
-            // Filtro por texto livre
-            noticiaPage = noticiaRepository.findByKeyword(keyword, pageable);
-        } else {
-            // Processando filtros adicionais
-            FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate);
+        // Processando filtros
+        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate, keyword);
 
-            if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null 
-                && criteria.getStartDate() == null && criteria.getEndDate() == null) {
-                noticiaPage = noticiaRepository.findAll(pageable);
-            } else {
-                noticiaPage = noticiaRepository.findByTagsPortalsReportersAndDate(
-                    criteria.getTags(),
-                    criteria.getPortals(),
-                    criteria.getReporters(),
-                    criteria.getStartDate(),
-                    criteria.getEndDate(),
-                    pageable
-                );
-            }
-        }
+        // Aplicando filtros combinados
+        Page<Noticia> noticiaPage = noticiaRepository.findByFilters(
+            criteria.getTags(),
+            criteria.getPortals(),
+            criteria.getReporters(),
+            criteria.getStartDate(),
+            criteria.getEndDate(),
+            keyword,
+            pageable
+        );
 
         List<Noticia> noticiaList = noticiaPage.toList();
 
@@ -88,29 +79,19 @@ public class NoticiaController {
         @RequestParam(required = false) String endDate,
         @RequestParam(required = false) String keyword // Suporte a texto livre
     ) {
-        if (keyword != null && !keyword.isEmpty()) {
-            // Retornar o total de resultados filtrados por texto livre
-            long total = noticiaRepository.findByKeyword(keyword, Pageable.unpaged()).getTotalElements();
-            return ResponseEntity.ok(total);
-        }
+        // Processando filtros
+        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate, keyword);
 
-        // Processando filtros adicionais
-        FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate);
-
-        long total;
-        if (criteria.getTags() == null && criteria.getPortals() == null && criteria.getReporters() == null 
-            && criteria.getStartDate() == null && criteria.getEndDate() == null) {
-            total = noticiaRepository.count();
-        } else {
-            total = noticiaRepository.findByTagsPortalsReportersAndDate(
-                criteria.getTags(),
-                criteria.getPortals(),
-                criteria.getReporters(),
-                criteria.getStartDate(),
-                criteria.getEndDate(),
-                Pageable.unpaged()
-            ).getTotalElements();
-        }
+        // Calculando o total com filtros combinados
+        long total = noticiaRepository.findByFilters(
+            criteria.getTags(),
+            criteria.getPortals(),
+            criteria.getReporters(),
+            criteria.getStartDate(),
+            criteria.getEndDate(),
+            keyword,
+            Pageable.unpaged()
+        ).getTotalElements();
 
         return ResponseEntity.ok(total);
     }

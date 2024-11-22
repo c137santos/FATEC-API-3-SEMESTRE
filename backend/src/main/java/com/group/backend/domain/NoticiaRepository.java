@@ -24,13 +24,15 @@ public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
            "AND (:portals IS NULL OR n.portal.nome IN :portals) " +
            "AND (:reporters IS NULL OR n.reporte.nome IN :reporters) " +
            "AND (:startDate IS NULL OR n.notiData >= :startDate) " +
-           "AND (:endDate IS NULL OR n.notiData <= :endDate)")
-    Page<Noticia> findByTagsPortalsReportersAndDate(
+           "AND (:endDate IS NULL OR n.notiData <= :endDate) " +
+           "AND (:keyword IS NULL OR LOWER(n.notiText) LIKE LOWER(CONCAT('%', :keyword, '%')))")
+    Page<Noticia> findByFilters(
         @Param("tags") List<String> tags,
         @Param("portals") List<String> portals,
         @Param("reporters") List<String> reporters,
         @Param("startDate") LocalDate startDate,
         @Param("endDate") LocalDate endDate,
+        @Param("keyword") String keyword,
         Pageable pageable
     );
 
@@ -40,8 +42,4 @@ public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
 
     @Query("SELECT MAX(n.notiId) FROM Noticia n")
     Long findMaxNotiId();
-
-    @Query("SELECT n FROM Noticia n WHERE LOWER(n.notiText) LIKE LOWER(CONCAT('%', :keyword, '%'))")
-    Page<Noticia> findByKeyword(@Param("keyword") String keyword, Pageable pageable);
-
 }

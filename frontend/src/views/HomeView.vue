@@ -43,7 +43,7 @@
       <!-- Lista de notícias -->
       <div class="news-list">
         <NewsCard
-          v-for="noticia in filteredNoticias"
+          v-for="noticia in noticias"
           :key="noticia.titulo + noticia.portal"
           :noticia="noticia"
         />
@@ -77,7 +77,6 @@ export default {
       tags: [],
       portais: [],
       reporters: [],
-      filteredNoticias: [],
       noticias: [],
     };
   },
@@ -130,7 +129,6 @@ export default {
           data: n.notiData || "Data não informada",
           categorias: n.tagNoticia ? n.tagNoticia.map(tag => tag.tagId.tagNome) : [],
         }));
-        this.filteredNoticias = [...this.noticias];
 
         const totalResponse = await fetch(`http://localhost:8080/noticias/total?${params.toString()}`);
         if (!totalResponse.ok) throw new Error("Erro ao buscar total de notícias");
