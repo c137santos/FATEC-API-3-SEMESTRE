@@ -9,7 +9,6 @@ import com.group.backend.entity.Noticia;
 public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
     boolean existsByUrl(String url);
     Noticia findByUrl(String url);
-
     // Método para encontrar o maior ID de Noticia
     @Query("SELECT MAX(n.notiId) FROM Noticia n")
     Long findMaxNotiId();

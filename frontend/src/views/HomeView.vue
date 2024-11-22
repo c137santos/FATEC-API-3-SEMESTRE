@@ -145,6 +145,7 @@ export default {
     async fetchNoticias() {
       const noticiaList = (await axios(`http://localhost:8080/noticias/listar/${this.pageIndex}`)).data
       const mappedNoticiaList = noticiaList.map((n) => ({
+        id: n.notiId,
         titulo: n.portal.nome,
         portal: n.portal.nome,
         jornalista: n.reporte.nome ?? '',

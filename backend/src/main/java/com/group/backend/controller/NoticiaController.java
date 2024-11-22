@@ -1,6 +1,8 @@
 package com.group.backend.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.entity.Noticia;
+import com.group.backend.service.NoticiaPortalService;
 
 @RestController
 @RequestMapping("/noticias")
@@ -22,9 +25,11 @@ public class NoticiaController {
 
     private static Integer PAGE_LENGTH = 10;
     private final NoticiaRepository noticiaRepository;
+    private final NoticiaPortalService noticiaPortalService;
 
-    public NoticiaController(NoticiaRepository noticiaRepository) {
+    public NoticiaController(NoticiaRepository noticiaRepository, NoticiaPortalService noticiaPortalService) {
         this.noticiaRepository = noticiaRepository;
+        this.noticiaPortalService = noticiaPortalService;
     }
 
     @GetMapping("listar/{pageIndex}")
@@ -39,6 +44,16 @@ public class NoticiaController {
             }
         }
         return ResponseEntity.ok(noticiaList);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Optional<Noticia>> noticiaEspecifica(@PathVariable Long id) {
+        Optional<Noticia> dadosNoticiaEspecifica = noticiaPortalService.noticiaSelecionada(id);
+        if(dadosNoticiaEspecifica.isPresent()) {
+            return ResponseEntity.ok(dadosNoticiaEspecifica);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
     
     @GetMapping("total")

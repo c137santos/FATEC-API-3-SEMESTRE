@@ -10,7 +10,10 @@
          <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
          <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
          <p><strong>Tags:</strong> {{ noticia.categorias.join(', ') }}</p>
-         <button class="read-more-btn" @click="showPopUp = true">Clique aqui para ler a notícia completa</button>
+         <button class="read-more-btn" @click="() => {
+          showPopUp = true
+          noticiaSelecionada(noticia.id)
+         }">Clique aqui para ler a notícia completa</button>
        </div>
        <div class="news-content-wrapper">
           {{ noticia.content }}
@@ -44,6 +47,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   props: {
     noticia: {
@@ -53,6 +57,7 @@ export default {
   },
   data() {
     return {
+      noticiaPopup: {},
       showPopUp: false, 
     };
   },
@@ -73,6 +78,16 @@ export default {
       const options = { year: "numeric", month: "long", day: "numeric" };
       const date = new Date(dateString);
       return date.toLocaleDateString("pt-BR", options);
+    },
+
+    noticiaSelecionada() {
+      console.log(this.noticia.id)
+      axios.get(`http://localhost:8080/noticias/${this.noticia.id}`)
+      .then(response => {
+        this.noticiaPopup = response.data;
+      }).catch(error => {
+        console.error('Erro ao selecionar noticia:', error);
+      });  
     }
   },
   mounted() {
