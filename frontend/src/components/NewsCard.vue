@@ -10,7 +10,7 @@
          <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
          <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
          <p><strong>Tags:</strong> {{ noticia.categorias.join(', ') }}</p>
-         <button class="read-more-btn" @click="showPopUp = true">Clique aqui para ler a notícia completa</button>
+         <button class="read-more-btn" @click="noticiaSelecionada(noticia.id); showPopUp = true">Clique aqui para ler a notícia completa</button>
        </div>
        <div class="news-content-wrapper">
           {{ noticia.content }}
@@ -20,16 +20,19 @@
     <!-- Pop-up da notícia (pode ser implementado depois) -->
     <div v-if="showPopUp" class="popup-overlay">
       <div class="popup-content">
+        <div class="modal-actions">
         <div class="popup-header">
           <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
           <div class="popup-header-text">
-            <h3>{{ noticia.titulo }}</h3>
-            <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
+            <p><strong>Fonte: {{ noticiaCompleta.portal.nome }}</strong></p>
+            <p><strong>{{ formatDate(noticiaCompleta.data)}}</strong></p>
+            <p><strong>Url:</strong><a :href="noticiaCompleta.url" target="_blank">{{ noticiaCompleta.url }}</a></p>          
+          </div>
           </div>
         </div>
         
         <div class="popup-body">
-          <p class="popup-text">Aqui estará o conteúdo completo da notícia</p>
+          <h2>{{ noticiaCompleta.notiText }}</h2>        
         </div>
         
         <button @click="showPopUp = false" class="close-popup-btn">Fechar</button>
@@ -39,19 +42,53 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  props: ['noticia'],  // Recebe a notícia como prop
+  props: {
+    noticia: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
-      showPopUp: false,  // Controla a exibição do pop-up
+      noticiaCompleta: null,
+      showPopUp: false, 
     };
   },
   methods: {
+    abrirModal() {
+      this.showPopUp = true;
+    },
+    fecharModal() {
+      this.showPopUp = false;
+      this.$emit("fechar");
+    },
+    handleEscKey(event) {
+      if (event.key === "Escape") {
+        this.fecharModal();
+      }
+    },
     formatDate(dateString) {
       const date = new Date(dateString);
       return date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
     },
+    noticiaSelecionada() {
+      this.showPopUp = true;
+      axios.get(`http://localhost:8080/noticias/${this.noticia.id}`)
+      .then(response => {
+        this.noticiaCompleta = response.data;
+      }).catch(error => {
+        console.error('Erro ao carregar noticia:', error);
+      });  
+    }
   },
+    mounted() {
+      document.addEventListener("keydown", this.handleEscKey);
+    },
+    beforeDestroy() {
+      document.removeEventListener("keydown", this.handleEscKey);
+    },
 };
 </script>
 
@@ -131,9 +168,9 @@ export default {
   background-color: #fff;
   padding: 20px;
   border-radius: 16px;
-  width: 60%;
-  max-width: 800px;
-  max-height: 70vh;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 85vh;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;
@@ -150,6 +187,7 @@ export default {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+  margin-bottom: 80px;
 }
 
 .popup-header-text h3 {
@@ -162,6 +200,7 @@ export default {
   margin: 0;
   color: #49454F;
   font-size: 16px;
+  text-align: left;
 }
 
 .popup-body {
@@ -186,5 +225,61 @@ export default {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.modal-actions {
+  text-align: right;
+}
+.btn-fechar {
+position: absolute;
+top: 10px;
+right: 10px;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+}
+/* @media para dispositivos móveis */
+@media (max-width: 768px) {
+  .news-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .news-content-wrapper {
+    max-width: 100%;
+  }
+  .news-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+  .news-content {
+    margin-left: 0;
+    width: 100%;
+    text-wrap: wrap;
+  }
+  .news-content h3 {
+    font-size: 18px;
+  }
+  .news-content p {
+    font-size: 14px;
+  }
+  .read-more-btn {
+    margin-top: 8px;
+    padding: 6px 12px;
+  }
+  .popup-content {
+    width: 90%;
+    max-width: none;
+  }
+  .popup-header-text h3 {
+    font-size: 20px;
+  }
+  .popup-header-text p {
+    font-size: 14px;
+  }
+  .popup-body {
+    margin-bottom: 10px;
+  }
 }
 </style>

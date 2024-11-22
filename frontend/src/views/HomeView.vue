@@ -81,22 +81,7 @@ export default {
       startDate: '',
       endDate: '',
       filteredNoticias: [],
-      noticias: [
-        { 
-          titulo: "Notícia Mockada 1", 
-          portal: "Portal Exemplo", 
-          jornalista: "Jornalista Exemplo", 
-          data: "01/01/2023", 
-          categorias: ["Soja", "Agricultura"] 
-        },
-        { 
-          titulo: "Notícia Mockada 2", 
-          portal: "Portal Exemplo 2", 
-          jornalista: "Outro Jornalista", 
-          data: "02/01/2023", 
-          categorias: ["Política", "Economia"] 
-        }
-      ]
+      noticias: []
     };
   },
   mounted() {
@@ -145,6 +130,7 @@ export default {
     async fetchNoticias() {
       const noticiaList = (await axios(`http://localhost:8080/noticias/listar/${this.pageIndex}`)).data
       const mappedNoticiaList = noticiaList.map((n) => ({
+        id: n.notiId,
         titulo: n.portal.nome,
         portal: n.portal.nome,
         jornalista: n.reporte.nome ?? '',
