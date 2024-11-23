@@ -50,7 +50,7 @@
       </div>
       
       <!-- PopUp de notícias -->
-      <div class="news-list">
+      <div class="news-popup">
         <ModalExibirNoticia
         v-if="noticiaCompleta"
         :noticiaCompleta="noticiaCompleta"

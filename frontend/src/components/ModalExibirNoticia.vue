@@ -1,4 +1,5 @@
 <template>
+  <div class="popup-overlay">
   <div class="popup-content">
     <div class="modal-actions">
     <div class="popup-header">
@@ -16,7 +17,7 @@
     </div>
     <button @click="$emit('fechar')" class="close-popup-btn">Fechar</button>
   </div>
-
+</div>
 </template>
 
 <script>
@@ -29,7 +30,7 @@ export default {
   },
   data() {
     return {
-      noticia: this.noticiaCompleta
+      noticia: this.noticiaCompleta,
     }
   },
   methods: {
@@ -49,6 +50,10 @@ export default {
     beforeDestroy() {
       document.removeEventListener("keydown", this.handleEscKey);
     },
+
+    fecharPopUp() {
+      this.$emit('fechar');
+    }
 };
 </script>
 
