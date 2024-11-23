@@ -1,50 +1,42 @@
 <template>
-  <div class="news-card">
-    <!-- Ícone de informação -->
-    <img src="@/components/icons/info.png" alt="Info Icon" class="info-icon" />
 
-    <!-- Conteúdo da notícia -->
-     <div class="news-wrapper">
-       <div class="news-content">
-         <p><strong>Portal:</strong> {{ noticia.portal }}</p>
-         <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
-         <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
-         <p><strong>Tags:</strong> {{ noticia.categorias.join(', ') }}</p>
-         <button class="read-more-btn"
-            @click="noticiaSelecionada(noticia.id);
-            showPopUp = true">Clique aqui para ler a notícia completa
-         </button>
-       </div>
-       <div class="news-content-wrapper">
-          {{ noticia.content }}
-       </div>
-     </div>
+    <div v-if="showPopUp" class="popup-overlay">
+        <div class="popup-content">
+          <div class="modal-actions">
+          <div class="popup-header">
+            <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
+            <div class="popup-header-text">
+              <p><strong>Fonte: {{ noticiaCompleta.portal.nome }}</strong></p>
+              <p><strong> {{ formatDate(noticiaCompleta.notiData)}}</strong></p>
+              <p><strong>Url:</strong><a :href="noticiaCompleta.url" target="_blank">{{ noticiaCompleta.url }}</a></p>          
+            </div>
+            </div>
+          </div>
+          
+          <div class="popup-body">
+            <h2>{{ noticiaCompleta.notiText }}</h2>        
+          </div>
+          
+          <button @click="showPopUp = false" class="close-popup-btn">Fechar</button>
+        </div>
+      </div>
 
-  </div>
 </template>
 
 <script>
 export default {
   props: {
-    noticia: {
+    noticiaCompleta: {
       type: Object,
       required: true,
     },
   },
   data() {
     return {
-      noticiaCompleta: null,
       showPopUp: false, 
     };
   },
   methods: {
-    abrirModal() {
-      this.showPopUp = true;
-    },
-    fecharModal() {
-      this.showPopUp = false;
-      this.$emit("fechar");
-    },
     handleEscKey(event) {
       if (event.key === "Escape") {
         this.fecharModal();
@@ -53,9 +45,6 @@ export default {
     formatDate(dateString) {
       const date = new Date(dateString);
       return date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
-    },
-    noticiaSelecionada(id) {
-      this.$emit('exibirNoticia', id);
     }
   },
     mounted() {
@@ -68,64 +57,6 @@ export default {
 </script>
 
 <style scoped>
-.news-wrapper {
-  width: 100%;
-  display: flex;
-  gap: 8rem;
-}
-.news-content-wrapper {
-  flex-grow: 0;
-  max-width: 30rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.news-card {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  background-color: #fff;
-  border: 1px solid #D9D9D9;
-  border-radius: 16px;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.info-icon {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 25px;
-  height: 25px;
-}
-
-.news-content {
-  margin-left: 50px;
-  flex-grow: 1;
-  width: max-content;
-  text-wrap: nowrap;
-}
-
-.news-content h3 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.news-content p {
-  margin: 4px 0;
-  color: #49454F;
-}
-
-.read-more-btn {
-  margin-top: 16px;
-  padding: 8px 16px;
-  border: none;
-  background-color: #65558F;
-  color: #fff;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* Estilos do Pop-up */
 .popup-overlay {
   position: fixed;
   top: 0;

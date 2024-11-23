@@ -41,7 +41,21 @@
 
       <!-- Lista de notícias -->
       <div class="news-list" :key="filteredNoticias">
-        <NewsCard v-for="noticia in filteredNoticias" :key="noticia" :noticia="noticia" />
+        <NewsCard 
+        v-for="noticia in filteredNoticias" 
+        :key="noticia" 
+        :noticia="noticia" 
+        />
+      </div>
+      
+      <!-- PopUp de notícias -->
+      <div class="news-popup">
+        <ModalExibirNoticia
+        v-if="showPopUp"
+        :noticia="noticiaCompleta"
+        @fechar="fecharPopUp"
+        />
+
       </div>
 
     </div>
@@ -52,6 +66,7 @@
 import SearchBar from '@/components/SearchBar.vue';
 import DataRange from '@/components/DataRange.vue';
 import NewsCard from '@/components/NewsCard.vue';
+import ModalExibirNoticia from '@/components/ModalExibirNoticia.vue';
 import axios from 'axios';
 
 export default {
@@ -66,22 +81,13 @@ export default {
       totalPages: 0,
       selectedTag: '',  
       selectedPortal: '',  
-      tags: [
-        { name: "Soja" },
-        { name: "Agricultura" },
-        { name: "Política" },
-        { name: "Economia" }
-      ],
-      portais: [
-        { name: "Portal Exemplo" },
-        { name: "Portal Exemplo 2" },
-        { name: "Portal 3" },
-        { name: "Portal 4" }
-      ],
+      tags: [],
+      portais: [],
       startDate: '',
       endDate: '',
       filteredNoticias: [],
-      noticias: []
+      noticias: [],
+      noticiaCompleta: {}
     };
   },
   mounted() {
@@ -145,6 +151,19 @@ export default {
       this.noticias = mappedNoticiaList
       this.filteredNoticias = this.noticias;
       
+    },
+   async exibirNoticiaInteira(id){
+     fetch.get(`http://localhost:8080/noticias/${id}`)
+     .then(response => {
+       this.noticiaCompleta = response.data;
+       this.showPopUp = true;
+      }).catch(error => {
+        console.error('Erro ao carregar noticia:', error);
+      }); 
+    },
+    fecharPopUp() {
+      this.noticiaCompleta = null;
+      this.showPopUp = false;
     }
   }
 };
