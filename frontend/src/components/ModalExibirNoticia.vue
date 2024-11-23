@@ -1,25 +1,21 @@
 <template>
-
-    <div v-if="showPopUp" class="popup-overlay">
-        <div class="popup-content">
-          <div class="modal-actions">
-          <div class="popup-header">
-            <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
-            <div class="popup-header-text">
-              <p><strong>Fonte: {{ noticiaCompleta.portal.nome }}</strong></p>
-              <p><strong> {{ formatDate(noticiaCompleta.notiData)}}</strong></p>
-              <p><strong>Url:</strong><a :href="noticiaCompleta.url" target="_blank">{{ noticiaCompleta.url }}</a></p>          
-            </div>
-            </div>
-          </div>
-          
-          <div class="popup-body">
-            <h2>{{ noticiaCompleta.notiText }}</h2>        
-          </div>
-          
-          <button @click="showPopUp = false" class="close-popup-btn">Fechar</button>
-        </div>
+  <div class="popup-content">
+    <div class="modal-actions">
+    <div class="popup-header">
+      <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
+      <div class="popup-header-text">
+        <p><strong>Fonte: {{ noticia.portal.nome }}</strong></p>
+        <p><strong> {{ formatDate(noticia.notiData)}}</strong></p>
+        <p><strong>Url:</strong><a :href="noticia.url" target="_blank">{{ noticia.url }}</a></p>          
       </div>
+      </div>
+    </div>
+    
+    <div class="popup-body">
+      <h2>{{ noticia.notiText }}</h2>        
+    </div>
+    <button @click="$emit('fechar')" class="close-popup-btn">Fechar</button>
+  </div>
 
 </template>
 
@@ -33,13 +29,13 @@ export default {
   },
   data() {
     return {
-      showPopUp: false, 
-    };
+      noticia: this.noticiaCompleta
+    }
   },
   methods: {
     handleEscKey(event) {
       if (event.key === "Escape") {
-        this.fecharModal();
+        this.$emit('fechar')
       }
     },
     formatDate(dateString) {

@@ -44,20 +44,21 @@
         <NewsCard 
         v-for="noticia in filteredNoticias" 
         :key="noticia" 
-        :noticia="noticia" 
+        :noticia="noticia"
+        @exibir-noticia="exibirNoticiaInteira"
         />
       </div>
       
       <!-- PopUp de notícias -->
-      <div class="news-popup">
+      <div class="news-list">
         <ModalExibirNoticia
-        v-if="showPopUp"
-        :noticia="noticiaCompleta"
+        v-if="noticiaCompleta"
+        :noticiaCompleta="noticiaCompleta"
         @fechar="fecharPopUp"
-        />
-
+        >
+        </ModalExibirNoticia>
       </div>
-
+      
     </div>
   </div>
 </template>
@@ -74,6 +75,7 @@ export default {
     SearchBar,
     DataRange,
     NewsCard,
+    ModalExibirNoticia,
   },
   data() {
     return {
@@ -87,7 +89,7 @@ export default {
       endDate: '',
       filteredNoticias: [],
       noticias: [],
-      noticiaCompleta: {}
+      noticiaCompleta: null,
     };
   },
   mounted() {
@@ -153,17 +155,18 @@ export default {
       
     },
    async exibirNoticiaInteira(id){
-     fetch.get(`http://localhost:8080/noticias/${id}`)
-     .then(response => {
-       this.noticiaCompleta = response.data;
-       this.showPopUp = true;
-      }).catch(error => {
+    try {
+      const response = await fetch(`http://localhost:8080/noticias/${id}`)
+      if (!response.ok) {
+        throw new Error("Erro HTTP! ${response.status}")
+      }
+      this.noticiaCompleta = await response.json();
+      } catch(error) {
         console.error('Erro ao carregar noticia:', error);
-      }); 
+      } 
     },
     fecharPopUp() {
       this.noticiaCompleta = null;
-      this.showPopUp = false;
     }
   }
 };

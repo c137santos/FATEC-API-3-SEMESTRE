@@ -11,8 +11,8 @@
          <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
          <p><strong>Tags:</strong> {{ noticia.categorias.join(', ') }}</p>
          <button class="read-more-btn"
-            @click="noticiaSelecionada(noticia.id);
-            showPopUp = true">Clique aqui para ler a notícia completa
+            @click="noticiaSelecionada(noticia.id)">
+            Clique aqui para ler a notícia completa
          </button>
        </div>
        <div class="news-content-wrapper">
@@ -20,7 +20,7 @@
        </div>
      </div>
 
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -38,24 +38,12 @@ export default {
     };
   },
   methods: {
-    abrirModal() {
-      this.showPopUp = true;
-    },
-    fecharModal() {
-      this.showPopUp = false;
-      this.$emit("fechar");
-    },
-    handleEscKey(event) {
-      if (event.key === "Escape") {
-        this.fecharModal();
-      }
-    },
     formatDate(dateString) {
       const date = new Date(dateString);
       return date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
     },
     noticiaSelecionada(id) {
-      this.$emit('exibirNoticia', id);
+        this.$emit('exibir-noticia', id);
     }
   },
     mounted() {
