@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import '@/assets/base.css';
 export default {
   data() {
     return {
@@ -30,32 +31,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.search-bar {
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  background-color: #ECE6F0;
-  border-radius: 28px;
-  height: 56px;
-  width: 100%;
-}
-
-.search-icon {
-  content: url('/path/to/lupa-icon.svg');
-  margin-right: 12px;
-  width: 24px;
-  height: 24px;
-}
-
-.search-input {
-  border: none;
-  outline: none;
-  flex-grow: 1;
-  background-color: transparent;
-  font-size: 16px;
-  line-height: 24px;
-  color: #49454F;
-}
-</style>

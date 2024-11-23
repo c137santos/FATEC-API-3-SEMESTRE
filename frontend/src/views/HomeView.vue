@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import '@/assets/base.css';
 import SearchBar from '@/components/SearchBar.vue';
 import DataRange from '@/components/DataRange.vue';
 import NewsCard from '@/components/NewsCard.vue';
@@ -128,73 +129,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.home-view {
-  display: flex;
-  height: 100vh;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: 20px;
-  margin-top: 15px; /* Removida a margem da esquerda */
-}
-
-.search-section {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.search-bar {
-  flex: 2;
-}
-
-.date-section {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-}
-
-.filters {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.filters select {
-  flex: 1;
-  width: 50%;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc; 
-  outline: none; 
-}
-
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    padding: 10px;
-    margin-left: 0;
-  }
-
-  .search-section, .filters {
-    flex-direction: column;
-  }
-
-  .filters select {
-    width: 100%;
-  }
-}
-</style>

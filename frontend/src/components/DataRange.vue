@@ -24,6 +24,7 @@
   </template>
   
   <script>
+  import '@/assets/base.css';
   export default {
     data() {
       return {
@@ -49,33 +50,4 @@
     }
   };
   </script>
-  
-  <style scoped>
-  .date-range {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .date-input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  .date-input {
-    width: 100%;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    border: 1px solid #d9d9d9;
-  }
-  
-  .date-text {
-    font-size: 12px;
-    color: #49454F;
-    margin-top: 4px;
-  }
-  </style>
   

@@ -37,7 +37,7 @@
 import { defineComponent, ref, watch, type PropType } from 'vue';
 import '@/assets/base.css';
 
-export default defineComponent({
+export default defineComponent({    
   props: {
     regionalismo: {
       type: Object as PropType<{ id: number; nome: string; tagId: number }>,

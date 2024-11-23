@@ -30,6 +30,7 @@
   </template>
   
   <script>
+  import '@/assets/base.css';
   import axios from 'axios';
   
   export default {
@@ -58,71 +59,4 @@
     },
   };
   </script>
-  
-  <style scoped>
-  .portal-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #ffffff;
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 0;
-  }
-  
-  .portal-header {
-    display: flex;
-    align-items: center;
-  }
-  
-  .info-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-  }
-  
-  .portal-info {
-    margin-top: 10px;
-  }
-  
-  .portal-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 10px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  .editar-btn {
-    background-color: #2c2c2c;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  .editar-btn:hover {
-    background-color: #45a049;
-  }
-  
-  .status-ativo {
-    color: green;
-  }
-  
-  .status-inativo {
-    color: red;
-  }
-  
-  .portal-data {
-    text-align: right;
-    margin-top: 5px;
-  }
-  </style>
   

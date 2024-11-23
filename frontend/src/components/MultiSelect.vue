@@ -31,6 +31,7 @@
 
 <script>
 import Multiselect from 'vue-multiselect';
+import '@/assets/base.css';
 
 export default {
   components: {
@@ -62,50 +63,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.multi-select {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.multiselect {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #D9D9D9;
-  border-radius: 8px;
-}
-
-.selected-tags {
-  background-color: #ECE6F0;
-  padding: 5px 10px;
-  margin: 2px;
-  border-radius: 12px;
-  display: inline-block;
-}
-
-.multiselect__content {
-  max-height: 200px; 
-  overflow-y: auto;  
-}
-
-.multiselect__tag {
-  margin-right: 8px;
-  padding: 5px 10px;
-  background-color: #ECE6F0;
-  border-radius: 4px;
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-}
-
-.multiselect__tag-icon {
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-.multiselect__option--highlight {
-  background-color: #D9D9D9;
-}
-</style>
