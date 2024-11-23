@@ -12,7 +12,6 @@
             v-model="novoPortal.portalNome"
             placeholder="Nome do Portal"
           />
-          <!-- Removemos o tipo "url" aqui -->
           <input
             class="campo-cadastro-url"
             v-model="novoPortal.portalUrl"
