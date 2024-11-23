@@ -44,7 +44,7 @@
       <div class="news-list">
         <NewsCard
           v-for="noticia in noticias"
-          :key="noticia.titulo + noticia.portal"
+          :key="noticia.notiId"
           :noticia="noticia"
         />
       </div>
@@ -122,7 +122,7 @@ export default {
 
         const noticiaList = await response.json();
         this.noticias = noticiaList.map((n) => ({
-          titulo: n.titulo || "Título não encontrado",
+          notiId: n.notiId,
           portal: n.portal?.nome || "Portal não encontrado",
           jornalista: n.reporte?.nome || "Jornalista não identificado",
           content: n.notiText || "Conteúdo indisponível",
