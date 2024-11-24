@@ -1,6 +1,5 @@
 package com.group.backend.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -47,14 +46,20 @@ public class NoticiaController {
         // Processando filtros
         FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate, keyword);
 
-        // Aplicando filtros combinados
+        // Aplicando filtros combinados com parâmetros separados
         Page<Noticia> noticiaPage = noticiaRepository.findByFilters(
+            (criteria.getTags() == null || criteria.getTags().isEmpty()),
             criteria.getTags(),
+            (criteria.getPortals() == null || criteria.getPortals().isEmpty()),
             criteria.getPortals(),
+            (criteria.getReporters() == null || criteria.getReporters().isEmpty()),
             criteria.getReporters(),
+            (criteria.getStartDate() == null),
             criteria.getStartDate(),
+            (criteria.getEndDate() == null),
             criteria.getEndDate(),
-            keyword,
+            (criteria.getKeyword() == null || criteria.getKeyword().isEmpty()),
+            criteria.getKeyword(),
             pageable
         );
 
@@ -84,12 +89,18 @@ public class NoticiaController {
 
         // Calculando o total com filtros combinados
         long total = noticiaRepository.findByFilters(
+            (criteria.getTags() == null || criteria.getTags().isEmpty()),
             criteria.getTags(),
+            (criteria.getPortals() == null || criteria.getPortals().isEmpty()),
             criteria.getPortals(),
+            (criteria.getReporters() == null || criteria.getReporters().isEmpty()),
             criteria.getReporters(),
+            (criteria.getStartDate() == null),
             criteria.getStartDate(),
+            (criteria.getEndDate() == null),
             criteria.getEndDate(),
-            keyword,
+            (criteria.getKeyword() == null || criteria.getKeyword().isEmpty()),
+            criteria.getKeyword(),
             Pageable.unpaged()
         ).getTotalElements();
 

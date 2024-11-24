@@ -28,7 +28,7 @@ public class Noticia {
     private String url;
 
     @Column(name = "por_id")
-    private Integer porId;
+    private Long porId;
 
     @ManyToOne
     @JoinColumn(name = "por_id", referencedColumnName = "por_id", insertable = false, updatable = false)

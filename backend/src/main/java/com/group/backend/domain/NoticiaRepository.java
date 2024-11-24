@@ -18,20 +18,28 @@ public interface NoticiaRepository extends JpaRepository<Noticia, Long> {
     Page<Noticia> findAllNoticias(Pageable pageable);
 
     @Query("SELECT DISTINCT n FROM Noticia n " +
-           "LEFT JOIN n.tagNoticia tn " +  // Utilizando LEFT JOIN para garantir que as tags sejam buscadas
+           "LEFT JOIN FETCH n.portal p " +
+           "LEFT JOIN FETCH n.reporte r " +
+           "LEFT JOIN n.tagNoticia tn " +
            "LEFT JOIN tn.tagId t " +
-           "WHERE (:tags IS NULL OR t.tagNome IN :tags) " +
-           "AND (:portals IS NULL OR n.portal.nome IN :portals) " +
-           "AND (:reporters IS NULL OR n.reporte.nome IN :reporters) " +
-           "AND (:startDate IS NULL OR n.notiData >= :startDate) " +
-           "AND (:endDate IS NULL OR n.notiData <= :endDate) " +
-           "AND (:keyword IS NULL OR LOWER(n.notiText) LIKE LOWER(CONCAT('%', :keyword, '%')))")
+           "WHERE (:tagsIsNull = TRUE OR t.tagNome IN :tags) " +
+           "AND (:portalsIsNull = TRUE OR p.nome IN :portals) " +
+           "AND (:reportersIsNull = TRUE OR r.nome IN :reporters) " +
+           "AND (:startDateIsNull = TRUE OR n.notiData >= :startDate) " +
+           "AND (:endDateIsNull = TRUE OR n.notiData <= :endDate) " +
+           "AND (:keywordIsNull = TRUE OR LOWER(n.notiText) LIKE LOWER(CONCAT('%', :keyword, '%'))) ")
     Page<Noticia> findByFilters(
+        @Param("tagsIsNull") boolean tagsIsNull,
         @Param("tags") List<String> tags,
+        @Param("portalsIsNull") boolean portalsIsNull,
         @Param("portals") List<String> portals,
+        @Param("reportersIsNull") boolean reportersIsNull,
         @Param("reporters") List<String> reporters,
+        @Param("startDateIsNull") boolean startDateIsNull,
         @Param("startDate") LocalDate startDate,
+        @Param("endDateIsNull") boolean endDateIsNull,
         @Param("endDate") LocalDate endDate,
+        @Param("keywordIsNull") boolean keywordIsNull,
         @Param("keyword") String keyword,
         Pageable pageable
     );

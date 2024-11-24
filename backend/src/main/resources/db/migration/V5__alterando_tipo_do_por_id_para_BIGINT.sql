@@ -1,0 +1,1 @@
+ALTER TABLE noticia ALTER COLUMN por_id TYPE BIGINT;

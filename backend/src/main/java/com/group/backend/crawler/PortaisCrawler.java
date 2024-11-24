@@ -52,7 +52,7 @@ public class PortaisCrawler {
 
                 Noticia noticia = new Noticia();
                 noticia.setUrl(url);
-                noticia.setPorId(portalId.intValue());
+                noticia.setPorId(portalId.longValue());
 
                 controllerCrawler.startCrawlWithSeed(new String[]{url}, noticia);
 

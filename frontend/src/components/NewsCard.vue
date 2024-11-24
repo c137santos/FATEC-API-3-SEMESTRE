@@ -26,7 +26,8 @@
         <div class="popup-header">
           <img src="@/components/icons/info.png" alt="Info Icon" class="popup-info-icon" />
           <div class="popup-header-text">
-            <h3>{{ noticia.titulo }}</h3>
+            <!-- Removido o título. Exibindo o portal como referência -->
+            <h3>{{ noticia.portal }}</h3>
             <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
           </div>
         </div>
@@ -93,11 +94,6 @@ export default {
   flex-grow: 1;
   width: max-content;
   text-wrap: nowrap;
-}
-
-.news-content h3 {
-  margin: 0;
-  font-size: 20px;
 }
 
 .news-content p {
