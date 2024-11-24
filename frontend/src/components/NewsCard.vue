@@ -39,6 +39,9 @@ export default {
   },
   methods: {
     formatDate(dateString) {
+      if(!dateString) {
+        return "Data não disponível";
+      }
       const date = new Date(dateString);
       return date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
     },
