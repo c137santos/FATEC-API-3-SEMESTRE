@@ -72,11 +72,10 @@ body {
 }
 
 html, body {
-  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita barras de rolagem horizontais desnecessárias */
+  box-sizing: border-box;
 }
 
 #app {
@@ -89,7 +88,10 @@ html, body {
 
 /*Regionalismo */
 .wrapper {
-  padding: 1rem;
+  min-height: 100vh; /* Garante que a tela ocupe pelo menos a altura total da janela */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ajusta o conteúdo para começar do topo */
 }
 
 .botao-cadastrar-container {
@@ -909,7 +911,6 @@ h2 {
   color: #49454F;
   margin-top: 4px;
 }
-
 /* Lista Portais */
 .portal-card {
   display: flex;
