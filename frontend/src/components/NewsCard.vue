@@ -9,7 +9,7 @@
         <p><strong>Portal:</strong> {{ noticia.portal }}</p>
         <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
         <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
-        <p><strong>Tags:</strong> 
+        <p><strong>Tags:</strong>
           <!-- Exibe as tags associadas à notícia -->
           {{ noticia.categorias && noticia.categorias.length ? noticia.categorias.join(', ') : 'Sem tags' }}
         </p>
@@ -94,6 +94,11 @@ export default {
   flex-grow: 1;
   width: max-content;
   text-wrap: nowrap;
+}
+
+.news-content h3 {
+  margin: 0;
+  font-size: 20px;
 }
 
 .news-content p {

@@ -50,7 +50,10 @@
         <NewsCard
           v-for="noticia in noticias"
           :key="noticia.notiId"
-          :noticia="noticia"
+          :noticia="{
+            ...noticia,
+            content: noticia.content.length > 255 ? noticia.content.substring(0, 255) + '...' : noticia.content
+          }"
         />
         <div v-if="noticias.length === 0 && !isLoading" class="no-results">
           Nenhuma notícia encontrada.
@@ -66,10 +69,10 @@
 </template>
 
 <script>
-import "./../utils/HomeView.css";
 import SearchBar from "@/components/SearchBar.vue";
 import DataRange from "@/components/DataRange.vue";
 import NewsCard from "@/components/NewsCard.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -79,7 +82,7 @@ export default {
   },
   data() {
     return {
-      keyword: "", // Palavra-chave para o filtro de texto livre
+      keyword: "",
       pageIndex: 0,
       totalPages: 0,
       selectedTag: "",
@@ -91,8 +94,8 @@ export default {
       portais: [],
       reporters: [],
       noticias: [],
-      errorMessage: "", // Mensagem de erro para validações
-      isLoading: false,  // Indicador de carregamento
+      errorMessage: "",
+      isLoading: false,
     };
   },
   mounted() {
@@ -103,21 +106,17 @@ export default {
     async fetchFilters() {
       try {
         const [tagsResponse, portaisResponse, reportersResponse] = await Promise.all([
-          fetch("http://localhost:8080/tags/listar"),
-          fetch("http://localhost:8080/portais/listar"),
-          fetch("http://localhost:8080/reporters/listar"),
+          axios.get("http://localhost:8080/tags/listar"),
+          axios.get("http://localhost:8080/portais/listar"),
+          axios.get("http://localhost:8080/reporters/listar"),
         ]);
 
-        if (!tagsResponse.ok || !portaisResponse.ok || !reportersResponse.ok) {
-          throw new Error("Erro ao carregar os filtros");
-        }
-
-        this.tags = (await tagsResponse.json()).map((tag) => ({ name: tag.tagNome }));
-        this.portais = (await portaisResponse.json()).map((portal) => ({ name: portal.nome }));
-        this.reporters = (await reportersResponse.json()).map((reporter) => ({ name: reporter.nome }));
+        this.tags = tagsResponse.data.map((tag) => ({ name: tag.tagNome }));
+        this.portais = portaisResponse.data.map((portal) => ({ name: portal.nome }));
+        this.reporters = reportersResponse.data.map((reporter) => ({ name: reporter.nome }));
       } catch (error) {
         console.error(error.message);
-        alert("Erro ao carregar os filtros.");
+        this.errorMessage = "Erro ao carregar os filtros.";
       }
     },
     async fetchNoticias() {
@@ -135,28 +134,23 @@ export default {
         });
 
         const [response, totalResponse] = await Promise.all([
-          fetch(`http://localhost:8080/noticias/listar?${params.toString()}`),
-          fetch(`http://localhost:8080/noticias/total?${params.toString()}`)
+          axios.get(`http://localhost:8080/noticias/listar?${params.toString()}`),
+          axios.get(`http://localhost:8080/noticias/total?${params.toString()}`),
         ]);
 
-        if (!response.ok) throw new Error("Erro ao buscar notícias");
-        if (!totalResponse.ok) throw new Error("Erro ao buscar total de notícias");
-
-        const noticiaList = await response.json();
-        this.noticias = noticiaList.map((n) => ({
+        this.noticias = response.data.map((n) => ({
           notiId: n.notiId,
           portal: n.portal?.nome || "Portal não encontrado",
           jornalista: n.reporte?.nome || "Jornalista não identificado",
-          content: n.notiText || "Conteúdo indisponível",
+          content: n.notiText || "Conteúdo indisponível", // Mantém o texto completo
           data: n.notiData || "Data não informada",
-          categorias: n.tagNoticia ? n.tagNoticia.map(tag => tag.tagId.tagNome) : [],
+          categorias: n.tagNoticia ? n.tagNoticia.map((tag) => tag.tagId.tagNome) : [],
         }));
 
-        const totalNoticias = await totalResponse.json();
-        this.totalPages = Math.ceil(totalNoticias / 10);
+        this.totalPages = Math.ceil(totalResponse.data / 10);
       } catch (error) {
         console.error(error.message);
-        alert(error.message);
+        this.errorMessage = "Erro ao carregar as notícias.";
       } finally {
         this.isLoading = false;
       }
@@ -167,37 +161,11 @@ export default {
       this.fetchNoticias();
     },
     applyFilters() {
-      // Limpar mensagens de erro anteriores
       this.errorMessage = "";
-
-      // Validação de Datas
-      if (this.selectedStartDate && this.selectedEndDate) {
-        if (this.selectedStartDate > this.selectedEndDate) {
-          this.errorMessage = "Intervalo de datas inválido: a data de início deve ser anterior ou igual à data de fim.";
-          return;
-        }
+      if (this.selectedStartDate && this.selectedEndDate && this.selectedStartDate > this.selectedEndDate) {
+        this.errorMessage = "Intervalo de datas inválido.";
+        return;
       }
-
-      // Formatar as datas para garantir o padrão YYYY-MM-DD
-      // O componente de data já fornece nesse formato, mas podemos reforçar
-      if (this.selectedStartDate) {
-        // Verifica se a data está no formato correto
-        const startDateRegex = /^\d{4}-\d{2}-\d{2}$/;
-        if (!startDateRegex.test(this.selectedStartDate)) {
-          this.errorMessage = "Formato da data de início inválido. Use YYYY-MM-DD.";
-          return;
-        }
-      }
-
-      if (this.selectedEndDate) {
-        const endDateRegex = /^\d{4}-\d{2}-\d{2}$/;
-        if (!endDateRegex.test(this.selectedEndDate)) {
-          this.errorMessage = "Formato da data de fim inválido. Use YYYY-MM-DD.";
-          return;
-        }
-      }
-
-      // Aplicar os filtros e buscar as notícias
       this.pageIndex = 0;
       this.fetchNoticias();
     },
@@ -219,23 +187,19 @@ export default {
 </script>
 
 <style scoped>
-
 .date-section {
   margin-top: 10px;
 }
-
 .filters {
   margin-top: 20px;
   display: flex;
   gap: 10px;
 }
-
 .filters select {
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #d9d9d9;
 }
-
 .filters button {
   padding: 8px 16px;
   border: none;
@@ -244,35 +208,19 @@ export default {
   border-radius: 8px;
   cursor: pointer;
 }
-
 .pagination-wrapper {
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
-
-.pagination-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .news-list {
   margin-top: 20px;
 }
-
-.no-results {
-  text-align: center;
-  color: #49454F;
-  margin-top: 20px;
-}
-
 .loading {
   text-align: center;
   color: #49454F;
   margin-top: 20px;
 }
-
 .error-message {
   color: red;
   margin-top: 10px;

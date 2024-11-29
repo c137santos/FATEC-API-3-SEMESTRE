@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,14 +32,15 @@ public class NoticiaController {
         this.filterService = filterService;
     }
 
+    // Endpoint com filtros
     @GetMapping("/listar")
-    public ResponseEntity<List<Noticia>> listarNoticias(
+    public ResponseEntity<List<Noticia>> listarNoticiasComFiltros(
         @RequestParam(required = false) String tag,
         @RequestParam(required = false) String portal,
         @RequestParam(required = false) String reporter,
         @RequestParam(required = false) String startDate,
         @RequestParam(required = false) String endDate,
-        @RequestParam(required = false) String keyword, // Suporte a texto livre
+        @RequestParam(required = false) String keyword,
         @RequestParam(defaultValue = "0") Integer pageIndex
     ) {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
@@ -46,7 +48,7 @@ public class NoticiaController {
         // Processando filtros
         FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate, keyword);
 
-        // Aplicando filtros combinados com parâmetros separados
+        // Aplicando filtros
         Page<Noticia> noticiaPage = noticiaRepository.findByFilters(
             (criteria.getTags() == null || criteria.getTags().isEmpty()),
             criteria.getTags(),
@@ -63,31 +65,33 @@ public class NoticiaController {
             pageable
         );
 
-        List<Noticia> noticiaList = noticiaPage.toList();
+        // Retornando a lista sem modificar o texto original
+        return ResponseEntity.ok(noticiaPage.toList());
+    }
 
-        // Limitar o tamanho do texto das notícias
-        noticiaList.forEach(noticia -> {
-            if (noticia.getNotiText() != null && noticia.getNotiText().length() > 255) {
-                noticia.setNotiText(noticia.getNotiText().substring(0, 255).concat("..."));
-            }
-        });
+    // Endpoint sem filtros
+    @GetMapping("/listar/{pageIndex}")
+    public ResponseEntity<List<Noticia>> listarNoticiasPaginado(@PathVariable Integer pageIndex) {
+        Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
+        Page<Noticia> noticiaPage = noticiaRepository.findAll(pageable);
 
-        return ResponseEntity.ok(noticiaList);
+        // Retornando a lista sem modificar o texto original
+        return ResponseEntity.ok(noticiaPage.toList());
     }
 
     @GetMapping("/total")
-    public ResponseEntity<Long> getTotal(
+    public ResponseEntity<Long> getTotalNoticias(
         @RequestParam(required = false) String tag,
         @RequestParam(required = false) String portal,
         @RequestParam(required = false) String reporter,
         @RequestParam(required = false) String startDate,
         @RequestParam(required = false) String endDate,
-        @RequestParam(required = false) String keyword // Suporte a texto livre
+        @RequestParam(required = false) String keyword
     ) {
         // Processando filtros
         FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate, keyword);
 
-        // Calculando o total com filtros combinados
+        // Calculando o total com filtros
         long total = noticiaRepository.findByFilters(
             (criteria.getTags() == null || criteria.getTags().isEmpty()),
             criteria.getTags(),
