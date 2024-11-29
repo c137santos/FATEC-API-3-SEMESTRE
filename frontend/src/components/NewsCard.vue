@@ -4,16 +4,17 @@
     <img src="@/components/icons/info.png" alt="Info Icon" class="info-icon" />
 
     <!-- Conteúdo da notícia -->
-    <div class="news-content">
-      <h3>{{ noticia.titulo }}</h3>
-      <p><strong>Portal:</strong> {{ noticia.portal }}</p>
-      <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
-      <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
-      <p><strong>Categorias:</strong> {{ noticia.categorias.join(', ') }}</p>
-      <button class="read-more-btn" @click="showPopUp = true">Clique aqui para ler a notícia completa</button>
+    <div class="news-wrapper">
+      <div class="news-content">
+        <p><strong>Portal:</strong> {{ noticia.portal }}</p>
+        <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
+        <p><strong>Data:</strong> {{ formatDate(noticia.data) }}</p>
+        <p><strong>Tags:</strong> {{ noticia.categorias.join(', ') }}</p>
+        <button class="read-more-btn" @click="showPopUp = true">Clique aqui para ler a notícia completa</button>
+      </div>
     </div>
 
-    <!-- Pop-up da notícia (pode ser implementado depois) -->
+    <!-- Pop-up da notícia -->
     <div v-if="showPopUp" class="popup-overlay">
       <div class="popup-content">
         <div class="popup-header">
