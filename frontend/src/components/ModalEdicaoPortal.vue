@@ -130,7 +130,7 @@ export default {
         })
         .then((data) => {
           this.$emit('portal-registrado', data)
-          this.saveChanges() 
+          this.saveChanges()
         })
         .catch((error) => {
           console.error('Erro ao editar API:', error)
@@ -142,6 +142,7 @@ export default {
       this.portalEmEdit = { ...newPortal }
     }
   },
+}
 }
 </script>
 
