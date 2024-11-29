@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 
 
 import com.group.backend.domain.ApiPublicaRepository;
@@ -70,14 +73,20 @@ public class ApiController {
         }
     }
 
-    @GetMapping("resultados")
-    public ResponseEntity<List<ResultApi>> getAllResultsByApiId(@RequestParam Long apiId) {
-        List<ResultApi> results = resultApiRepository.findAllByApiId(apiId);
-        
+  @GetMapping("resultados")
+    public ResponseEntity<Page<ResultApi>> getAllResultsByApiId(
+        @RequestParam Long apiId,
+        @RequestParam(defaultValue = "0") int page, // Página padrão: 0
+        @RequestParam(defaultValue = "1") int size // Tamanho padrão: 1 itens por página
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<ResultApi> results = resultApiRepository.findAllByApiId(apiId, pageable);
+
         if (!results.isEmpty()) {
             return ResponseEntity.ok(results);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
+
 }
