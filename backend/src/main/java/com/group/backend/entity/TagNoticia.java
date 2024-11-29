@@ -1,5 +1,7 @@
 package com.group.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -9,6 +11,7 @@ public class TagNoticia {
 
     @Id
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "noti_id")
     private Noticia notiId;
 
@@ -21,15 +24,15 @@ public class TagNoticia {
         return notiId;
     }
 
-    public void setNoticia(Noticia noticia) {
-        this.notiId = noticia;
+    public void setNotiId(Noticia notiId) {
+        this.notiId = notiId;
     }
 
     public Tag getTagId() {
         return tagId;
     }
 
-    public void setTagId(Tag tag) {
-        this.tagId = tag;
+    public void setTagId(Tag tagId) {
+        this.tagId = tagId;
     }
 }

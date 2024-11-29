@@ -21,7 +21,7 @@ public class ControllerCrawler {
     private static final String CRAWL_STORAGE_FOLDER = "./dadosCrawler";
     private static final int MAX_PAGES_TO_FETCH = 1000; // Número máximo de páginas a serem buscadas
     private static final boolean INCLUDE_BINARY_CONTENT = false; // Não incluir conteúdo binário no crawling
-    private static final int NUMBER_OF_CRAWLERS = 3; // Número de threads para o crawling
+    private static final int NUMBER_OF_CRAWLERS = 100; // Número de threads para o crawling
     private static final int MIN_POLITENESS_DELAY = 500; // Delay mínimo em milissegundos
     private static final int MAX_POLITENESS_DELAY = 3000; // Delay máximo em milissegundos
 
@@ -58,7 +58,8 @@ public class ControllerCrawler {
 
             int numSeeds = seedUrls.length;
             logger.info("Número total de seeds recebidas: {}", numSeeds);
-            int threads = Math.min(NUMBER_OF_CRAWLERS, numSeeds); // Não criar mais threads do que seeds
+            int availableProcessors = Runtime.getRuntime().availableProcessors();
+            int threads = Math.min(NUMBER_OF_CRAWLERS, availableProcessors * 2); // Ajuste baseado no número de núcleos de CPU
 
             for (int i = 0; i < threads; i++) {
                 final int threadIndex = i; // Variável final para uso no lambda

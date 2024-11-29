@@ -12,4 +12,7 @@ public interface TagPortalRepository extends JpaRepository<TagPortal, TagPortalI
 
     @Query(value = "SELECT tag_id FROM tag_portal WHERE por_id = :portalId", nativeQuery = true)
     Iterable<Long> getAllTagsByPortal(@Param("portalId") Long portalId);
+    
+    @Query(value = "SELECT id FROM tag_portal WHERE por_id = :portalId AND tag_id = :tagId", nativeQuery = true)
+    Long getIdByPortalAndTag(@Param("portalId") Long portalId, @Param("tagId") Long tagId);
 }

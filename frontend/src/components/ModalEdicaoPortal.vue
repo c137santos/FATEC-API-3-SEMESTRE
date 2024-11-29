@@ -4,13 +4,7 @@
       <h2 class="modal-title">Editando Portal Notícia:</h2>
       <form @submit.prevent="editarPortal" class="modal-form">
         <label for="nome">Nome:</label>
-        <input 
-          v-model="portalEmEdit.nome"
-          type="text"
-          id="nome"
-          required 
-          class="modal-input"
-        />
+        <input v-model="portalEmEdit.nome" type="text" id="nome" required class="modal-input" />
 
         <label for="frequencia">Frequência:</label>
         <div class="select-container">
@@ -27,12 +21,28 @@
         <div class="active-group">
           <label for="active">Ativo:</label>
           <input v-model="portalEmEdit.ativo" class="modal-input" type="checkbox" id="active" />
-        </div>        
-
-        <div class="modal-actions">
-          <button type="submit" class="salvar-btn">Salvar</button>
-          <button type="button" class="cancelar-btn" @click="fecharModal">Cancelar</button>
         </div>
+
+        <div>
+          <p>Tags:</p>
+          <button type="button" @click="abrirModal = true" class="botao-selecionar-tags">Selecionar Tags</button>
+          <p>Tags selecionadas: {{ tagsSelecionadasNomes }}</p>
+        </div>
+        <button class="salvar-btn" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
+      <button class="cancelar-btn" @click.prevent="cancelarEdicao">Cancelar</button>
+
+        <div v-if="abrirModal" class="modal-overlay">
+          <div class="modal-content">
+            <h3>Selecione as Tags</h3>
+            <div v-for="tag in tags" :key="tag.tagId">
+              <input class="modal-input" type="checkbox" :id="tag.tagId" v-model="tagsSelecionadas[tag.tagId]">
+              <label :for="tag.tagId">{{ tag.tagNome }}</label>
+            </div>
+            <button @click="abrirModal = false" class="botao-salvar-multiplas-tags">Salvar</button>
+            <button @click="abrirModal = false" class="botao-cancelar-multiplas-tags">Cancelar</button>
+          </div>
+        </div>
+
       </form>
     </div>
   </div>
@@ -44,7 +54,8 @@ export default {
   emits: ['close', 'save'],
   props: {
     portal: Object,
-    modalAberto: Boolean
+    modalAberto: Boolean,
+    tags: Array
   },
   data() {
     return {
@@ -54,10 +65,34 @@ export default {
         url: this.portal.url,
         ativo: this.portal.ativo,
         frequencia: this.portal.frequencia,
-      }
+        tags: this.portal.tags
+      },
+      abrirModal: false,
+      tagsSelecionadas: {},
+      tagsSelecionadasNomes: '',
     }
   },
+  watch: {
+    portal(newPortal) {
+      this.portalEmEdit = { ...newPortal }
+      this.constroeListaTagsSeleciona();
+    }
+  },
+    mounted() {
+    this.constroeListaTagsSeleciona();
+  },
   methods: {
+    constroeListaTagsSeleciona() {
+      const tagsArray = Array.isArray(this.portalEmEdit.tags) 
+      ? this.portalEmEdit.tags 
+      : Object.keys(this.portalEmEdit.tags || {}).map(Number);
+      console.log(this.tags)
+
+    this.tags.forEach(tag => {
+      this.tagsSelecionadas[tag.tagId] = tagsArray.includes(tag.tagId);
+    });
+
+    },
     fecharModal() {
       this.$emit('close');
     },
@@ -80,36 +115,33 @@ export default {
       if (urlPattern.test(url)) {
         const portalAtualizado = { id, nome, url, ativo, frequencia };
 
-        fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(portalAtualizado)
+      fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(portalAtualizado)
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Erro ao atualizar API')
+          }
+          return response.json()
         })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error('Erro ao atualizar API');
-            }
-            return response.json();
-          })
-          .then((data) => {
-            this.$emit('portal-registrado', data);
-            this.saveChanges();  // Salva as alterações e fecha o modal
-          })
-          .catch((error) => {
-            console.error('Erro ao editar API:', error);
-          });
-      } else {
-        console.error('URL inválida');
-      }
+        .then((data) => {
+          this.$emit('portal-registrado', data)
+          this.saveChanges() 
+        })
+        .catch((error) => {
+          console.error('Erro ao editar API:', error)
+        })
     }
   },
   watch: {
     portal(newPortal) {
-      this.portalEmEdit = { ...newPortal };
+      this.portalEmEdit = { ...newPortal }
     }
-  }
+  },
 }
 </script>
 
@@ -176,7 +208,26 @@ export default {
   gap: 15px;
 }
 
-.salvar-btn {
+.botao-selecionar-tags {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.botao-selecionar-tags:hover {
+  background-color: #4a148c;
+}
+
+.botao-salvar-multiplas-tags:hover {
+  background-color: #4a148c;
+}
+
+.salvar-btn, .botao-salvar-multiplas-tags {
   background-color: #6a1b9a;
   color: white;
   padding: 10px 20px;
@@ -190,7 +241,7 @@ export default {
   background-color: #4a148c;
 }
 
-.cancelar-btn {
+.cancelar-btn, .botao-cancelar-multiplas-tags {
   background-color: transparent;
   color: #6a1b9a;
   padding: 10px 20px;
@@ -203,10 +254,19 @@ export default {
 .active-group {
   display: flex;
   align-items: baseline;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .cancelar-btn:hover {
   text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #4a148c;
 }
 </style>
