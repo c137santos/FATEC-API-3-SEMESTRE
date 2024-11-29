@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Verifica se há APIs e as lista -->
     <div v-if="apis.length" v-for="api in apis" :key="api.id" class="api-card">
       <div class="api-header">
         <div class="api-details">
@@ -7,21 +8,25 @@
           <p>{{ api.url }}</p>
           <p>{{ api.frequencia }}</p>
         </div>
-        <button class="button-black" @click="editarApi(api)">editar</button>
+        <button class="button-black" @click="editarApi(api)">Editar</button>
       </div>
       <button class="view-data-button" @click="viewCapturedData(api.id, currentPage)">
         Clique aqui para ver os dados capturados
       </button>
     </div>
+
+    <!-- Caso não haja APIs -->
     <div v-else>Carregando APIs...</div>
 
+    <!-- Dialog para exibir resultados capturados -->
     <dialog ref="dataDialog" class="data-dialog">
       <div class="dialog-header">
         <h3>Resultados capturados</h3>
       </div>
       <div class="captured-data">
         <div v-for="item in capturedData.content" :key="item.id">
-          <p> Dados do dia: {{ formatDate(item.resData) }}</p>
+          <p>Dados do dia: {{ formatDate(item.resData) }}</p>
+          <!-- Componente VueJsonPretty -->
           <vue-json-pretty :data="JSON.parse(item.resPayload)" />
         </div>
       </div>
@@ -38,7 +43,7 @@
 <script>
 import VueJsonPretty from 'vue-json-pretty'
 import 'vue-json-pretty/lib/styles.css'
-import '@/assets/base.css';
+import '@/assets/base.css'
 
 export default {
   props: {
@@ -60,7 +65,7 @@ export default {
       this.$emit('editar-api', api)
     },
     viewCapturedData(id, page) {
-      this.apiId = id; 
+      this.apiId = id
       fetch(`http://localhost:8080/apis/resultados?apiId=${id}&page=${page}&size=${this.pageSize}`)
         .then((response) => {
           if (!response.ok) {
@@ -80,19 +85,17 @@ export default {
     closeDialog() {
       this.$refs.dataDialog.close()
     },
-    formatJson(data) {
-      return JSON.stringify(data, null, 2).replace(/\\n/g, '<br>').replace(/ /g, '&nbsp;')
-    },
     formatDate(dateArray) {
-      const [year, month, day] = dateArray;
-      const formattedDay = String(day).padStart(2, "0");
-      const formattedMonth = String(month).padStart(2, "0");
-      return `${formattedDay}/${formattedMonth}/${year}`;
+      const [year, month, day] = dateArray
+      const formattedDay = String(day).padStart(2, '0')
+      const formattedMonth = String(month).padStart(2, '0')
+      return `${formattedDay}/${formattedMonth}/${year}`
     },
     changePage(page) {
       if (page >= 0 && page < this.capturedData.totalPages) {
-        this.viewCapturedData(this.apiId, page) 
+        this.viewCapturedData(this.apiId, page)
       }
     }
-  },
+  }
 }
+</script>
