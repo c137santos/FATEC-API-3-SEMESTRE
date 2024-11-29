@@ -39,14 +39,18 @@
                         <h4>Tag: {{ tag.tagNome }}</h4>
                     </div>
                     <div class="regionalismo-list">
-                        <div v-if="tag.regionalismos.length > 0" v-for="(regionalismo, idx) in tag.regionalismos" :key="idx" class="regionalismo-item">
-                            <div class="regionalismo-nome">
-                                {{ regionalismo.nome }}
-                            </div>
-                            <div class="regionalismo-editar">
-                                <CerbButton fill-type="mute" @click="editarRegionalismo(tag, regionalismo)" class="botao-grande">Editar</CerbButton>
+                        <!-- Verifica se a tag possui regionalismos -->
+                        <div v-if="tag.regionalismos && tag.regionalismos.length > 0">
+                            <div v-for="(regionalismo, idx) in tag.regionalismos" :key="idx" class="regionalismo-item">
+                                <div class="regionalismo-nome">
+                                    {{ regionalismo.nome }}
+                                </div>
+                                <div class="regionalismo-editar">
+                                    <CerbButton fill-type="mute" @click="editarRegionalismo(tag, regionalismo)" class="botao-grande">Editar</CerbButton>
+                                </div>
                             </div>
                         </div>
+                        <!-- Exibe mensagem caso não haja regionalismos -->
                         <div v-else class="no-regionalismo">Nenhum regionalismo cadastrado</div>
                     </div>
                 </div>

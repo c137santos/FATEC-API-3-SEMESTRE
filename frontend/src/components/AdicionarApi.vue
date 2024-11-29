@@ -31,6 +31,7 @@
             />
             <span v-if="erros.url" class="error">{{ erros.url }}</span>
           </div>
+
           <div class="form-group">
             <input
               type="text"
@@ -70,114 +71,66 @@
   </div>
 </template>
 
+
 <script>
-import '@/assets/base.css';
 export default {
   data() {
     return {
       mostrarFormulario: false,
       api: {
         nome: '',
-        url: '',
         descricao: '',
-        active: true,
-        frequencia: 'diariamente'
+        ativo: true
       },
       erros: {
         nome: '',
-        url: ''
-      }
-    }
+        descricao: ''
+      },
+      tags: [], // Lista de tags cadastradas
+    };
   },
   methods: {
+    // Toggle para mostrar/ocultar o formulário
+    toggleNovaApiForm() {
+      this.mostrarFormulario = !this.mostrarFormulario;
+    },
+
+    // Salvar a nova API
+    salvarApi() {
+      if (this.validarFormulario()) {
+        // Aqui você pode fazer a chamada para salvar no backend
+        this.tags.push({ nome: this.api.nome });
+        console.log('API salva com sucesso:', this.api);
+        this.cancelar(); // Fecha o formulário após salvar
+      }
+    },
+
+    // Validar os campos do formulário
     validarFormulario() {
-      let valido = true
+      this.erros = { nome: '', descricao: '' };
+      let valido = true;
 
       if (!this.api.nome) {
-        this.erros.nome = 'O nome da API é obrigatório.'
-        valido = false
-      } else if (!/^[a-zA-Z0-9\s]+$/.test(this.api.nome)) {
-        this.erros.nome = 'O nome deve conter apenas letras e números.'
-        valido = false
-      } else {
-        this.erros.nome = ''
+        this.erros.nome = 'O nome da API é obrigatório.';
+        valido = false;
       }
 
-      const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/
-      if (!this.api.url) {
-        this.erros.url = 'A URL da API é obrigatória.'
-        valido = false
-      } else if (!urlPattern.test(this.api.url)) {
-        this.erros.url = 'A URL da API não é válida.'
-        valido = false
-      } else {
-        this.erros.url = ''
+      if (!this.api.descricao) {
+        this.erros.descricao = 'A descrição da API é obrigatória.';
+        valido = false;
       }
 
-      return valido
+      return valido;
     },
-    salvarApi() {
-      this.mostrarFormulario = false
-      if (this.validarFormulario()) {
-        let apiSerSalva = { ...this.api }
-        this.$emit('nova-api', apiSerSalva)
-        this.salvandoAPiBackend()
-      }
-    },
-    salvandoAPiBackend() {
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.api)
-      }
-      fetch('http://localhost:8080/apis/cadastrar', requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          this.mostrarFormulario = false
-        })
-        .catch((error) => {
-          console.error('Erro ao salvar API:', error)
-        })
-    },
-    validarDadosApi() {
-      if (this.validarFormulario()) {
-        console.log('API salva com sucesso:', this.api)
-        alert('API salva com sucesso!')
-        this.cancelar()
-      }
-    },
+
+    // Cancelar o formulário e limpar os dados
     cancelar() {
-      this.mostrarFormulario = false
-      this.clearAllInput()
-      this.erros = {
-        nome: '',
-        url: ''
-      }
-    },
-    clearInput(campo) {
-      if (campo === 'nome') {
-        this.api.nome = ''
-        this.erros.nome = ''
-      } else if (campo === 'url') {
-        this.api.url = ''
-        this.erros.url = ''
-      } else if (campo === 'descricao') {
-        this.api.descricao = ''
-        this.erros.descricao = ''
-      }
-    },
-    clearAllInput() {
-      this.api = {
-        nome: '',
-        url: '',
-        descricao: '',
-        active: true,
-        frequencia: 'diariamente'
-      }
-    },
-    toggleNovaApiForm() {
-      this.mostrarFormulario = !this.mostrarFormulario
+      this.mostrarFormulario = false;
+      this.api = { nome: '', descricao: '', ativo: true };
+      this.erros = { nome: '', descricao: '' };
     }
   }
-}
+};
 </script>
+
+<style src="@/assets/base.css"></style> <!-- CSS externo -->
