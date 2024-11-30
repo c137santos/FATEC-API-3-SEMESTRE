@@ -91,7 +91,7 @@ public class NoticiaController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Endpoint para total de notícias sem filtros
+    // Endpoint para total de notícias com filtros
     @GetMapping("/total")
     public ResponseEntity<Long> getTotalNoticias(
         @RequestParam(required = false) String tag,

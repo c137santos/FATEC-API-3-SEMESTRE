@@ -50,7 +50,7 @@
       <div class="news-list">
         <NewsCard
           v-for="noticia in noticias"
-          :key="noticia.notiId"
+          :key="noticia.notiId || noticia.id"
           :noticia="noticia"
           @exibir-noticia="exibirNoticiaInteira"
         />

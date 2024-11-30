@@ -14,7 +14,7 @@
           <!-- Exibe as tags associadas à notícia -->
           {{ noticia.categorias && noticia.categorias.length ? noticia.categorias.join(', ') : 'Sem tags' }}
         </p>
-        <button class="read-more-btn" @click="noticiaSelecionada(noticia.notiId)">
+        <button class="read-more-btn" @click="noticiaSelecionada(noticia.notiId || noticia.id)">
           Clique aqui para ler a notícia completa
         </button>
       </div>
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     conteudoTruncado() {
-      const texto = this.noticia.content || '';
+      const texto = this.noticia.content || this.noticia.notiText || '';
       return texto.length > 255 ? texto.substring(0, 255) + '...' : texto;
     },
   },
@@ -114,8 +114,6 @@ export default {
   border-radius: 8px;
   cursor: pointer;
 }
-
-/* Remover os estilos do modal, pois o modal não está mais neste componente */
 
 /* Ajustes para dispositivos móveis */
 @media (max-width: 768px) {
