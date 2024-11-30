@@ -16,7 +16,7 @@
         </div>
 
         <label for="url">URL:</label>
-        <input v-model="portalEmEdit.url" class="modal-input" type="url" id="url" />
+        <input v-model="portalEmEdit.url" class="modal-input" id="url" />
 
         <div class="active-group">
           <label for="active">Ativo:</label>
@@ -94,20 +94,26 @@ export default {
 
     },
     fecharModal() {
-      this.$emit('close')
+      this.$emit('close');
     },
     saveChanges() {
-      this.portalEmEdit.tags = Object.keys(this.tagsSelecionadas)
-        .filter(tagId => this.tagsSelecionadas[tagId])
-        .map(Number);
-
-      this.$emit('save', this.portalEmEdit)
-      this.fecharModal()
+      this.$emit('save', this.portalEmEdit);
+      this.fecharModal();
     },
-    
-    async editarPortal() {
-      const { id, nome, url, ativo, frequencia, tags } = this.portalEmEdit;
-      const portalAtualizado = { id, nome, url, ativo, frequencia, tags: Object.keys(this.tagsSelecionadas).filter((i) => this.tagsSelecionadas[i])};
+    editarPortal() {
+      let { id, nome, url, ativo, frequencia } = this.portalEmEdit;
+      const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+      if (url && !/^https?:\/\//i.test(url)) {
+        
+        if (/^www\./i.test(url)) {
+          url = 'https://' + url;
+        } else {
+          
+          url = 'https://www.' + url;
+        }
+      }
+      if (urlPattern.test(url)) {
+        const portalAtualizado = { id, nome, url, ativo, frequencia };
 
       fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
         method: 'PUT',
@@ -120,27 +126,23 @@ export default {
           if (!response.ok) {
             throw new Error('Erro ao atualizar API')
           }
-          return response.json();
+          return response.json()
         })
         .then((data) => {
           this.$emit('portal-registrado', data)
-          this.saveChanges();
+          this.saveChanges()
         })
         .catch((error) => {
-          console.error('Erro ao editar API:', error);
-        });
-    },
-
-    cancelarEdicao() {
-      this.fecharModal();
-    },
-    atualizarNomeTagsSelecionadas() {
-      this.tagsSelecionadasNomes = this.tags
-      .filter(tag => this.tagsSelecionadas(tag.tagId))
-      .map(tag => tag.tagNome)
-      .join(', ');
+          console.error('Erro ao editar API:', error)
+        })
     }
   },
+  watch: {
+    portal(newPortal) {
+      this.portalEmEdit = { ...newPortal }
+    }
+  },
+}
 }
 </script>
 
