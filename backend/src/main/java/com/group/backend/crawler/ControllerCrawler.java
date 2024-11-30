@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import com.group.backend.entity.Noticia;
 import com.group.backend.domain.NoticiaRepository;
 import com.group.backend.domain.ReporterRepository;
+import com.group.backend.domain.PortalRepository; // Import necessário para associar portais
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -27,12 +28,15 @@ public class ControllerCrawler {
 
     private final NoticiaRepository noticiaRepository;
     private final ReporterRepository reporterRepository;
+    private final PortalRepository portalRepository; // Adicionado para buscar portais associados às seeds
     private final HtmlParserService htmlParserService;
     private final List<CrawlController> controllers = new ArrayList<>();
 
-    public ControllerCrawler(NoticiaRepository noticiaRepository, ReporterRepository reporterRepository, HtmlParserService htmlParserService) {
+    public ControllerCrawler(NoticiaRepository noticiaRepository, ReporterRepository reporterRepository, PortalRepository portalRepository,
+                             HtmlParserService htmlParserService) {
         this.noticiaRepository = noticiaRepository;
         this.reporterRepository = reporterRepository;
+        this.portalRepository = portalRepository; // Inicializado
         this.htmlParserService = htmlParserService;
     }
 
@@ -92,7 +96,8 @@ public class ControllerCrawler {
                 AtomicInteger numSeenImages = new AtomicInteger();
                 CrawlController.WebCrawlerFactory<MainCrawler> factory = () -> {
                     logger.debug("Criando instância de MainCrawler para a thread {} com seed {}", threadIndex + 1, seedsForCrawler.length > 0 ? seedsForCrawler[0] : "N/A");
-                    return new MainCrawler(numSeenImages, seedsForCrawler.length > 0 ? seedsForCrawler[0] : null, controller, noticia, noticiaRepository, htmlParserService, reporterRepository);
+                    return new MainCrawler(numSeenImages, seedsForCrawler.length > 0 ? seedsForCrawler[0] : null, controller,
+                            noticia, noticiaRepository, portalRepository, htmlParserService, reporterRepository); // Adicionado portalRepository
                 };
 
                 logger.info("Iniciando o processo de crawling com 1 thread para a thread {} com seeds: {}", threadIndex + 1, String.join(", ", seedsForCrawler));

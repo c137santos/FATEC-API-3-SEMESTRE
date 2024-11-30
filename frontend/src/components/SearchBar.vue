@@ -13,21 +13,30 @@
 
 <script>
 export default {
+  props: {
+    initialKeyword: {
+      type: String,
+      default: "",
+    },
+  },
   data() {
     return {
-      keyword: ''
+      keyword: this.initialKeyword, // Inicializa com a palavra-chave passada via props
     };
   },
   methods: {
     emitSearch() {
-      this.$emit('search', this.keyword);
-    }
+      this.$emit("search", this.keyword); // Emite o evento com o valor atualizado
+    },
   },
   watch: {
     keyword(newVal) {
-      this.emitSearch();
-    }
-  }
+      this.emitSearch(); // Monitora alterações na palavra-chave para disparar automaticamente
+    },
+    initialKeyword(newVal) {
+      this.keyword = newVal; // Atualiza o campo caso a prop inicialKeyword seja alterada
+    },
+  },
 };
 </script>
 
@@ -43,7 +52,7 @@ export default {
 }
 
 .search-icon {
-  content: url('/path/to/lupa-icon.svg');
+  content: url('@/icons/logo.png'); 
   margin-right: 12px;
   width: 24px;
   height: 24px;
