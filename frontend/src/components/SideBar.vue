@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import '@/assets/base.css';
 import SideBarButton from '@/components/SideBarButton.vue'; 
 
 export default {
@@ -40,38 +41,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  width: 80px; 
-  height: 100vh;
-  background: #ECE6F0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover{
-  transform: scale(1.2);
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-}
-
-nav ul li {
-  margin: 20px 0;
-}
-</style>

@@ -27,10 +27,11 @@
               src="@/components/icons/excluir.png"
               alt="Clear Icon"
               class="clear-icon"
-              @click="clearInput('descricao')"
+              @click="clearInput('url')"
             />
             <span v-if="erros.url" class="error">{{ erros.url }}</span>
           </div>
+
           <div class="form-group">
             <input
               type="text"
@@ -42,13 +43,13 @@
               src="@/components/icons/excluir.png"
               alt="Clear Icon"
               class="clear-icon"
-              @click="clearInput('url')"
+              @click="clearInput('descricao')"
             />
-            <span v-if="erros.url" class="error">{{ erros.url }}</span>
+            <span v-if="erros.descricao" class="error">{{ erros.descricao }}</span>
           </div>
 
           <div class="form-group">
-            <label> <input type="checkbox" v-model="api.active" /> ativa </label>
+            <label> <input type="checkbox" v-model="api.active" /> Ativa </label>
           </div>
 
           <div class="form-group">
@@ -85,10 +86,15 @@ export default {
       erros: {
         nome: '',
         url: '',
+        descricao: '',
       },
     };
   },
   methods: {
+    toggleNovaApiForm() {
+      this.mostrarFormulario = !this.mostrarFormulario;
+    },
+
     validarFormulario() {
       let valido = true;
 
@@ -124,41 +130,45 @@ export default {
         this.api.url = url;
       }
 
+      if (!this.api.descricao) {
+        this.erros.descricao = 'A descrição da API é obrigatória.';
+        valido = false;
+      } else {
+        this.erros.descricao = '';
+      }
+
       return valido;
     },
+
     salvarApi() {
       if (this.validarFormulario()) {
-        let apiSerSalva = { ...this.api };
-        this.$emit('nova-api', apiSerSalva);
-        this.salvandoAPiBackend();
-        this.clearAllInput();
-        this.mostrarFormulario = false;
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.api),
+        };
+        fetch('http://localhost:8080/apis/cadastrar', requestOptions)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('API salva com sucesso no backend:', data);
+          })
+          .catch((error) => {
+            console.error('Erro ao salvar API:', error);
+          });
+        this.cancelar();
       }
     },
-    salvandoAPiBackend() {
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.api),
-      };
-      fetch('http://localhost:8080/apis/cadastrar', requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('API salva com sucesso no backend:', data);
-        })
-        .catch((error) => {
-          console.error('Erro ao salvar API:', error);
-        });
-    },
+
     cancelar() {
       this.mostrarFormulario = false;
       this.clearAllInput();
-      this.erros = { nome: '', url: '' };
     },
+
     clearInput(campo) {
       this.api[campo] = '';
       this.erros[campo] = '';
     },
+
     clearAllInput() {
       this.api = {
         nome: '',
@@ -167,118 +177,10 @@ export default {
         active: true,
         frequencia: 'diariamente',
       };
-    },
-    toggleNovaApiForm() {
-      this.mostrarFormulario = !this.mostrarFormulario;
+      this.erros = { nome: '', url: '', descricao: '' };
     },
   },
 };
 </script>
 
-<style scoped>
-.api-cadastrar {
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  color: black;
-}
-
-.content {
-  width: 85%;
-  padding: 20px;
-}
-
-.form-section {
-  background-color: #fff;
-  padding: 20px;
-  margin: 0 auto;
-  margin-top: 25px;
-  width: 1000px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.info-icon {
-  width: 25px;
-  height: 25px;
-  margin-right: 17px;
-}
-
-.clear-icon {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  right: 10px; /* Distância do lado direito */
-  top: 50%; /* Centraliza verticalmente */
-  transform: translateY(-50%); /* Ajusta para centralização */
-  cursor: pointer;
-}
-
-.form-group {
-  position: relative;
-  margin-bottom: 20px;
-  flex-direction: column;
-}
-
-.form-group input[type='text'] {
-  width: 100%;
-  padding: 25px 10px 20px; /* Adiciona mais espaço no topo para o placeholder */
-  background-color: #e6e0e9;
-  border: 0px;
-  border-bottom: 2px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.form-group input::placeholder {
-  color: black;
-  font-size: 11.4px;
-  position: relative;
-  top: -19px;
-}
-.form-label {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.select-container {
-  margin-top: 2px; /* Ajuste conforme necessário */
-}
-.form-group select {
-  font-size: 16px;
-  border-radius: 10px;
-  text-align: left;
-  padding-right: 90px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  border-color: #d9d9d9;
-}
-
-.form-group input[type='checkbox'] {
-  margin-right: 5px;
-}
-
-.bnt-salvar,
-.bnt-cancelar,
-.btn-show-form {
-  padding: 8px 16px;
-  margin-top: 10px;
-  color: black;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.error {
-  color: red;
-  font-size: 12px;
-}
-</style>
+<style src="@/assets/base.css"></style>
