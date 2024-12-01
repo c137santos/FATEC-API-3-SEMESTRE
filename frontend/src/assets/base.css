@@ -516,6 +516,15 @@ CerbButton {
   color: red;
   font-size: 12px;
 }
+.active-group {
+  display: flex;
+  align-items: baseline;
+  gap: 10px; 
+}
+
+.cancelar-btn:hover {
+  text-decoration: underline;
+}
 
 /* Adicionar Portal */
 
@@ -919,13 +928,22 @@ h2 {
   font-size: 14px;
   border-radius: 4px;
   border: 1px solid #d9d9d9;
+  background-color: #fff;
+  color: #49454F;
 }
 
-.date-text {
-  font-size: 12px;
-  color: #49454F;
-  margin-top: 4px;
+.date-input:focus {
+  outline: none;
+  border-color: #65558F;
+  box-shadow: 0 0 4px rgba(101, 85, 143, 0.4);
 }
+
+.date-input-container label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #49454F;
+}
+
 /* Lista Portais */
 .portal-card {
   display: flex;

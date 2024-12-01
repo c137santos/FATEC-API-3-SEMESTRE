@@ -24,11 +24,11 @@
             <p><strong>Jornalista:</strong> {{ noticia.jornalista }}</p>
           </div>
         </div>
-        
+
         <div class="popup-body">
           <p class="popup-text">Aqui estará o conteúdo completo da notícia</p>
         </div>
-        
+
         <button @click="showPopUp = false" class="close-popup-btn">Fechar</button>
       </div>
     </div>
@@ -38,14 +38,22 @@
 <script>
 import '@/assets/base.css';
 export default {
-  props: ['noticia'],  // Recebe a notícia como prop
+  props: {
+    noticia: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
-      showPopUp: false,  // Controla a exibição do pop-up
+      showPopUp: false,
     };
   },
   methods: {
     formatDate(dateString) {
+      if (!dateString) {
+        return "Data não disponível";
+      }
       const date = new Date(dateString);
       return date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
     },

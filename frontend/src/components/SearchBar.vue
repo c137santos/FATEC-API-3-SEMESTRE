@@ -14,20 +14,29 @@
 <script>
 import '@/assets/base.css';
 export default {
+  props: {
+    initialKeyword: {
+      type: String,
+      default: "",
+    },
+  },
   data() {
     return {
-      keyword: ''
+      keyword: this.initialKeyword, // Inicializa com a palavra-chave passada via props
     };
   },
   methods: {
     emitSearch() {
-      this.$emit('search', this.keyword);
-    }
+      this.$emit("search", this.keyword); // Emite o evento com o valor atualizado
+    },
   },
   watch: {
     keyword(newVal) {
-      this.emitSearch();
-    }
-  }
+      this.emitSearch(); // Monitora alterações na palavra-chave para disparar automaticamente
+    },
+    initialKeyword(newVal) {
+      this.keyword = newVal; // Atualiza o campo caso a prop initialKeyword seja alterada
+    },
+  },
 };
 </script>

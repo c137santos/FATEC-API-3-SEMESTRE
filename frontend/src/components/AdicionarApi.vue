@@ -27,7 +27,7 @@
               src="@/components/icons/excluir.png"
               alt="Clear Icon"
               class="clear-icon"
-              @click="clearInput('descricao')"
+              @click="clearInput('url')"
             />
             <span v-if="erros.url" class="error">{{ erros.url }}</span>
           </div>
@@ -43,9 +43,9 @@
               src="@/components/icons/excluir.png"
               alt="Clear Icon"
               class="clear-icon"
-              @click="clearInput('url')"
+              @click="clearInput('descricao')"
             />
-            <span v-if="erros.url" class="error">{{ erros.url }}</span>
+            <span v-if="erros.descricao" class="error">{{ erros.descricao }}</span>
           </div>
 
           <div class="form-group">
@@ -71,7 +71,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   data() {
@@ -79,58 +78,109 @@ export default {
       mostrarFormulario: false,
       api: {
         nome: '',
+        url: '',
         descricao: '',
-        ativo: true
+        active: true,
+        frequencia: 'diariamente',
       },
       erros: {
         nome: '',
-        descricao: ''
+        url: '',
+        descricao: '',
       },
-      tags: [], // Lista de tags cadastradas
     };
   },
   methods: {
-    // Toggle para mostrar/ocultar o formulário
     toggleNovaApiForm() {
       this.mostrarFormulario = !this.mostrarFormulario;
     },
 
-    // Salvar a nova API
-    salvarApi() {
-      if (this.validarFormulario()) {
-        // Aqui você pode fazer a chamada para salvar no backend
-        this.tags.push({ nome: this.api.nome });
-        console.log('API salva com sucesso:', this.api);
-        this.cancelar(); // Fecha o formulário após salvar
-      }
-    },
-
-    // Validar os campos do formulário
     validarFormulario() {
-      this.erros = { nome: '', descricao: '' };
       let valido = true;
 
       if (!this.api.nome) {
         this.erros.nome = 'O nome da API é obrigatório.';
         valido = false;
+      } else if (!/^[a-zA-Z0-9\s]+$/.test(this.api.nome)) {
+        this.erros.nome = 'O nome deve conter apenas letras e números.';
+        valido = false;
+      } else {
+        this.erros.nome = '';
+      }
+
+      let url = this.api.url;
+      const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+
+      if (url && !/^https?:\/\//i.test(url)) {
+        if (/^www\./i.test(url)) {
+          url = 'https://' + url;
+        } else {
+          url = 'https://www.' + url;
+        }
+      }
+
+      if (!this.api.url) {
+        this.erros.url = 'A URL da API é obrigatória.';
+        valido = false;
+      } else if (!urlPattern.test(url)) {
+        this.erros.url = 'A URL da API não é válida.';
+        valido = false;
+      } else {
+        this.erros.url = '';
+        this.api.url = url;
       }
 
       if (!this.api.descricao) {
         this.erros.descricao = 'A descrição da API é obrigatória.';
         valido = false;
+      } else {
+        this.erros.descricao = '';
       }
 
       return valido;
     },
 
-    // Cancelar o formulário e limpar os dados
+    salvarApi() {
+      if (this.validarFormulario()) {
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.api),
+        };
+        fetch('http://localhost:8080/apis/cadastrar', requestOptions)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('API salva com sucesso no backend:', data);
+          })
+          .catch((error) => {
+            console.error('Erro ao salvar API:', error);
+          });
+        this.cancelar();
+      }
+    },
+
     cancelar() {
       this.mostrarFormulario = false;
-      this.api = { nome: '', descricao: '', ativo: true };
-      this.erros = { nome: '', descricao: '' };
-    }
-  }
+      this.clearAllInput();
+    },
+
+    clearInput(campo) {
+      this.api[campo] = '';
+      this.erros[campo] = '';
+    },
+
+    clearAllInput() {
+      this.api = {
+        nome: '',
+        url: '',
+        descricao: '',
+        active: true,
+        frequencia: 'diariamente',
+      };
+      this.erros = { nome: '', url: '', descricao: '' };
+    },
+  },
 };
 </script>
 
-<style src="@/assets/base.css"></style> <!-- CSS externo -->
+<style src="@/assets/base.css"></style>
