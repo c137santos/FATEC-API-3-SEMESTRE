@@ -84,6 +84,10 @@ Siga as instruções do Contributing!
 
 ### Modelo conceitual
 
+Documentação dos campos do banco de dados:
+
+[Documentação dos campos](documentação/DocumentacaoDB.md)
+
 ![image](/img/Cerberus2.0.jpg)
 
 ### Modelo físico
