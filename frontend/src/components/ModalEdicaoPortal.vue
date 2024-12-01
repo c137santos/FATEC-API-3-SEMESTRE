@@ -29,7 +29,7 @@
           <p>Tags selecionadas: {{ tagsSelecionadasNomes }}</p>
         </div>
         <button class="salvar-btn" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
-      <button class="cancelar-btn" @click.prevent="cancelarEdicao">Cancelar</button>
+        <button class="cancelar-btn" @click.prevent="cancelarEdicao">Cancelar</button>
 
         <div v-if="abrirModal" class="modal-overlay">
           <div class="modal-content">
@@ -38,8 +38,8 @@
               <input class="modal-input" type="checkbox" :id="tag.tagId" v-model="tagsSelecionadas[tag.tagId]">
               <label :for="tag.tagId">{{ tag.tagNome }}</label>
             </div>
-            <button @click="abrirModal = false" class="botao-salvar-multiplas-tags">Salvar</button>
-            <button @click="abrirModal = false" class="botao-cancelar-multiplas-tags">Cancelar</button>
+            <button @click="salvarTags" class="botao-salvar-multiplas-tags">Salvar</button>
+            <button @click="fecharModal" class="botao-cancelar-multiplas-tags">Cancelar</button>
           </div>
         </div>
 
@@ -78,20 +78,25 @@ export default {
       this.constroeListaTagsSeleciona();
     }
   },
-    mounted() {
+  mounted() {
     this.constroeListaTagsSeleciona();
   },
   methods: {
     constroeListaTagsSeleciona() {
       const tagsArray = Array.isArray(this.portalEmEdit.tags) 
-      ? this.portalEmEdit.tags 
-      : Object.keys(this.portalEmEdit.tags || {}).map(Number);
-      console.log(this.tags)
-
-    this.tags.forEach(tag => {
-      this.tagsSelecionadas[tag.tagId] = tagsArray.includes(tag.tagId);
-    });
-
+        ? this.portalEmEdit.tags 
+        : Object.keys(this.portalEmEdit.tags || {}).map(Number);
+      
+      this.tags.forEach(tag => {
+        this.tagsSelecionadas[tag.tagId] = tagsArray.includes(tag.tagId);
+      });
+      this.atualizaTagsSelecionadas();
+    },
+    atualizaTagsSelecionadas() {
+      this.tagsSelecionadasNomes = this.tags
+        .filter(tag => this.tagsSelecionadas[tag.tagId])
+        .map(tag => tag.tagNome)
+        .join(', ');
     },
     fecharModal() {
       this.$emit('close');
@@ -100,49 +105,52 @@ export default {
       this.$emit('save', this.portalEmEdit);
       this.fecharModal();
     },
+    salvarTags() {
+      const tagsSelecionadasIds = Object.keys(this.tagsSelecionadas)
+        .filter(tagId => this.tagsSelecionadas[tagId])
+        .map(Number);
+
+      this.portalEmEdit.tags = tagsSelecionadasIds;
+      this.abrirModal = false;
+      this.atualizaTagsSelecionadas();
+    },
     editarPortal() {
-      let { id, nome, url, ativo, frequencia } = this.portalEmEdit;
+      let { id, nome, url, ativo, frequencia, tags } = this.portalEmEdit;
       const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
       if (url && !/^https?:\/\//i.test(url)) {
-        
         if (/^www\./i.test(url)) {
           url = 'https://' + url;
         } else {
-          
           url = 'https://www.' + url;
         }
       }
       if (urlPattern.test(url)) {
-        const portalAtualizado = { id, nome, url, ativo, frequencia };
+        const portalAtualizado = { id, nome, url, ativo, frequencia, tags };
 
-      fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(portalAtualizado)
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Erro ao atualizar API')
-          }
-          return response.json()
+        fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(portalAtualizado)
         })
-        .then((data) => {
-          this.$emit('portal-registrado', data)
-          this.saveChanges()
-        })
-        .catch((error) => {
-          console.error('Erro ao editar API:', error)
-        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Erro ao atualizar API');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            location.reload()
+            this.$emit('portal-registrado', data);
+            this.saveChanges();
+          })
+          .catch((error) => {
+            console.error('Erro ao editar API:', error);
+          });
+      }
     }
   },
-  watch: {
-    portal(newPortal) {
-      this.portalEmEdit = { ...newPortal }
-    }
-  },
-}
 }
 </script>
 
