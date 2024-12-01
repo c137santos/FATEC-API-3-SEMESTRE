@@ -1,11 +1,9 @@
 <template>
     <div class="wrapper">
-        <!-- Botão Cadastrar Regionalismo -->
         <div class="botao-cadastrar-container">
             <button class="btn-show-form" @click="toggleFormulario">Cadastrar Regionalismo</button>
         </div>
 
-        <!-- Formulário de Cadastro -->
         <div v-if="showCadastro" class="formulario-cadastro">
             <div class="info-icon">
                 <span>ⓘ</span>
@@ -30,7 +28,6 @@
             </div>
         </div>
 
-        <!-- Listagem de Regionalismos -->
         <div>
             <h2 class="mtb-medium">Tags com regionalismos conectados</h2>
             <div v-if="tagList.length > 0" class="tag-grid">
@@ -39,7 +36,6 @@
                         <h4>Tag: {{ tag.tagNome }}</h4>
                     </div>
                     <div class="regionalismo-list">
-                        <!-- Verifica se a tag possui regionalismos -->
                         <div v-if="tag.regionalismos && tag.regionalismos.length > 0">
                             <div v-for="(regionalismo, idx) in tag.regionalismos" :key="idx" class="regionalismo-item">
                                 <div class="regionalismo-nome">
@@ -50,14 +46,12 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Exibe mensagem caso não haja regionalismos -->
                         <div v-else class="no-regionalismo">Nenhum regionalismo cadastrado</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal de Edição -->
         <ModalEdicaoRegionalismo
             v-if="showModal"
             :regionalismo="regionalismoEdit"
@@ -85,10 +79,9 @@ const regionalismoEdit = ref<any>(null);
 
 const exibirFormulario = ref(false);
 
-// Método para alternar a exibição do formulário
 const toggleFormulario = () => {
     exibirFormulario.value = !exibirFormulario.value;
-    showCadastro.value = exibirFormulario.value; // Atualiza a variável para exibir ou esconder o formulário
+    showCadastro.value = exibirFormulario.value;
     if (!exibirFormulario.value) {
         resetFields();
     }
@@ -132,7 +125,7 @@ const save = async () => {
 
 const editarRegionalismo = (tag: any, regionalismo: any) => {
     regionalismoEdit.value = { 
-        id: regionalismo.regId, // Corrigido: Apenas uma propriedade 'id'
+        id: regionalismo.regId,
         nome: regionalismo.nome, 
         tagId: regionalismo.tagId 
     };
@@ -159,3 +152,23 @@ onMounted(() => {
     fetch();
 });
 </script>
+
+<style scoped>
+.tag-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.tag-section {
+    margin-bottom: 20px;
+}
+
+.regionalismo-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.regionalismo-item {
+    margin-bottom: 10px;
+}
+</style>
