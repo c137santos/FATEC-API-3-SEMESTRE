@@ -90,9 +90,10 @@ Documentação dos campos do banco de dados:
 
 ![image](/img/Cerberus2.0.jpg)
 
-### Modelo físico
 
 ## Burndown do projeto
+
+Esse é o padrão de commit, visite https://gitmoji.dev/
 
 [Burdowns](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXRHVQpU5eI4LoDabcDIMd5JyNLnffdLF4DwnGZlrQGtpdmEBwshaBsn3KOH8GVLW6xHc2C3y7cMRR/pubhtml)
 
