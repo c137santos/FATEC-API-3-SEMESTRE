@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import com.group.backend.entity.TagPortal;
 import com.group.backend.entity.TagPortalId;
 
@@ -15,4 +16,7 @@ public interface TagPortalRepository extends JpaRepository<TagPortal, TagPortalI
     
     @Query(value = "SELECT id FROM tag_portal WHERE por_id = :portalId AND tag_id = :tagId", nativeQuery = true)
     Long getIdByPortalAndTag(@Param("portalId") Long portalId, @Param("tagId") Long tagId);
+
+    @Query(value = "SELECT * FROM tag_portal WHERE por_id = :portalId AND tag_id = :tagId", nativeQuery = true)
+    TagPortal getPortalTagByPortalAndTag(@Param("portalId") Long portalId, @Param("tagId") Long tagId);
 }

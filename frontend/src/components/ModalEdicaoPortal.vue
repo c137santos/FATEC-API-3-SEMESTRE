@@ -29,7 +29,7 @@
           <p>Tags selecionadas: {{ tagsSelecionadasNomes }}</p>
         </div>
         <button class="salvar-btn" type="submit" @click="validadorDadosNovoPortal">Salvar</button>
-      <button class="cancelar-btn" @click.prevent="cancelarEdicao">Cancelar</button>
+        <button class="cancelar-btn" @click.prevent="cancelarEdicao">Cancelar</button>
 
         <div v-if="abrirModal" class="modal-overlay">
           <div class="modal-content">
@@ -38,8 +38,8 @@
               <input class="modal-input" type="checkbox" :id="tag.tagId" v-model="tagsSelecionadas[tag.tagId]">
               <label :for="tag.tagId">{{ tag.tagNome }}</label>
             </div>
-            <button @click="abrirModal = false" class="botao-salvar-multiplas-tags">Salvar</button>
-            <button @click="abrirModal = false" class="botao-cancelar-multiplas-tags">Cancelar</button>
+            <button @click="salvarTags" class="botao-salvar-multiplas-tags">Salvar</button>
+            <button @click="fecharModal" class="botao-cancelar-multiplas-tags">Cancelar</button>
           </div>
         </div>
 
@@ -83,34 +83,40 @@ export default {
   },
   methods: {
     constroeListaTagsSeleciona() {
-      const tagsArray = Array.isArray(this.portalEmEdit.tags)
-        ? this.portalEmEdit.tags
+      const tagsArray = Array.isArray(this.portalEmEdit.tags) 
+        ? this.portalEmEdit.tags 
         : Object.keys(this.portalEmEdit.tags || {}).map(Number);
-
+      
       this.tags.forEach(tag => {
         this.tagsSelecionadas[tag.tagId] = tagsArray.includes(tag.tagId);
       });
-      this.atualizaTagsSelecionadasNomes();
+      this.atualizaTagsSelecionadas();
     },
-
-    atualizaTagsSelecionadasNomes() {
-      const nomes = this.tags.filter(tag => this.tagsSelecionadas[tag.tagId]).map(tag => tag.tagNome);
-      this.tagsSelecionadasNomes = nomes.join(', ');
+    atualizaTagsSelecionadas() {
+      this.tagsSelecionadasNomes = this.tags
+        .filter(tag => this.tagsSelecionadas[tag.tagId])
+        .map(tag => tag.tagNome)
+        .join(', ');
     },
-
     fecharModal() {
       this.$emit('close');
     },
-
     saveChanges() {
       this.$emit('save', this.portalEmEdit);
       this.fecharModal();
     },
+    salvarTags() {
+      const tagsSelecionadasIds = Object.keys(this.tagsSelecionadas)
+        .filter(tagId => this.tagsSelecionadas[tagId])
+        .map(Number);
 
+      this.portalEmEdit.tags = tagsSelecionadasIds;
+      this.abrirModal = false;
+      this.atualizaTagsSelecionadas();
+    },
     editarPortal() {
-      let { id, nome, url, ativo, frequencia } = this.portalEmEdit;
+      let { id, nome, url, ativo, frequencia, tags } = this.portalEmEdit;
       const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
-
       if (url && !/^https?:\/\//i.test(url)) {
         if (/^www\./i.test(url)) {
           url = 'https://' + url;
@@ -118,16 +124,8 @@ export default {
           url = 'https://www.' + url;
         }
       }
-
       if (urlPattern.test(url)) {
-        const portalAtualizado = { 
-          id, 
-          nome, 
-          url, 
-          ativo, 
-          frequencia, 
-          tags: this.getTagsSelecionadas()
-        };
+        const portalAtualizado = { id, nome, url, ativo, frequencia, tags };
 
         fetch(`http://localhost:8080/portais/editar/${this.portalEmEdit.id}`, {
           method: 'PUT',
@@ -138,29 +136,23 @@ export default {
         })
           .then((response) => {
             if (!response.ok) {
-              throw new Error('Erro ao atualizar portal');
+              throw new Error('Erro ao atualizar API');
             }
             return response.json();
           })
           .then((data) => {
+            location.reload()
             this.$emit('portal-registrado', data);
             this.saveChanges();
           })
           .catch((error) => {
-            console.error('Erro ao editar portal:', error);
+            console.error('Erro ao editar API:', error);
           });
       }
-    },
-
-    getTagsSelecionadas() {
-      return Object.keys(this.tagsSelecionadas)
-        .filter(tagId => this.tagsSelecionadas[tagId])
-        .map(tagId => Number(tagId));
-    },
+    }
   },
 }
 </script>
-
 
 <style scoped>
 .modal-overlay {
