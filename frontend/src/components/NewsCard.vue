@@ -1,3 +1,4 @@
+<!-- NewsCard.vue -->
 <template>
   <div class="news-card">
     <!-- Ícone de informação -->
@@ -55,7 +56,21 @@ export default {
         return "Data não disponível";
       }
       const date = new Date(dateString);
-      return date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
+      return date.toLocaleDateString('pt-BR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+    },
+    noticiaSelecionada(id) {
+      // Emite o evento para o componente pai
+      this.$emit('exibir-noticia', id);
+    },
+  },
+  computed: {
+    conteudoTruncado() {
+      const texto = this.noticia.content || this.noticia.notiText || '';
+      return texto.length > 255 ? texto.substring(0, 255) + '...' : texto;
     },
   },
 };

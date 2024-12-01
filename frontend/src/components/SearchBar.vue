@@ -22,20 +22,17 @@ export default {
   },
   data() {
     return {
-      keyword: this.initialKeyword, // Inicializa com a palavra-chave passada via props
+      keyword: ''
     };
   },
   methods: {
     emitSearch() {
-      this.$emit("search", this.keyword); // Emite o evento com o valor atualizado
+      this.$emit("search", this.keyword);
     },
   },
   watch: {
-    keyword(newVal) {
-      this.emitSearch(); // Monitora alterações na palavra-chave para disparar automaticamente
-    },
     initialKeyword(newVal) {
-      this.keyword = newVal; // Atualiza o campo caso a prop initialKeyword seja alterada
+      this.keyword = newVal;
     },
   },
 };

@@ -948,7 +948,6 @@ h2 {
 .portal-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: #ffffff;
   padding: 15px;
   margin-top: 10px;
@@ -961,54 +960,61 @@ h2 {
 .portal-header {
   display: flex;
   align-items: center;
+  margin-bottom: 10px; /* Adicionado para espaçamento */
 }
 
-.info-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
+.portal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 .portal-info {
   margin-top: 10px;
+  line-height: 1.6; /* Melhor legibilidade */
+}
+
+.portal-status {
+  margin-top: 10px;
+}
+
+.status-ativo {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inativo {
+  color: red;
+  font-weight: bold;
 }
 
 .portal-actions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 10px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  margin-top: 15px; /* Adicionado para espaçamento */
 }
 
 .editar-btn {
   background-color: #2c2c2c;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 15px;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 10px;
+  transition: background-color 0.3s ease; /* Adicionada transição */
 }
 
 .editar-btn:hover {
   background-color: #45a049;
 }
 
-.status-ativo {
-  color: green;
-}
-
-.status-inativo {
-  color: red;
-}
-
 .portal-data {
   text-align: right;
-  margin-top: 5px;
+  margin-top: 10px;
+  font-size: 0.9rem; /* Diminuído tamanho da fonte */
+  color: #666;
 }
+
 /* Lista Tags */
 .tag-item {
   position: relative;

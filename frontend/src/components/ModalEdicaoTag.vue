@@ -66,7 +66,7 @@ export default {
     tag: {
       immediate: true,
       handler(newTag) {
-        this.tagLocal = { ...newTag } // Atualiza a cópia local quando a tag mudar
+        this.tagLocal = { ...newTag }
       }
     }
   }

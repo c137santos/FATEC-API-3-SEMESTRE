@@ -43,6 +43,7 @@
 
 <script>
 import '@/assets/base.css';
+
 export default {
   emits: ['close', 'save'],
   props: {
@@ -51,7 +52,14 @@ export default {
   },
   data() {
     return {
-      apiEmEdit: { ...this.api }
+      apiEmEdit: {
+        id: this.api.id,
+        nome: this.api.nome,
+        url: this.api.url,
+        active: this.api.active,
+        frequencia: this.api.frequencia,
+        descricao: this.api.descricao
+      }
     };
   },
   methods: {

@@ -17,7 +17,9 @@ import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
 import com.group.backend.entity.Noticia;
+import com.group.backend.entity.Portal;
 import com.group.backend.domain.NoticiaRepository;
+import com.group.backend.domain.PortalRepository;
 import com.group.backend.domain.ReporterRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,50 +34,47 @@ public class MainCrawler extends WebCrawler {
     private CrawlController controller;
     private Noticia noticia;
     private NoticiaRepository noticiaRepository;
+    private PortalRepository portalRepository;
     private ReporterRepository reporterRepository;
     private HtmlParserService htmlParserService;
     private static Set<String> portaisVisitados = new HashSet<>();
 
     public MainCrawler(AtomicInteger numSeenImages, String seedUrl, CrawlController controller, Noticia noticia,
-                       NoticiaRepository noticiaRepository, HtmlParserService htmlParserService, ReporterRepository reporterRepository) {
+                       NoticiaRepository noticiaRepository, PortalRepository portalRepository,
+                       HtmlParserService htmlParserService, ReporterRepository reporterRepository) {
         this.numSeenImages = numSeenImages;
         this.seedUrl = normalizeUrl(seedUrl);
         this.controller = controller;
         this.noticia = noticia;
         this.noticiaRepository = noticiaRepository;
+        this.portalRepository = portalRepository;
         this.htmlParserService = htmlParserService;
         this.reporterRepository = reporterRepository;
         logger.info("Iniciando processo de crawling com a seed: {}", seedUrl);
     }
 
     @Override
-public boolean shouldVisit(Page referringPage, WebURL url) {
-    String href = normalizeUrl(url.getURL());
-    String normalizedSeedUrl = normalizeUrl(seedUrl);
+    public boolean shouldVisit(Page referringPage, WebURL url) {
+        String href = normalizeUrl(url.getURL());
+        String normalizedSeedUrl = normalizeUrl(seedUrl);
 
-    if (IMAGE_EXTENSIONS.matcher(href).matches()) {
-        logger.debug("Ignorando URL com extensão irrelevante: {}", href);
-        return false;
+        if (IMAGE_EXTENSIONS.matcher(href).matches()) {
+            logger.debug("Ignorando URL com extensão irrelevante: {}", href);
+            return false;
+        }
+
+        boolean shouldVisit = href.startsWith(normalizedSeedUrl);
+        logger.debug("Verificação de visita: href = {}, seedUrl = {}, resultado = {}", href, normalizedSeedUrl, shouldVisit);
+
+        return shouldVisit;
     }
 
-    boolean shouldVisit = href.startsWith(normalizedSeedUrl);
-    logger.debug("Verificação de visita: href = {}, seedUrl = {}, resultado = {}", href, normalizedSeedUrl, shouldVisit);
+    private String normalizeUrl(String url) {
+        if (url == null) return null;
 
-    return shouldVisit;
-}
-
-private String normalizeUrl(String url) {
-    if (url == null) return null;
-
-    // Remove 'http://', 'https://', e 'www.' para normalização
-    url = url.replaceAll("^(https?://)?(www\\.)?", "").toLowerCase().trim();
-
-    // Adiciona 'http://' para garantir um formato consistente
-    url = "http://" + url;
-
-    return url;
-}
-
+        // Remove 'http://', 'https://', e 'www.' para normalização
+        return url.replaceAll("^(https?://)?(www\\.)?", "").toLowerCase().trim();
+    }
 
     @Override
     public void visit(Page page) {
@@ -94,7 +93,17 @@ private String normalizeUrl(String url) {
         }
 
         noticia.setUrl(url);
-        portaisVisitados.add(seedUrl); // Marca a seed como visitada
+
+        // Usa o método findByNormalizedUrl para buscar o portal
+        Portal portal = portalRepository.findByNormalizedUrl(seedUrl);
+        if (portal == null) {
+            logger.error("Portal não encontrado para a seed: {}", seedUrl);
+            return;
+        }
+        noticia.setPortal(portal);
+        logger.info("Portal associado à notícia: {}", portal.getNome());
+
+        portaisVisitados.add(seedUrl);
 
         if (page.getParseData() instanceof HtmlParseData) {
             HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
@@ -161,7 +170,6 @@ private String normalizeUrl(String url) {
 
     @Override
     public void onBeforeExit() {
-        // Log final ao sair do processo de crawling
         if (!portaisVisitados.isEmpty()) {
             logger.info("Portais com seeds vasculhados: {}", String.join(", ", portaisVisitados));
             System.out.println("Portais com seeds vasculhados: " + String.join(", ", portaisVisitados));
