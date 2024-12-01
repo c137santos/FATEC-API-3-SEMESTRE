@@ -265,14 +265,6 @@ A entidade `ResultApi` armazena os resultados brutos (raw) retornados por APIs p
      - Armazenado como JSONB no banco de dados para consultas e indexação otimizadas.
    - **Anotações:**
      - `@Type(JsonBinaryType.class)`: Configura o tipo de dado como `jsonb` para bancos de dados PostgreSQL.
-   - **Exemplo:** 
-     ```json
-     {
-         "temperature": 25,
-         "humidity": 80,
-         "status": "Sunny"
-     }
-     ```
 
 4. **apiPublica** (`api_id`)
    - **Tipo:** `ApiPublica`
