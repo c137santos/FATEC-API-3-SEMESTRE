@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import '@/assets/base.css';
 export default {
   data() {
     return {
@@ -82,3 +81,105 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* Título das tags cadastradas */
+h2 {
+  margin: 0;
+  padding: 10px 0;
+  height: 52px;
+}
+
+/* Container geral para as tags e o botão cadastrar */
+.container-tags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 40px;
+}
+
+/* Cada item de tag */
+.tag-item {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Checkbox do Ativo da tag */
+.checkbox {
+  margin-top: 20px;
+}
+
+/* Imagem que é o ícone do lado das tags */
+.imagem_logo {
+  width: 25px;
+  margin-right: 35px;
+}
+
+/* Seção de informações da tag */
+.tag-info {
+  margin-bottom: 10px;
+}
+
+/* Campos de entrada para o cadastro de nova Tag */
+.Campo_nome_cadastro,
+.Campo_descricao_cadastro {
+  display: block;
+  width: 600px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #e4ceff;
+}
+
+/* Formulário de cadastro de nova tag */
+.formulario-cadastro {
+  width: 700px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Botões de salvar, cancelar e cadastrar */
+.botao-salvar,
+.botao-cancelar,
+.cadastrar-tag-nova {
+  padding: 8px 16px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Botão cadastrar nova tag */
+.cadastrar-tag-nova {
+  background-color: black;
+  margin-bottom: 20px;
+}
+
+/* Botão salvar */
+.botao-salvar {
+  background-color: rgb(141, 107, 207);
+}
+
+/* Botão cancelar */
+.botao-cancelar {
+  color: mediumpurple;
+  border: none;
+  background-color: white;
+}
+
+/* Ajuste de layout para a seção de tags cadastradas */
+.tags-cadastradas {
+  margin-top: 10px;
+  width: 100%;
+}
+</style>
