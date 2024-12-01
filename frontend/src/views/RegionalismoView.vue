@@ -1,6 +1,5 @@
 <template>
     <div class="wrapper">
-        <!-- Formulário de Cadastro -->
         <div class="d-flex plr-medium ptb-small flex-column border-1">
             <h2>Cadastrar Regionalismos</h2>
             <h4>Regionalismo</h4>
@@ -22,7 +21,7 @@
             </div>
         </div>
 
-        <!-- Listagem de Regionalismos por Tag -->
+
         <div>
             <h2 class="mtb-medium">Tags com regionalismos conectados</h2>
             <div v-if="tagList.length > 0">
