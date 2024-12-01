@@ -1,10 +1,7 @@
-<!-- NewsCard.vue -->
 <template>
   <div class="news-card">
-    <!-- Ícone de informação -->
     <img src="@/components/icons/info.png" alt="Info Icon" class="info-icon" />
 
-    <!-- Conteúdo da notícia -->
     <div class="news-wrapper">
       <div class="news-content">
         <p><strong>Portal:</strong> {{ noticia.portal }}</p>
@@ -15,7 +12,6 @@
       </div>
     </div>
 
-    <!-- Pop-up da notícia -->
     <div v-if="showPopUp" class="popup-overlay">
       <div class="popup-content">
         <div class="popup-header">
@@ -63,7 +59,6 @@ export default {
       });
     },
     noticiaSelecionada(id) {
-      // Emite o evento para o componente pai
       this.$emit('exibir-noticia', id);
     },
   },

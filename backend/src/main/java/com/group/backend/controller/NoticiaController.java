@@ -31,7 +31,6 @@ public class NoticiaController {
         this.noticiaPortalService = noticiaPortalService;
     }
 
-    // Endpoint com filtros
     @GetMapping("/listar")
     public ResponseEntity<List<Noticia>> listarNoticiasComFiltros(
         @RequestParam(required = false) String tag,
@@ -44,10 +43,8 @@ public class NoticiaController {
     ) {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
 
-        // Processando filtros
         FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate, keyword);
 
-        // Aplicando filtros
         Page<Noticia> noticiaPage = noticiaRepository.findByFilters(
             (criteria.getTags() == null || criteria.getTags().isEmpty()),
             criteria.getTags(),
@@ -64,11 +61,9 @@ public class NoticiaController {
             pageable
         );
 
-        // Retornando a lista sem modificar o texto original
         return ResponseEntity.ok(noticiaPage.toList());
     }
 
-    // Endpoint sem filtros com encurtamento do texto
     @GetMapping("/listar/{pageIndex}")
     public ResponseEntity<List<Noticia>> listarNoticiasPaginado(@PathVariable Integer pageIndex) {
         Pageable pageable = PageRequest.of(pageIndex, PAGE_LENGTH);
@@ -83,7 +78,6 @@ public class NoticiaController {
         return ResponseEntity.ok(noticiaList);
     }
 
-    // Endpoint para obter uma notícia específica
     @GetMapping("{id}")
     public ResponseEntity<Noticia> noticiaEspecifica(@PathVariable Long id) {
         Optional<Noticia> dadosNoticiaEspecifica = noticiaPortalService.noticiaSelecionada(id);
@@ -91,7 +85,6 @@ public class NoticiaController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Endpoint para total de notícias com filtros
     @GetMapping("/total")
     public ResponseEntity<Long> getTotalNoticias(
         @RequestParam(required = false) String tag,
@@ -101,10 +94,8 @@ public class NoticiaController {
         @RequestParam(required = false) String endDate,
         @RequestParam(required = false) String keyword
     ) {
-        // Processando filtros
         FilterCriteria criteria = filterService.processFilters(tag, portal, reporter, startDate, endDate, keyword);
 
-        // Calculando o total com filtros
         long total = noticiaRepository.findByFilters(
             (criteria.getTags() == null || criteria.getTags().isEmpty()),
             criteria.getTags(),
@@ -124,7 +115,6 @@ public class NoticiaController {
         return ResponseEntity.ok(total);
     }
 
-    // Endpoint para total de notícias sem filtros
     @GetMapping("/totalSemFiltros")
     public ResponseEntity<Long> getTotal() {
         return ResponseEntity.ok(noticiaRepository.count());
