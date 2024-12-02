@@ -62,7 +62,6 @@
 </template>
 
 <script>
-import '@/assets/base.css';
 export default {
   data() {
     return {
@@ -164,3 +163,132 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.portal-cadastrado {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.modal-overlay, .modal-overlay-tags {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.formulario-cadastro-portal {
+  width: 700px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.imagem-logo {
+  width: 25px;
+  margin-right: 35px;
+}
+
+.campo-cadastro-nome,
+.campo-cadastro-url {
+  display: block;
+  width: 600px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #e4ceff;
+}
+
+.checkbox-portal {
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+.seletorTags,
+.seletorFrequencia {
+  width: 300px;
+  border: 1px solid #d1c4e9;
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: #f3e5f5;
+}
+
+/* Botões de salvar, cancelar e cadastrar */
+.botao-salvar-portal,
+.botao-cancelar-portal,
+.cadastrar-portal-novo,
+.botao-salvar-multiplcas-tags,
+.botao-cancelar-multiplcas-tags {
+  padding: 8px 16px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Botão cadastrar nova tag */
+.cadastrar-portal-novo {
+  background-color: black;
+  margin-bottom: 20px;
+}
+
+.botao-selecionar-tags {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: mediumpurple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nome-tags-selecionadas {
+  margin-left: 10px;
+}
+
+.modal-overlay-tags {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-tags, .modal-content-cadastro {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: 200px;
+  width: 500px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Botão salvar */
+.botao-salvar-portal, .botao-salvar-multiplcas-tags {
+  background-color: rgb(141, 107, 207);
+}
+
+/* Botão cancelar */
+.botao-cancelar-portal, .botao-cancelar-multiplcas-tags {
+  color: mediumpurple;
+  border: none;
+  background-color: white;
+}
+</style>

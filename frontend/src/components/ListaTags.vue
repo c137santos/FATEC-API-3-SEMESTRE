@@ -16,16 +16,54 @@
 </template>
 
 <script>
-import '@/assets/base.css';
 export default {
   props: {
-    tags: Array, // Recebe a lista de tags via prop
+    tags: Array, 
   },
   methods: {
-    // Emite evento para iniciar a edição de uma tag
     editarTag(tag) {
       this.$emit('editar-tag', tag);
     }
   }
 }
 </script>
+
+<style scoped>
+.tag-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.editar-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #2c2c2c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.editar-btn:hover {
+  background-color: #45a049;
+}
+
+.tag-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.tag-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+</style>

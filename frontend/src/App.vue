@@ -1,21 +1,17 @@
 <script setup lang="ts">
-import SideBar from '@/components/SideBar.vue'; // Importando a Sidebar
+import SideBar from '@/components/SideBar.vue';
 import { RouterView } from 'vue-router';
 </script>
 
 <template>
   <div id="app">
-    <!-- Barra de navegação lateral (Sidebar) -->
     <SideBar />
 
-    <!-- Conteúdo principal -->
     <div class="main-content">
-      <!-- Título do aplicativo -->
       <header class="header">
         <h1 class="cerberus-title">Cérberus</h1>
       </header>
 
-      <!-- O conteúdo da rota atual será carregado aqui -->
       <RouterView />
     </div>
   </div>
@@ -44,9 +40,9 @@ import { RouterView } from 'vue-router';
 }
 
 .main-content {
-  padding-left: 80px; /* Mantém o espaçamento da sidebar */
+  padding-left: 80px;
   flex-grow: 1;
-  background-color: #ffffff; /* Cor de fundo uniforme */
+  background-color: #ffffff; 
 } 
 
 .sidebar {
@@ -55,7 +51,7 @@ import { RouterView } from 'vue-router';
   left: 0;
   height: 100vh;
   width: 80px;
-  background-color: #ECE6F0; /* Cor de fundo uniforme */
+  background-color: #ECE6F0;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 

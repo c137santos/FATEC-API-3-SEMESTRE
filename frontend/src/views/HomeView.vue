@@ -2,7 +2,6 @@
 <template>
   <div class="home-view">
     <div class="main-content">
-      <!-- Seção de busca -->
       <div class="search-section">
         <div class="search-bar">
           <SearchBar @search="handleSearch" />
@@ -12,12 +11,10 @@
         </div>
       </div>
 
-      <!-- Mensagens de Erro -->
       <div v-if="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>
 
-      <!-- Filtros -->
       <div class="filters">
         <select v-model="selectedTag">
           <option value="">Selecionar Tag</option>
@@ -37,7 +34,6 @@
         <button @click="applyFilters">Aplicar Filtros</button>
       </div>
 
-      <!-- Paginação -->
       <div class="pagination-wrapper">
         <div class="pagination-controls">
           <button :disabled="pageIndex <= 0" @click="changePage(-1)">Anterior</button>
@@ -46,7 +42,6 @@
         </div>
       </div>
 
-      <!-- Lista de notícias -->
       <div class="news-list">
         <NewsCard
           v-for="noticia in noticias"
@@ -60,7 +55,6 @@
       </div>
     </div>
 
-    <!-- Pop-up de notícias -->
     <div v-if="noticiaCompleta" class="popup-overlay">
       <div class="popup-content">
         <div class="popup-header">
@@ -215,9 +209,6 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos do HomeView.vue */
-
-/* ... Seus estilos existentes ... */
 
 .home-view {
   display: flex;
