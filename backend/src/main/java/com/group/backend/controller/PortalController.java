@@ -8,12 +8,12 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.group.backend.domain.DadosCadastroPortal;
 import com.group.backend.domain.DadosEdicaoPortal;
@@ -60,9 +60,7 @@ public class PortalController {
     @PutMapping("/editar/{id}")
     public ResponseEntity<Portal> editarPortal(@PathVariable Long id, @RequestBody DadosEdicaoPortal portalAtualizado) {
         Optional<Portal> optionalPortal = portalRepository.findById(id);
-        if(portalAtualizado.tags().isEmpty()) {
-            portalAtualizado.tags().add(id);
-        }
+    
 
         if (optionalPortal.isPresent()) {
             Portal portal = optionalPortal.get();

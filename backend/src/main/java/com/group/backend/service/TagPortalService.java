@@ -13,7 +13,6 @@ import com.group.backend.domain.TagPortalRepository;
 import com.group.backend.domain.TagRepository;
 import com.group.backend.entity.Portal;
 import com.group.backend.entity.TagPortal;
-import com.group.backend.entity.TagPortalId;
 import com.group.backend.entity.Tag;
 
 @Service
@@ -39,8 +38,8 @@ public class TagPortalService {
 
         for(Long tagRemove : allTagPortais) {
             if(!tagsSelecionadas.contains(tagRemove)) {
-                TagPortalId tagPortalId = new TagPortalId(tagRemove, portal.getId());
-                tagPortalRepository.deleteById(tagPortalId);
+                TagPortal tagPortal = tagPortalRepository.getPortalTagByPortalAndTag(portal.getId(), tagRemove);
+                tagPortalRepository.delete(tagPortal);
             }
         }
 
@@ -48,7 +47,7 @@ public class TagPortalService {
         
         for(Long tagId : tagsSelecionadas) {
             Tag tag = tagRepository.findById(tagId).orElseThrow(() -> new IllegalArgumentException("Tag not found with id: " + tagId));
-            TagPortal tp = new TagPortal(tag, portal);
+                TagPortal tp = new TagPortal(tag, portal);
             tagPortais.add(tp);
             tagPortalRepository.save(tp);
         }

@@ -1,9 +1,7 @@
 <template>
   <div class="sidebar">
-    <!-- Logo da empresa no topo da sidebar -->
     <img @click="voltarParaHome" src="@/components/icons/logo.png" alt="Logo" class="logo"  />
 
-    <!-- Navegação com links para outras páginas -->
     <nav>
       <ul>
         <li v-for="item in menuItems" :key="item.title">

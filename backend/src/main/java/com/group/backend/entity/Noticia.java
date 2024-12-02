@@ -1,6 +1,8 @@
 package com.group.backend.entity;
 
 import java.time.LocalDate;
+import java.util.Set;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +28,7 @@ public class Noticia {
     private String url;
 
     @Column(name = "por_id")
-    private Integer porId;
+    private Long porId;
 
     @ManyToOne
     @JoinColumn(name = "por_id", referencedColumnName = "por_id", insertable = false, updatable = false)
@@ -35,4 +37,7 @@ public class Noticia {
     @ManyToOne
     @JoinColumn(name = "rep_id", referencedColumnName = "rep_id")
     private Reporter reporte;
+
+    @OneToMany(mappedBy = "notiId")
+    private Set<TagNoticia> tagNoticia;
 }

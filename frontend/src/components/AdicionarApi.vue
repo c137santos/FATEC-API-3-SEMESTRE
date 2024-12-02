@@ -80,90 +80,84 @@ export default {
         url: '',
         descricao: '',
         active: true,
-        frequencia: 'diariamente'
+        frequencia: 'diariamente',
       },
       erros: {
         nome: '',
-        url: ''
-      }
-    }
+        url: '',
+      },
+    };
   },
   methods: {
     validarFormulario() {
-      let valido = true
+      let valido = true;
 
       if (!this.api.nome) {
-        this.erros.nome = 'O nome da API é obrigatório.'
-        valido = false
+        this.erros.nome = 'O nome da API é obrigatório.';
+        valido = false;
       } else if (!/^[a-zA-Z0-9\s]+$/.test(this.api.nome)) {
-        this.erros.nome = 'O nome deve conter apenas letras e números.'
-        valido = false
+        this.erros.nome = 'O nome deve conter apenas letras e números.';
+        valido = false;
       } else {
-        this.erros.nome = ''
+        this.erros.nome = '';
       }
 
-      const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/
+      let url = this.api.url;
+      const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+
+      if (url && !/^https?:\/\//i.test(url)) {
+        if (/^www\./i.test(url)) {
+          url = 'https://' + url;
+        } else {
+          url = 'https://www.' + url;
+        }
+      }
+
       if (!this.api.url) {
-        this.erros.url = 'A URL da API é obrigatória.'
-        valido = false
-      } else if (!urlPattern.test(this.api.url)) {
-        this.erros.url = 'A URL da API não é válida.'
-        valido = false
+        this.erros.url = 'A URL da API é obrigatória.';
+        valido = false;
+      } else if (!urlPattern.test(url)) {
+        this.erros.url = 'A URL da API não é válida.';
+        valido = false;
       } else {
-        this.erros.url = ''
+        this.erros.url = '';
+        this.api.url = url;
       }
 
-      return valido
+      return valido;
     },
     salvarApi() {
-      this.mostrarFormulario = false
       if (this.validarFormulario()) {
-        let apiSerSalva = { ...this.api }
-        this.$emit('nova-api', apiSerSalva)
-        this.salvandoAPiBackend()
+        let apiSerSalva = { ...this.api };
+        this.$emit('nova-api', apiSerSalva);
+        this.salvandoAPiBackend();
+        this.clearAllInput();
+        this.mostrarFormulario = false;
       }
     },
     salvandoAPiBackend() {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.api)
-      }
+        body: JSON.stringify(this.api),
+      };
       fetch('http://localhost:8080/apis/cadastrar', requestOptions)
         .then((response) => response.json())
         .then((data) => {
-          this.mostrarFormulario = false
+          console.log('API salva com sucesso no backend:', data);
         })
         .catch((error) => {
-          console.error('Erro ao salvar API:', error)
-        })
-    },
-    validarDadosApi() {
-      if (this.validarFormulario()) {
-        console.log('API salva com sucesso:', this.api)
-        alert('API salva com sucesso!')
-        this.cancelar()
-      }
+          console.error('Erro ao salvar API:', error);
+        });
     },
     cancelar() {
-      this.mostrarFormulario = false
-      this.clearAllInput()
-      this.erros = {
-        nome: '',
-        url: ''
-      }
+      this.mostrarFormulario = false;
+      this.clearAllInput();
+      this.erros = { nome: '', url: '' };
     },
     clearInput(campo) {
-      if (campo === 'nome') {
-        this.api.nome = ''
-        this.erros.nome = ''
-      } else if (campo === 'url') {
-        this.api.url = ''
-        this.erros.url = ''
-      } else if (campo === 'descricao') {
-        this.api.descricao = ''
-        this.erros.descricao = ''
-      }
+      this.api[campo] = '';
+      this.erros[campo] = '';
     },
     clearAllInput() {
       this.api = {
@@ -171,14 +165,14 @@ export default {
         url: '',
         descricao: '',
         active: true,
-        frequencia: 'diariamente'
-      }
+        frequencia: 'diariamente',
+      };
     },
     toggleNovaApiForm() {
-      this.mostrarFormulario = !this.mostrarFormulario
-    }
-  }
-}
+      this.mostrarFormulario = !this.mostrarFormulario;
+    },
+  },
+};
 </script>
 
 <style scoped>

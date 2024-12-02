@@ -18,10 +18,9 @@
 <script>
 export default {
   props: {
-    tags: Array, // Recebe a lista de tags via prop
+    tags: Array, 
   },
   methods: {
-    // Emite evento para iniciar a edição de uma tag
     editarTag(tag) {
       this.$emit('editar-tag', tag);
     }

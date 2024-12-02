@@ -67,10 +67,10 @@ Siga as instruções do Contributing!
 | 8   | Sprint 2 | Como um administrador, eu quero cadastrar portais de notícias, para que eu possa gerenciar as fontes de onde as notícias serão capturadas.         | Alta       | Realizada| 1          |
 | 9   | Sprint 2 | Como um administrador, eu quero editar portais de notícias, para que eu possa atualizar os dados de um portal.                                     | Média      | Realizada| 1          |
 | 10  | Sprint 2 | Como um administrador, eu quero capturar notícias de portais previamente cadastrados, para que as informações sejam armazenadas no banco de dados. | Alta       | Realizada| 5 , 4      |
-| 11  | Sprint 3 | Como um administrador, eu quero editar APIs de terceiros, para que eu possa atualizar as informações.                                              | Média      | Pendente | 2          |
-| 12  | Sprint 3 | Como um administrador, eu quero consultar APIs cadastradas, para que eu possa gerenciar e verificar a integração com as fontes de dados.           | Média      | Pendente | 8          |
-| 13  | Sprint 4 | Como um usuário, eu quero consultar notícias por meio de uma tela com filtros de pesquisa, para que eu possa encontrar notícias relevantes.        | Alta       | Pendente | 7          |
-| 14  | Sprint 4 | Como um usuário, eu quero visualizar as tags relacionadas a uma notícia, para que eu possa entender melhor o contexto do conteúdo.                 | Baixa      | Pendente | 6          |
+| 11  | Sprint 3 | Como um administrador, eu quero editar APIs de terceiros, para que eu possa atualizar as informações.                                              | Média      | Realizada | 2          |
+| 12  | Sprint 3 | Como um administrador, eu quero consultar APIs cadastradas, para que eu possa gerenciar e verificar a integração com as fontes de dados.           | Média      | Realizada | 8          |
+| 13  | Sprint 4 | Como um usuário, eu quero consultar notícias por meio de uma tela com filtros de pesquisa, para que eu possa encontrar notícias relevantes.        | Alta       | Realizada | 7          |
+| 14  | Sprint 4 | Como um usuário, eu quero visualizar as tags relacionadas a uma notícia, para que eu possa entender melhor o contexto do conteúdo.                 | Baixa      | Realizada | 6          |
 
 ## Tecnologias, linguagens de programação e ferramentas utilizadas:
 
@@ -84,11 +84,16 @@ Siga as instruções do Contributing!
 
 ### Modelo conceitual
 
+Documentação dos campos do banco de dados:
+
+[Documentação dos campos](documentação/DocumentacaoDB.md)
+
 ![image](/img/Cerberus2.0.jpg)
 
-### Modelo físico
 
 ## Burndown do projeto
+
+Esse é o padrão de commit, visite https://gitmoji.dev/
 
 [Burdowns](https://docs.google.com/spreadsheets/d/e/2PACX-1vTXRHVQpU5eI4LoDabcDIMd5JyNLnffdLF4DwnGZlrQGtpdmEBwshaBsn3KOH8GVLW6xHc2C3y7cMRR/pubhtml)
 

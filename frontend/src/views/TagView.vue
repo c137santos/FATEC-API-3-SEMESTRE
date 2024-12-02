@@ -82,7 +82,7 @@ export default {
 
           const index = this.tags.findIndex((tag) => tag.tagId === tagAtualizada.tagId)
           if (index !== -1) {
-            this.tags.splice(index, 1, tagAtualizada) // Atualiza a tag na lista
+            this.tags.splice(index, 1, tagAtualizada)
           }
           this.fecharModal()
         } else {

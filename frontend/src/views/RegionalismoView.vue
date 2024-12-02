@@ -1,6 +1,5 @@
 <template>
     <div class="wrapper">
-        <!-- Formulário de Cadastro -->
         <div class="d-flex plr-medium ptb-small flex-column border-1">
             <h2>Cadastrar Regionalismos</h2>
             <h4>Regionalismo</h4>
@@ -22,7 +21,7 @@
             </div>
         </div>
 
-        <!-- Listagem de Regionalismos por Tag -->
+
         <div>
             <h2 class="mtb-medium">Tags com regionalismos conectados</h2>
             <div v-if="tagList.length > 0">
@@ -44,7 +43,6 @@
             </div>
         </div>
 
-        <!-- Modal de Edição -->
         <ModalEdicaoRegionalismo
             v-if="showModal"
             :regionalismo="regionalismoEdit"
@@ -104,7 +102,7 @@ const save = async () => {
 
 const editarRegionalismo = (tag: any, regionalismo: any) => {
     regionalismoEdit.value = { 
-        id: regionalismo.regId,  // Garanta que o ID está sendo definido aqui
+        id: regionalismo.regId, // Corrigido: Apenas uma propriedade 'id'
         nome: regionalismo.nome, 
         tagId: regionalismo.tagId 
     };
