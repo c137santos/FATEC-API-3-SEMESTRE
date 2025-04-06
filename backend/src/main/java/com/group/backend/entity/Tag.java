@@ -16,6 +16,8 @@ import jakarta.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "tag")
 public class Tag {
@@ -23,34 +25,21 @@ public class Tag {
     @Id    
     @GeneratedValue(strategy = GenerationType.IDENTITY)    
     @Column(name = "tag_id")
-    @Getter
-    @Setter
     private Long tagId;
 
     @Column(name = "tag_nome", nullable = false, length = 30)
-    @Getter
-    @Setter
     private String tagNome;
 
     @Column(name = "tag_descricao", length = 250)
-    @Getter
-    @Setter
     private String tagDescricao;
 
     @Column(name = "tag_data")
-    @Getter
-    @Setter
     private LocalDate tagData;
 
     @Column(name = "tag_active")
-    @Getter
-    @Setter
     private boolean tagActive;
 
-    // Relacionamento com Regionalismo
     @OneToMany(mappedBy = "tag")
-    @Getter
-    @Setter
     @JsonManagedReference
     private List<Regionalismo> regionalismos;
 

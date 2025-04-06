@@ -5,39 +5,38 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
+import jakarta.persistence.Embeddable;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+import java.util.Objects;
+
 @Embeddable
+@Getter
+@Setter
 public class TagNoticiaId implements Serializable {
 
-        private Long tagId;
-        private Long notiId;
+    private Long tagId;
+    private Long notiId;
 
-        public TagNoticiaId() {};
+    public TagNoticiaId() {}
 
-        public Long getTagId() {
-            return tagId;
-        }
+    public TagNoticiaId(Long tagId, Long notiId) {
+        this.tagId = tagId;
+        this.notiId = notiId;
+    }
 
-        public void setTagId(Long tag) {
-            this.tagId = tag;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TagNoticiaId)) return false;
+        TagNoticiaId that = (TagNoticiaId) o;
+        return Objects.equals(tagId, that.tagId) && Objects.equals(notiId, that.notiId);
+    }
 
-        public Long getNotiId() {
-            return notiId;
-        };
-
-        public void setNotiId(Long noticia) {
-            this.notiId = noticia;
-        }
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            TagNoticiaId that = (TagNoticiaId) o;
-            return Objects.equals(tagId, that.tagId) && Objects.equals(notiId, that.notiId);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(tagId, notiId);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(tagId, notiId);
+    }
 }
