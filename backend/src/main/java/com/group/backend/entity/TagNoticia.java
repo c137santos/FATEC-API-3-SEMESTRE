@@ -1,9 +1,12 @@
 package com.group.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import lombok.Setter;
+import lombok.Getter;
 import jakarta.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "tag_noticia")
 @IdClass(TagNoticiaId.class)
@@ -19,20 +22,4 @@ public class TagNoticia {
     @ManyToOne
     @JoinColumn(name = "tag_id")
     private Tag tagId;
-
-    public Noticia getNotiId() {
-        return notiId;
-    }
-
-    public void setNotiId(Noticia notiId) {
-        this.notiId = notiId;
-    }
-
-    public Tag getTagId() {
-        return tagId;
-    }
-
-    public void setTagId(Tag tagId) {
-        this.tagId = tagId;
-    }
 }

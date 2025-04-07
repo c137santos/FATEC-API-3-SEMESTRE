@@ -8,6 +8,8 @@ import lombok.Setter;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import org.hibernate.annotations.Type;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "result_api")
 public class ResultApi {
@@ -17,13 +19,9 @@ public class ResultApi {
     private Long resId;
 
     @Column(name = "res_data")
-    @Getter
-    @Setter
     private LocalDate resData;
 
     @Column(name = "res_payload", columnDefinition = "jsonb")
-    @Setter
-    @Getter
     @Type(JsonBinaryType.class)
     private String resPayload;
 

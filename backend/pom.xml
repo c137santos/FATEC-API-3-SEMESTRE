@@ -153,16 +153,6 @@
             </configuration>
         </plugin>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<executable>true</executable>
-					<configuration>
-                		<jvmArguments>--add-exports java.management/sun.management=ALL-UNNAMED</jvmArguments>
-            		</configuration>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
 				<version>2.17.1</version>

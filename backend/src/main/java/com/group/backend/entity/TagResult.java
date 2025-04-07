@@ -1,9 +1,12 @@
 package com.group.backend.entity;
 import jakarta.persistence.*;
-
+import lombok.Setter;
+import lombok.Getter;
 
 
 @Entity
+@Getter
+@Setter
 @Table(name = "result_tag")
 @IdClass(TagResultId.class)
 public class TagResult {
@@ -22,23 +25,5 @@ public class TagResult {
     public TagResult(Tag tag, ResultApi resultadoApi) {
         this.tag = tag;
         this.resId = resultadoApi;
-    }
-
-    public Tag getTag() {
-        return tag;
-    }
-
-    public ResultApi getResult() {
-        return resId;
-    }
-
-    public void setResult(ResultApi resultadoApi) {
-        this.resId = resultadoApi;
-    }
-
-
-    public void setTag(Tag resultadoApi) {
-        this.tag = resultadoApi;
-    }
-    
+    }    
 }

@@ -1,10 +1,15 @@
 package com.group.backend.entity;
 
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@Getter
+@Setter
 public class TagResultId implements Serializable {
 
     private Long tag;
@@ -12,32 +17,21 @@ public class TagResultId implements Serializable {
 
     public TagResultId() {}
 
-    public Long getResId() {
-        return resId;
-    }
-
-    public void setResId(Long resId) {
-        this.resId = resId;
-    }
-
-    public Long getTag() {
-        return tag;
-    }
-
-    public void setTag(Long tag) {
+    public TagResultId(Long tag, Long resId) {
         this.tag = tag;
+        this.resId = resId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof TagResultId)) return false;
         TagResultId that = (TagResultId) o;
-        return Objects.equals(resId, that.resId) && Objects.equals(tag, that.tag);
+        return Objects.equals(tag, that.tag) && Objects.equals(resId, that.resId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(resId, tag);
+        return Objects.hash(tag, resId);
     }
 }
